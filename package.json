@@ -1,0 +1,25 @@
+{
+  "name": "tree-sitter-x86asm",
+  "version": "1.0.0",
+  "description": "tree-sitter grammar for Intel x86 assembly",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amos Wenger <amos@bearcove.net>",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.asm",
+      "file-types": [
+        "asm"
+      ]
+    }
+  ]
+}
