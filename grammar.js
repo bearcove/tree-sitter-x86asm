@@ -8,9 +8,12 @@ module.exports = grammar({
 
     statement: ($) => seq(choice($.comment, $.directive), $._NEWLINE),
 
-    comment: ($) => /;.*/,
+    comment: ($) => /[#;].*/,
     directive: ($) =>
       choice(
+        $.shell_cmd,
+        $.objdump_disas_of_section,
+        $.objdump_file_format,
         $.objdump_section_label,
         $.objdump_offset_label,
         $.section,
@@ -27,6 +30,15 @@ module.exports = grammar({
     section: ($) => seq("section", $.section_name, optional("info")),
     extern: ($) => seq("extern", $.identifier),
     global: ($) => seq("global", $.identifier),
+
+    shell_cmd: ($) => seq($.shell_prompt, /[^\n]*/),
+    shell_prompt: ($) => "$",
+
+    objdump_disas_of_section: ($) =>
+      seq("Disassembly of section ", $.section_name, ":"),
+
+    objdump_file_format: ($) => seq($.path, ":", "file format", /[^\n]+/),
+    path: ($) => /[a-zA-Z0-9/@_-]+/,
 
     objdump_section_label: ($) =>
       seq($.objdump_section_addr, "<", $.identifier, ">", ":"),
@@ -156,7 +168,7 @@ module.exports = grammar({
 
     _binary_literal: ($) => choice(/[01_]+[by]/, /0[by][01_]+/),
 
-    section_name: ($) => /[.]\S+/,
+    section_name: ($) => /[.][A-Za-z0-9.@_-]+/,
     identifier: ($) => $._IDENTIFIER,
     _IDENTIFIER: ($) => /[A-Za-z0-9.@_-]+/,
 

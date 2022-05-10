@@ -52,6 +52,14 @@
           "named": true
         },
         {
+          "type": "objdump_disas_of_section",
+          "named": true
+        },
+        {
+          "type": "objdump_file_format",
+          "named": true
+        },
+        {
           "type": "objdump_offset_label",
           "named": true
         },
@@ -61,6 +69,10 @@
         },
         {
           "type": "section",
+          "named": true
+        },
+        {
+          "type": "shell_cmd",
           "named": true
         }
       ]
@@ -620,6 +632,36 @@
     }
   },
   {
+    "type": "objdump_disas_of_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "section_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objdump_file_format",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "objdump_offset_addr",
     "named": true,
     "fields": {}
@@ -809,6 +851,21 @@
     }
   },
   {
+    "type": "shell_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "shell_prompt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -923,6 +980,10 @@
   },
   {
     "type": ">",
+    "named": false
+  },
+  {
+    "type": "Disassembly of section ",
     "named": false
   },
   {
@@ -1747,6 +1808,10 @@
   },
   {
     "type": "fild",
+    "named": false
+  },
+  {
+    "type": "file format",
     "named": false
   },
   {
@@ -2854,6 +2919,10 @@
     "named": false
   },
   {
+    "type": "path",
+    "named": true
+  },
+  {
     "type": "pause",
     "named": false
   },
@@ -3896,6 +3965,10 @@
   {
     "type": "sha256rnds2",
     "named": false
+  },
+  {
+    "type": "shell_prompt",
+    "named": true
   },
   {
     "type": "shl",

@@ -1,4 +1,5 @@
 (string_literal) @string
+(path) @string
 
 (integer_literal) @constant.builtin
 (objdump_section_addr) @constant.builtin
@@ -13,6 +14,7 @@
 "extern" @keyword
 "global" @keyword
 "ptr" @keyword
+(shell_prompt) @keyword
 (builtin_kw) @keyword
 (ins_kw) @keyword
 

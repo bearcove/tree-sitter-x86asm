@@ -36,11 +36,23 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": ";.*"
+      "value": "[#;].*"
     },
     "directive": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "shell_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objdump_disas_of_section"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objdump_file_format"
+        },
         {
           "type": "SYMBOL",
           "name": "objdump_section_label"
@@ -159,6 +171,65 @@
           "name": "identifier"
         }
       ]
+    },
+    "shell_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "shell_prompt"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n]*"
+        }
+      ]
+    },
+    "shell_prompt": {
+      "type": "STRING",
+      "value": "$"
+    },
+    "objdump_disas_of_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Disassembly of section "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "section_name"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "objdump_file_format": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "path"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "STRING",
+          "value": "file format"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n]+"
+        }
+      ]
+    },
+    "path": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z0-9/@_-]+"
     },
     "objdump_section_label": {
       "type": "SEQ",
@@ -936,7 +1007,7 @@
     },
     "section_name": {
       "type": "PATTERN",
-      "value": "[.]\\S+"
+      "value": "[.][A-Za-z0-9.@_-]+"
     },
     "identifier": {
       "type": "SYMBOL",
