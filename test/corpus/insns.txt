@@ -35,3 +35,38 @@ ret
   (directive
     (ins
       (mnemonic))))
+
+================================================================================
+movabs
+================================================================================
+
+0000000000000000 <_start>:
+   0:   bf 01 00 00 00          mov    edi,0x1
+   5:   48 be 00 00 00 00 00    movabs rsi,0x0
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (directive
+    (objdump_offset_label
+      (objdump_offset_addr)
+      (ERROR)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (register))
+          (operand
+            (integer_literal))))))
+  (directive
+    (objdump_offset_label
+      (objdump_offset_addr)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (register))
+          (operand
+            (integer_literal)))))))
