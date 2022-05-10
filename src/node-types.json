@@ -8,11 +8,193 @@
       "required": true,
       "types": [
         {
+          "type": "extern",
+          "named": true
+        },
+        {
+          "type": "global",
+          "named": true
+        },
+        {
+          "type": "ins",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
           "type": "section",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "effective_addr",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "extern",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "global",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ins_kw",
+          "named": true
+        },
+        {
+          "type": "operand_args",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ins_kw",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "integer_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operand",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "effective_addr",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "operand_ident",
+          "named": true
+        },
+        {
+          "type": "register",
+          "named": true
+        },
+        {
+          "type": "width",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operand_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "operand",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operand_ident",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "register",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "register_16bit",
+          "named": true
+        },
+        {
+          "type": "register_32bit",
+          "named": true
+        },
+        {
+          "type": "register_64bit",
+          "named": true
+        },
+        {
+          "type": "register_8bit",
+          "named": true
+        },
+        {
+          "type": "register_simd",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "register_16bit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "register_32bit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "register_64bit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "register_8bit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "register_simd",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "section",
@@ -79,6 +261,11 @@
     }
   },
   {
+    "type": "width",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\n",
     "named": false
   },
@@ -87,8 +274,236 @@
     "named": false
   },
   {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "0b",
+    "named": false
+  },
+  {
+    "type": "0h",
+    "named": false
+  },
+  {
+    "type": "0o",
+    "named": false
+  },
+  {
+    "type": "0x",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "add",
+    "named": false
+  },
+  {
+    "type": "ah",
+    "named": false
+  },
+  {
+    "type": "al",
+    "named": false
+  },
+  {
+    "type": "ax",
+    "named": false
+  },
+  {
+    "type": "bh",
+    "named": false
+  },
+  {
+    "type": "bl",
+    "named": false
+  },
+  {
+    "type": "bp",
+    "named": false
+  },
+  {
+    "type": "bx",
+    "named": false
+  },
+  {
+    "type": "byte",
+    "named": false
+  },
+  {
+    "type": "ch",
+    "named": false
+  },
+  {
+    "type": "cl",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "cx",
+    "named": false
+  },
+  {
+    "type": "dh",
+    "named": false
+  },
+  {
+    "type": "di",
+    "named": false
+  },
+  {
+    "type": "dl",
+    "named": false
+  },
+  {
+    "type": "dword",
+    "named": false
+  },
+  {
+    "type": "dx",
+    "named": false
+  },
+  {
+    "type": "eax",
+    "named": false
+  },
+  {
+    "type": "ebp",
+    "named": false
+  },
+  {
+    "type": "ebx",
+    "named": false
+  },
+  {
+    "type": "ecx",
+    "named": false
+  },
+  {
+    "type": "edi",
+    "named": false
+  },
+  {
+    "type": "edx",
+    "named": false
+  },
+  {
+    "type": "esi",
+    "named": false
+  },
+  {
+    "type": "esp",
+    "named": false
+  },
+  {
+    "type": "extern",
+    "named": false
+  },
+  {
+    "type": "global",
+    "named": false
+  },
+  {
+    "type": "leave",
+    "named": false
+  },
+  {
+    "type": "mov",
+    "named": false
+  },
+  {
+    "type": "pop",
+    "named": false
+  },
+  {
+    "type": "push",
+    "named": false
+  },
+  {
+    "type": "qword",
+    "named": false
+  },
+  {
+    "type": "r10",
+    "named": false
+  },
+  {
+    "type": "r11",
+    "named": false
+  },
+  {
+    "type": "r12",
+    "named": false
+  },
+  {
+    "type": "r13",
+    "named": false
+  },
+  {
+    "type": "r14",
+    "named": false
+  },
+  {
+    "type": "r15",
+    "named": false
+  },
+  {
+    "type": "r8",
+    "named": false
+  },
+  {
+    "type": "r9",
+    "named": false
+  },
+  {
+    "type": "rax",
+    "named": false
+  },
+  {
+    "type": "rbp",
+    "named": false
+  },
+  {
+    "type": "rbx",
+    "named": false
+  },
+  {
+    "type": "rcx",
+    "named": false
+  },
+  {
+    "type": "rdi",
+    "named": false
+  },
+  {
+    "type": "rdx",
+    "named": false
+  },
+  {
+    "type": "ret",
+    "named": false
+  },
+  {
+    "type": "rsi",
+    "named": false
+  },
+  {
+    "type": "rsp",
+    "named": false
   },
   {
     "type": "section",
@@ -97,5 +512,89 @@
   {
     "type": "section_name",
     "named": true
+  },
+  {
+    "type": "si",
+    "named": false
+  },
+  {
+    "type": "sp",
+    "named": false
+  },
+  {
+    "type": "sub",
+    "named": false
+  },
+  {
+    "type": "word",
+    "named": false
+  },
+  {
+    "type": "xmm0",
+    "named": false
+  },
+  {
+    "type": "xmm1",
+    "named": false
+  },
+  {
+    "type": "xmm2",
+    "named": false
+  },
+  {
+    "type": "xmm3",
+    "named": false
+  },
+  {
+    "type": "xmm4",
+    "named": false
+  },
+  {
+    "type": "xmm5",
+    "named": false
+  },
+  {
+    "type": "xmm6",
+    "named": false
+  },
+  {
+    "type": "xmm7",
+    "named": false
+  },
+  {
+    "type": "xor",
+    "named": false
+  },
+  {
+    "type": "ymm0",
+    "named": false
+  },
+  {
+    "type": "ymm1",
+    "named": false
+  },
+  {
+    "type": "ymm2",
+    "named": false
+  },
+  {
+    "type": "ymm3",
+    "named": false
+  },
+  {
+    "type": "ymm4",
+    "named": false
+  },
+  {
+    "type": "ymm5",
+    "named": false
+  },
+  {
+    "type": "ymm6",
+    "named": false
+  },
+  {
+    "type": "ymm7",
+    "named": false
   }
 ]
