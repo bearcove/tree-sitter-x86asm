@@ -8,9 +8,6 @@ _start:
 --------------------------------------------------------------------------------
 
 (ERROR
-  (UNEXPECTED 's')
-  (objdump_section_addr)
-  (UNEXPECTED 't')
   (UNEXPECTED '\0'))
 
 ================================================================================
@@ -22,9 +19,6 @@ _start: mov rax, 2
 --------------------------------------------------------------------------------
 
 (ERROR
-  (UNEXPECTED 's')
-  (objdump_section_addr)
-  (UNEXPECTED 't')
   (UNEXPECTED '\0'))
 
 ================================================================================
@@ -35,18 +29,9 @@ _start: mov rax, 2 ; ahAH!
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (ERROR
-    (UNEXPECTED 's')
-    (objdump_section_addr)
-    (UNEXPECTED 't'))
-  (toplevel_item
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (MISSING "_ins_sse2_pentium4_token1"))))
-      (comment))))
+(ERROR
+  (comment)
+  (UNEXPECTED '\0'))
 
 ================================================================================
 label followed by instruction followed by comment, then another instruction
@@ -59,10 +44,7 @@ _start: mov rax, 2 ; ahAH!
 
 (ERROR
   (ERROR
-    (UNEXPECTED 's')
-    (objdump_section_addr)
-    (UNEXPECTED 't'))
-  (comment)
+    (comment))
   (UNEXPECTED '\0'))
 
 ================================================================================
@@ -74,9 +56,15 @@ _start: ret ; ahAH!
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (UNEXPECTED 's')
-  (objdump_section_addr)
-  (UNEXPECTED 't')
-  (comment)
-  (UNEXPECTED '\0'))
+(source_file
+  (ERROR)
+  (toplevel_item
+    (statement
+      (directive
+        (ins
+          (ins_kw)))
+      (comment))
+    (statement
+      (directive
+        (ins
+          (ins_kw))))))

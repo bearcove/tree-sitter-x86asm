@@ -8,17 +8,12 @@ path:      db     "/etc/hosts", 0 ; null-terminated
 
 (source_file
   (ERROR
-    (UNEXPECTED 't')
     (UNEXPECTED '/')
-    (objdump_section_addr)
-    (UNEXPECTED 'c')
-    (objdump_section_addr)
     (UNEXPECTED '/')
     (objdump_section_addr))
   (toplevel_item
     (statement
       (directive
         (ins
-          (ins_kw
-            (MISSING "_ins_sse2_pentium4_token1"))))
+          (MISSING ins_kw)))
       (comment))))

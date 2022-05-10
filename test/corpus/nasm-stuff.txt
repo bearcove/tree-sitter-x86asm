@@ -12,12 +12,7 @@ _start:     mov     rax, 2
 (ERROR
   (ERROR
     (comment)
-    (UNEXPECTED 's')
-    (objdump_section_addr)
-    (UNEXPECTED 't')
-    (objdump_section_addr)
-    (UNEXPECTED 't'))
-  (comment)
+    (comment))
   (UNEXPECTED '\0'))
 
 ================================================================================
@@ -32,16 +27,11 @@ _start:     mov     rax, 2      ; "open"
 
 (source_file
   (ERROR
-    (UNEXPECTED 's')
-    (objdump_section_addr)
-    (UNEXPECTED 't')
     (comment)
-    (UNEXPECTED 't')
     (comment))
   (toplevel_item
     (statement
       (directive
         (ins
-          (ins_kw
-            (MISSING "_ins_sse2_pentium4_token1"))))
+          (MISSING ins_kw)))
       (comment))))

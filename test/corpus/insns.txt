@@ -2,8 +2,10 @@
 movdqa
 ================================================================================
 
-	movdqa rax, rax
-	vmovdqa rax, rax
+movdqa rax, rax
+vmovdqa rax, rax
+push rsi
+ret
 
 --------------------------------------------------------------------------------
 
@@ -18,12 +20,8 @@ movdqa
               (register))
             (operand
               (register))))))
+    (ERROR)
     (statement
       (directive
         (ins
-          (ins_kw)
-          (operand_args
-            (operand
-              (register))
-            (operand
-              (register))))))))
+          (ins_kw))))))

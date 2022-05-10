@@ -64,6 +64,5 @@ mov rax, 2 ; a comment
     (statement
       (directive
         (ins
-          (ins_kw
-            (MISSING "_ins_sse2_pentium4_token1"))))
+          (MISSING ins_kw)))
       (comment))))
