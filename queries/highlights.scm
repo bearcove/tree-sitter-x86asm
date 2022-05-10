@@ -33,7 +33,7 @@
 "(" @punctuation.bracket
 ")" @punctuation.bracket
 
-(label) @label
+(label_name) @label
 (objdump_section_addr) @label
 (objdump_offset_addr) @label
 (objdump_machine_code_bytes) @comment
