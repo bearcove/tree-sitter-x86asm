@@ -47,11 +47,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "objdump_disas_of_section"
+          "name": "objdump_file_format"
         },
         {
           "type": "SYMBOL",
-          "name": "objdump_file_format"
+          "name": "objdump_disas_of_section"
         },
         {
           "type": "SYMBOL",
@@ -229,7 +229,7 @@
     },
     "path": {
       "type": "PATTERN",
-      "value": "[a-zA-Z0-9/@_-]+"
+      "value": "[a-zA-Z0-9/.@_-]+"
     },
     "objdump_section_label": {
       "type": "SEQ",
@@ -279,8 +279,16 @@
           "name": "objdump_machine_code_bytes"
         },
         {
-          "type": "SYMBOL",
-          "name": "ins"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "ins"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -295,8 +303,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "\\s+"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "  "
+          }
         },
         {
           "type": "PATTERN",
@@ -354,20 +365,67 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "byte"
+            },
+            {
+              "type": "STRING",
+              "value": "word"
+            },
+            {
+              "type": "STRING",
+              "value": "dword"
+            },
+            {
+              "type": "STRING",
+              "value": "qword"
+            },
+            {
+              "type": "STRING",
+              "value": "xmmword"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "BYTE"
+            },
+            {
+              "type": "STRING",
+              "value": "WORD"
+            },
+            {
+              "type": "STRING",
+              "value": "DWORD"
+            },
+            {
+              "type": "STRING",
+              "value": "QWORD"
+            },
+            {
+              "type": "STRING",
+              "value": "XMMWORD"
+            }
+          ]
+        }
+      ]
+    },
+    "ptr": {
+      "type": "CHOICE",
+      "members": [
+        {
           "type": "STRING",
-          "value": "byte"
+          "value": "ptr"
         },
         {
           "type": "STRING",
-          "value": "word"
-        },
-        {
-          "type": "STRING",
-          "value": "dword"
-        },
-        {
-          "type": "STRING",
-          "value": "qword"
+          "value": "PTR"
         }
       ]
     },
@@ -415,8 +473,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "ptr"
+              "type": "SYMBOL",
+              "name": "ptr"
             },
             {
               "type": "BLANK"
@@ -660,6 +718,15 @@
             {
               "type": "STRING",
               "value": "r15"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "rip"
             }
           ]
         }
@@ -925,23 +992,65 @@
       ]
     },
     "integer_literal": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_decimal_literal"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_decimal_literal"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_octal_literal"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_hex_literal"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_binary_literal"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "literal_offset"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "literal_offset": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
         },
         {
           "type": "SYMBOL",
-          "name": "_octal_literal"
+          "name": "_IDENTIFIER"
+        },
+        {
+          "type": "STRING",
+          "value": "+"
         },
         {
           "type": "SYMBOL",
           "name": "_hex_literal"
         },
         {
-          "type": "SYMBOL",
-          "name": "_binary_literal"
+          "type": "STRING",
+          "value": ">"
         }
       ]
     },
@@ -1048,211 +1157,228 @@
       ]
     },
     "ins_kw": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "ins_8086"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "cs"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "ins_80186"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_80286"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_80386"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_80486"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_pentium"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_pentium_mmx"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_amd_k6"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_pentium_pro"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_pentium_2"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse_non_simd"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse2"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse3"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse4_2"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_x86_64"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_bitmanip"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_clmul"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_adx"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_intel_tsx"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_intel_mpx"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_intel_cet"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_8087"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_80287"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_80387"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_pentium_pro"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse3"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_mmx"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_mmx_plus_and_sse"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_mmx_sse2"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_3dnow"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_3dnow_plus"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_geode_gx"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse_pentium3"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse2_pentium4"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse3_pentium4"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse4_1"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse4a"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_sse4_2_nehalem"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_f16c"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_fma3"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_fma4"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_avx"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_avx2"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_avx512"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_intel_aes"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_rdrand"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_intel_sha"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_virt_amd_v"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_virt_vt_x"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ins_undoc"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "ins_8086"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_80186"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_80286"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_80386"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_80486"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_pentium"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_pentium_mmx"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_amd_k6"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_pentium_pro"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_pentium_2"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse_non_simd"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse2"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse3"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse4_2"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_x86_64"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_bitmanip"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_clmul"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_adx"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_intel_tsx"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_intel_mpx"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_intel_cet"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_8087"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_80287"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_80387"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_pentium_pro"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse3"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_mmx"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_mmx_plus_and_sse"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_mmx_sse2"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_3dnow"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_3dnow_plus"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_geode_gx"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse_pentium3"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse2_pentium4"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse3_pentium4"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse4_1"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse4a"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_sse4_2_nehalem"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_f16c"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_fma3"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_fma4"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_avx"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_avx2"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_avx512"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_intel_aes"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_rdrand"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_intel_sha"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_virt_amd_v"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_virt_vt_x"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ins_undoc"
+            }
+          ]
         }
       ]
     },

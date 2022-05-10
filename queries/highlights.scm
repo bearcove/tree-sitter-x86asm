@@ -1,14 +1,10 @@
 (string_literal) @string
-(path) @string
 
 (integer_literal) @constant.builtin
-(objdump_section_addr) @label
-(objdump_offset_addr) @label
 
 (register) @constant.builtin
 (segment) @constant.builtin
 
-(objdump_machine_code_bytes) @comment
 (comment) @comment
 
 "section" @keyword
@@ -20,12 +16,24 @@
 (ins_kw) @keyword
 
 (width) @keyword
+(ptr) @keyword
 
 (operand_ident) @property
 (section_name) @property
 (identifier) @property
 
+(literal_offset) @comment
+
 ":" @punctuation.delimiter
 
 "[" @punctuation.bracket
 "]" @punctuation.bracket
+"<" @punctuation.bracket
+">" @punctuation.bracket
+"(" @punctuation.bracket
+")" @punctuation.bracket
+
+(path) @string
+(objdump_section_addr) @label
+(objdump_offset_addr) @label
+(objdump_machine_code_bytes) @comment

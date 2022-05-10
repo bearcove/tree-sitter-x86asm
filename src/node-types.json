@@ -610,7 +610,17 @@
   {
     "type": "integer_literal",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "literal_offset",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "label",
@@ -630,6 +640,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "literal_offset",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "objdump_disas_of_section",
@@ -734,6 +749,10 @@
           "named": true
         },
         {
+          "type": "ptr",
+          "named": true
+        },
+        {
           "type": "register",
           "named": true
         },
@@ -765,6 +784,11 @@
   },
   {
     "type": "operand_ident",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ptr",
     "named": true,
     "fields": {}
   },
@@ -952,6 +976,10 @@
     "named": false
   },
   {
+    "type": "  ",
+    "named": false
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -992,7 +1020,31 @@
     "named": false
   },
   {
+    "type": "BYTE",
+    "named": false
+  },
+  {
+    "type": "DWORD",
+    "named": false
+  },
+  {
     "type": "Disassembly of section ",
+    "named": false
+  },
+  {
+    "type": "PTR",
+    "named": false
+  },
+  {
+    "type": "QWORD",
+    "named": false
+  },
+  {
+    "type": "WORD",
+    "named": false
+  },
+  {
+    "type": "XMMWORD",
     "named": false
   },
   {
@@ -3708,6 +3760,10 @@
     "named": false
   },
   {
+    "type": "rip",
+    "named": false
+  },
+  {
     "type": "rol",
     "named": false
   },
@@ -5521,6 +5577,10 @@
   },
   {
     "type": "xmm7",
+    "named": false
+  },
+  {
+    "type": "xmmword",
     "named": false
   },
   {

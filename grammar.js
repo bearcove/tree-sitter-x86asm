@@ -12,8 +12,8 @@ module.exports = grammar({
     directive: ($) =>
       choice(
         $.shell_cmd,
-        $.objdump_disas_of_section,
         $.objdump_file_format,
+        $.objdump_disas_of_section,
         $.objdump_section_label,
         $.objdump_offset_label,
         $.section,
@@ -38,28 +38,39 @@ module.exports = grammar({
       seq("Disassembly of section ", $.section_name, ":"),
 
     objdump_file_format: ($) => seq($.path, ":", "file format", /[^\n]+/),
-    path: ($) => /[a-zA-Z0-9/@_-]+/,
+    path: ($) => /[a-zA-Z0-9/.@_-]+/,
 
     objdump_section_label: ($) =>
       seq($.objdump_section_addr, "<", $.identifier, ">", ":"),
     objdump_section_addr: ($) => token.immediate(/[0-9a-fA-F]+/),
 
     objdump_offset_label: ($) =>
-      seq($.objdump_offset_addr, ":", $.objdump_machine_code_bytes, $.ins),
+      seq(
+        $.objdump_offset_addr,
+        ":",
+        $.objdump_machine_code_bytes,
+        optional($.ins),
+      ),
     objdump_machine_code_bytes: ($) => repeat1(/[0-9a-fA-F]{2}/),
-    objdump_offset_addr: ($) => seq(/\s+/, /[0-9a-fA-F]+/),
+    objdump_offset_addr: ($) => seq(token.immediate("  "), /[0-9a-fA-F]+/),
 
     label: ($) => seq($.identifier, ":", optional($.directive)),
     ins: ($) => seq($.ins_kw, optional($.operand_args)),
 
-    width: ($) => choice("byte", "word", "dword", "qword"),
+    width: ($) =>
+      choice(
+        choice("byte", "word", "dword", "qword", "xmmword"),
+        choice("BYTE", "WORD", "DWORD", "QWORD", "XMMWORD"),
+      ),
+
+    ptr: ($) => choice("ptr", "PTR"),
 
     operand_args: ($) => seq($.operand, repeat(seq(",", $.operand))),
 
     operand: ($) =>
       seq(
         optional($.width),
-        optional("ptr"),
+        optional($.ptr),
         choice(
           $.register,
           $.effective_addr,
@@ -91,6 +102,7 @@ module.exports = grammar({
       choice(
         choice("rax", "rbx", "rcx", "rdx", "rdi", "rsi", "rsp", "rbp"),
         choice("r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"),
+        choice("rip"),
       ),
 
     register_simd: ($) =>
@@ -152,12 +164,17 @@ module.exports = grammar({
       ),
 
     integer_literal: ($) =>
-      choice(
-        $._decimal_literal,
-        $._octal_literal,
-        $._hex_literal,
-        $._binary_literal,
+      seq(
+        choice(
+          $._decimal_literal,
+          $._octal_literal,
+          $._hex_literal,
+          $._binary_literal,
+        ),
+        optional($.literal_offset),
       ),
+
+    literal_offset: ($) => seq("<", $._IDENTIFIER, "+", $._hex_literal, ">"),
 
     _decimal_literal: ($) => choice(/[0-9]+d/, /0d[0-9]+/, /[0-9]+/),
 
@@ -175,58 +192,61 @@ module.exports = grammar({
     _NEWLINE: ($) => seq(optional($.comment), choice("\n", "\r\n")),
 
     ins_kw: ($) =>
-      choice(
-        $.ins_8086,
-        $.ins_80186,
-        $.ins_80286,
-        $.ins_80386,
-        $.ins_80486,
-        $.ins_pentium,
-        $.ins_pentium_mmx,
-        $.ins_amd_k6,
-        $.ins_pentium_pro,
-        $.ins_pentium_2,
-        $.ins_sse_non_simd,
-        $.ins_sse2,
-        $.ins_sse3,
-        $.ins_sse4_2,
-        $.ins_x86_64,
-        $.ins_bitmanip,
-        $.ins_clmul,
-        $.ins_adx,
-        $.ins_intel_tsx,
-        $.ins_intel_mpx,
-        $.ins_intel_cet,
-        $.ins_8087,
-        $.ins_80287,
-        $.ins_80387,
-        $.ins_pentium_pro,
-        $.ins_sse,
-        $.ins_sse3,
-        $.ins_mmx,
-        $.ins_mmx_plus_and_sse,
-        $.ins_mmx_sse2,
-        $.ins_3dnow,
-        $.ins_3dnow_plus,
-        $.ins_geode_gx,
-        $.ins_sse_pentium3,
-        $.ins_sse2_pentium4,
-        $.ins_sse3_pentium4,
-        $.ins_sse4_1,
-        $.ins_sse4a,
-        $.ins_sse4_2_nehalem,
-        $.ins_f16c,
-        $.ins_fma3,
-        $.ins_fma4,
-        $.ins_avx,
-        $.ins_avx2,
-        $.ins_avx512,
-        $.ins_intel_aes,
-        $.ins_rdrand,
-        $.ins_intel_sha,
-        $.ins_virt_amd_v,
-        $.ins_virt_vt_x,
-        $.ins_undoc,
+      seq(
+        optional("cs"),
+        choice(
+          $.ins_8086,
+          $.ins_80186,
+          $.ins_80286,
+          $.ins_80386,
+          $.ins_80486,
+          $.ins_pentium,
+          $.ins_pentium_mmx,
+          $.ins_amd_k6,
+          $.ins_pentium_pro,
+          $.ins_pentium_2,
+          $.ins_sse_non_simd,
+          $.ins_sse2,
+          $.ins_sse3,
+          $.ins_sse4_2,
+          $.ins_x86_64,
+          $.ins_bitmanip,
+          $.ins_clmul,
+          $.ins_adx,
+          $.ins_intel_tsx,
+          $.ins_intel_mpx,
+          $.ins_intel_cet,
+          $.ins_8087,
+          $.ins_80287,
+          $.ins_80387,
+          $.ins_pentium_pro,
+          $.ins_sse,
+          $.ins_sse3,
+          $.ins_mmx,
+          $.ins_mmx_plus_and_sse,
+          $.ins_mmx_sse2,
+          $.ins_3dnow,
+          $.ins_3dnow_plus,
+          $.ins_geode_gx,
+          $.ins_sse_pentium3,
+          $.ins_sse2_pentium4,
+          $.ins_sse3_pentium4,
+          $.ins_sse4_1,
+          $.ins_sse4a,
+          $.ins_sse4_2_nehalem,
+          $.ins_f16c,
+          $.ins_fma3,
+          $.ins_fma4,
+          $.ins_avx,
+          $.ins_avx2,
+          $.ins_avx512,
+          $.ins_intel_aes,
+          $.ins_rdrand,
+          $.ins_intel_sha,
+          $.ins_virt_amd_v,
+          $.ins_virt_vt_x,
+          $.ins_undoc,
+        ),
       ),
 
     ins_8086: ($) =>

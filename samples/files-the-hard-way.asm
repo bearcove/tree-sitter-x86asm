@@ -1,4 +1,5 @@
             global _start
+            section .text
 
             section .text
 _start:     mov     rax, 2      ; "open"
