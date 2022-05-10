@@ -5,6 +5,8 @@ movdqa
 movdqa rax, rax
 vmovdqa rax, rax
 push rsi
+endbr32
+endbr64
 ret
 
 --------------------------------------------------------------------------------
@@ -32,6 +34,12 @@ ret
       (operand_args
         (operand
           (register)))))
+  (directive
+    (ins
+      (mnemonic)))
+  (directive
+    (ins
+      (mnemonic)))
   (directive
     (ins
       (mnemonic))))
