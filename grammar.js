@@ -1009,5 +1009,106 @@ module.exports = grammar({
         /vpscatter(dd|dq|qd|qq)/,
         /vscatter(dpd|dps|qps|qpd)/,
       ),
+
+    ins_intel_aes: ($) =>
+      choice(
+        "aesenc",
+        "aesenclast",
+        "aesdec",
+        "aesdeclast",
+        "aeskeygenassist",
+        "aesimc",
+      ),
+
+    ins_rdrand: ($) =>
+      choice(
+        "rdrand",
+        "rdseed",
+      ),
+
+    ins_intel_sha: ($) =>
+      choice(
+        "sha1rnds4",
+        "sha1nexte",
+        "sha1msg1",
+        "sha1msg2",
+        "sha256rnds2",
+        "sha256msg1",
+        "sha256msg2",
+      ),
+
+    ins_virt_amd_v: ($) =>
+      choice(
+        "clgi",
+        "invlpga",
+        "skinit",
+        "stgi",
+        "vmload",
+        "vmmcall",
+        "vmrun",
+        "vmsave",
+      ),
+
+    ins_virt_vt_x: ($) =>
+      choice(
+        "invept",
+        "invvpid",
+        "vmfunc",
+        "vmptrld",
+        "vmptrst",
+        "vmclear",
+        "vmread",
+        "vmwrite",
+        "vmcall",
+        "vmlaunch",
+        "vmresume",
+        "vmxoff",
+        "vmxon",
+      )
+
+    ins_undoc: ($) =>
+      choice(
+        "aam",
+        "aad",
+        "salc",
+        "setalc",
+        "test",
+        "shl",
+        "sal",
+        "repnz",
+        seq("rep", "ret"),
+        "icebp",
+        "int1",
+        "ud1",
+        "ud0",
+        "saveall",
+        "storeall",
+        "loadall",
+        "loadalld",
+        "cl1invmb",
+        "patch2",
+        "patch3",
+        "umov",
+        "scall",
+        "nxop",
+        "pswapw",
+        "altinst",
+        seq("rep", "xsha512"),
+        seq("rep", "xmodexp"),
+        "xrng2",
+        "montmul2",
+        "ffreep",
+        "fstpnce",
+        "fcom",
+        "fcomp",
+        "fxch",
+        "fstp",
+        "feni",
+        "feni8087_nop",
+        "fdisi",
+        "fdisi8087_nop",
+        "fsetpm",
+        "fsetpm287_nop",
+      )
   },
 });
