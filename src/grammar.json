@@ -206,17 +206,8 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": " "
-              },
-              {
-                "type": "PATTERN",
-                "value": "[0-9a-fA-F]{2}"
-              }
-            ]
+            "type": "PATTERN",
+            "value": "[0-9a-fA-F]{2}"
           }
         },
         {
@@ -227,7 +218,7 @@
     },
     "objdump_machine_code_bytes": {
       "type": "PATTERN",
-      "value": "[0-9a-fA-F]{2}"
+      "value": "[0-9a-fA-F]{2}\\s"
     },
     "objdump_offset_addr": {
       "type": "SEQ",

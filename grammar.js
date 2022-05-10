@@ -33,13 +33,8 @@ module.exports = grammar({
     objdump_section_addr: ($) => token.immediate(/[0-9a-fA-F]+/),
 
     objdump_offset_label: ($) =>
-      seq(
-        $.objdump_offset_addr,
-        ":",
-        repeat(seq(" ", /[0-9a-fA-F]{2}/)),
-        $.ins,
-      ),
-    objdump_machine_code_bytes: ($) => /[0-9a-fA-F]{2}/,
+      seq($.objdump_offset_addr, ":", repeat(/[0-9a-fA-F]{2}/), $.ins),
+    objdump_machine_code_bytes: ($) => /[0-9a-fA-F]{2}\s/,
     objdump_offset_addr: ($) => seq(/\s+/, /[0-9a-fA-F]+/),
 
     label: ($) => seq($.identifier, ":", optional($.directive)),
