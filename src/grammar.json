@@ -1809,8 +1809,16 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "prefetcht[012]"
+          "type": "STRING",
+          "value": "prefetcht0"
+        },
+        {
+          "type": "STRING",
+          "value": "prefetcht1"
+        },
+        {
+          "type": "STRING",
+          "value": "prefetcht2"
         },
         {
           "type": "STRING",
@@ -2602,8 +2610,20 @@
           "value": "fnstsg"
         },
         {
-          "type": "PATTERN",
-          "value": "fsbp[0123]"
+          "type": "STRING",
+          "value": "fsbp0"
+        },
+        {
+          "type": "STRING",
+          "value": "fsbp1"
+        },
+        {
+          "type": "STRING",
+          "value": "fsbp2"
+        },
+        {
+          "type": "STRING",
+          "value": "fsbp3"
         },
         {
           "type": "STRING",
@@ -2752,12 +2772,28 @@
           "value": "pxor"
         },
         {
-          "type": "PATTERN",
-          "value": "pcmpeq[bwd]"
+          "type": "STRING",
+          "value": "pcmpeqb"
         },
         {
-          "type": "PATTERN",
-          "value": "pcmpgt[bwd]"
+          "type": "STRING",
+          "value": "pcmpeqw"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpeqd"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpgtb"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpgtw"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpgtd"
         },
         {
           "type": "STRING",
@@ -2772,28 +2808,64 @@
           "value": "pmullw"
         },
         {
-          "type": "PATTERN",
-          "value": "pssl[wdq]"
+          "type": "STRING",
+          "value": "psslw"
         },
         {
-          "type": "PATTERN",
-          "value": "psra[dw]"
+          "type": "STRING",
+          "value": "pssld"
         },
         {
-          "type": "PATTERN",
-          "value": "psrl[dwq]"
+          "type": "STRING",
+          "value": "psslq"
         },
         {
-          "type": "PATTERN",
-          "value": "psub[bwd]"
+          "type": "STRING",
+          "value": "psrad"
         },
         {
-          "type": "PATTERN",
-          "value": "psubs[bw]"
+          "type": "STRING",
+          "value": "psra2"
         },
         {
-          "type": "PATTERN",
-          "value": "psubus[bw]"
+          "type": "STRING",
+          "value": "psrld"
+        },
+        {
+          "type": "STRING",
+          "value": "psrlw"
+        },
+        {
+          "type": "STRING",
+          "value": "psrlq"
+        },
+        {
+          "type": "STRING",
+          "value": "psubb"
+        },
+        {
+          "type": "STRING",
+          "value": "psubw"
+        },
+        {
+          "type": "STRING",
+          "value": "psubd"
+        },
+        {
+          "type": "STRING",
+          "value": "psubsb"
+        },
+        {
+          "type": "STRING",
+          "value": "psubsw"
+        },
+        {
+          "type": "STRING",
+          "value": "psubusb"
+        },
+        {
+          "type": "STRING",
+          "value": "psubusw"
         },
         {
           "type": "STRING",
@@ -3451,8 +3523,12 @@
           "value": "cvttsd2si"
         },
         {
-          "type": "PATTERN",
-          "value": "paddus[bw]"
+          "type": "STRING",
+          "value": "paddusb"
+        },
+        {
+          "type": "STRING",
+          "value": "paddusw"
         },
         {
           "type": "STRING",
@@ -3895,19 +3971,541 @@
       ]
     },
     "ins_fma3": {
-      "type": "PATTERN",
-      "value": "vf(n?)m(add|addsub|sub|subadd)(132|213|231)(pd|ps|sd|ss)"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "vfmadd132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmadd231ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsub231ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsub231ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubadd231ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmadd231ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsub231ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsub231ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd132pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd132ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd132sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd132ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd213pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd213ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd213sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd213ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd231pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd231ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd231sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubadd231ss"
+        }
+      ]
     },
     "ins_fma4": {
-      "type": "PATTERN",
-      "value": "vf(n?)m(add|addsub|subadd|sub)(pd|ps|sd|ss)"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "vfmaddpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsubpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsubps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsubsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmaddsubss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubaddpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubaddps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubaddsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfmsubaddss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsubpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsubps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsubsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmaddsubss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubaddpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubaddps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubaddsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfnmsubaddss"
+        }
+      ]
     },
     "ins_avx": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "vbroadcast(ss|sd|f128)"
+          "type": "STRING",
+          "value": "vbroadcastss"
+        },
+        {
+          "type": "STRING",
+          "value": "vbroadcastsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vbroadcastf128"
         },
         {
           "type": "STRING",
@@ -3918,12 +4516,20 @@
           "value": "vextractf128"
         },
         {
-          "type": "PATTERN",
-          "value": "vmaskmov(ps|pd)"
+          "type": "STRING",
+          "value": "vmaskmovps"
         },
         {
-          "type": "PATTERN",
-          "value": "vpermil(ps|pd)"
+          "type": "STRING",
+          "value": "vmaskmovpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermilps"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermilpd"
         },
         {
           "type": "STRING",
@@ -3943,12 +4549,20 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "vbroadcast(ss|sd)"
+          "type": "STRING",
+          "value": "vpbroadcastb"
         },
         {
-          "type": "PATTERN",
-          "value": "vpbroadcast[bwdq]"
+          "type": "STRING",
+          "value": "vpbroadcastw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpbroadcastd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpbroadcastq"
         },
         {
           "type": "STRING",
@@ -3963,28 +4577,88 @@
           "value": "vextracti128"
         },
         {
-          "type": "PATTERN",
-          "value": "vgather(dpd|qpd|dps|qps)"
+          "type": "STRING",
+          "value": "vgatherdpd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpgather(dd|dq|qd|qq)"
+          "type": "STRING",
+          "value": "vgatherqpd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpmaskmov[dq]"
+          "type": "STRING",
+          "value": "vgatherdps"
         },
         {
-          "type": "PATTERN",
-          "value": "vper(mps|md|mpd|mq|m2i128)"
+          "type": "STRING",
+          "value": "vgatherqps"
+        },
+        {
+          "type": "STRING",
+          "value": "vpgatherdd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpgatherdq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpgatherqd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpgatherqq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmaskmovd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmaskmovq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermps"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermq"
+        },
+        {
+          "type": "STRING",
+          "value": "vperm2i128"
         },
         {
           "type": "STRING",
           "value": "vpblendd"
         },
         {
-          "type": "PATTERN",
-          "value": "vps(llvd|llvq|rlvd|rlvq|ravd)"
+          "type": "STRING",
+          "value": "vpsllvd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpsllvq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpsrlvd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpsrlvq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpsravd"
         }
       ]
     },

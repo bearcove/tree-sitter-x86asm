@@ -174,6 +174,16 @@
     "fields": {}
   },
   {
+    "type": "ins_fma3",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_fma4",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "ins_geode_gx",
     "named": true,
     "fields": {}
@@ -1750,6 +1760,22 @@
     "named": false
   },
   {
+    "type": "fsbp0",
+    "named": false
+  },
+  {
+    "type": "fsbp1",
+    "named": false
+  },
+  {
+    "type": "fsbp2",
+    "named": false
+  },
+  {
+    "type": "fsbp3",
+    "named": false
+  },
+  {
     "type": "fscale",
     "named": false
   },
@@ -1940,14 +1966,6 @@
   {
     "type": "info",
     "named": false
-  },
-  {
-    "type": "ins_fma3",
-    "named": true
-  },
-  {
-    "type": "ins_fma4",
-    "named": true
   },
   {
     "type": "insb",
@@ -2490,6 +2508,14 @@
     "named": false
   },
   {
+    "type": "paddusb",
+    "named": false
+  },
+  {
+    "type": "paddusw",
+    "named": false
+  },
+  {
     "type": "paddw",
     "named": false
   },
@@ -2562,7 +2588,19 @@
     "named": false
   },
   {
+    "type": "pcmpeqb",
+    "named": false
+  },
+  {
+    "type": "pcmpeqd",
+    "named": false
+  },
+  {
     "type": "pcmpeqq",
+    "named": false
+  },
+  {
+    "type": "pcmpeqw",
     "named": false
   },
   {
@@ -2574,7 +2612,19 @@
     "named": false
   },
   {
+    "type": "pcmpgtb",
+    "named": false
+  },
+  {
+    "type": "pcmpgtd",
+    "named": false
+  },
+  {
     "type": "pcmpgtq",
+    "named": false
+  },
+  {
+    "type": "pcmpgtw",
     "named": false
   },
   {
@@ -2926,6 +2976,18 @@
     "named": false
   },
   {
+    "type": "prefetcht0",
+    "named": false
+  },
+  {
+    "type": "prefetcht1",
+    "named": false
+  },
+  {
+    "type": "prefetcht2",
+    "named": false
+  },
+  {
     "type": "prefetchw",
     "named": false
   },
@@ -2970,7 +3032,67 @@
     "named": false
   },
   {
+    "type": "psra2",
+    "named": false
+  },
+  {
+    "type": "psrad",
+    "named": false
+  },
+  {
+    "type": "psrld",
+    "named": false
+  },
+  {
     "type": "psrldq",
+    "named": false
+  },
+  {
+    "type": "psrlq",
+    "named": false
+  },
+  {
+    "type": "psrlw",
+    "named": false
+  },
+  {
+    "type": "pssld",
+    "named": false
+  },
+  {
+    "type": "psslq",
+    "named": false
+  },
+  {
+    "type": "psslw",
+    "named": false
+  },
+  {
+    "type": "psubb",
+    "named": false
+  },
+  {
+    "type": "psubd",
+    "named": false
+  },
+  {
+    "type": "psubsb",
+    "named": false
+  },
+  {
+    "type": "psubsw",
+    "named": false
+  },
+  {
+    "type": "psubusb",
+    "named": false
+  },
+  {
+    "type": "psubusw",
+    "named": false
+  },
+  {
+    "type": "psubw",
     "named": false
   },
   {
@@ -3666,7 +3788,19 @@
     "named": false
   },
   {
+    "type": "vbroadcastf128",
+    "named": false
+  },
+  {
     "type": "vbroadcasti128",
+    "named": false
+  },
+  {
+    "type": "vbroadcastsd",
+    "named": false
+  },
+  {
+    "type": "vbroadcastss",
     "named": false
   },
   {
@@ -3694,11 +3828,547 @@
     "named": false
   },
   {
+    "type": "vfmadd132pd",
+    "named": false
+  },
+  {
+    "type": "vfmadd132ps",
+    "named": false
+  },
+  {
+    "type": "vfmadd132sd",
+    "named": false
+  },
+  {
+    "type": "vfmadd132ss",
+    "named": false
+  },
+  {
+    "type": "vfmadd213pd",
+    "named": false
+  },
+  {
+    "type": "vfmadd213ps",
+    "named": false
+  },
+  {
+    "type": "vfmadd213sd",
+    "named": false
+  },
+  {
+    "type": "vfmadd213ss",
+    "named": false
+  },
+  {
+    "type": "vfmadd231pd",
+    "named": false
+  },
+  {
+    "type": "vfmadd231ps",
+    "named": false
+  },
+  {
+    "type": "vfmadd231sd",
+    "named": false
+  },
+  {
+    "type": "vfmadd231ss",
+    "named": false
+  },
+  {
+    "type": "vfmaddpd",
+    "named": false
+  },
+  {
+    "type": "vfmaddps",
+    "named": false
+  },
+  {
+    "type": "vfmaddsd",
+    "named": false
+  },
+  {
+    "type": "vfmaddss",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub132pd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub132ps",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub132sd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub132ss",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub213pd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub213ps",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub213sd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub213ss",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub231pd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub231ps",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub231sd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsub231ss",
+    "named": false
+  },
+  {
+    "type": "vfmaddsubpd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsubps",
+    "named": false
+  },
+  {
+    "type": "vfmaddsubsd",
+    "named": false
+  },
+  {
+    "type": "vfmaddsubss",
+    "named": false
+  },
+  {
+    "type": "vfmsub132pd",
+    "named": false
+  },
+  {
+    "type": "vfmsub132ps",
+    "named": false
+  },
+  {
+    "type": "vfmsub132sd",
+    "named": false
+  },
+  {
+    "type": "vfmsub132ss",
+    "named": false
+  },
+  {
+    "type": "vfmsub213pd",
+    "named": false
+  },
+  {
+    "type": "vfmsub213ps",
+    "named": false
+  },
+  {
+    "type": "vfmsub213sd",
+    "named": false
+  },
+  {
+    "type": "vfmsub213ss",
+    "named": false
+  },
+  {
+    "type": "vfmsub231pd",
+    "named": false
+  },
+  {
+    "type": "vfmsub231ps",
+    "named": false
+  },
+  {
+    "type": "vfmsub231sd",
+    "named": false
+  },
+  {
+    "type": "vfmsub231ss",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd132pd",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd132ps",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd132sd",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd132ss",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd213pd",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd213ps",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd213sd",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd213ss",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd231pd",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd231ps",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd231sd",
+    "named": false
+  },
+  {
+    "type": "vfmsubadd231ss",
+    "named": false
+  },
+  {
+    "type": "vfmsubaddpd",
+    "named": false
+  },
+  {
+    "type": "vfmsubaddps",
+    "named": false
+  },
+  {
+    "type": "vfmsubaddsd",
+    "named": false
+  },
+  {
+    "type": "vfmsubaddss",
+    "named": false
+  },
+  {
+    "type": "vfmsubpd",
+    "named": false
+  },
+  {
+    "type": "vfmsubps",
+    "named": false
+  },
+  {
+    "type": "vfmsubsd",
+    "named": false
+  },
+  {
+    "type": "vfmsubss",
+    "named": false
+  },
+  {
+    "type": "vfnmadd132pd",
+    "named": false
+  },
+  {
+    "type": "vfnmadd132ps",
+    "named": false
+  },
+  {
+    "type": "vfnmadd132sd",
+    "named": false
+  },
+  {
+    "type": "vfnmadd132ss",
+    "named": false
+  },
+  {
+    "type": "vfnmadd213pd",
+    "named": false
+  },
+  {
+    "type": "vfnmadd213ps",
+    "named": false
+  },
+  {
+    "type": "vfnmadd213sd",
+    "named": false
+  },
+  {
+    "type": "vfnmadd213ss",
+    "named": false
+  },
+  {
+    "type": "vfnmadd231pd",
+    "named": false
+  },
+  {
+    "type": "vfnmadd231ps",
+    "named": false
+  },
+  {
+    "type": "vfnmadd231sd",
+    "named": false
+  },
+  {
+    "type": "vfnmadd231ss",
+    "named": false
+  },
+  {
+    "type": "vfnmaddpd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddps",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddss",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub132pd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub132ps",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub132sd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub132ss",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub213pd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub213ps",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub213sd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub213ss",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub231pd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub231ps",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub231sd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsub231ss",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsubpd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsubps",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsubsd",
+    "named": false
+  },
+  {
+    "type": "vfnmaddsubss",
+    "named": false
+  },
+  {
+    "type": "vfnmsub132pd",
+    "named": false
+  },
+  {
+    "type": "vfnmsub132ps",
+    "named": false
+  },
+  {
+    "type": "vfnmsub132sd",
+    "named": false
+  },
+  {
+    "type": "vfnmsub132ss",
+    "named": false
+  },
+  {
+    "type": "vfnmsub213pd",
+    "named": false
+  },
+  {
+    "type": "vfnmsub213ps",
+    "named": false
+  },
+  {
+    "type": "vfnmsub213sd",
+    "named": false
+  },
+  {
+    "type": "vfnmsub213ss",
+    "named": false
+  },
+  {
+    "type": "vfnmsub231pd",
+    "named": false
+  },
+  {
+    "type": "vfnmsub231ps",
+    "named": false
+  },
+  {
+    "type": "vfnmsub231sd",
+    "named": false
+  },
+  {
+    "type": "vfnmsub231ss",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd132pd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd132ps",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd132sd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd132ss",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd213pd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd213ps",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd213sd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd213ss",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd231pd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd231ps",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd231sd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubadd231ss",
+    "named": false
+  },
+  {
+    "type": "vfnmsubaddpd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubaddps",
+    "named": false
+  },
+  {
+    "type": "vfnmsubaddsd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubaddss",
+    "named": false
+  },
+  {
+    "type": "vfnmsubpd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubps",
+    "named": false
+  },
+  {
+    "type": "vfnmsubsd",
+    "named": false
+  },
+  {
+    "type": "vfnmsubss",
+    "named": false
+  },
+  {
+    "type": "vgatherdpd",
+    "named": false
+  },
+  {
+    "type": "vgatherdps",
+    "named": false
+  },
+  {
+    "type": "vgatherqpd",
+    "named": false
+  },
+  {
+    "type": "vgatherqps",
+    "named": false
+  },
+  {
     "type": "vinsertf128",
     "named": false
   },
   {
     "type": "vinserti128",
+    "named": false
+  },
+  {
+    "type": "vmaskmovpd",
+    "named": false
+  },
+  {
+    "type": "vmaskmovps",
     "named": false
   },
   {
@@ -3810,7 +4480,95 @@
     "named": false
   },
   {
+    "type": "vpbroadcastb",
+    "named": false
+  },
+  {
+    "type": "vpbroadcastd",
+    "named": false
+  },
+  {
+    "type": "vpbroadcastq",
+    "named": false
+  },
+  {
+    "type": "vpbroadcastw",
+    "named": false
+  },
+  {
     "type": "vperm2f128",
+    "named": false
+  },
+  {
+    "type": "vperm2i128",
+    "named": false
+  },
+  {
+    "type": "vpermd",
+    "named": false
+  },
+  {
+    "type": "vpermilpd",
+    "named": false
+  },
+  {
+    "type": "vpermilps",
+    "named": false
+  },
+  {
+    "type": "vpermpd",
+    "named": false
+  },
+  {
+    "type": "vpermps",
+    "named": false
+  },
+  {
+    "type": "vpermq",
+    "named": false
+  },
+  {
+    "type": "vpgatherdd",
+    "named": false
+  },
+  {
+    "type": "vpgatherdq",
+    "named": false
+  },
+  {
+    "type": "vpgatherqd",
+    "named": false
+  },
+  {
+    "type": "vpgatherqq",
+    "named": false
+  },
+  {
+    "type": "vpmaskmovd",
+    "named": false
+  },
+  {
+    "type": "vpmaskmovq",
+    "named": false
+  },
+  {
+    "type": "vpsllvd",
+    "named": false
+  },
+  {
+    "type": "vpsllvq",
+    "named": false
+  },
+  {
+    "type": "vpsravd",
+    "named": false
+  },
+  {
+    "type": "vpsrlvd",
+    "named": false
+  },
+  {
+    "type": "vpsrlvq",
     "named": false
   },
   {
