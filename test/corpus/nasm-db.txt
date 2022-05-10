@@ -7,13 +7,15 @@ path:      db     "/etc/hosts", 0 ; null-terminated
 --------------------------------------------------------------------------------
 
 (source_file
-  (ERROR
-    (UNEXPECTED '/')
-    (UNEXPECTED '/')
-    (objdump_section_addr))
-  (toplevel_item
-    (statement
+  (directive
+    (label
+      (identifier)
       (directive
-        (ins
-          (MISSING ins_kw)))
-      (comment))))
+        (builtin
+          (builtin_kw)
+          (operand_args
+            (operand
+              (string_literal))
+            (operand
+              (integer_literal)))))))
+  (comment))

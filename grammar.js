@@ -2,27 +2,31 @@ module.exports = grammar({
   name: "x86asm",
 
   rules: {
-    source_file: ($) => $.toplevel_item,
-
-    toplevel_item: ($) =>
-      seq(repeat1($.statement), optional(choice($.comment, $.directive))),
-
-    statement: ($) => seq(choice($.comment, $.directive), $._NEWLINE),
+    source_file: ($) =>
+      seq(
+        choice(seq($.directive, optional($.comment)), $.comment),
+        repeat(
+          seq(
+            "\n",
+            optional(choice(seq($.directive, optional($.comment)), $.comment)),
+          ),
+        ),
+      ),
 
     comment: ($) => /[#;]([^\n]*)/,
     directive: ($) =>
       choice(
-        $.shell_cmd,
-        $.objdump_file_format,
-        $.objdump_disas_of_section,
-        $.objdump_section_label,
-        $.objdump_offset_label,
-        $.section,
-        $.extern,
-        $.global,
-        $.builtin,
-        $.ins,
-        $.label,
+        prec.left(12, $.ins),
+        prec.left(11, $.shell_cmd),
+        prec.left(10, $.objdump_file_format),
+        prec.left(9, $.objdump_disas_of_section),
+        prec.left(8, $.objdump_section_label),
+        prec.left(7, $.objdump_offset_label),
+        prec.left(6, $.section),
+        prec.left(5, $.extern),
+        prec.left(4, $.global),
+        prec.left(3, $.builtin),
+        prec.left(1, $.label),
       ),
 
     builtin: ($) => seq($.builtin_kw, $.operand_args),
@@ -45,17 +49,21 @@ module.exports = grammar({
     objdump_section_addr: ($) => token.immediate(/[0-9a-fA-F]+/),
 
     objdump_offset_label: ($) =>
-      seq(
-        $.objdump_offset_addr,
-        ":",
-        $.objdump_machine_code_bytes,
-        optional($.ins),
+      prec.left(
+        0,
+        seq(
+          $.objdump_offset_addr,
+          ":",
+          $.objdump_machine_code_bytes,
+          optional($.ins),
+        ),
       ),
     objdump_machine_code_bytes: ($) => repeat1(/[0-9a-fA-F]{2}/),
     objdump_offset_addr: ($) => seq(/[\s]+[0-9a-fA-F]+/),
 
-    label: ($) => seq($.identifier, /:[\s]+/, optional($.directive)),
-    ins: ($) => seq(/[\s]*/, $.ins_kw, optional($.operand_args)),
+    label: ($) =>
+      prec.left(0, seq($.identifier, /:[\s]+/, optional($.directive))),
+    ins: ($) => prec.left(0, seq($.mnemonic, optional($.operand_args))),
 
     width: ($) =>
       choice(
@@ -81,14 +89,16 @@ module.exports = grammar({
       ),
 
     register: ($) =>
-      choice(
-        /[abcd][lh]/,
-        /[er]?[abcd]x/,
-        /[er]?[ds]i/,
-        /[er]?[sb]p/,
-        /r(8|9|10|11|12|13|14|15)/,
-        /[xy]mm[0-7]/,
-        "rip",
+      token(
+        choice(
+          /[abcd][lh]/,
+          /[er]?[abcd]x/,
+          /[er]?[ds]i/,
+          /[er]?[sb]p/,
+          /r(8|9|10|11|12|13|14|15)/,
+          /[xy]mm[0-7]/,
+          "rip",
+        ),
       ),
 
     operand_ident: ($) => $._IDENTIFIER,
@@ -167,11 +177,15 @@ module.exports = grammar({
 
     _NEWLINE: ($) => seq(optional($.comment), choice("\n", "\r\n")),
 
-    ins_kw: ($) =>
-      /(a(a[adms]|d(cx|d(p[ds]|s(d|s|ubp[ds]))|ox)|es(declast|enclast|imc|keygenassist)|nd(np[ds]|p[ds]))|b(extr|l(c(fill|ic|msk|s)|end(p[ds]|vp[ds])|s(fill|ic|msk|r))|nd(c[lnu]|ldx|m(k|ov)|stx)|s(f|r|wap)|t[crs]|zhi)|c(all|bw|dqe|l(ac|c|d|flushopt|wb|zero)|m(c|ov(ae|be|c|e|ge|le|n(ae|be|c|e|ge|le|o|p|s|z)|o|p[eo]|s|z)|p(p[ds]|s[bdqsw]|xchg(16b|8b)))|omis[ds]|puid|qo|rc32|vt(dq2p[ds]|p(d2(dq|p[is])|i2p[ds]|s2(dq|p[di]))|s(d2s[is]|i2s[ds]|s2s[di])|t(p(d2(dq|pi)|s2(dq|pi))|s(d2si|s2si)))|wde)|d(a[as]|ec|iv(p[ds]|s[ds])|pp[ds])|e(mms|nter|xtr(actps|q))|f(2xm1|a(bs|ddp)|b(ld|stp)|c(hs|lex|mov(be|e|n(be|e|u)|u)|o(m(ip|pp)|s))|d(ecstp|iv(p|rp))|emms|free|i(add|comp|divr|ld|mul|n(cstp|it)|s(t(p|tp)|ubr))|ld(1|cw|env|l(2[et]|g2|n2)|pi|z)|mulp|n(clex|init|op|s(ave|t(cw|env|sw)))|p(atan|rem1|tan)|r(ndint|stor)|s(ave|cale|incos|qrt|t(cw|env|p|sw)|ub(p|rp))|tst|ucom(ip|pp)|wait|x(am|ch|rstor64|save64|tract)|yl2xp1)|h(addp[ds]|subp[ds])|i(div|mul|n(c|s(b|d|ert(ps|q)|w)|t[3o]))|j(ae|be|c|ecxz|ge|le|mp|n(ae|be|c|e|ge|le|o|p|s|z)|o|p[eo]|s|z)|k(a(dd[bdqw]|nd(b|d|n[bdqw]|q|w))|mov[bdqw]|not[bdqw]|or(b|d|q|test[bdqw]|w)|shift(l[bdqw]|r[bdqw])|test[bdqw]|unpck(bw|dq|wd)|x(nor[bdqw]|or[bdqw]))|l(ahf|d(dqu|mxcsr)|eave|fence|o(ds[bdqw]|op(e|ne))|zcnt)|m(a(skmov(dqu|q)|x(p[ds]|s[ds]))|fence|in(p[ds]|s[ds])|ov(ap[ds]|be|d(dup|q(2q|a|u))|h(lps|p[ds])|l(hps|p[ds])|mskp[ds]|nt(dqa|i|p[ds]|q|s[ds])|q2dq|s(b|d|hdup|ldup|q|s|w|xd)|up[ds]|zx)|psadbw|ul(p[ds]|s[ds]|x))|n(eg|o[pt])|o(rp[ds]|uts[bdw])|p(a(bs[bdw]|ck(ss(dw|wb)|us(dw|wb))|dd(b|d|q|s[bw]|us[bw]|w)|lignr|ndn|use|vg(b|usb|w))|blend(vb|w)|c(lmulqdq|mp(e(q[bdqw]|str[im])|gt[bdqw]|istr[im])|ommit)|dep|extr[bdqw]|f(2i[dw]|a(cc|dd)|cmp(eq|g[et])|m(ax|in|ul)|nacc|pnacc|r(cp(it[12]|v)|sq(it1|rtv))|subr)|h(add(d|sw|w)|minposuw|sub(d|sw|w))|i(2f[dw]|nsr[bdqw])|m(a(dd(ubsw|wd)|x(s[bdw]|u[bdw]))|in(s[bdw]|u[bdw])|ov(mskb|sx(b[dqw]|dq|w[dq])|zx(b[dqw]|dq|w[dq]))|ul(dq|h(r(sw|w)|uw|w)|l[dw]|udq))|o(p(ad|cnt|f[dq])|r)|refetch(nta|t[012]|wt1)|s(adbw|huf(b|d|hw|lw|w)|ign[bdw]|ll(dq|q|w)|r(a[dw]|l(dq|q|w))|ub(b|d|q|s[bw]|us[bw]|w)|wapd)|test|u(npck(h(bw|dq|qdq|wd)|l(bw|dq|qdq|wd))|sh(ad|f[dq]))|xor)|r(c(l|p(ps|ss)|r)|d(fsbase|gsbase|rand|seed|tscp)|et|o(l|rx|und(p[ds]|s[ds]))|sqrt(ps|ss))|s(a(hf|l|rx)|bb|cas[bdqw]|et(ae|be|c|e|ge|le|n(ae|be|c|e|ge|le|o|p|s|z)|o|p[eo]|s|z)|fence|h(a(1(msg[12]|nexte|rnds4)|256(msg[12]|rnds2))|l[dx]|r[dx]|ufp[ds])|qrt(p[ds]|s[ds])|t(ac|c|d|i|mxcsr|os[bdqw])|ub(p[ds]|s[ds])|wapgs|ys(call|e(nter|xit64)|ret64))|t(1mskc|est|z(cnt|msk))|u(comis[ds]|d2|npck(hp[ds]|lp[ds]))|v(a(dd(p[ds]|s(d|s|ubp[ds]))|es(declast|enclast|imc|keygenassist)|lign[dq]|nd(np[ds]|p[ds]))|b(lend(m(b|d|p[ds]|q|w)|p[ds]|vp[ds])|roadcast(f(128|32x[248]|64x[24])|i(128|32x[248]|64x[24])|s[ds]))|c(mp(p[ds]|s[ds])|om(is[ds]|pressp[ds])|vt(dq2p[ds]|p(d2(dq|ps|qq|u(dq|qq))|h2ps|s2(dq|p[dh]|qq|u(dq|qq)))|qq2p[ds]|s(d2(s[is]|usi)|i2s[ds]|s2(s[di]|usi))|t(p(d2(dq|qq|u(dq|qq))|s2(dq|qq|u(dq|qq)))|s(d2(si|usi)|s2(si|usi)))|u(dq2p[ds]|qq2p[ds]|si2s[ds])))|d(bpsadbw|iv(p[ds]|s[ds])|pp[ds])|ex(p(2p[ds]|andp[ds])|tract(f(128|32x[48]|64x[24])|i(128|32x[48]|64x[24])|ps))|f(ixupimm(p[ds]|s[ds])|m(add(132(p[ds]|s[ds])|2(13(p[ds]|s[ds])|31(p[ds]|s[ds]))|p[ds]|s(d|s|ub(132p[ds]|2(13p[ds]|31p[ds])|p[ds])))|sub(132(p[ds]|s[ds])|2(13(p[ds]|s[ds])|31(p[ds]|s[ds]))|add(132p[ds]|2(13p[ds]|31p[ds])|p[ds])|p[ds]|s[ds]))|nm(add(132(p[ds]|s[ds])|2(13(p[ds]|s[ds])|31(p[ds]|s[ds]))|p[ds]|s[ds])|sub(132(p[ds]|s[ds])|2(13(p[ds]|s[ds])|31(p[ds]|s[ds]))|p[ds]|s[ds]))|pclass(p[ds]|s[ds])|rcz(p[ds]|s[ds]))|g(ather(dp[ds]|pf(0(dp[ds]|qp[ds])|1(dp[ds]|qp[ds]))|qp[ds])|et(exp(p[ds]|s[ds])|mant(p[ds]|s[ds])))|h(addp[ds]|subp[ds])|insert(f(128|32x[48]|64x[24])|i(128|32x[48]|64x[24])|ps)|ld(dqu|mxcsr)|m(a(skmov(dqu|p[ds])|x(p[ds]|s[ds]))|in(p[ds]|s[ds])|ov(ap[ds]|d(dup|q(a(32|64)|u(16|32|64|8)))|h(lps|p[ds])|l(hps|p[ds])|mskp[ds]|nt(dqa|p[ds])|q|s(d|hdup|ldup|s)|up[ds])|psadbw|ul(p[ds]|s[ds]))|orp[ds]|p(a(bs[bdqw]|ck(ss(dw|wb)|us(dw|wb))|dd(b|d|q|s[bw]|us[bw]|w)|lignr|nd(d|n[dq]|q)|vg[bw])|b(lend(d|vb|w)|roadcast(b|d|mb2[dq]|q|w))|c(lmulqdq|m(ov|p(b|d|e(q[bdqw]|str[im])|gt[bdqw]|istr[im]|q|u[bdqw]|w))|o(m(b|d|press[dq]|q|u[bdqw]|w)|nflict[dq]))|e(rm(2(f128|i128)|b|d|i(2(b|d|p[ds]|q|w)|l(2p[ds]|p[ds]))|p[ds]|q|t2(b|d|p[ds]|q|w)|w)|x(pand[dq]|tr[bdqw]))|gather(d[dq]|q[dq])|h(add(b[dqw]|dq|sw|u(b[dqw]|dq|w[dq])|w[dq])|minposuw|sub(bw|dq|sw|wd))|insr[bdqw]|lzcnt[dq]|m(a(cs(d(d|q[hl])|s(d(d|q[hl])|w[dw])|w[dw])|d(cs(swd|wd)|d(52(huq|luq)|ubsw|wd))|skmov[dq]|x(s[bdqw]|u[bdqw]))|in(s[bdqw]|u[bdqw])|ov(b2m|d(2m|b|w)|m(2[bdqw]|skb)|q(2m|b|d|w)|s(d[bw]|q[bdw]|wb|x(b[dqw]|dq|w[dq]))|us(d[bw]|q[bdw]|wb)|w(2m|b)|zx(b[dqw]|dq|w[dq]))|ul(dq|h(rsw|uw|w)|l[dqw]|tishiftqb|udq))|or[dq]|perm|ro(l(d|q|v[dq])|r(d|q|v[dq])|t[bdqw])|s(adbw|catter(d[dq]|q[dq])|h(a[bdqw]|l[bdqw]|uf(b|d|hw|lw))|ign[bdw]|ll(dq|q|v[dqw]|w)|r(a(d|q|v[dqw]|w)|l(dq|q|v[dqw]|w))|ub(b|d|q|s[bw]|us[bw]|w))|te(rnlog[dq]|st(m[bdqw]|nm[bdqw]))|unpck(h(bw|dq|qdq|wd)|l(bw|dq|qdq|wd))|xor[dq])|r(ange(p[ds]|s[ds])|cp(14(p[ds]|s[ds])|28(p[ds]|s[ds])|ps|ss)|educe(p[ds]|s[ds])|ndscale(p[ds]|s[ds])|ound(p[ds]|s[ds])|sqrt(14(p[ds]|s[ds])|28(p[ds]|s[ds])|ps|ss))|s(ca(lef(p[ds]|s[ds])|tter(dp[ds]|pf(0(dp[ds]|qp[ds])|1(dp[ds]|qp[ds]))|qp[ds]))|huf(f(32x4|64x2)|i(32x4|64x2)|p[ds])|qrt(p[ds]|s[ds])|tmxcsr|ub(p[ds]|s[ds]))|testp[ds]|u(comis[ds]|npck(hp[ds]|lp[ds]))|xorp[ds]|zero(all|upper))|w(ait|r(fsbase|gsbase))|x(add|chg|getbv|orp[ds]|rstor(64|s64)|s(ave(64|c64|opt64|s64)|etbv)))/,
-
+    mnemonic: ($) =>
+      token(
+        prec(
+          1,
+          /aaa|aad|aam|aas|adc|adcx|add|addpd|addps|addsd|addss|addsubpd|addsubps|adox|aesdec|aesdeclast|aesenc|aesenclast|aesimc|aeskeygenassist|and|andn|andnpd|andnps|andpd|andps|bextr|blcfill|blci|blcic|blcmsk|blcs|blendpd|blendps|blendvpd|blendvps|blsfill|blsi|blsic|blsmsk|blsr|bndcl|bndcn|bndcu|bndldx|bndmk|bndmov|bndstx|bsf|bsr|bswap|bt|btc|btr|bts|bzhi|call|cbw|cdq|cdqe|clac|clc|cld|clflush|clflushopt|clwb|clzero|cmc|cmova|cmovae|cmovb|cmovbe|cmovc|cmove|cmovg|cmovge|cmovl|cmovle|cmovna|cmovnae|cmovnb|cmovnbe|cmovnc|cmovne|cmovng|cmovnge|cmovnl|cmovnle|cmovno|cmovnp|cmovns|cmovnz|cmovo|cmovp|cmovpe|cmovpo|cmovs|cmovz|cmp|cmppd|cmpps|cmpsb|cmpsd|cmpsq|cmpss|cmpsw|cmpxchg|cmpxchg16b|cmpxchg8b|comisd|comiss|cpuid|cqo|crc32|cvtdq2pd|cvtdq2ps|cvtpd2dq|cvtpd2pi|cvtpd2ps|cvtpi2pd|cvtpi2ps|cvtps2dq|cvtps2pd|cvtps2pi|cvtsd2si|cvtsd2ss|cvtsi2sd|cvtsi2ss|cvtss2sd|cvtss2si|cvttpd2dq|cvttpd2pi|cvttps2dq|cvttps2pi|cvttsd2si|cvttss2si|cwd|cwde|daa|das|dec|div|divpd|divps|divsd|divss|dppd|dpps|emms|enter|extractps|extrq|f2xm1|fabs|fadd|faddp|fbld|fbstp|fchs|fclex|fcmovb|fcmovbe|fcmove|fcmovnb|fcmovnbe|fcmovne|fcmovnu|fcmovu|fcom|fcomi|fcomip|fcomp|fcompp|fcos|fdecstp|fdiv|fdivp|fdivr|fdivrp|femms|ffree|fiadd|ficom|ficomp|fidiv|fidivr|fild|fimul|fincstp|finit|fist|fistp|fisttp|fisub|fisubr|fld|fld1|fldcw|fldenv|fldl2e|fldl2t|fldlg2|fldln2|fldpi|fldz|fmul|fmulp|fnclex|fninit|fnop|fnsave|fnstcw|fnstenv|fnstsw|fpatan|fprem|fprem1|fptan|frndint|frstor|fsave|fscale|fsin|fsincos|fsqrt|fst|fstcw|fstenv|fstp|fstsw|fsub|fsubp|fsubr|fsubrp|ftst|fucom|fucomi|fucomip|fucomp|fucompp|fwait|fxam|fxch|fxrstor|fxrstor64|fxsave|fxsave64|fxtract|fyl2x|fyl2xp1|haddpd|haddps|hsubpd|hsubps|idiv|imul|in|inc|insb|insd|insertps|insertq|insw|int|int3|into|ja|jae|jb|jbe|jc|je|jecxz|jg|jge|jl|jle|jmp|jna|jnae|jnb|jnbe|jnc|jne|jng|jnge|jnl|jnle|jno|jnp|jns|jnz|jo|jp|jpe|jpo|js|jz|kaddb|kaddd|kaddq|kaddw|kandb|kandd|kandnb|kandnd|kandnq|kandnw|kandq|kandw|kmovb|kmovd|kmovq|kmovw|knotb|knotd|knotq|knotw|korb|kord|korq|kortestb|kortestd|kortestq|kortestw|korw|kshiftlb|kshiftld|kshiftlq|kshiftlw|kshiftrb|kshiftrd|kshiftrq|kshiftrw|ktestb|ktestd|ktestq|ktestw|kunpckbw|kunpckdq|kunpckwd|kxnorb|kxnord|kxnorq|kxnorw|kxorb|kxord|kxorq|kxorw|lahf|lddqu|ldmxcsr|lea|leave|lfence|lodsb|lodsd|lodsq|lodsw|loop|loope|loopne|lzcnt|maskmovdqu|maskmovq|maxpd|maxps|maxsd|maxss|mfence|minpd|minps|minsd|minss|mov|movapd|movaps|movbe|movd|movddup|movdq2q|movdqa|movdqu|movhlps|movhpd|movhps|movlhps|movlpd|movlps|movmskpd|movmskps|movntdq|movntdqa|movnti|movntpd|movntps|movntq|movntsd|movntss|movq|movq2dq|movsb|movsd|movshdup|movsldup|movsq|movss|movsw|movsx|movsxd|movupd|movups|movzx|mpsadbw|mul|mulpd|mulps|mulsd|mulss|mulx|neg|nop|not|or|orpd|orps|out|outsb|outsd|outsw|pabsb|pabsd|pabsw|packssdw|packsswb|packusdw|packuswb|paddb|paddd|paddq|paddsb|paddsw|paddusb|paddusw|paddw|palignr|pand|pandn|pause|pavgb|pavgusb|pavgw|pblendvb|pblendw|pclmulqdq|pcmpeqb|pcmpeqd|pcmpeqq|pcmpeqw|pcmpestri|pcmpestrm|pcmpgtb|pcmpgtd|pcmpgtq|pcmpgtw|pcmpistri|pcmpistrm|pcommit|pdep|pext|pextrb|pextrd|pextrq|pextrw|pf2id|pf2iw|pfacc|pfadd|pfcmpeq|pfcmpge|pfcmpgt|pfmax|pfmin|pfmul|pfnacc|pfpnacc|pfrcp|pfrcpit1|pfrcpit2|pfrcpv|pfrsqit1|pfrsqrt|pfrsqrtv|pfsub|pfsubr|phaddd|phaddsw|phaddw|phminposuw|phsubd|phsubsw|phsubw|pi2fd|pi2fw|pinsrb|pinsrd|pinsrq|pinsrw|pmaddubsw|pmaddwd|pmaxsb|pmaxsd|pmaxsw|pmaxub|pmaxud|pmaxuw|pminsb|pminsd|pminsw|pminub|pminud|pminuw|pmovmskb|pmovsxbd|pmovsxbq|pmovsxbw|pmovsxdq|pmovsxwd|pmovsxwq|pmovzxbd|pmovzxbq|pmovzxbw|pmovzxdq|pmovzxwd|pmovzxwq|pmuldq|pmulhrsw|pmulhrw|pmulhuw|pmulhw|pmulld|pmullw|pmuludq|pop|popa|popad|popcnt|popf|popfd|popfq|por|prefetch|prefetchnta|prefetcht0|prefetcht1|prefetcht2|prefetchw|prefetchwt1|psadbw|pshufb|pshufd|pshufhw|pshuflw|pshufw|psignb|psignd|psignw|pslld|pslldq|psllq|psllw|psrad|psraw|psrld|psrldq|psrlq|psrlw|psubb|psubd|psubq|psubsb|psubsw|psubusb|psubusw|psubw|pswapd|ptest|punpckhbw|punpckhdq|punpckhqdq|punpckhwd|punpcklbw|punpckldq|punpcklqdq|punpcklwd|push|pusha|pushad|pushf|pushfd|pushfq|pxor|rcl|rcpps|rcpss|rcr|rdfsbase|rdgsbase|rdrand|rdseed|rdtsc|rdtscp|ret|rol|ror|rorx|roundpd|roundps|roundsd|roundss|rsqrtps|rsqrtss|sahf|sal|sar|sarx|sbb|scasb|scasd|scasq|scasw|seta|setae|setb|setbe|setc|sete|setg|setge|setl|setle|setna|setnae|setnb|setnbe|setnc|setne|setng|setnge|setnl|setnle|setno|setnp|setns|setnz|seto|setp|setpe|setpo|sets|setz|sfence|sha1msg1|sha1msg2|sha1nexte|sha1rnds4|sha256msg1|sha256msg2|sha256rnds2|shl|shld|shlx|shr|shrd|shrx|shufpd|shufps|sqrtpd|sqrtps|sqrtsd|sqrtss|stac|stc|std|sti|stmxcsr|stosb|stosd|stosq|stosw|sub|subpd|subps|subsd|subss|swapgs|syscall|sysenter|sysexit|sysexit64|sysret|sysret64|t1mskc|test|tzcnt|tzmsk|ucomisd|ucomiss|ud2|unpckhpd|unpckhps|unpcklpd|unpcklps|vaddpd|vaddps|vaddsd|vaddss|vaddsubpd|vaddsubps|vaesdec|vaesdeclast|vaesenc|vaesenclast|vaesimc|vaeskeygenassist|valignd|valignq|vandnpd|vandnps|vandpd|vandps|vblendmb|vblendmd|vblendmpd|vblendmps|vblendmq|vblendmw|vblendpd|vblendps|vblendvpd|vblendvps|vbroadcastf128|vbroadcastf32x2|vbroadcastf32x4|vbroadcastf32x8|vbroadcastf64x2|vbroadcastf64x4|vbroadcasti128|vbroadcasti32x2|vbroadcasti32x4|vbroadcasti32x8|vbroadcasti64x2|vbroadcasti64x4|vbroadcastsd|vbroadcastss|vcmppd|vcmpps|vcmpsd|vcmpss|vcomisd|vcomiss|vcompresspd|vcompressps|vcvtdq2pd|vcvtdq2ps|vcvtpd2dq|vcvtpd2ps|vcvtpd2qq|vcvtpd2udq|vcvtpd2uqq|vcvtph2ps|vcvtps2dq|vcvtps2pd|vcvtps2ph|vcvtps2qq|vcvtps2udq|vcvtps2uqq|vcvtqq2pd|vcvtqq2ps|vcvtsd2si|vcvtsd2ss|vcvtsd2usi|vcvtsi2sd|vcvtsi2ss|vcvtss2sd|vcvtss2si|vcvtss2usi|vcvttpd2dq|vcvttpd2qq|vcvttpd2udq|vcvttpd2uqq|vcvttps2dq|vcvttps2qq|vcvttps2udq|vcvttps2uqq|vcvttsd2si|vcvttsd2usi|vcvttss2si|vcvttss2usi|vcvtudq2pd|vcvtudq2ps|vcvtuqq2pd|vcvtuqq2ps|vcvtusi2sd|vcvtusi2ss|vdbpsadbw|vdivpd|vdivps|vdivsd|vdivss|vdppd|vdpps|vexp2pd|vexp2ps|vexpandpd|vexpandps|vextractf128|vextractf32x4|vextractf32x8|vextractf64x2|vextractf64x4|vextracti128|vextracti32x4|vextracti32x8|vextracti64x2|vextracti64x4|vextractps|vfixupimmpd|vfixupimmps|vfixupimmsd|vfixupimmss|vfmadd132pd|vfmadd132ps|vfmadd132sd|vfmadd132ss|vfmadd213pd|vfmadd213ps|vfmadd213sd|vfmadd213ss|vfmadd231pd|vfmadd231ps|vfmadd231sd|vfmadd231ss|vfmaddpd|vfmaddps|vfmaddsd|vfmaddss|vfmaddsub132pd|vfmaddsub132ps|vfmaddsub213pd|vfmaddsub213ps|vfmaddsub231pd|vfmaddsub231ps|vfmaddsubpd|vfmaddsubps|vfmsub132pd|vfmsub132ps|vfmsub132sd|vfmsub132ss|vfmsub213pd|vfmsub213ps|vfmsub213sd|vfmsub213ss|vfmsub231pd|vfmsub231ps|vfmsub231sd|vfmsub231ss|vfmsubadd132pd|vfmsubadd132ps|vfmsubadd213pd|vfmsubadd213ps|vfmsubadd231pd|vfmsubadd231ps|vfmsubaddpd|vfmsubaddps|vfmsubpd|vfmsubps|vfmsubsd|vfmsubss|vfnmadd132pd|vfnmadd132ps|vfnmadd132sd|vfnmadd132ss|vfnmadd213pd|vfnmadd213ps|vfnmadd213sd|vfnmadd213ss|vfnmadd231pd|vfnmadd231ps|vfnmadd231sd|vfnmadd231ss|vfnmaddpd|vfnmaddps|vfnmaddsd|vfnmaddss|vfnmsub132pd|vfnmsub132ps|vfnmsub132sd|vfnmsub132ss|vfnmsub213pd|vfnmsub213ps|vfnmsub213sd|vfnmsub213ss|vfnmsub231pd|vfnmsub231ps|vfnmsub231sd|vfnmsub231ss|vfnmsubpd|vfnmsubps|vfnmsubsd|vfnmsubss|vfpclasspd|vfpclassps|vfpclasssd|vfpclassss|vfrczpd|vfrczps|vfrczsd|vfrczss|vgatherdpd|vgatherdps|vgatherpf0dpd|vgatherpf0dps|vgatherpf0qpd|vgatherpf0qps|vgatherpf1dpd|vgatherpf1dps|vgatherpf1qpd|vgatherpf1qps|vgatherqpd|vgatherqps|vgetexppd|vgetexpps|vgetexpsd|vgetexpss|vgetmantpd|vgetmantps|vgetmantsd|vgetmantss|vhaddpd|vhaddps|vhsubpd|vhsubps|vinsertf128|vinsertf32x4|vinsertf32x8|vinsertf64x2|vinsertf64x4|vinserti128|vinserti32x4|vinserti32x8|vinserti64x2|vinserti64x4|vinsertps|vlddqu|vldmxcsr|vmaskmovdqu|vmaskmovpd|vmaskmovps|vmaxpd|vmaxps|vmaxsd|vmaxss|vminpd|vminps|vminsd|vminss|vmovapd|vmovaps|vmovd|vmovddup|vmovdqa|vmovdqa32|vmovdqa64|vmovdqu|vmovdqu16|vmovdqu32|vmovdqu64|vmovdqu8|vmovhlps|vmovhpd|vmovhps|vmovlhps|vmovlpd|vmovlps|vmovmskpd|vmovmskps|vmovntdq|vmovntdqa|vmovntpd|vmovntps|vmovq|vmovsd|vmovshdup|vmovsldup|vmovss|vmovupd|vmovups|vmpsadbw|vmulpd|vmulps|vmulsd|vmulss|vorpd|vorps|vpabsb|vpabsd|vpabsq|vpabsw|vpackssdw|vpacksswb|vpackusdw|vpackuswb|vpaddb|vpaddd|vpaddq|vpaddsb|vpaddsw|vpaddusb|vpaddusw|vpaddw|vpalignr|vpand|vpandd|vpandn|vpandnd|vpandnq|vpandq|vpavgb|vpavgw|vpblendd|vpblendvb|vpblendw|vpbroadcastb|vpbroadcastd|vpbroadcastmb2d|vpbroadcastmb2q|vpbroadcastq|vpbroadcastw|vpclmulqdq|vpcmov|vpcmpb|vpcmpd|vpcmpeqb|vpcmpeqd|vpcmpeqq|vpcmpeqw|vpcmpestri|vpcmpestrm|vpcmpgtb|vpcmpgtd|vpcmpgtq|vpcmpgtw|vpcmpistri|vpcmpistrm|vpcmpq|vpcmpub|vpcmpud|vpcmpuq|vpcmpuw|vpcmpw|vpcomb|vpcomd|vpcompressd|vpcompressq|vpcomq|vpcomub|vpcomud|vpcomuq|vpcomuw|vpcomw|vpconflictd|vpconflictq|vperm2f128|vperm2i128|vpermb|vpermd|vpermi2b|vpermi2d|vpermi2pd|vpermi2ps|vpermi2q|vpermi2w|vpermil2pd|vpermil2ps|vpermilpd|vpermilps|vpermpd|vpermps|vpermq|vpermt2b|vpermt2d|vpermt2pd|vpermt2ps|vpermt2q|vpermt2w|vpermw|vpexpandd|vpexpandq|vpextrb|vpextrd|vpextrq|vpextrw|vpgatherdd|vpgatherdq|vpgatherqd|vpgatherqq|vphaddbd|vphaddbq|vphaddbw|vphaddd|vphadddq|vphaddsw|vphaddubd|vphaddubq|vphaddubw|vphaddudq|vphadduwd|vphadduwq|vphaddw|vphaddwd|vphaddwq|vphminposuw|vphsubbw|vphsubd|vphsubdq|vphsubsw|vphsubw|vphsubwd|vpinsrb|vpinsrd|vpinsrq|vpinsrw|vplzcntd|vplzcntq|vpmacsdd|vpmacsdqh|vpmacsdql|vpmacssdd|vpmacssdqh|vpmacssdql|vpmacsswd|vpmacssww|vpmacswd|vpmacsww|vpmadcsswd|vpmadcswd|vpmadd52huq|vpmadd52luq|vpmaddubsw|vpmaddwd|vpmaskmovd|vpmaskmovq|vpmaxsb|vpmaxsd|vpmaxsq|vpmaxsw|vpmaxub|vpmaxud|vpmaxuq|vpmaxuw|vpminsb|vpminsd|vpminsq|vpminsw|vpminub|vpminud|vpminuq|vpminuw|vpmovb2m|vpmovd2m|vpmovdb|vpmovdw|vpmovm2b|vpmovm2d|vpmovm2q|vpmovm2w|vpmovmskb|vpmovq2m|vpmovqb|vpmovqd|vpmovqw|vpmovsdb|vpmovsdw|vpmovsqb|vpmovsqd|vpmovsqw|vpmovswb|vpmovsxbd|vpmovsxbq|vpmovsxbw|vpmovsxdq|vpmovsxwd|vpmovsxwq|vpmovusdb|vpmovusdw|vpmovusqb|vpmovusqd|vpmovusqw|vpmovuswb|vpmovw2m|vpmovwb|vpmovzxbd|vpmovzxbq|vpmovzxbw|vpmovzxdq|vpmovzxwd|vpmovzxwq|vpmuldq|vpmulhrsw|vpmulhuw|vpmulhw|vpmulld|vpmullq|vpmullw|vpmultishiftqb|vpmuludq|vpor|vpord|vporq|vpperm|vprold|vprolq|vprolvd|vprolvq|vprord|vprorq|vprorvd|vprorvq|vprotb|vprotd|vprotq|vprotw|vpsadbw|vpscatterdd|vpscatterdq|vpscatterqd|vpscatterqq|vpshab|vpshad|vpshaq|vpshaw|vpshlb|vpshld|vpshlq|vpshlw|vpshufb|vpshufd|vpshufhw|vpshuflw|vpsignb|vpsignd|vpsignw|vpslld|vpslldq|vpsllq|vpsllvd|vpsllvq|vpsllvw|vpsllw|vpsrad|vpsraq|vpsravd|vpsravq|vpsravw|vpsraw|vpsrld|vpsrldq|vpsrlq|vpsrlvd|vpsrlvq|vpsrlvw|vpsrlw|vpsubb|vpsubd|vpsubq|vpsubsb|vpsubsw|vpsubusb|vpsubusw|vpsubw|vpternlogd|vpternlogq|vptest|vptestmb|vptestmd|vptestmq|vptestmw|vptestnmb|vptestnmd|vptestnmq|vptestnmw|vpunpckhbw|vpunpckhdq|vpunpckhqdq|vpunpckhwd|vpunpcklbw|vpunpckldq|vpunpcklqdq|vpunpcklwd|vpxor|vpxord|vpxorq|vrangepd|vrangeps|vrangesd|vrangess|vrcp14pd|vrcp14ps|vrcp14sd|vrcp14ss|vrcp28pd|vrcp28ps|vrcp28sd|vrcp28ss|vrcpps|vrcpss|vreducepd|vreduceps|vreducesd|vreducess|vrndscalepd|vrndscaleps|vrndscalesd|vrndscaless|vroundpd|vroundps|vroundsd|vroundss|vrsqrt14pd|vrsqrt14ps|vrsqrt14sd|vrsqrt14ss|vrsqrt28pd|vrsqrt28ps|vrsqrt28sd|vrsqrt28ss|vrsqrtps|vrsqrtss|vscalefpd|vscalefps|vscalefsd|vscalefss|vscatterdpd|vscatterdps|vscatterpf0dpd|vscatterpf0dps|vscatterpf0qpd|vscatterpf0qps|vscatterpf1dpd|vscatterpf1dps|vscatterpf1qpd|vscatterpf1qps|vscatterqpd|vscatterqps|vshuff32x4|vshuff64x2|vshufi32x4|vshufi64x2|vshufpd|vshufps|vsqrtpd|vsqrtps|vsqrtsd|vsqrtss|vstmxcsr|vsubpd|vsubps|vsubsd|vsubss|vtestpd|vtestps|vucomisd|vucomiss|vunpckhpd|vunpckhps|vunpcklpd|vunpcklps|vxorpd|vxorps|vzeroall|vzeroupper|wait|wrfsbase|wrgsbase|xadd|xchg|xgetbv|xor|xorpd|xorps|xrstor|xrstor64|xrstors|xrstors64|xsave|xsave64|xsavec|xsavec64|xsaveopt|xsaveopt64|xsaves|xsaves64|xsetbv /,
+        ),
+      ),
     section_name: ($) => /[.][A-Za-z0-9.@_-]+/,
     identifier: ($) => $._IDENTIFIER,
-    _IDENTIFIER: ($) => /[A-Za-z0-9.@_-]+/,
+    _IDENTIFIER: ($) => token(prec(-1, /[A-Za-z0-9.@_-]+/)),
   },
 });

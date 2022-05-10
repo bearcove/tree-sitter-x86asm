@@ -1,2 +1,2 @@
-  movdqa rax, rax
-  vmovdqa rax, rax
+; foo
+push rax ; foo 

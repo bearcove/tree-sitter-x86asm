@@ -13,17 +13,40 @@ Disassembly of section .text:
 
 --------------------------------------------------------------------------------
 
-(ERROR
+(source_file
+  (directive
+    (objdump_file_format))
+  (directive
+    (objdump_disas_of_section
+      (section_name)))
   (ERROR
-    (UNEXPECTED '/')
-    (UNEXPECTED '/')
-    (UNEXPECTED '/')
-    (section_name)
-    (UNEXPECTED '/')
-    (UNEXPECTED '/')
-    (section_name)
-    (objdump_section_addr)
-    (objdump_section_addr)
-    (objdump_section_addr)
-    (objdump_section_addr))
-  (UNEXPECTED '\0'))
+    (directive
+      (objdump_section_label
+        (objdump_section_addr)
+        (identifier))))
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register)))))
+  (directive
+    (objdump_offset_label
+      (objdump_offset_addr)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (register))))))
+  (directive
+    (objdump_offset_label
+      (objdump_offset_addr)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (register))
+          (operand
+            (integer_literal)))))))

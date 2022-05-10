@@ -13,7 +13,7 @@
 "ptr" @keyword
 (shell_prompt) @keyword
 (builtin_kw) @keyword
-(ins_kw) @keyword
+(mnemonic) @keyword
 
 (width) @keyword
 (ptr) @keyword

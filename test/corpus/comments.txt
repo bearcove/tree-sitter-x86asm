@@ -6,8 +6,15 @@ mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (integer_literal))))))
 
 ================================================================================
 simple instruction preceded by comment
@@ -18,9 +25,16 @@ mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(ERROR
+(source_file
   (comment)
-  (UNEXPECTED '\0'))
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (integer_literal))))))
 
 ================================================================================
 simple instruction with a trailing comment
@@ -31,9 +45,16 @@ mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (comment)
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (integer_literal)))))
+  (comment))
 
 ================================================================================
 simple instruction with a trailing comment (same line)
@@ -43,9 +64,16 @@ mov rax, 2 ; a comment
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (comment)
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (integer_literal)))))
+  (comment))
 
 ================================================================================
 two trailing comments (same line)
@@ -57,12 +85,21 @@ mov rax, 2 ; a comment
 --------------------------------------------------------------------------------
 
 (source_file
-  (ERROR
-    (comment)
-    (objdump_section_addr))
-  (toplevel_item
-    (statement
-      (directive
-        (ins
-          (MISSING ins_kw)))
-      (comment))))
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (integer_literal)))))
+  (comment)
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (integer_literal)))))
+  (comment))

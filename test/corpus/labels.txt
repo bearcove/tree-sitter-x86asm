@@ -7,8 +7,18 @@ _start:
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (label
+      (identifier)
+      (directive
+        (ins
+          (mnemonic)
+          (operand_args
+            (operand
+              (register))
+            (operand
+              (integer_literal))))))))
 
 ================================================================================
 label followed by instruction
@@ -18,8 +28,18 @@ _start: mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (label
+      (identifier)
+      (directive
+        (ins
+          (mnemonic)
+          (operand_args
+            (operand
+              (register))
+            (operand
+              (integer_literal))))))))
 
 ================================================================================
 label followed by instruction followed by comment
@@ -29,9 +49,19 @@ _start: mov rax, 2 ; ahAH!
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (comment)
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (label
+      (identifier)
+      (directive
+        (ins
+          (mnemonic)
+          (operand_args
+            (operand
+              (register))
+            (operand
+              (integer_literal)))))))
+  (comment))
 
 ================================================================================
 label followed by instruction followed by comment, then another instruction
@@ -42,10 +72,27 @@ _start: mov rax, 2 ; ahAH!
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (ERROR
-    (comment))
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (label
+      (identifier)
+      (directive
+        (ins
+          (mnemonic)
+          (operand_args
+            (operand
+              (register))
+            (operand
+              (integer_literal)))))))
+  (comment)
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (register))))))
 
 ================================================================================
 label followed by instruction followed by comment, then another instruction (alt)
@@ -57,14 +104,13 @@ _start: ret ; ahAH!
 --------------------------------------------------------------------------------
 
 (source_file
-  (ERROR)
-  (toplevel_item
-    (statement
+  (directive
+    (label
+      (identifier)
       (directive
         (ins
-          (ins_kw)))
-      (comment))
-    (statement
-      (directive
-        (ins
-          (ins_kw))))))
+          (mnemonic)))))
+  (comment)
+  (directive
+    (ins
+      (mnemonic))))

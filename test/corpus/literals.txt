@@ -6,8 +6,15 @@ registers
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (register))))))
 
 ================================================================================
 integer
@@ -17,5 +24,12 @@ integer
 
 --------------------------------------------------------------------------------
 
-(ERROR
-  (UNEXPECTED '\0'))
+(source_file
+  (directive
+    (ins
+      (mnemonic)
+      (operand_args
+        (operand
+          (register))
+        (operand
+          (integer_literal))))))
