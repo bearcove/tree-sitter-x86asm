@@ -328,18 +328,18 @@
         {
           "type": "STRING",
           "value": ":"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\s*"
         }
       ]
     },
     "objdump_section_addr": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
-        "type": "PATTERN",
-        "value": "[0-9a-fA-F]+"
+        "type": "PREC",
+        "value": 0,
+        "content": {
+          "type": "PATTERN",
+          "value": "[0-9a-fA-F]+"
+        }
       }
     },
     "objdump_offset_label": {
@@ -987,7 +987,7 @@
         "value": -1,
         "content": {
           "type": "PATTERN",
-          "value": "[A-Za-z0-9.@_-]+"
+          "value": "[A-Za-z.@_][A-Za-z0-9.@_-]*"
         }
       }
     }

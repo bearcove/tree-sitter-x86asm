@@ -45,8 +45,8 @@ module.exports = grammar({
     objdump_file_format: ($) => /[a-zA-Z0-9/.@_-]+:[\s]+file format [^\n]+/,
 
     objdump_section_label: ($) =>
-      seq($.objdump_section_addr, "<", $.identifier, ">", ":", /\s*/),
-    objdump_section_addr: ($) => token.immediate(/[0-9a-fA-F]+/),
+      seq($.objdump_section_addr, "<", $.identifier, ">", ":"),
+    objdump_section_addr: ($) => token.immediate(prec(0, /[0-9a-fA-F]+/)),
 
     objdump_offset_label: ($) =>
       prec.left(
@@ -186,6 +186,6 @@ module.exports = grammar({
       ),
     section_name: ($) => /[.][A-Za-z0-9.@_-]+/,
     identifier: ($) => $._IDENTIFIER,
-    _IDENTIFIER: ($) => token(prec(-1, /[A-Za-z0-9.@_-]+/)),
+    _IDENTIFIER: ($) => token(prec(-1, /[A-Za-z.@_][A-Za-z0-9.@_-]*/)),
   },
 });
