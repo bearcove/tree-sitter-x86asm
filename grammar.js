@@ -9,13 +9,16 @@ module.exports = grammar({
     statement: ($) => seq(choice($.comment, $.directive), $._NEWLINE),
 
     comment: ($) => /;.*/,
-    directive: ($) => choice($.section, $.extern, $.global, $.label, $.ins),
+    directive: ($) =>
+      choice($.section, $.extern, $.global, $.builtin, $.ins, $.label),
 
-    section: ($) => seq("section", $.section_name),
+    builtin: ($) => seq(/d[bwdq]/, $.operand_args),
+
+    section: ($) => seq("section", $.section_name, optional("info")),
     extern: ($) => seq("extern", $._IDENTIFIER),
     global: ($) => seq("global", $._IDENTIFIER),
     label: ($) => seq($._IDENTIFIER, ":", optional($.directive)),
-    ins: ($) => seq($.ins_kw, $.operand_args),
+    ins: ($) => seq($.ins_kw, optional($.operand_args)),
 
     width: ($) => choice("byte", "word", "dword", "qword"),
 
@@ -101,7 +104,60 @@ module.exports = grammar({
 
     _NEWLINE: ($) => seq(optional($.comment), choice("\n", "\r\n")),
 
-    ins_kw: ($) => choice($.ins_8086, $.ins_80186),
+    ins_kw: ($) =>
+      choice(
+        $.ins_8086,
+        $.ins_80186,
+        $.ins_80286,
+        $.ins_80386,
+        $.ins_80486,
+        $.ins_pentium,
+        $.ins_pentium_mmx,
+        $.ins_amd_k6,
+        $.ins_pentium_pro,
+        $.ins_pentium_2,
+        $.ins_sse_non_simd,
+        $.ins_sse2,
+        $.ins_sse3,
+        $.ins_sse4_2,
+        $.ins_x86_64,
+        $.ins_bitmanip,
+        $.ins_clmul,
+        $.ins_adx,
+        $.ins_intel_tsx,
+        $.ins_intel_mpx,
+        $.ins_intel_cet,
+        $.ins_8087,
+        $.ins_80287,
+        $.ins_80387,
+        $.ins_pentium_pro,
+        $.ins_sse,
+        $.ins_sse3,
+        $.ins_mmx,
+        $.ins_mmx_plus_and_sse,
+        $.ins_mmx_sse2,
+        $.ins_3dnow,
+        $.ins_3dnow_plus,
+        $.ins_geode_gx,
+        $.ins_sse_pentium3,
+        $.ins_sse2_pentium4,
+        $.ins_sse3_pentium4,
+        $.ins_sse4_1,
+        $.ins_sse4a,
+        $.ins_sse4_2_nehalem,
+        $.ins_f16c,
+        $.ins_fma3,
+        $.ins_fma4,
+        $.ins_avx,
+        $.ins_avx2,
+        $.ins_avx512,
+        $.ins_intel_aes,
+        $.ins_rdrand,
+        $.ins_intel_sha,
+        $.ins_virt_amd_v,
+        $.ins_virt_vt_x,
+        $.ins_undoc,
+      ),
 
     ins_8086: ($) =>
       choice(
@@ -234,7 +290,6 @@ module.exports = grammar({
         "cmpsd",
         "cwde",
         "ibts",
-        "imul",
         "insd",
         "iretd",
         "jecxz",
@@ -342,7 +397,7 @@ module.exports = grammar({
 
     ins_pentium_2: ($) => choice("sysenter", "sysexit"),
 
-    ins_sse_non_smid: ($) => choice(/prefetcht[012]/, "prefetchnta", "sfence"),
+    ins_sse_non_simd: ($) => choice(/prefetcht[012]/, "prefetchnta", "sfence"),
 
     ins_sse2: ($) => choice("clflush", "lfence", "mfence", "movnti", "pause"),
 
@@ -529,7 +584,7 @@ module.exports = grammar({
         "fyl2xp1",
       ),
 
-    ins_80287: ($) => choice("fsetpm", "fstsw"),
+    ins_80287: ($) => choice("fsetpm"),
 
     ins_80387: ($) =>
       choice(
@@ -584,23 +639,65 @@ module.exports = grammar({
         "packssdw",
         "packsswb",
         "packuswb",
-        /padd[bwdq]/,
-        /padds[bwdq]/,
+
+        "paddb",
+        "paddw",
+        "paddd",
+        "paddq",
+
+        "vpaddb",
+        "vpaddw",
+        "vpaddd",
+        "vpaddq",
+
+        "paddsb",
+        "paddsw",
+        "paddsd",
+        "paddsq",
+
+        "vpaddsb",
+        "vpaddsw",
+        "vpaddsd",
+        "vpaddsq",
+
         "pand",
         "pandn",
         "por",
         "pxor",
-        /pcmpeq[bwd]/,
-        /pcmpgt[bwd]/,
+
+        "pcmpeqb",
+        "pcmpeqw",
+        "pcmpeqd",
+
+        "pcmpgtb",
+        "pcmpgtw",
+        "pcmpgtd",
+
         "pmaddwd",
         "pmulhw",
         "pmullw",
-        /pssl[wdq]/,
-        /psra[dw]/,
-        /psrl[dwq]/,
-        /psub[bwd]/,
-        /psubs[bw]/,
-        /psubus[bw]/,
+
+        "psslw",
+        "pssld",
+        "psslq",
+
+        "psrad",
+        "psra2",
+
+        "psrld",
+        "psrlw",
+        "psrlq",
+
+        "psubb",
+        "psubw",
+        "psubd",
+
+        "psubsb",
+        "psubsw",
+
+        "psubusb",
+        "psubusw",
+
         "punpckhwd",
         "punpckhdq",
         "punpcklbw",
@@ -675,8 +772,7 @@ module.exports = grammar({
     ins_3dnow_plus: ($) =>
       choice("pf2iw", "pi2fw", "pswapd", "pfnacc", "pfpnacc"),
 
-    ins_geode_gx: ($) =>
-      choice("pfrcpv", "pfrqsrtv")
+    ins_geode_gx: ($) => choice("pfrcpv", "pfrqsrtv"),
 
     ins_sse_pentium3: ($) =>
       choice(
@@ -735,7 +831,6 @@ module.exports = grammar({
         "movlpd",
         "movupd",
         "movmskpd",
-        "movsd",
         "addpd",
         "addsd",
         "divpd",
@@ -749,13 +844,12 @@ module.exports = grammar({
         "sqrtpd",
         "sqrtsd",
         "subpd",
-        "subsd"
+        "subsd",
         "andpd",
         "andnpd",
         "orpd",
         "xorpd",
         "cmppd",
-        "cmpsd",
         "comisd",
         "ucomisd",
         "shufpd",
@@ -777,49 +871,16 @@ module.exports = grammar({
         "cvttpd2pi",
         "cvttps2dq",
         "cvttsd2si",
-        "pmovmskb",
-        "pextrw",
-        "pinsrw",
-        "packssdw",
-        "packsswb",
-        "packuswb",
-        /padd[bwdq]/,
-        /padds[bw]/,
-        /paddus[bw]/,
-        "pand",
-        "pandn",
-        "por",
-        "pxor",
-        /pcmpeq[bwd]/,
-        /pcmpgt[bwd]/,
-        "pmullw",
-        "pmulhw",
-        "pmulhuw",
+        "paddusb",
+        "paddusw",
         "pmuludq",
-        /pssl[wdq]/,
-        /psra[dw]/,
-        /psrl[dwq]/,
-        /psub[bwdq]/,
-        /psubs[bw]/,
-        "pmaddwd",
-        /psubus[bw]/,
         "punpckhbw",
-        "punpckhwd",
-        "punpckhdq",
-        "punpcklbw",
-        "punpcklwd",
-        "punpckldq",
-        "pavgb",
-        "pavgw",
-        "pminub",
-        "pminsw",
-        "pmaxsw",
-        "pmaxub",
-        "psadbw",
         "maskmovdqu",
         "movdq2q",
+        "vmovdqa",
         "movdqa",
         "movdqu",
+        "vmovdqu",
         "movq2dq",
         "movntdq",
         "pshufhw",
@@ -897,7 +958,6 @@ module.exports = grammar({
         "pinsrd",
         "pinsrq",
         "pextrb",
-        "pextrw",
         "pextrd",
         "pextrq",
         "pmovsxbw",
@@ -918,28 +978,12 @@ module.exports = grammar({
         "monvtdqa",
       ),
 
-    ins_sse4a: ($) =>
-      choice(
-        "extrq",
-        "insertq",
-        "movntsd",
-        "movntss",
-      ),
+    ins_sse4a: ($) => choice("extrq", "insertq", "movntsd", "movntss"),
 
-    ins_sse_4_2_nehalem: ($) =>
-      choice(
-        "pcmpestri",
-        "pcmpestrm",
-        "pcmpistri",
-        "pcmpistrm",
-        "pcmpgtq",
-      ),
+    ins_sse4_2_nehalem: ($) =>
+      choice("pcmpestri", "pcmpestrm", "pcmpistri", "pcmpistrm", "pcmpgtq"),
 
-    ins_f16c: ($) =>
-      choice(
-        "vcvtph2ps",
-        "vcvtps2ph",
-      ),
+    ins_f16c: ($) => choice("vcvtph2ps", "vcvtps2ph"),
 
     ins_fma3: ($) => /vf(n?)m(add|addsub|sub|subadd)(132|213|231)(pd|ps|sd|ss)/,
 
@@ -947,11 +991,19 @@ module.exports = grammar({
 
     ins_avx: ($) =>
       choice(
-        /vbroadcast(ss|sd|f128)/,
+        "vbroadcastss",
+        "vbroadcastsd",
+        "vbroadcastf128",
+
         "vinsertf128",
         "vextractf128",
-        /vmaskmov(ps|pd)/,
-        /vpermil(ps|pd)/,
+
+        "vmaskmovps",
+        "vmaskmovpd",
+
+        "vpermilps",
+        "vpermilpd",
+
         "vperm2f128",
         "vzeroall",
         "vzeroupper",
@@ -959,17 +1011,42 @@ module.exports = grammar({
 
     ins_avx2: ($) =>
       choice(
-        /vbroadcast(ss|sd)/,
-        /vpbroadcast[bwdq]/,
+        "vbroadcastss",
+        "vbroadcastsd",
+        "vpbroadcastb",
+        "vpbroadcastw",
+        "vpbroadcastd",
+        "vpbroadcastq",
         "vbroadcasti128",
         "vinserti128",
         "vextracti128",
-        /vgather(dpd|qpd|dps|qps)/,
-        /vpgather(dd|dq|qd|qq)/,
-        /vpmaskmov[dq]/,
-        /vper(mps|md|mpd|mq|m2i128)/,
+
+        "vgatherdpd",
+        "vgatherqpd",
+        "vgatherdps",
+        "vgatherqps",
+
+        "vpgatherdd",
+        "vpgatherdq",
+        "vpgatherqd",
+        "vpgatherqq",
+
+        "vpmaskmovd",
+        "vpmaskmovq",
+
+        "vpermps",
+        "vpermd",
+        "vpermpd",
+        "vpermq",
+        "vperm2i128",
+
         "vpblendd",
-        /vps(llvd|llvq|rlvd|rlvq|ravd)/
+
+        "vpsllvd",
+        "vpsllvq",
+        "vpsrlvd",
+        "vpsrlvq",
+        "vpsravd",
       ),
 
     ins_avx512: ($) =>
@@ -1020,11 +1097,7 @@ module.exports = grammar({
         "aesimc",
       ),
 
-    ins_rdrand: ($) =>
-      choice(
-        "rdrand",
-        "rdseed",
-      ),
+    ins_rdrand: ($) => choice("rdrand", "rdseed"),
 
     ins_intel_sha: ($) =>
       choice(
@@ -1064,18 +1137,11 @@ module.exports = grammar({
         "vmresume",
         "vmxoff",
         "vmxon",
-      )
+      ),
 
     ins_undoc: ($) =>
       choice(
-        "aam",
-        "aad",
-        "salc",
         "setalc",
-        "test",
-        "shl",
-        "sal",
-        "repnz",
         seq("rep", "ret"),
         "icebp",
         "int1",
@@ -1083,7 +1149,6 @@ module.exports = grammar({
         "ud0",
         "saveall",
         "storeall",
-        "loadall",
         "loadalld",
         "cl1invmb",
         "patch2",
@@ -1099,16 +1164,9 @@ module.exports = grammar({
         "montmul2",
         "ffreep",
         "fstpnce",
-        "fcom",
-        "fcomp",
-        "fxch",
-        "fstp",
-        "feni",
         "feni8087_nop",
-        "fdisi",
         "fdisi8087_nop",
-        "fsetpm",
         "fsetpm287_nop",
-      )
+      ),
   },
 });

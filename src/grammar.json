@@ -55,11 +55,28 @@
         },
         {
           "type": "SYMBOL",
-          "name": "label"
+          "name": "builtin"
         },
         {
           "type": "SYMBOL",
           "name": "ins"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label"
+        }
+      ]
+    },
+    "builtin": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "d[bwdq]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "operand_args"
         }
       ]
     },
@@ -73,6 +90,18 @@
         {
           "type": "SYMBOL",
           "name": "section_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "info"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -135,45 +164,16 @@
           "name": "ins_kw"
         },
         {
-          "type": "SYMBOL",
-          "name": "operand_args"
-        }
-      ]
-    },
-    "ins_kw": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "push"
-        },
-        {
-          "type": "STRING",
-          "value": "pop"
-        },
-        {
-          "type": "STRING",
-          "value": "add"
-        },
-        {
-          "type": "STRING",
-          "value": "sub"
-        },
-        {
-          "type": "STRING",
-          "value": "mov"
-        },
-        {
-          "type": "STRING",
-          "value": "xor"
-        },
-        {
-          "type": "STRING",
-          "value": "leave"
-        },
-        {
-          "type": "STRING",
-          "value": "ret"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "operand_args"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -700,6 +700,3737 @@
               "value": "\r\n"
             }
           ]
+        }
+      ]
+    },
+    "ins_kw": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ins_8086"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_80186"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_80286"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_80386"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_80486"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_pentium"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_pentium_mmx"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_amd_k6"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_pentium_pro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_pentium_2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse_non_simd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse3"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse4_2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_x86_64"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_bitmanip"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_clmul"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_adx"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_intel_tsx"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_intel_mpx"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_intel_cet"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_8087"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_80287"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_80387"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_pentium_pro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse3"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_mmx"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_mmx_plus_and_sse"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_mmx_sse2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_3dnow"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_3dnow_plus"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_geode_gx"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse_pentium3"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse2_pentium4"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse3_pentium4"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse4_1"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse4a"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_sse4_2_nehalem"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_f16c"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_fma3"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_fma4"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_avx"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_avx2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_avx512"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_intel_aes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_rdrand"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_intel_sha"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_virt_amd_v"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_virt_vt_x"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins_undoc"
+        }
+      ]
+    },
+    "ins_8086": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "aaa"
+        },
+        {
+          "type": "STRING",
+          "value": "aad"
+        },
+        {
+          "type": "STRING",
+          "value": "aam"
+        },
+        {
+          "type": "STRING",
+          "value": "aas"
+        },
+        {
+          "type": "STRING",
+          "value": "adc"
+        },
+        {
+          "type": "STRING",
+          "value": "add"
+        },
+        {
+          "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
+          "value": "call"
+        },
+        {
+          "type": "STRING",
+          "value": "cbw"
+        },
+        {
+          "type": "STRING",
+          "value": "clc"
+        },
+        {
+          "type": "STRING",
+          "value": "cld"
+        },
+        {
+          "type": "STRING",
+          "value": "cli"
+        },
+        {
+          "type": "STRING",
+          "value": "cmc"
+        },
+        {
+          "type": "STRING",
+          "value": "cmp"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpsb"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpsw"
+        },
+        {
+          "type": "STRING",
+          "value": "cwd"
+        },
+        {
+          "type": "STRING",
+          "value": "daa"
+        },
+        {
+          "type": "STRING",
+          "value": "das"
+        },
+        {
+          "type": "STRING",
+          "value": "dec"
+        },
+        {
+          "type": "STRING",
+          "value": "div"
+        },
+        {
+          "type": "STRING",
+          "value": "esc"
+        },
+        {
+          "type": "STRING",
+          "value": "hlt"
+        },
+        {
+          "type": "STRING",
+          "value": "idiv"
+        },
+        {
+          "type": "STRING",
+          "value": "imul"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "STRING",
+          "value": "inc"
+        },
+        {
+          "type": "STRING",
+          "value": "int"
+        },
+        {
+          "type": "STRING",
+          "value": "into"
+        },
+        {
+          "type": "STRING",
+          "value": "iret"
+        },
+        {
+          "type": "STRING",
+          "value": "jcc"
+        },
+        {
+          "type": "STRING",
+          "value": "jczx"
+        },
+        {
+          "type": "STRING",
+          "value": "jmp"
+        },
+        {
+          "type": "STRING",
+          "value": "lahf"
+        },
+        {
+          "type": "STRING",
+          "value": "lds"
+        },
+        {
+          "type": "STRING",
+          "value": "lea"
+        },
+        {
+          "type": "STRING",
+          "value": "les"
+        },
+        {
+          "type": "STRING",
+          "value": "lock"
+        },
+        {
+          "type": "STRING",
+          "value": "lodsb"
+        },
+        {
+          "type": "STRING",
+          "value": "lodsw"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "loop"
+            },
+            {
+              "type": "STRING",
+              "value": "loope"
+            },
+            {
+              "type": "STRING",
+              "value": "loopne"
+            },
+            {
+              "type": "STRING",
+              "value": "loopnz"
+            },
+            {
+              "type": "STRING",
+              "value": "loopz"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "mov"
+        },
+        {
+          "type": "STRING",
+          "value": "movsb"
+        },
+        {
+          "type": "STRING",
+          "value": "movsw"
+        },
+        {
+          "type": "STRING",
+          "value": "mul"
+        },
+        {
+          "type": "STRING",
+          "value": "neg"
+        },
+        {
+          "type": "STRING",
+          "value": "nop"
+        },
+        {
+          "type": "STRING",
+          "value": "not"
+        },
+        {
+          "type": "STRING",
+          "value": "or"
+        },
+        {
+          "type": "STRING",
+          "value": "out"
+        },
+        {
+          "type": "STRING",
+          "value": "pop"
+        },
+        {
+          "type": "STRING",
+          "value": "popf"
+        },
+        {
+          "type": "STRING",
+          "value": "push"
+        },
+        {
+          "type": "STRING",
+          "value": "pushf"
+        },
+        {
+          "type": "STRING",
+          "value": "rcl"
+        },
+        {
+          "type": "STRING",
+          "value": "rcr"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "rep"
+            },
+            {
+              "type": "STRING",
+              "value": "repe"
+            },
+            {
+              "type": "STRING",
+              "value": "repne"
+            },
+            {
+              "type": "STRING",
+              "value": "repnz"
+            },
+            {
+              "type": "STRING",
+              "value": "repz"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "ret"
+        },
+        {
+          "type": "STRING",
+          "value": "retn"
+        },
+        {
+          "type": "STRING",
+          "value": "retf"
+        },
+        {
+          "type": "STRING",
+          "value": "rol"
+        },
+        {
+          "type": "STRING",
+          "value": "ror"
+        },
+        {
+          "type": "STRING",
+          "value": "sahf"
+        },
+        {
+          "type": "STRING",
+          "value": "sal"
+        },
+        {
+          "type": "STRING",
+          "value": "sar"
+        },
+        {
+          "type": "STRING",
+          "value": "sbb"
+        },
+        {
+          "type": "STRING",
+          "value": "scasb"
+        },
+        {
+          "type": "STRING",
+          "value": "scasw"
+        },
+        {
+          "type": "STRING",
+          "value": "shl"
+        },
+        {
+          "type": "STRING",
+          "value": "shr"
+        },
+        {
+          "type": "STRING",
+          "value": "stc"
+        },
+        {
+          "type": "STRING",
+          "value": "std"
+        },
+        {
+          "type": "STRING",
+          "value": "sti"
+        },
+        {
+          "type": "STRING",
+          "value": "stosb"
+        },
+        {
+          "type": "STRING",
+          "value": "stosw"
+        },
+        {
+          "type": "STRING",
+          "value": "sub"
+        },
+        {
+          "type": "STRING",
+          "value": "test"
+        },
+        {
+          "type": "STRING",
+          "value": "wait"
+        },
+        {
+          "type": "STRING",
+          "value": "xchg"
+        },
+        {
+          "type": "STRING",
+          "value": "xlat"
+        },
+        {
+          "type": "STRING",
+          "value": "xor"
+        }
+      ]
+    },
+    "ins_80186": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bound"
+        },
+        {
+          "type": "STRING",
+          "value": "enter"
+        },
+        {
+          "type": "STRING",
+          "value": "insb"
+        },
+        {
+          "type": "STRING",
+          "value": "insw"
+        },
+        {
+          "type": "STRING",
+          "value": "leave"
+        },
+        {
+          "type": "STRING",
+          "value": "outsb"
+        },
+        {
+          "type": "STRING",
+          "value": "outsw"
+        },
+        {
+          "type": "STRING",
+          "value": "popa"
+        },
+        {
+          "type": "STRING",
+          "value": "pusha"
+        }
+      ]
+    },
+    "ins_80286": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "arpl"
+        },
+        {
+          "type": "STRING",
+          "value": "clts"
+        },
+        {
+          "type": "STRING",
+          "value": "lar"
+        },
+        {
+          "type": "STRING",
+          "value": "lsl"
+        },
+        {
+          "type": "STRING",
+          "value": "lgdt"
+        },
+        {
+          "type": "STRING",
+          "value": "lidt"
+        },
+        {
+          "type": "STRING",
+          "value": "lldt"
+        },
+        {
+          "type": "STRING",
+          "value": "ltr"
+        },
+        {
+          "type": "STRING",
+          "value": "lmsw"
+        },
+        {
+          "type": "STRING",
+          "value": "sgdt"
+        },
+        {
+          "type": "STRING",
+          "value": "sidt"
+        },
+        {
+          "type": "STRING",
+          "value": "sldt"
+        },
+        {
+          "type": "STRING",
+          "value": "smsw"
+        },
+        {
+          "type": "STRING",
+          "value": "str"
+        },
+        {
+          "type": "STRING",
+          "value": "verr"
+        },
+        {
+          "type": "STRING",
+          "value": "verw"
+        },
+        {
+          "type": "STRING",
+          "value": "loadall"
+        }
+      ]
+    },
+    "ins_80386": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bsf"
+        },
+        {
+          "type": "STRING",
+          "value": "bsr"
+        },
+        {
+          "type": "STRING",
+          "value": "bt"
+        },
+        {
+          "type": "STRING",
+          "value": "btc"
+        },
+        {
+          "type": "STRING",
+          "value": "btr"
+        },
+        {
+          "type": "STRING",
+          "value": "bts"
+        },
+        {
+          "type": "STRING",
+          "value": "cdq"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpsd"
+        },
+        {
+          "type": "STRING",
+          "value": "cwde"
+        },
+        {
+          "type": "STRING",
+          "value": "ibts"
+        },
+        {
+          "type": "STRING",
+          "value": "insd"
+        },
+        {
+          "type": "STRING",
+          "value": "iretd"
+        },
+        {
+          "type": "STRING",
+          "value": "jecxz"
+        },
+        {
+          "type": "STRING",
+          "value": "lfs"
+        },
+        {
+          "type": "STRING",
+          "value": "lgs"
+        },
+        {
+          "type": "STRING",
+          "value": "lss"
+        },
+        {
+          "type": "STRING",
+          "value": "lodsd"
+        },
+        {
+          "type": "STRING",
+          "value": "loopw"
+        },
+        {
+          "type": "STRING",
+          "value": "loopd"
+        },
+        {
+          "type": "STRING",
+          "value": "movsd"
+        },
+        {
+          "type": "STRING",
+          "value": "movsx"
+        },
+        {
+          "type": "STRING",
+          "value": "movzx"
+        },
+        {
+          "type": "STRING",
+          "value": "outsd"
+        },
+        {
+          "type": "STRING",
+          "value": "popad"
+        },
+        {
+          "type": "STRING",
+          "value": "popfd"
+        },
+        {
+          "type": "STRING",
+          "value": "pushad"
+        },
+        {
+          "type": "STRING",
+          "value": "pushfd"
+        },
+        {
+          "type": "STRING",
+          "value": "pushd"
+        },
+        {
+          "type": "STRING",
+          "value": "scasd"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "seta"
+            },
+            {
+              "type": "STRING",
+              "value": "setae"
+            },
+            {
+              "type": "STRING",
+              "value": "setb"
+            },
+            {
+              "type": "STRING",
+              "value": "setbe"
+            },
+            {
+              "type": "STRING",
+              "value": "setc"
+            },
+            {
+              "type": "STRING",
+              "value": "sete"
+            },
+            {
+              "type": "STRING",
+              "value": "setg"
+            },
+            {
+              "type": "STRING",
+              "value": "setge"
+            },
+            {
+              "type": "STRING",
+              "value": "setl"
+            },
+            {
+              "type": "STRING",
+              "value": "setle"
+            },
+            {
+              "type": "STRING",
+              "value": "setna"
+            },
+            {
+              "type": "STRING",
+              "value": "setnae"
+            },
+            {
+              "type": "STRING",
+              "value": "setnb"
+            },
+            {
+              "type": "STRING",
+              "value": "setnbe"
+            },
+            {
+              "type": "STRING",
+              "value": "setnc"
+            },
+            {
+              "type": "STRING",
+              "value": "setne"
+            },
+            {
+              "type": "STRING",
+              "value": "setng"
+            },
+            {
+              "type": "STRING",
+              "value": "setnge"
+            },
+            {
+              "type": "STRING",
+              "value": "setnl"
+            },
+            {
+              "type": "STRING",
+              "value": "setnle"
+            },
+            {
+              "type": "STRING",
+              "value": "setno"
+            },
+            {
+              "type": "STRING",
+              "value": "setnp"
+            },
+            {
+              "type": "STRING",
+              "value": "setns"
+            },
+            {
+              "type": "STRING",
+              "value": "setnz"
+            },
+            {
+              "type": "STRING",
+              "value": "seto"
+            },
+            {
+              "type": "STRING",
+              "value": "setp"
+            },
+            {
+              "type": "STRING",
+              "value": "setpe"
+            },
+            {
+              "type": "STRING",
+              "value": "setpo"
+            },
+            {
+              "type": "STRING",
+              "value": "sets"
+            },
+            {
+              "type": "STRING",
+              "value": "setz"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "shld"
+        },
+        {
+          "type": "STRING",
+          "value": "shrd"
+        },
+        {
+          "type": "STRING",
+          "value": "stosd"
+        },
+        {
+          "type": "STRING",
+          "value": "xbts"
+        }
+      ]
+    },
+    "ins_80486": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bswap"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpxchg"
+        },
+        {
+          "type": "STRING",
+          "value": "invd"
+        },
+        {
+          "type": "STRING",
+          "value": "invlpg"
+        },
+        {
+          "type": "STRING",
+          "value": "wbinvd"
+        },
+        {
+          "type": "STRING",
+          "value": "xadd"
+        }
+      ]
+    },
+    "ins_pentium": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "cpuid"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpxchg8b"
+        },
+        {
+          "type": "STRING",
+          "value": "rdmsr"
+        },
+        {
+          "type": "STRING",
+          "value": "rdtsc"
+        },
+        {
+          "type": "STRING",
+          "value": "wrmsr"
+        },
+        {
+          "type": "STRING",
+          "value": "rsm"
+        }
+      ]
+    },
+    "ins_pentium_mmx": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "rdpmc"
+        }
+      ]
+    },
+    "ins_amd_k6": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "syscall"
+        },
+        {
+          "type": "STRING",
+          "value": "sysret"
+        }
+      ]
+    },
+    "ins_pentium_pro": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fcmovb"
+        },
+        {
+          "type": "STRING",
+          "value": "fcmovbe"
+        },
+        {
+          "type": "STRING",
+          "value": "fcmove"
+        },
+        {
+          "type": "STRING",
+          "value": "fcmovnb"
+        },
+        {
+          "type": "STRING",
+          "value": "fcmovnbe"
+        },
+        {
+          "type": "STRING",
+          "value": "fcmovne"
+        },
+        {
+          "type": "STRING",
+          "value": "fcmovnu"
+        },
+        {
+          "type": "STRING",
+          "value": "fcmovu"
+        },
+        {
+          "type": "STRING",
+          "value": "fcomi"
+        },
+        {
+          "type": "STRING",
+          "value": "fcomip"
+        },
+        {
+          "type": "STRING",
+          "value": "fucomi"
+        },
+        {
+          "type": "STRING",
+          "value": "fucomip"
+        }
+      ]
+    },
+    "ins_pentium_2": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "sysenter"
+        },
+        {
+          "type": "STRING",
+          "value": "sysexit"
+        }
+      ]
+    },
+    "ins_sse_non_simd": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "prefetcht[012]"
+        },
+        {
+          "type": "STRING",
+          "value": "prefetchnta"
+        },
+        {
+          "type": "STRING",
+          "value": "sfence"
+        }
+      ]
+    },
+    "ins_sse2": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "clflush"
+        },
+        {
+          "type": "STRING",
+          "value": "lfence"
+        },
+        {
+          "type": "STRING",
+          "value": "mfence"
+        },
+        {
+          "type": "STRING",
+          "value": "movnti"
+        },
+        {
+          "type": "STRING",
+          "value": "pause"
+        }
+      ]
+    },
+    "ins_sse3": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fisttp"
+        }
+      ]
+    },
+    "ins_sse4_2": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "crc32"
+        }
+      ]
+    },
+    "ins_x86_64": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "cdqe"
+        },
+        {
+          "type": "STRING",
+          "value": "cqo"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpsq"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpxchg16b"
+        },
+        {
+          "type": "STRING",
+          "value": "iretq"
+        },
+        {
+          "type": "STRING",
+          "value": "jrcxz"
+        },
+        {
+          "type": "STRING",
+          "value": "lodsq"
+        },
+        {
+          "type": "STRING",
+          "value": "movxsd"
+        },
+        {
+          "type": "STRING",
+          "value": "popfq"
+        },
+        {
+          "type": "STRING",
+          "value": "pushfq"
+        },
+        {
+          "type": "STRING",
+          "value": "rdtscp"
+        },
+        {
+          "type": "STRING",
+          "value": "scasq"
+        },
+        {
+          "type": "STRING",
+          "value": "stosq"
+        },
+        {
+          "type": "STRING",
+          "value": "swapgs"
+        }
+      ]
+    },
+    "ins_bitmanip": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "lzcnt"
+        },
+        {
+          "type": "STRING",
+          "value": "popcnt"
+        },
+        {
+          "type": "STRING",
+          "value": "andn"
+        },
+        {
+          "type": "STRING",
+          "value": "bextr"
+        },
+        {
+          "type": "STRING",
+          "value": "blsi"
+        },
+        {
+          "type": "STRING",
+          "value": "blsmsk"
+        },
+        {
+          "type": "STRING",
+          "value": "blsr"
+        },
+        {
+          "type": "STRING",
+          "value": "tzcnt"
+        },
+        {
+          "type": "STRING",
+          "value": "bzhi"
+        },
+        {
+          "type": "STRING",
+          "value": "mulx"
+        },
+        {
+          "type": "STRING",
+          "value": "pdep"
+        },
+        {
+          "type": "STRING",
+          "value": "pext"
+        },
+        {
+          "type": "STRING",
+          "value": "rorx"
+        },
+        {
+          "type": "STRING",
+          "value": "sarx"
+        },
+        {
+          "type": "STRING",
+          "value": "shrx"
+        },
+        {
+          "type": "STRING",
+          "value": "shlx"
+        },
+        {
+          "type": "STRING",
+          "value": "bextr"
+        },
+        {
+          "type": "STRING",
+          "value": "blcfill"
+        },
+        {
+          "type": "STRING",
+          "value": "blci"
+        },
+        {
+          "type": "STRING",
+          "value": "blcic"
+        },
+        {
+          "type": "STRING",
+          "value": "blcmsk"
+        },
+        {
+          "type": "STRING",
+          "value": "blcs"
+        },
+        {
+          "type": "STRING",
+          "value": "blsfill"
+        },
+        {
+          "type": "STRING",
+          "value": "blsic"
+        },
+        {
+          "type": "STRING",
+          "value": "t1mskc"
+        },
+        {
+          "type": "STRING",
+          "value": "tzmsk"
+        }
+      ]
+    },
+    "ins_clmul": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "pclmulqdq"
+        },
+        {
+          "type": "STRING",
+          "value": "pclmullqlqdq"
+        },
+        {
+          "type": "STRING",
+          "value": "pclmulhqlqdq"
+        },
+        {
+          "type": "STRING",
+          "value": "pclmullqhqdq"
+        },
+        {
+          "type": "STRING",
+          "value": "pclmulhqhqdq"
+        }
+      ]
+    },
+    "ins_adx": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "adcx"
+        },
+        {
+          "type": "STRING",
+          "value": "adox"
+        }
+      ]
+    },
+    "ins_intel_tsx": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "xbegin"
+        },
+        {
+          "type": "STRING",
+          "value": "xend"
+        },
+        {
+          "type": "STRING",
+          "value": "xabort"
+        },
+        {
+          "type": "STRING",
+          "value": "xacquire"
+        },
+        {
+          "type": "STRING",
+          "value": "xrelease"
+        }
+      ]
+    },
+    "ins_intel_mpx": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bmdmk"
+        },
+        {
+          "type": "STRING",
+          "value": "bndcl"
+        },
+        {
+          "type": "STRING",
+          "value": "bndcu"
+        },
+        {
+          "type": "STRING",
+          "value": "bndcn"
+        },
+        {
+          "type": "STRING",
+          "value": "bmdmov"
+        },
+        {
+          "type": "STRING",
+          "value": "bndldx"
+        },
+        {
+          "type": "STRING",
+          "value": "bndstx"
+        },
+        {
+          "type": "STRING",
+          "value": "bnd"
+        }
+      ]
+    },
+    "ins_intel_cet": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "incsspd"
+        },
+        {
+          "type": "STRING",
+          "value": "incsspq"
+        },
+        {
+          "type": "STRING",
+          "value": "rdsspd"
+        },
+        {
+          "type": "STRING",
+          "value": "rdsspq"
+        },
+        {
+          "type": "STRING",
+          "value": "saveprevssp"
+        },
+        {
+          "type": "STRING",
+          "value": "rstorssp"
+        },
+        {
+          "type": "STRING",
+          "value": "wrssd"
+        },
+        {
+          "type": "STRING",
+          "value": "wrssq"
+        },
+        {
+          "type": "STRING",
+          "value": "wrussd"
+        },
+        {
+          "type": "STRING",
+          "value": "wrussq"
+        },
+        {
+          "type": "STRING",
+          "value": "setssbsy"
+        },
+        {
+          "type": "STRING",
+          "value": "clrssbsy"
+        },
+        {
+          "type": "STRING",
+          "value": "endbr32"
+        },
+        {
+          "type": "STRING",
+          "value": "endbr64"
+        }
+      ]
+    },
+    "ins_8087": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "f2xm1"
+        },
+        {
+          "type": "STRING",
+          "value": "fabs"
+        },
+        {
+          "type": "STRING",
+          "value": "fadd"
+        },
+        {
+          "type": "STRING",
+          "value": "faddp"
+        },
+        {
+          "type": "STRING",
+          "value": "fbld"
+        },
+        {
+          "type": "STRING",
+          "value": "fbstp"
+        },
+        {
+          "type": "STRING",
+          "value": "fchs"
+        },
+        {
+          "type": "STRING",
+          "value": "fclex"
+        },
+        {
+          "type": "STRING",
+          "value": "fcom"
+        },
+        {
+          "type": "STRING",
+          "value": "fcomp"
+        },
+        {
+          "type": "STRING",
+          "value": "fcompp"
+        },
+        {
+          "type": "STRING",
+          "value": "fdecstp"
+        },
+        {
+          "type": "STRING",
+          "value": "fdisi"
+        },
+        {
+          "type": "STRING",
+          "value": "fdiv"
+        },
+        {
+          "type": "STRING",
+          "value": "fdivp"
+        },
+        {
+          "type": "STRING",
+          "value": "fdivr"
+        },
+        {
+          "type": "STRING",
+          "value": "fdivrp"
+        },
+        {
+          "type": "STRING",
+          "value": "feni"
+        },
+        {
+          "type": "STRING",
+          "value": "ffree"
+        },
+        {
+          "type": "STRING",
+          "value": "fiadd"
+        },
+        {
+          "type": "STRING",
+          "value": "ficom"
+        },
+        {
+          "type": "STRING",
+          "value": "ficomp"
+        },
+        {
+          "type": "STRING",
+          "value": "fidiv"
+        },
+        {
+          "type": "STRING",
+          "value": "fidivr"
+        },
+        {
+          "type": "STRING",
+          "value": "fild"
+        },
+        {
+          "type": "STRING",
+          "value": "fimul"
+        },
+        {
+          "type": "STRING",
+          "value": "fincstp"
+        },
+        {
+          "type": "STRING",
+          "value": "finit"
+        },
+        {
+          "type": "STRING",
+          "value": "fist"
+        },
+        {
+          "type": "STRING",
+          "value": "fistp"
+        },
+        {
+          "type": "STRING",
+          "value": "fisub"
+        },
+        {
+          "type": "STRING",
+          "value": "fisubr"
+        },
+        {
+          "type": "STRING",
+          "value": "fld"
+        },
+        {
+          "type": "STRING",
+          "value": "fld1"
+        },
+        {
+          "type": "STRING",
+          "value": "fldcw"
+        },
+        {
+          "type": "STRING",
+          "value": "fldenv"
+        },
+        {
+          "type": "STRING",
+          "value": "fldenvw"
+        },
+        {
+          "type": "STRING",
+          "value": "fldl2e"
+        },
+        {
+          "type": "STRING",
+          "value": "fldl2t"
+        },
+        {
+          "type": "STRING",
+          "value": "fldlg2"
+        },
+        {
+          "type": "STRING",
+          "value": "fldln2"
+        },
+        {
+          "type": "STRING",
+          "value": "fldpi"
+        },
+        {
+          "type": "STRING",
+          "value": "fldz"
+        },
+        {
+          "type": "STRING",
+          "value": "fmul"
+        },
+        {
+          "type": "STRING",
+          "value": "fmulp"
+        },
+        {
+          "type": "STRING",
+          "value": "fnclex"
+        },
+        {
+          "type": "STRING",
+          "value": "fndisi"
+        },
+        {
+          "type": "STRING",
+          "value": "fneni"
+        },
+        {
+          "type": "STRING",
+          "value": "fninit"
+        },
+        {
+          "type": "STRING",
+          "value": "fnop"
+        },
+        {
+          "type": "STRING",
+          "value": "fnsave"
+        },
+        {
+          "type": "STRING",
+          "value": "fnsavew"
+        },
+        {
+          "type": "STRING",
+          "value": "fnstcw"
+        },
+        {
+          "type": "STRING",
+          "value": "fnstenv"
+        },
+        {
+          "type": "STRING",
+          "value": "fnstenvw"
+        },
+        {
+          "type": "STRING",
+          "value": "fnstsw"
+        },
+        {
+          "type": "STRING",
+          "value": "fpatan"
+        },
+        {
+          "type": "STRING",
+          "value": "fprem"
+        },
+        {
+          "type": "STRING",
+          "value": "fptan"
+        },
+        {
+          "type": "STRING",
+          "value": "frndint"
+        },
+        {
+          "type": "STRING",
+          "value": "frstor"
+        },
+        {
+          "type": "STRING",
+          "value": "frstorw"
+        },
+        {
+          "type": "STRING",
+          "value": "fsave"
+        },
+        {
+          "type": "STRING",
+          "value": "fsavew"
+        },
+        {
+          "type": "STRING",
+          "value": "fscale"
+        },
+        {
+          "type": "STRING",
+          "value": "fsqrt"
+        },
+        {
+          "type": "STRING",
+          "value": "fst"
+        },
+        {
+          "type": "STRING",
+          "value": "fstcw"
+        },
+        {
+          "type": "STRING",
+          "value": "fstenv"
+        },
+        {
+          "type": "STRING",
+          "value": "fstenvw"
+        },
+        {
+          "type": "STRING",
+          "value": "fstp"
+        },
+        {
+          "type": "STRING",
+          "value": "fstsw"
+        },
+        {
+          "type": "STRING",
+          "value": "fsub"
+        },
+        {
+          "type": "STRING",
+          "value": "fsubp"
+        },
+        {
+          "type": "STRING",
+          "value": "fsubr"
+        },
+        {
+          "type": "STRING",
+          "value": "fsubrp"
+        },
+        {
+          "type": "STRING",
+          "value": "ftst"
+        },
+        {
+          "type": "STRING",
+          "value": "fwait"
+        },
+        {
+          "type": "STRING",
+          "value": "fxam"
+        },
+        {
+          "type": "STRING",
+          "value": "fxch"
+        },
+        {
+          "type": "STRING",
+          "value": "fxtract"
+        },
+        {
+          "type": "STRING",
+          "value": "fyl2x"
+        },
+        {
+          "type": "STRING",
+          "value": "fyl2xp1"
+        }
+      ]
+    },
+    "ins_80287": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fsetpm"
+        }
+      ]
+    },
+    "ins_80387": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fldenvd"
+        },
+        {
+          "type": "STRING",
+          "value": "fsaved"
+        },
+        {
+          "type": "STRING",
+          "value": "fprem1"
+        },
+        {
+          "type": "STRING",
+          "value": "frstord"
+        },
+        {
+          "type": "STRING",
+          "value": "fsin"
+        },
+        {
+          "type": "STRING",
+          "value": "fcos"
+        },
+        {
+          "type": "STRING",
+          "value": "fsincos"
+        },
+        {
+          "type": "STRING",
+          "value": "fstenvd"
+        },
+        {
+          "type": "STRING",
+          "value": "fucom"
+        },
+        {
+          "type": "STRING",
+          "value": "fucomp"
+        },
+        {
+          "type": "STRING",
+          "value": "fucompp"
+        },
+        {
+          "type": "STRING",
+          "value": "frstpm"
+        },
+        {
+          "type": "STRING",
+          "value": "fnstdw"
+        },
+        {
+          "type": "STRING",
+          "value": "fnstsg"
+        },
+        {
+          "type": "PATTERN",
+          "value": "fsbp[0123]"
+        },
+        {
+          "type": "STRING",
+          "value": "f4x4"
+        },
+        {
+          "type": "STRING",
+          "value": "fmul4x4"
+        },
+        {
+          "type": "STRING",
+          "value": "ftstp"
+        },
+        {
+          "type": "STRING",
+          "value": "frint2"
+        },
+        {
+          "type": "STRING",
+          "value": "frichop"
+        },
+        {
+          "type": "STRING",
+          "value": "frinear"
+        }
+      ]
+    },
+    "ins_sse": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fxrstor"
+        },
+        {
+          "type": "STRING",
+          "value": "fxsave"
+        }
+      ]
+    },
+    "ins_mmx": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "emms"
+        },
+        {
+          "type": "STRING",
+          "value": "movd"
+        },
+        {
+          "type": "STRING",
+          "value": "movq"
+        },
+        {
+          "type": "STRING",
+          "value": "packssdw"
+        },
+        {
+          "type": "STRING",
+          "value": "packsswb"
+        },
+        {
+          "type": "STRING",
+          "value": "packuswb"
+        },
+        {
+          "type": "STRING",
+          "value": "paddb"
+        },
+        {
+          "type": "STRING",
+          "value": "paddw"
+        },
+        {
+          "type": "STRING",
+          "value": "paddd"
+        },
+        {
+          "type": "STRING",
+          "value": "paddq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddb"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddq"
+        },
+        {
+          "type": "STRING",
+          "value": "paddsb"
+        },
+        {
+          "type": "STRING",
+          "value": "paddsw"
+        },
+        {
+          "type": "STRING",
+          "value": "paddsd"
+        },
+        {
+          "type": "STRING",
+          "value": "paddsq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddsb"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddsw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpaddsq"
+        },
+        {
+          "type": "STRING",
+          "value": "pand"
+        },
+        {
+          "type": "STRING",
+          "value": "pandn"
+        },
+        {
+          "type": "STRING",
+          "value": "por"
+        },
+        {
+          "type": "STRING",
+          "value": "pxor"
+        },
+        {
+          "type": "PATTERN",
+          "value": "pcmpeq[bwd]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "pcmpgt[bwd]"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaddwd"
+        },
+        {
+          "type": "STRING",
+          "value": "pmulhw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmullw"
+        },
+        {
+          "type": "PATTERN",
+          "value": "pssl[wdq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "psra[dw]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "psrl[dwq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "psub[bwd]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "psubs[bw]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "psubus[bw]"
+        },
+        {
+          "type": "STRING",
+          "value": "punpckhwd"
+        },
+        {
+          "type": "STRING",
+          "value": "punpckhdq"
+        },
+        {
+          "type": "STRING",
+          "value": "punpcklbw"
+        },
+        {
+          "type": "STRING",
+          "value": "punpcklwd"
+        },
+        {
+          "type": "STRING",
+          "value": "punpckldq"
+        }
+      ]
+    },
+    "ins_mmx_plus_and_sse": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "maskmovq"
+        },
+        {
+          "type": "STRING",
+          "value": "movntq"
+        },
+        {
+          "type": "STRING",
+          "value": "pshufw"
+        },
+        {
+          "type": "STRING",
+          "value": "pinsrw"
+        },
+        {
+          "type": "STRING",
+          "value": "pextrw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovmskb"
+        },
+        {
+          "type": "STRING",
+          "value": "pminub"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaxub"
+        },
+        {
+          "type": "STRING",
+          "value": "pavgb"
+        },
+        {
+          "type": "STRING",
+          "value": "pavgw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmulhuw"
+        },
+        {
+          "type": "STRING",
+          "value": "pminsw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaxsw"
+        },
+        {
+          "type": "STRING",
+          "value": "psadbw"
+        }
+      ]
+    },
+    "ins_mmx_sse2": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "psignb"
+        },
+        {
+          "type": "STRING",
+          "value": "psignw"
+        },
+        {
+          "type": "STRING",
+          "value": "psignd"
+        },
+        {
+          "type": "STRING",
+          "value": "pshufb"
+        },
+        {
+          "type": "STRING",
+          "value": "pmulhrsw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaddubsw"
+        },
+        {
+          "type": "STRING",
+          "value": "phsubw"
+        },
+        {
+          "type": "STRING",
+          "value": "phsubsw"
+        },
+        {
+          "type": "STRING",
+          "value": "phsubd"
+        },
+        {
+          "type": "STRING",
+          "value": "phaddsw"
+        },
+        {
+          "type": "STRING",
+          "value": "phaddw"
+        },
+        {
+          "type": "STRING",
+          "value": "phaddd"
+        },
+        {
+          "type": "STRING",
+          "value": "palignr"
+        },
+        {
+          "type": "STRING",
+          "value": "pabsb"
+        },
+        {
+          "type": "STRING",
+          "value": "pabsw"
+        },
+        {
+          "type": "STRING",
+          "value": "pbasd"
+        }
+      ]
+    },
+    "ins_3dnow": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "femms"
+        },
+        {
+          "type": "STRING",
+          "value": "pavgusb"
+        },
+        {
+          "type": "STRING",
+          "value": "pf2id"
+        },
+        {
+          "type": "STRING",
+          "value": "pfacc"
+        },
+        {
+          "type": "STRING",
+          "value": "pfadd"
+        },
+        {
+          "type": "STRING",
+          "value": "pfcmpeq"
+        },
+        {
+          "type": "STRING",
+          "value": "pfcmpge"
+        },
+        {
+          "type": "STRING",
+          "value": "pfcmpgt"
+        },
+        {
+          "type": "STRING",
+          "value": "pfmax"
+        },
+        {
+          "type": "STRING",
+          "value": "pfmin"
+        },
+        {
+          "type": "STRING",
+          "value": "pfmul"
+        },
+        {
+          "type": "STRING",
+          "value": "pfrcp"
+        },
+        {
+          "type": "STRING",
+          "value": "pfrcpit1"
+        },
+        {
+          "type": "STRING",
+          "value": "pfrcpit2"
+        },
+        {
+          "type": "STRING",
+          "value": "pfrsqit1"
+        },
+        {
+          "type": "STRING",
+          "value": "pfrsqrt"
+        },
+        {
+          "type": "STRING",
+          "value": "pfsub"
+        },
+        {
+          "type": "STRING",
+          "value": "pfsubr"
+        },
+        {
+          "type": "STRING",
+          "value": "pi2fd"
+        },
+        {
+          "type": "STRING",
+          "value": "pmulhrw"
+        },
+        {
+          "type": "STRING",
+          "value": "prefetch"
+        },
+        {
+          "type": "STRING",
+          "value": "prefetchw"
+        }
+      ]
+    },
+    "ins_3dnow_plus": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "pf2iw"
+        },
+        {
+          "type": "STRING",
+          "value": "pi2fw"
+        },
+        {
+          "type": "STRING",
+          "value": "pswapd"
+        },
+        {
+          "type": "STRING",
+          "value": "pfnacc"
+        },
+        {
+          "type": "STRING",
+          "value": "pfpnacc"
+        }
+      ]
+    },
+    "ins_geode_gx": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "pfrcpv"
+        },
+        {
+          "type": "STRING",
+          "value": "pfrqsrtv"
+        }
+      ]
+    },
+    "ins_sse_pentium3": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "andps"
+        },
+        {
+          "type": "STRING",
+          "value": "andnps"
+        },
+        {
+          "type": "STRING",
+          "value": "orps"
+        },
+        {
+          "type": "STRING",
+          "value": "xorps"
+        },
+        {
+          "type": "STRING",
+          "value": "movups"
+        },
+        {
+          "type": "STRING",
+          "value": "movss"
+        },
+        {
+          "type": "STRING",
+          "value": "movlps"
+        },
+        {
+          "type": "STRING",
+          "value": "movhlps"
+        },
+        {
+          "type": "STRING",
+          "value": "unpcklps"
+        },
+        {
+          "type": "STRING",
+          "value": "unpckhps"
+        },
+        {
+          "type": "STRING",
+          "value": "movhps"
+        },
+        {
+          "type": "STRING",
+          "value": "movlhps"
+        },
+        {
+          "type": "STRING",
+          "value": "movaps"
+        },
+        {
+          "type": "STRING",
+          "value": "movntps"
+        },
+        {
+          "type": "STRING",
+          "value": "movmskps"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtpi2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtsi2ss"
+        },
+        {
+          "type": "STRING",
+          "value": "cvttps2pi"
+        },
+        {
+          "type": "STRING",
+          "value": "cvttss2si"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtps2pi"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtss2si"
+        },
+        {
+          "type": "STRING",
+          "value": "ucomiss"
+        },
+        {
+          "type": "STRING",
+          "value": "comiss"
+        },
+        {
+          "type": "STRING",
+          "value": "sqrtps"
+        },
+        {
+          "type": "STRING",
+          "value": "sqrtss"
+        },
+        {
+          "type": "STRING",
+          "value": "rsqrtps"
+        },
+        {
+          "type": "STRING",
+          "value": "rcpps"
+        },
+        {
+          "type": "STRING",
+          "value": "rcpss"
+        },
+        {
+          "type": "STRING",
+          "value": "addps"
+        },
+        {
+          "type": "STRING",
+          "value": "addss"
+        },
+        {
+          "type": "STRING",
+          "value": "mulps"
+        },
+        {
+          "type": "STRING",
+          "value": "mulss"
+        },
+        {
+          "type": "STRING",
+          "value": "subps"
+        },
+        {
+          "type": "STRING",
+          "value": "subss"
+        },
+        {
+          "type": "STRING",
+          "value": "minps"
+        },
+        {
+          "type": "STRING",
+          "value": "minss"
+        },
+        {
+          "type": "STRING",
+          "value": "divps"
+        },
+        {
+          "type": "STRING",
+          "value": "divss"
+        },
+        {
+          "type": "STRING",
+          "value": "maxps"
+        },
+        {
+          "type": "STRING",
+          "value": "maxss"
+        },
+        {
+          "type": "STRING",
+          "value": "ldmxcsr"
+        },
+        {
+          "type": "STRING",
+          "value": "stmxcsr"
+        },
+        {
+          "type": "STRING",
+          "value": "cmpps"
+        },
+        {
+          "type": "STRING",
+          "value": "shufps"
+        }
+      ]
+    },
+    "ins_sse2_pentium4": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "movapd"
+        },
+        {
+          "type": "STRING",
+          "value": "movntpd"
+        },
+        {
+          "type": "STRING",
+          "value": "movhpd"
+        },
+        {
+          "type": "STRING",
+          "value": "movhpd"
+        },
+        {
+          "type": "STRING",
+          "value": "movlpd"
+        },
+        {
+          "type": "STRING",
+          "value": "movupd"
+        },
+        {
+          "type": "STRING",
+          "value": "movmskpd"
+        },
+        {
+          "type": "STRING",
+          "value": "addpd"
+        },
+        {
+          "type": "STRING",
+          "value": "addsd"
+        },
+        {
+          "type": "STRING",
+          "value": "divpd"
+        },
+        {
+          "type": "STRING",
+          "value": "divsd"
+        },
+        {
+          "type": "STRING",
+          "value": "maxpd"
+        },
+        {
+          "type": "STRING",
+          "value": "maxsd"
+        },
+        {
+          "type": "STRING",
+          "value": "minpd"
+        },
+        {
+          "type": "STRING",
+          "value": "minsd"
+        },
+        {
+          "type": "STRING",
+          "value": "mulpd"
+        },
+        {
+          "type": "STRING",
+          "value": "mulsd"
+        },
+        {
+          "type": "STRING",
+          "value": "sqrtpd"
+        },
+        {
+          "type": "STRING",
+          "value": "sqrtsd"
+        },
+        {
+          "type": "STRING",
+          "value": "subpd"
+        },
+        {
+          "type": "STRING",
+          "value": "subsd"
+        },
+        {
+          "type": "STRING",
+          "value": "andpd"
+        },
+        {
+          "type": "STRING",
+          "value": "andnpd"
+        },
+        {
+          "type": "STRING",
+          "value": "orpd"
+        },
+        {
+          "type": "STRING",
+          "value": "xorpd"
+        },
+        {
+          "type": "STRING",
+          "value": "cmppd"
+        },
+        {
+          "type": "STRING",
+          "value": "comisd"
+        },
+        {
+          "type": "STRING",
+          "value": "ucomisd"
+        },
+        {
+          "type": "STRING",
+          "value": "shufpd"
+        },
+        {
+          "type": "STRING",
+          "value": "unpckhpd"
+        },
+        {
+          "type": "STRING",
+          "value": "unpcklpd"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtdq2pd"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtdq2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtpd2dq"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtpd2pi"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtpd2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtpi2pd"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtps2dq"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtps2pd"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtsd2si"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtsd2ss"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtsi2sd"
+        },
+        {
+          "type": "STRING",
+          "value": "cvtss2sd"
+        },
+        {
+          "type": "STRING",
+          "value": "cvttpd2dq"
+        },
+        {
+          "type": "STRING",
+          "value": "cvttpd2pi"
+        },
+        {
+          "type": "STRING",
+          "value": "cvttps2dq"
+        },
+        {
+          "type": "STRING",
+          "value": "cvttsd2si"
+        },
+        {
+          "type": "PATTERN",
+          "value": "paddus[bw]"
+        },
+        {
+          "type": "STRING",
+          "value": "pmuludq"
+        },
+        {
+          "type": "STRING",
+          "value": "punpckhbw"
+        },
+        {
+          "type": "STRING",
+          "value": "maskmovdqu"
+        },
+        {
+          "type": "STRING",
+          "value": "movdq2q"
+        },
+        {
+          "type": "STRING",
+          "value": "vmovdqa"
+        },
+        {
+          "type": "STRING",
+          "value": "movdqa"
+        },
+        {
+          "type": "STRING",
+          "value": "movdqu"
+        },
+        {
+          "type": "STRING",
+          "value": "vmovdqu"
+        },
+        {
+          "type": "STRING",
+          "value": "movq2dq"
+        },
+        {
+          "type": "STRING",
+          "value": "movntdq"
+        },
+        {
+          "type": "STRING",
+          "value": "pshufhw"
+        },
+        {
+          "type": "STRING",
+          "value": "pshuflw"
+        },
+        {
+          "type": "STRING",
+          "value": "pshufd"
+        },
+        {
+          "type": "STRING",
+          "value": "pslldq"
+        },
+        {
+          "type": "STRING",
+          "value": "psrldq"
+        },
+        {
+          "type": "STRING",
+          "value": "punpckhqdq"
+        },
+        {
+          "type": "STRING",
+          "value": "punpcklqdq"
+        }
+      ]
+    },
+    "ins_sse3_pentium4": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "addsubps"
+        },
+        {
+          "type": "STRING",
+          "value": "addsubpd"
+        },
+        {
+          "type": "STRING",
+          "value": "movddup"
+        },
+        {
+          "type": "STRING",
+          "value": "movsldup"
+        },
+        {
+          "type": "STRING",
+          "value": "movshdup"
+        },
+        {
+          "type": "STRING",
+          "value": "haddps"
+        },
+        {
+          "type": "STRING",
+          "value": "haddpd"
+        },
+        {
+          "type": "STRING",
+          "value": "hsubps"
+        },
+        {
+          "type": "STRING",
+          "value": "hsubpd"
+        },
+        {
+          "type": "STRING",
+          "value": "lddqu"
+        }
+      ]
+    },
+    "ins_sse3_core2": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "psignb"
+        },
+        {
+          "type": "STRING",
+          "value": "psignw"
+        },
+        {
+          "type": "STRING",
+          "value": "psignd"
+        },
+        {
+          "type": "STRING",
+          "value": "pshufb"
+        },
+        {
+          "type": "STRING",
+          "value": "pmulhrsw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaddubsw"
+        },
+        {
+          "type": "STRING",
+          "value": "phsubw"
+        },
+        {
+          "type": "STRING",
+          "value": "phsubsw"
+        },
+        {
+          "type": "STRING",
+          "value": "phsubd"
+        },
+        {
+          "type": "STRING",
+          "value": "phaddsw"
+        },
+        {
+          "type": "STRING",
+          "value": "phaddw"
+        },
+        {
+          "type": "STRING",
+          "value": "phaddd"
+        },
+        {
+          "type": "STRING",
+          "value": "palignr"
+        },
+        {
+          "type": "STRING",
+          "value": "pabsb"
+        },
+        {
+          "type": "STRING",
+          "value": "pabsw"
+        },
+        {
+          "type": "STRING",
+          "value": "pabsd"
+        }
+      ]
+    },
+    "ins_sse4_1": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "dpps"
+        },
+        {
+          "type": "STRING",
+          "value": "dppd"
+        },
+        {
+          "type": "STRING",
+          "value": "blendps"
+        },
+        {
+          "type": "STRING",
+          "value": "blendvps"
+        },
+        {
+          "type": "STRING",
+          "value": "blendpd"
+        },
+        {
+          "type": "STRING",
+          "value": "blendvpd"
+        },
+        {
+          "type": "STRING",
+          "value": "roundps"
+        },
+        {
+          "type": "STRING",
+          "value": "roundss"
+        },
+        {
+          "type": "STRING",
+          "value": "roundpd"
+        },
+        {
+          "type": "STRING",
+          "value": "roundsd"
+        },
+        {
+          "type": "STRING",
+          "value": "insertps"
+        },
+        {
+          "type": "STRING",
+          "value": "extractps"
+        },
+        {
+          "type": "STRING",
+          "value": "mpsadbw"
+        },
+        {
+          "type": "STRING",
+          "value": "phminposuw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmulld"
+        },
+        {
+          "type": "STRING",
+          "value": "pmuldq"
+        },
+        {
+          "type": "STRING",
+          "value": "pblendvb"
+        },
+        {
+          "type": "STRING",
+          "value": "pblendw"
+        },
+        {
+          "type": "STRING",
+          "value": "pminsb"
+        },
+        {
+          "type": "STRING",
+          "value": "pminuw"
+        },
+        {
+          "type": "STRING",
+          "value": "pminsd"
+        },
+        {
+          "type": "STRING",
+          "value": "pminud"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaxsb"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaxuw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaxsd"
+        },
+        {
+          "type": "STRING",
+          "value": "pmaxud"
+        },
+        {
+          "type": "STRING",
+          "value": "pinsrb"
+        },
+        {
+          "type": "STRING",
+          "value": "pinsrd"
+        },
+        {
+          "type": "STRING",
+          "value": "pinsrq"
+        },
+        {
+          "type": "STRING",
+          "value": "pextrb"
+        },
+        {
+          "type": "STRING",
+          "value": "pextrd"
+        },
+        {
+          "type": "STRING",
+          "value": "pextrq"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovsxbw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovzxbw"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovsxbd"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovzxbd"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovsxbq"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovzxbq"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovsxwd"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovzxwd"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovsxwq"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovzxwq"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovsxdq"
+        },
+        {
+          "type": "STRING",
+          "value": "pmovzxdq"
+        },
+        {
+          "type": "STRING",
+          "value": "ptest"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpeqq"
+        },
+        {
+          "type": "STRING",
+          "value": "packusdw"
+        },
+        {
+          "type": "STRING",
+          "value": "monvtdqa"
+        }
+      ]
+    },
+    "ins_sse4a": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "extrq"
+        },
+        {
+          "type": "STRING",
+          "value": "insertq"
+        },
+        {
+          "type": "STRING",
+          "value": "movntsd"
+        },
+        {
+          "type": "STRING",
+          "value": "movntss"
+        }
+      ]
+    },
+    "ins_sse4_2_nehalem": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "pcmpestri"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpestrm"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpistri"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpistrm"
+        },
+        {
+          "type": "STRING",
+          "value": "pcmpgtq"
+        }
+      ]
+    },
+    "ins_f16c": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "vcvtph2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtps2ph"
+        }
+      ]
+    },
+    "ins_fma3": {
+      "type": "PATTERN",
+      "value": "vf(n?)m(add|addsub|sub|subadd)(132|213|231)(pd|ps|sd|ss)"
+    },
+    "ins_fma4": {
+      "type": "PATTERN",
+      "value": "vf(n?)m(add|addsub|subadd|sub)(pd|ps|sd|ss)"
+    },
+    "ins_avx": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "vbroadcast(ss|sd|f128)"
+        },
+        {
+          "type": "STRING",
+          "value": "vinsertf128"
+        },
+        {
+          "type": "STRING",
+          "value": "vextractf128"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vmaskmov(ps|pd)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpermil(ps|pd)"
+        },
+        {
+          "type": "STRING",
+          "value": "vperm2f128"
+        },
+        {
+          "type": "STRING",
+          "value": "vzeroall"
+        },
+        {
+          "type": "STRING",
+          "value": "vzeroupper"
+        }
+      ]
+    },
+    "ins_avx2": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "vbroadcast(ss|sd)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpbroadcast[bwdq]"
+        },
+        {
+          "type": "STRING",
+          "value": "vbroadcasti128"
+        },
+        {
+          "type": "STRING",
+          "value": "vinserti128"
+        },
+        {
+          "type": "STRING",
+          "value": "vextracti128"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vgather(dpd|qpd|dps|qps)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpgather(dd|dq|qd|qq)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpmaskmov[dq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vper(mps|md|mpd|mq|m2i128)"
+        },
+        {
+          "type": "STRING",
+          "value": "vpblendd"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vps(llvd|llvq|rlvd|rlvq|ravd)"
+        }
+      ]
+    },
+    "ins_avx512": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "vblendm(pd|ps)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpblend(md|mq)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpcmp(u?)d"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpcmp(i?)q"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vptest(n?)(md|mq)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vcompress(pd|ps)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpcompress[dq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vexpand(pd|ps)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpexpand[dq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpermi2(pd|ps)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpermi2[dq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpermt2(ps|pd|d|q)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vshuff(i?)(32x4|64x2)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpternlog[dq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpmov(u?)(s?)q[dwb]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpmov(u?)(s?)d[wb]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vcv(t?)(ps|pd)2udq"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vcvtudq2(ps|pd)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vcvtusi2(ps|pd|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vcvtqq2(pd|ps)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vgetexp(pd|ps|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vgetmant(pd|ps|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vfixupimm(pd|ps|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vrcp14(pd|ps|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vrndscale(pd|ps|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vrsqrt14(pd|ps|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vscalef(pd|ps|sd|ss)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "valign[dq]"
+        },
+        {
+          "type": "STRING",
+          "value": "vpabsq"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpmax(sq|uq)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpmin(sq|uq)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpro[lr](v?)[dq]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vpscatter(dd|dq|qd|qq)"
+        },
+        {
+          "type": "PATTERN",
+          "value": "vscatter(dpd|dps|qps|qpd)"
+        }
+      ]
+    },
+    "ins_intel_aes": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "aesenc"
+        },
+        {
+          "type": "STRING",
+          "value": "aesenclast"
+        },
+        {
+          "type": "STRING",
+          "value": "aesdec"
+        },
+        {
+          "type": "STRING",
+          "value": "aesdeclast"
+        },
+        {
+          "type": "STRING",
+          "value": "aeskeygenassist"
+        },
+        {
+          "type": "STRING",
+          "value": "aesimc"
+        }
+      ]
+    },
+    "ins_rdrand": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "rdrand"
+        },
+        {
+          "type": "STRING",
+          "value": "rdseed"
+        }
+      ]
+    },
+    "ins_intel_sha": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "sha1rnds4"
+        },
+        {
+          "type": "STRING",
+          "value": "sha1nexte"
+        },
+        {
+          "type": "STRING",
+          "value": "sha1msg1"
+        },
+        {
+          "type": "STRING",
+          "value": "sha1msg2"
+        },
+        {
+          "type": "STRING",
+          "value": "sha256rnds2"
+        },
+        {
+          "type": "STRING",
+          "value": "sha256msg1"
+        },
+        {
+          "type": "STRING",
+          "value": "sha256msg2"
+        }
+      ]
+    },
+    "ins_virt_amd_v": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "clgi"
+        },
+        {
+          "type": "STRING",
+          "value": "invlpga"
+        },
+        {
+          "type": "STRING",
+          "value": "skinit"
+        },
+        {
+          "type": "STRING",
+          "value": "stgi"
+        },
+        {
+          "type": "STRING",
+          "value": "vmload"
+        },
+        {
+          "type": "STRING",
+          "value": "vmmcall"
+        },
+        {
+          "type": "STRING",
+          "value": "vmrun"
+        },
+        {
+          "type": "STRING",
+          "value": "vmsave"
+        }
+      ]
+    },
+    "ins_virt_vt_x": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "invept"
+        },
+        {
+          "type": "STRING",
+          "value": "invvpid"
+        },
+        {
+          "type": "STRING",
+          "value": "vmfunc"
+        },
+        {
+          "type": "STRING",
+          "value": "vmptrld"
+        },
+        {
+          "type": "STRING",
+          "value": "vmptrst"
+        },
+        {
+          "type": "STRING",
+          "value": "vmclear"
+        },
+        {
+          "type": "STRING",
+          "value": "vmread"
+        },
+        {
+          "type": "STRING",
+          "value": "vmwrite"
+        },
+        {
+          "type": "STRING",
+          "value": "vmcall"
+        },
+        {
+          "type": "STRING",
+          "value": "vmlaunch"
+        },
+        {
+          "type": "STRING",
+          "value": "vmresume"
+        },
+        {
+          "type": "STRING",
+          "value": "vmxoff"
+        },
+        {
+          "type": "STRING",
+          "value": "vmxon"
+        }
+      ]
+    },
+    "ins_undoc": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "setalc"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "rep"
+            },
+            {
+              "type": "STRING",
+              "value": "ret"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "icebp"
+        },
+        {
+          "type": "STRING",
+          "value": "int1"
+        },
+        {
+          "type": "STRING",
+          "value": "ud1"
+        },
+        {
+          "type": "STRING",
+          "value": "ud0"
+        },
+        {
+          "type": "STRING",
+          "value": "saveall"
+        },
+        {
+          "type": "STRING",
+          "value": "storeall"
+        },
+        {
+          "type": "STRING",
+          "value": "loadalld"
+        },
+        {
+          "type": "STRING",
+          "value": "cl1invmb"
+        },
+        {
+          "type": "STRING",
+          "value": "patch2"
+        },
+        {
+          "type": "STRING",
+          "value": "patch3"
+        },
+        {
+          "type": "STRING",
+          "value": "umov"
+        },
+        {
+          "type": "STRING",
+          "value": "scall"
+        },
+        {
+          "type": "STRING",
+          "value": "nxop"
+        },
+        {
+          "type": "STRING",
+          "value": "pswapw"
+        },
+        {
+          "type": "STRING",
+          "value": "altinst"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "rep"
+            },
+            {
+              "type": "STRING",
+              "value": "xsha512"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "rep"
+            },
+            {
+              "type": "STRING",
+              "value": "xmodexp"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "xrng2"
+        },
+        {
+          "type": "STRING",
+          "value": "montmul2"
+        },
+        {
+          "type": "STRING",
+          "value": "ffreep"
+        },
+        {
+          "type": "STRING",
+          "value": "fstpnce"
+        },
+        {
+          "type": "STRING",
+          "value": "feni8087_nop"
+        },
+        {
+          "type": "STRING",
+          "value": "fdisi8087_nop"
+        },
+        {
+          "type": "STRING",
+          "value": "fsetpm287_nop"
         }
       ]
     }

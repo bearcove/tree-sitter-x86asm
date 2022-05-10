@@ -1,5 +1,20 @@
 [
   {
+    "type": "builtin",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "operand_args",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "directive",
     "named": true,
     "fields": {},
@@ -7,6 +22,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "builtin",
+          "named": true
+        },
         {
           "type": "extern",
           "named": true
@@ -65,7 +84,444 @@
     }
   },
   {
+    "type": "ins_3dnow",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_3dnow_plus",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_80186",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_80286",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_80287",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_80386",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_80387",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_80486",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_8086",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_8087",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_adx",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_amd_k6",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_avx",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_avx2",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_avx512",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_bitmanip",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_clmul",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_f16c",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_geode_gx",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_intel_aes",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_intel_cet",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_intel_mpx",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_intel_sha",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_intel_tsx",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "ins_kw",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ins_3dnow",
+          "named": true
+        },
+        {
+          "type": "ins_3dnow_plus",
+          "named": true
+        },
+        {
+          "type": "ins_80186",
+          "named": true
+        },
+        {
+          "type": "ins_80286",
+          "named": true
+        },
+        {
+          "type": "ins_80287",
+          "named": true
+        },
+        {
+          "type": "ins_80386",
+          "named": true
+        },
+        {
+          "type": "ins_80387",
+          "named": true
+        },
+        {
+          "type": "ins_80486",
+          "named": true
+        },
+        {
+          "type": "ins_8086",
+          "named": true
+        },
+        {
+          "type": "ins_8087",
+          "named": true
+        },
+        {
+          "type": "ins_adx",
+          "named": true
+        },
+        {
+          "type": "ins_amd_k6",
+          "named": true
+        },
+        {
+          "type": "ins_avx",
+          "named": true
+        },
+        {
+          "type": "ins_avx2",
+          "named": true
+        },
+        {
+          "type": "ins_avx512",
+          "named": true
+        },
+        {
+          "type": "ins_bitmanip",
+          "named": true
+        },
+        {
+          "type": "ins_clmul",
+          "named": true
+        },
+        {
+          "type": "ins_f16c",
+          "named": true
+        },
+        {
+          "type": "ins_fma3",
+          "named": true
+        },
+        {
+          "type": "ins_fma4",
+          "named": true
+        },
+        {
+          "type": "ins_geode_gx",
+          "named": true
+        },
+        {
+          "type": "ins_intel_aes",
+          "named": true
+        },
+        {
+          "type": "ins_intel_cet",
+          "named": true
+        },
+        {
+          "type": "ins_intel_mpx",
+          "named": true
+        },
+        {
+          "type": "ins_intel_sha",
+          "named": true
+        },
+        {
+          "type": "ins_intel_tsx",
+          "named": true
+        },
+        {
+          "type": "ins_mmx",
+          "named": true
+        },
+        {
+          "type": "ins_mmx_plus_and_sse",
+          "named": true
+        },
+        {
+          "type": "ins_mmx_sse2",
+          "named": true
+        },
+        {
+          "type": "ins_pentium",
+          "named": true
+        },
+        {
+          "type": "ins_pentium_2",
+          "named": true
+        },
+        {
+          "type": "ins_pentium_mmx",
+          "named": true
+        },
+        {
+          "type": "ins_pentium_pro",
+          "named": true
+        },
+        {
+          "type": "ins_rdrand",
+          "named": true
+        },
+        {
+          "type": "ins_sse",
+          "named": true
+        },
+        {
+          "type": "ins_sse2",
+          "named": true
+        },
+        {
+          "type": "ins_sse2_pentium4",
+          "named": true
+        },
+        {
+          "type": "ins_sse3",
+          "named": true
+        },
+        {
+          "type": "ins_sse3_pentium4",
+          "named": true
+        },
+        {
+          "type": "ins_sse4_1",
+          "named": true
+        },
+        {
+          "type": "ins_sse4_2",
+          "named": true
+        },
+        {
+          "type": "ins_sse4_2_nehalem",
+          "named": true
+        },
+        {
+          "type": "ins_sse4a",
+          "named": true
+        },
+        {
+          "type": "ins_sse_non_simd",
+          "named": true
+        },
+        {
+          "type": "ins_sse_pentium3",
+          "named": true
+        },
+        {
+          "type": "ins_undoc",
+          "named": true
+        },
+        {
+          "type": "ins_virt_amd_v",
+          "named": true
+        },
+        {
+          "type": "ins_virt_vt_x",
+          "named": true
+        },
+        {
+          "type": "ins_x86_64",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ins_mmx",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_mmx_plus_and_sse",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_mmx_sse2",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_pentium",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_pentium_2",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_pentium_mmx",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_pentium_pro",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_rdrand",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse2",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse2_pentium4",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse3",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse3_pentium4",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse4_1",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse4_2",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse4_2_nehalem",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse4a",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse_non_simd",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_sse_pentium3",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_undoc",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_virt_amd_v",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_virt_vt_x",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ins_x86_64",
     "named": true,
     "fields": {}
   },
@@ -306,7 +762,83 @@
     "named": false
   },
   {
+    "type": "aaa",
+    "named": false
+  },
+  {
+    "type": "aad",
+    "named": false
+  },
+  {
+    "type": "aam",
+    "named": false
+  },
+  {
+    "type": "aas",
+    "named": false
+  },
+  {
+    "type": "adc",
+    "named": false
+  },
+  {
+    "type": "adcx",
+    "named": false
+  },
+  {
     "type": "add",
+    "named": false
+  },
+  {
+    "type": "addpd",
+    "named": false
+  },
+  {
+    "type": "addps",
+    "named": false
+  },
+  {
+    "type": "addsd",
+    "named": false
+  },
+  {
+    "type": "addss",
+    "named": false
+  },
+  {
+    "type": "addsubpd",
+    "named": false
+  },
+  {
+    "type": "addsubps",
+    "named": false
+  },
+  {
+    "type": "adox",
+    "named": false
+  },
+  {
+    "type": "aesdec",
+    "named": false
+  },
+  {
+    "type": "aesdeclast",
+    "named": false
+  },
+  {
+    "type": "aesenc",
+    "named": false
+  },
+  {
+    "type": "aesenclast",
+    "named": false
+  },
+  {
+    "type": "aesimc",
+    "named": false
+  },
+  {
+    "type": "aeskeygenassist",
     "named": false
   },
   {
@@ -318,7 +850,43 @@
     "named": false
   },
   {
+    "type": "altinst",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "andn",
+    "named": false
+  },
+  {
+    "type": "andnpd",
+    "named": false
+  },
+  {
+    "type": "andnps",
+    "named": false
+  },
+  {
+    "type": "andpd",
+    "named": false
+  },
+  {
+    "type": "andps",
+    "named": false
+  },
+  {
+    "type": "arpl",
+    "named": false
+  },
+  {
     "type": "ax",
+    "named": false
+  },
+  {
+    "type": "bextr",
     "named": false
   },
   {
@@ -330,7 +898,127 @@
     "named": false
   },
   {
+    "type": "blcfill",
+    "named": false
+  },
+  {
+    "type": "blci",
+    "named": false
+  },
+  {
+    "type": "blcic",
+    "named": false
+  },
+  {
+    "type": "blcmsk",
+    "named": false
+  },
+  {
+    "type": "blcs",
+    "named": false
+  },
+  {
+    "type": "blendpd",
+    "named": false
+  },
+  {
+    "type": "blendps",
+    "named": false
+  },
+  {
+    "type": "blendvpd",
+    "named": false
+  },
+  {
+    "type": "blendvps",
+    "named": false
+  },
+  {
+    "type": "blsfill",
+    "named": false
+  },
+  {
+    "type": "blsi",
+    "named": false
+  },
+  {
+    "type": "blsic",
+    "named": false
+  },
+  {
+    "type": "blsmsk",
+    "named": false
+  },
+  {
+    "type": "blsr",
+    "named": false
+  },
+  {
+    "type": "bmdmk",
+    "named": false
+  },
+  {
+    "type": "bmdmov",
+    "named": false
+  },
+  {
+    "type": "bnd",
+    "named": false
+  },
+  {
+    "type": "bndcl",
+    "named": false
+  },
+  {
+    "type": "bndcn",
+    "named": false
+  },
+  {
+    "type": "bndcu",
+    "named": false
+  },
+  {
+    "type": "bndldx",
+    "named": false
+  },
+  {
+    "type": "bndstx",
+    "named": false
+  },
+  {
+    "type": "bound",
+    "named": false
+  },
+  {
     "type": "bp",
+    "named": false
+  },
+  {
+    "type": "bsf",
+    "named": false
+  },
+  {
+    "type": "bsr",
+    "named": false
+  },
+  {
+    "type": "bswap",
+    "named": false
+  },
+  {
+    "type": "bt",
+    "named": false
+  },
+  {
+    "type": "btc",
+    "named": false
+  },
+  {
+    "type": "btr",
+    "named": false
+  },
+  {
+    "type": "bts",
     "named": false
   },
   {
@@ -342,6 +1030,26 @@
     "named": false
   },
   {
+    "type": "bzhi",
+    "named": false
+  },
+  {
+    "type": "call",
+    "named": false
+  },
+  {
+    "type": "cbw",
+    "named": false
+  },
+  {
+    "type": "cdq",
+    "named": false
+  },
+  {
+    "type": "cdqe",
+    "named": false
+  },
+  {
     "type": "ch",
     "named": false
   },
@@ -350,11 +1058,215 @@
     "named": false
   },
   {
+    "type": "cl1invmb",
+    "named": false
+  },
+  {
+    "type": "clc",
+    "named": false
+  },
+  {
+    "type": "cld",
+    "named": false
+  },
+  {
+    "type": "clflush",
+    "named": false
+  },
+  {
+    "type": "clgi",
+    "named": false
+  },
+  {
+    "type": "cli",
+    "named": false
+  },
+  {
+    "type": "clrssbsy",
+    "named": false
+  },
+  {
+    "type": "clts",
+    "named": false
+  },
+  {
+    "type": "cmc",
+    "named": false
+  },
+  {
+    "type": "cmp",
+    "named": false
+  },
+  {
+    "type": "cmppd",
+    "named": false
+  },
+  {
+    "type": "cmpps",
+    "named": false
+  },
+  {
+    "type": "cmpsb",
+    "named": false
+  },
+  {
+    "type": "cmpsd",
+    "named": false
+  },
+  {
+    "type": "cmpsq",
+    "named": false
+  },
+  {
+    "type": "cmpsw",
+    "named": false
+  },
+  {
+    "type": "cmpxchg",
+    "named": false
+  },
+  {
+    "type": "cmpxchg16b",
+    "named": false
+  },
+  {
+    "type": "cmpxchg8b",
+    "named": false
+  },
+  {
+    "type": "comisd",
+    "named": false
+  },
+  {
+    "type": "comiss",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
   {
+    "type": "cpuid",
+    "named": false
+  },
+  {
+    "type": "cqo",
+    "named": false
+  },
+  {
+    "type": "crc32",
+    "named": false
+  },
+  {
+    "type": "cvtdq2pd",
+    "named": false
+  },
+  {
+    "type": "cvtdq2ps",
+    "named": false
+  },
+  {
+    "type": "cvtpd2dq",
+    "named": false
+  },
+  {
+    "type": "cvtpd2pi",
+    "named": false
+  },
+  {
+    "type": "cvtpd2ps",
+    "named": false
+  },
+  {
+    "type": "cvtpi2pd",
+    "named": false
+  },
+  {
+    "type": "cvtpi2ps",
+    "named": false
+  },
+  {
+    "type": "cvtps2dq",
+    "named": false
+  },
+  {
+    "type": "cvtps2pd",
+    "named": false
+  },
+  {
+    "type": "cvtps2pi",
+    "named": false
+  },
+  {
+    "type": "cvtsd2si",
+    "named": false
+  },
+  {
+    "type": "cvtsd2ss",
+    "named": false
+  },
+  {
+    "type": "cvtsi2sd",
+    "named": false
+  },
+  {
+    "type": "cvtsi2ss",
+    "named": false
+  },
+  {
+    "type": "cvtss2sd",
+    "named": false
+  },
+  {
+    "type": "cvtss2si",
+    "named": false
+  },
+  {
+    "type": "cvttpd2dq",
+    "named": false
+  },
+  {
+    "type": "cvttpd2pi",
+    "named": false
+  },
+  {
+    "type": "cvttps2dq",
+    "named": false
+  },
+  {
+    "type": "cvttps2pi",
+    "named": false
+  },
+  {
+    "type": "cvttsd2si",
+    "named": false
+  },
+  {
+    "type": "cvttss2si",
+    "named": false
+  },
+  {
+    "type": "cwd",
+    "named": false
+  },
+  {
+    "type": "cwde",
+    "named": false
+  },
+  {
     "type": "cx",
+    "named": false
+  },
+  {
+    "type": "daa",
+    "named": false
+  },
+  {
+    "type": "das",
+    "named": false
+  },
+  {
+    "type": "dec",
     "named": false
   },
   {
@@ -366,7 +1278,35 @@
     "named": false
   },
   {
+    "type": "div",
+    "named": false
+  },
+  {
+    "type": "divpd",
+    "named": false
+  },
+  {
+    "type": "divps",
+    "named": false
+  },
+  {
+    "type": "divsd",
+    "named": false
+  },
+  {
+    "type": "divss",
+    "named": false
+  },
+  {
     "type": "dl",
+    "named": false
+  },
+  {
+    "type": "dppd",
+    "named": false
+  },
+  {
+    "type": "dpps",
     "named": false
   },
   {
@@ -402,6 +1342,26 @@
     "named": false
   },
   {
+    "type": "emms",
+    "named": false
+  },
+  {
+    "type": "endbr32",
+    "named": false
+  },
+  {
+    "type": "endbr64",
+    "named": false
+  },
+  {
+    "type": "enter",
+    "named": false
+  },
+  {
+    "type": "esc",
+    "named": false
+  },
+  {
     "type": "esi",
     "named": false
   },
@@ -414,7 +1374,687 @@
     "named": false
   },
   {
+    "type": "extractps",
+    "named": false
+  },
+  {
+    "type": "extrq",
+    "named": false
+  },
+  {
+    "type": "f2xm1",
+    "named": false
+  },
+  {
+    "type": "f4x4",
+    "named": false
+  },
+  {
+    "type": "fabs",
+    "named": false
+  },
+  {
+    "type": "fadd",
+    "named": false
+  },
+  {
+    "type": "faddp",
+    "named": false
+  },
+  {
+    "type": "fbld",
+    "named": false
+  },
+  {
+    "type": "fbstp",
+    "named": false
+  },
+  {
+    "type": "fchs",
+    "named": false
+  },
+  {
+    "type": "fclex",
+    "named": false
+  },
+  {
+    "type": "fcmovb",
+    "named": false
+  },
+  {
+    "type": "fcmovbe",
+    "named": false
+  },
+  {
+    "type": "fcmove",
+    "named": false
+  },
+  {
+    "type": "fcmovnb",
+    "named": false
+  },
+  {
+    "type": "fcmovnbe",
+    "named": false
+  },
+  {
+    "type": "fcmovne",
+    "named": false
+  },
+  {
+    "type": "fcmovnu",
+    "named": false
+  },
+  {
+    "type": "fcmovu",
+    "named": false
+  },
+  {
+    "type": "fcom",
+    "named": false
+  },
+  {
+    "type": "fcomi",
+    "named": false
+  },
+  {
+    "type": "fcomip",
+    "named": false
+  },
+  {
+    "type": "fcomp",
+    "named": false
+  },
+  {
+    "type": "fcompp",
+    "named": false
+  },
+  {
+    "type": "fcos",
+    "named": false
+  },
+  {
+    "type": "fdecstp",
+    "named": false
+  },
+  {
+    "type": "fdisi",
+    "named": false
+  },
+  {
+    "type": "fdisi8087_nop",
+    "named": false
+  },
+  {
+    "type": "fdiv",
+    "named": false
+  },
+  {
+    "type": "fdivp",
+    "named": false
+  },
+  {
+    "type": "fdivr",
+    "named": false
+  },
+  {
+    "type": "fdivrp",
+    "named": false
+  },
+  {
+    "type": "femms",
+    "named": false
+  },
+  {
+    "type": "feni",
+    "named": false
+  },
+  {
+    "type": "feni8087_nop",
+    "named": false
+  },
+  {
+    "type": "ffree",
+    "named": false
+  },
+  {
+    "type": "ffreep",
+    "named": false
+  },
+  {
+    "type": "fiadd",
+    "named": false
+  },
+  {
+    "type": "ficom",
+    "named": false
+  },
+  {
+    "type": "ficomp",
+    "named": false
+  },
+  {
+    "type": "fidiv",
+    "named": false
+  },
+  {
+    "type": "fidivr",
+    "named": false
+  },
+  {
+    "type": "fild",
+    "named": false
+  },
+  {
+    "type": "fimul",
+    "named": false
+  },
+  {
+    "type": "fincstp",
+    "named": false
+  },
+  {
+    "type": "finit",
+    "named": false
+  },
+  {
+    "type": "fist",
+    "named": false
+  },
+  {
+    "type": "fistp",
+    "named": false
+  },
+  {
+    "type": "fisttp",
+    "named": false
+  },
+  {
+    "type": "fisub",
+    "named": false
+  },
+  {
+    "type": "fisubr",
+    "named": false
+  },
+  {
+    "type": "fld",
+    "named": false
+  },
+  {
+    "type": "fld1",
+    "named": false
+  },
+  {
+    "type": "fldcw",
+    "named": false
+  },
+  {
+    "type": "fldenv",
+    "named": false
+  },
+  {
+    "type": "fldenvd",
+    "named": false
+  },
+  {
+    "type": "fldenvw",
+    "named": false
+  },
+  {
+    "type": "fldl2e",
+    "named": false
+  },
+  {
+    "type": "fldl2t",
+    "named": false
+  },
+  {
+    "type": "fldlg2",
+    "named": false
+  },
+  {
+    "type": "fldln2",
+    "named": false
+  },
+  {
+    "type": "fldpi",
+    "named": false
+  },
+  {
+    "type": "fldz",
+    "named": false
+  },
+  {
+    "type": "fmul",
+    "named": false
+  },
+  {
+    "type": "fmul4x4",
+    "named": false
+  },
+  {
+    "type": "fmulp",
+    "named": false
+  },
+  {
+    "type": "fnclex",
+    "named": false
+  },
+  {
+    "type": "fndisi",
+    "named": false
+  },
+  {
+    "type": "fneni",
+    "named": false
+  },
+  {
+    "type": "fninit",
+    "named": false
+  },
+  {
+    "type": "fnop",
+    "named": false
+  },
+  {
+    "type": "fnsave",
+    "named": false
+  },
+  {
+    "type": "fnsavew",
+    "named": false
+  },
+  {
+    "type": "fnstcw",
+    "named": false
+  },
+  {
+    "type": "fnstdw",
+    "named": false
+  },
+  {
+    "type": "fnstenv",
+    "named": false
+  },
+  {
+    "type": "fnstenvw",
+    "named": false
+  },
+  {
+    "type": "fnstsg",
+    "named": false
+  },
+  {
+    "type": "fnstsw",
+    "named": false
+  },
+  {
+    "type": "fpatan",
+    "named": false
+  },
+  {
+    "type": "fprem",
+    "named": false
+  },
+  {
+    "type": "fprem1",
+    "named": false
+  },
+  {
+    "type": "fptan",
+    "named": false
+  },
+  {
+    "type": "frichop",
+    "named": false
+  },
+  {
+    "type": "frinear",
+    "named": false
+  },
+  {
+    "type": "frint2",
+    "named": false
+  },
+  {
+    "type": "frndint",
+    "named": false
+  },
+  {
+    "type": "frstor",
+    "named": false
+  },
+  {
+    "type": "frstord",
+    "named": false
+  },
+  {
+    "type": "frstorw",
+    "named": false
+  },
+  {
+    "type": "frstpm",
+    "named": false
+  },
+  {
+    "type": "fsave",
+    "named": false
+  },
+  {
+    "type": "fsaved",
+    "named": false
+  },
+  {
+    "type": "fsavew",
+    "named": false
+  },
+  {
+    "type": "fscale",
+    "named": false
+  },
+  {
+    "type": "fsetpm",
+    "named": false
+  },
+  {
+    "type": "fsetpm287_nop",
+    "named": false
+  },
+  {
+    "type": "fsin",
+    "named": false
+  },
+  {
+    "type": "fsincos",
+    "named": false
+  },
+  {
+    "type": "fsqrt",
+    "named": false
+  },
+  {
+    "type": "fst",
+    "named": false
+  },
+  {
+    "type": "fstcw",
+    "named": false
+  },
+  {
+    "type": "fstenv",
+    "named": false
+  },
+  {
+    "type": "fstenvd",
+    "named": false
+  },
+  {
+    "type": "fstenvw",
+    "named": false
+  },
+  {
+    "type": "fstp",
+    "named": false
+  },
+  {
+    "type": "fstpnce",
+    "named": false
+  },
+  {
+    "type": "fstsw",
+    "named": false
+  },
+  {
+    "type": "fsub",
+    "named": false
+  },
+  {
+    "type": "fsubp",
+    "named": false
+  },
+  {
+    "type": "fsubr",
+    "named": false
+  },
+  {
+    "type": "fsubrp",
+    "named": false
+  },
+  {
+    "type": "ftst",
+    "named": false
+  },
+  {
+    "type": "ftstp",
+    "named": false
+  },
+  {
+    "type": "fucom",
+    "named": false
+  },
+  {
+    "type": "fucomi",
+    "named": false
+  },
+  {
+    "type": "fucomip",
+    "named": false
+  },
+  {
+    "type": "fucomp",
+    "named": false
+  },
+  {
+    "type": "fucompp",
+    "named": false
+  },
+  {
+    "type": "fwait",
+    "named": false
+  },
+  {
+    "type": "fxam",
+    "named": false
+  },
+  {
+    "type": "fxch",
+    "named": false
+  },
+  {
+    "type": "fxrstor",
+    "named": false
+  },
+  {
+    "type": "fxsave",
+    "named": false
+  },
+  {
+    "type": "fxtract",
+    "named": false
+  },
+  {
+    "type": "fyl2x",
+    "named": false
+  },
+  {
+    "type": "fyl2xp1",
+    "named": false
+  },
+  {
     "type": "global",
+    "named": false
+  },
+  {
+    "type": "haddpd",
+    "named": false
+  },
+  {
+    "type": "haddps",
+    "named": false
+  },
+  {
+    "type": "hlt",
+    "named": false
+  },
+  {
+    "type": "hsubpd",
+    "named": false
+  },
+  {
+    "type": "hsubps",
+    "named": false
+  },
+  {
+    "type": "ibts",
+    "named": false
+  },
+  {
+    "type": "icebp",
+    "named": false
+  },
+  {
+    "type": "idiv",
+    "named": false
+  },
+  {
+    "type": "imul",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "inc",
+    "named": false
+  },
+  {
+    "type": "incsspd",
+    "named": false
+  },
+  {
+    "type": "incsspq",
+    "named": false
+  },
+  {
+    "type": "info",
+    "named": false
+  },
+  {
+    "type": "ins_fma3",
+    "named": true
+  },
+  {
+    "type": "ins_fma4",
+    "named": true
+  },
+  {
+    "type": "insb",
+    "named": false
+  },
+  {
+    "type": "insd",
+    "named": false
+  },
+  {
+    "type": "insertps",
+    "named": false
+  },
+  {
+    "type": "insertq",
+    "named": false
+  },
+  {
+    "type": "insw",
+    "named": false
+  },
+  {
+    "type": "int",
+    "named": false
+  },
+  {
+    "type": "int1",
+    "named": false
+  },
+  {
+    "type": "into",
+    "named": false
+  },
+  {
+    "type": "invd",
+    "named": false
+  },
+  {
+    "type": "invept",
+    "named": false
+  },
+  {
+    "type": "invlpg",
+    "named": false
+  },
+  {
+    "type": "invlpga",
+    "named": false
+  },
+  {
+    "type": "invvpid",
+    "named": false
+  },
+  {
+    "type": "iret",
+    "named": false
+  },
+  {
+    "type": "iretd",
+    "named": false
+  },
+  {
+    "type": "iretq",
+    "named": false
+  },
+  {
+    "type": "jcc",
+    "named": false
+  },
+  {
+    "type": "jczx",
+    "named": false
+  },
+  {
+    "type": "jecxz",
+    "named": false
+  },
+  {
+    "type": "jmp",
+    "named": false
+  },
+  {
+    "type": "jrcxz",
+    "named": false
+  },
+  {
+    "type": "lahf",
+    "named": false
+  },
+  {
+    "type": "lar",
+    "named": false
+  },
+  {
+    "type": "lddqu",
+    "named": false
+  },
+  {
+    "type": "ldmxcsr",
+    "named": false
+  },
+  {
+    "type": "lds",
+    "named": false
+  },
+  {
+    "type": "lea",
     "named": false
   },
   {
@@ -422,7 +2062,827 @@
     "named": false
   },
   {
+    "type": "les",
+    "named": false
+  },
+  {
+    "type": "lfence",
+    "named": false
+  },
+  {
+    "type": "lfs",
+    "named": false
+  },
+  {
+    "type": "lgdt",
+    "named": false
+  },
+  {
+    "type": "lgs",
+    "named": false
+  },
+  {
+    "type": "lidt",
+    "named": false
+  },
+  {
+    "type": "lldt",
+    "named": false
+  },
+  {
+    "type": "lmsw",
+    "named": false
+  },
+  {
+    "type": "loadall",
+    "named": false
+  },
+  {
+    "type": "loadalld",
+    "named": false
+  },
+  {
+    "type": "lock",
+    "named": false
+  },
+  {
+    "type": "lodsb",
+    "named": false
+  },
+  {
+    "type": "lodsd",
+    "named": false
+  },
+  {
+    "type": "lodsq",
+    "named": false
+  },
+  {
+    "type": "lodsw",
+    "named": false
+  },
+  {
+    "type": "loop",
+    "named": false
+  },
+  {
+    "type": "loopd",
+    "named": false
+  },
+  {
+    "type": "loope",
+    "named": false
+  },
+  {
+    "type": "loopne",
+    "named": false
+  },
+  {
+    "type": "loopnz",
+    "named": false
+  },
+  {
+    "type": "loopw",
+    "named": false
+  },
+  {
+    "type": "loopz",
+    "named": false
+  },
+  {
+    "type": "lsl",
+    "named": false
+  },
+  {
+    "type": "lss",
+    "named": false
+  },
+  {
+    "type": "ltr",
+    "named": false
+  },
+  {
+    "type": "lzcnt",
+    "named": false
+  },
+  {
+    "type": "maskmovdqu",
+    "named": false
+  },
+  {
+    "type": "maskmovq",
+    "named": false
+  },
+  {
+    "type": "maxpd",
+    "named": false
+  },
+  {
+    "type": "maxps",
+    "named": false
+  },
+  {
+    "type": "maxsd",
+    "named": false
+  },
+  {
+    "type": "maxss",
+    "named": false
+  },
+  {
+    "type": "mfence",
+    "named": false
+  },
+  {
+    "type": "minpd",
+    "named": false
+  },
+  {
+    "type": "minps",
+    "named": false
+  },
+  {
+    "type": "minsd",
+    "named": false
+  },
+  {
+    "type": "minss",
+    "named": false
+  },
+  {
+    "type": "montmul2",
+    "named": false
+  },
+  {
+    "type": "monvtdqa",
+    "named": false
+  },
+  {
     "type": "mov",
+    "named": false
+  },
+  {
+    "type": "movapd",
+    "named": false
+  },
+  {
+    "type": "movaps",
+    "named": false
+  },
+  {
+    "type": "movd",
+    "named": false
+  },
+  {
+    "type": "movddup",
+    "named": false
+  },
+  {
+    "type": "movdq2q",
+    "named": false
+  },
+  {
+    "type": "movdqa",
+    "named": false
+  },
+  {
+    "type": "movdqu",
+    "named": false
+  },
+  {
+    "type": "movhlps",
+    "named": false
+  },
+  {
+    "type": "movhpd",
+    "named": false
+  },
+  {
+    "type": "movhps",
+    "named": false
+  },
+  {
+    "type": "movlhps",
+    "named": false
+  },
+  {
+    "type": "movlpd",
+    "named": false
+  },
+  {
+    "type": "movlps",
+    "named": false
+  },
+  {
+    "type": "movmskpd",
+    "named": false
+  },
+  {
+    "type": "movmskps",
+    "named": false
+  },
+  {
+    "type": "movntdq",
+    "named": false
+  },
+  {
+    "type": "movnti",
+    "named": false
+  },
+  {
+    "type": "movntpd",
+    "named": false
+  },
+  {
+    "type": "movntps",
+    "named": false
+  },
+  {
+    "type": "movntq",
+    "named": false
+  },
+  {
+    "type": "movntsd",
+    "named": false
+  },
+  {
+    "type": "movntss",
+    "named": false
+  },
+  {
+    "type": "movq",
+    "named": false
+  },
+  {
+    "type": "movq2dq",
+    "named": false
+  },
+  {
+    "type": "movsb",
+    "named": false
+  },
+  {
+    "type": "movsd",
+    "named": false
+  },
+  {
+    "type": "movshdup",
+    "named": false
+  },
+  {
+    "type": "movsldup",
+    "named": false
+  },
+  {
+    "type": "movss",
+    "named": false
+  },
+  {
+    "type": "movsw",
+    "named": false
+  },
+  {
+    "type": "movsx",
+    "named": false
+  },
+  {
+    "type": "movupd",
+    "named": false
+  },
+  {
+    "type": "movups",
+    "named": false
+  },
+  {
+    "type": "movxsd",
+    "named": false
+  },
+  {
+    "type": "movzx",
+    "named": false
+  },
+  {
+    "type": "mpsadbw",
+    "named": false
+  },
+  {
+    "type": "mul",
+    "named": false
+  },
+  {
+    "type": "mulpd",
+    "named": false
+  },
+  {
+    "type": "mulps",
+    "named": false
+  },
+  {
+    "type": "mulsd",
+    "named": false
+  },
+  {
+    "type": "mulss",
+    "named": false
+  },
+  {
+    "type": "mulx",
+    "named": false
+  },
+  {
+    "type": "neg",
+    "named": false
+  },
+  {
+    "type": "nop",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "nxop",
+    "named": false
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "orpd",
+    "named": false
+  },
+  {
+    "type": "orps",
+    "named": false
+  },
+  {
+    "type": "out",
+    "named": false
+  },
+  {
+    "type": "outsb",
+    "named": false
+  },
+  {
+    "type": "outsd",
+    "named": false
+  },
+  {
+    "type": "outsw",
+    "named": false
+  },
+  {
+    "type": "pabsb",
+    "named": false
+  },
+  {
+    "type": "pabsd",
+    "named": false
+  },
+  {
+    "type": "pabsw",
+    "named": false
+  },
+  {
+    "type": "packssdw",
+    "named": false
+  },
+  {
+    "type": "packsswb",
+    "named": false
+  },
+  {
+    "type": "packusdw",
+    "named": false
+  },
+  {
+    "type": "packuswb",
+    "named": false
+  },
+  {
+    "type": "paddb",
+    "named": false
+  },
+  {
+    "type": "paddd",
+    "named": false
+  },
+  {
+    "type": "paddq",
+    "named": false
+  },
+  {
+    "type": "paddsb",
+    "named": false
+  },
+  {
+    "type": "paddsd",
+    "named": false
+  },
+  {
+    "type": "paddsq",
+    "named": false
+  },
+  {
+    "type": "paddsw",
+    "named": false
+  },
+  {
+    "type": "paddw",
+    "named": false
+  },
+  {
+    "type": "palignr",
+    "named": false
+  },
+  {
+    "type": "pand",
+    "named": false
+  },
+  {
+    "type": "pandn",
+    "named": false
+  },
+  {
+    "type": "patch2",
+    "named": false
+  },
+  {
+    "type": "patch3",
+    "named": false
+  },
+  {
+    "type": "pause",
+    "named": false
+  },
+  {
+    "type": "pavgb",
+    "named": false
+  },
+  {
+    "type": "pavgusb",
+    "named": false
+  },
+  {
+    "type": "pavgw",
+    "named": false
+  },
+  {
+    "type": "pbasd",
+    "named": false
+  },
+  {
+    "type": "pblendvb",
+    "named": false
+  },
+  {
+    "type": "pblendw",
+    "named": false
+  },
+  {
+    "type": "pclmulhqhqdq",
+    "named": false
+  },
+  {
+    "type": "pclmulhqlqdq",
+    "named": false
+  },
+  {
+    "type": "pclmullqhqdq",
+    "named": false
+  },
+  {
+    "type": "pclmullqlqdq",
+    "named": false
+  },
+  {
+    "type": "pclmulqdq",
+    "named": false
+  },
+  {
+    "type": "pcmpeqq",
+    "named": false
+  },
+  {
+    "type": "pcmpestri",
+    "named": false
+  },
+  {
+    "type": "pcmpestrm",
+    "named": false
+  },
+  {
+    "type": "pcmpgtq",
+    "named": false
+  },
+  {
+    "type": "pcmpistri",
+    "named": false
+  },
+  {
+    "type": "pcmpistrm",
+    "named": false
+  },
+  {
+    "type": "pdep",
+    "named": false
+  },
+  {
+    "type": "pext",
+    "named": false
+  },
+  {
+    "type": "pextrb",
+    "named": false
+  },
+  {
+    "type": "pextrd",
+    "named": false
+  },
+  {
+    "type": "pextrq",
+    "named": false
+  },
+  {
+    "type": "pextrw",
+    "named": false
+  },
+  {
+    "type": "pf2id",
+    "named": false
+  },
+  {
+    "type": "pf2iw",
+    "named": false
+  },
+  {
+    "type": "pfacc",
+    "named": false
+  },
+  {
+    "type": "pfadd",
+    "named": false
+  },
+  {
+    "type": "pfcmpeq",
+    "named": false
+  },
+  {
+    "type": "pfcmpge",
+    "named": false
+  },
+  {
+    "type": "pfcmpgt",
+    "named": false
+  },
+  {
+    "type": "pfmax",
+    "named": false
+  },
+  {
+    "type": "pfmin",
+    "named": false
+  },
+  {
+    "type": "pfmul",
+    "named": false
+  },
+  {
+    "type": "pfnacc",
+    "named": false
+  },
+  {
+    "type": "pfpnacc",
+    "named": false
+  },
+  {
+    "type": "pfrcp",
+    "named": false
+  },
+  {
+    "type": "pfrcpit1",
+    "named": false
+  },
+  {
+    "type": "pfrcpit2",
+    "named": false
+  },
+  {
+    "type": "pfrcpv",
+    "named": false
+  },
+  {
+    "type": "pfrqsrtv",
+    "named": false
+  },
+  {
+    "type": "pfrsqit1",
+    "named": false
+  },
+  {
+    "type": "pfrsqrt",
+    "named": false
+  },
+  {
+    "type": "pfsub",
+    "named": false
+  },
+  {
+    "type": "pfsubr",
+    "named": false
+  },
+  {
+    "type": "phaddd",
+    "named": false
+  },
+  {
+    "type": "phaddsw",
+    "named": false
+  },
+  {
+    "type": "phaddw",
+    "named": false
+  },
+  {
+    "type": "phminposuw",
+    "named": false
+  },
+  {
+    "type": "phsubd",
+    "named": false
+  },
+  {
+    "type": "phsubsw",
+    "named": false
+  },
+  {
+    "type": "phsubw",
+    "named": false
+  },
+  {
+    "type": "pi2fd",
+    "named": false
+  },
+  {
+    "type": "pi2fw",
+    "named": false
+  },
+  {
+    "type": "pinsrb",
+    "named": false
+  },
+  {
+    "type": "pinsrd",
+    "named": false
+  },
+  {
+    "type": "pinsrq",
+    "named": false
+  },
+  {
+    "type": "pinsrw",
+    "named": false
+  },
+  {
+    "type": "pmaddubsw",
+    "named": false
+  },
+  {
+    "type": "pmaddwd",
+    "named": false
+  },
+  {
+    "type": "pmaxsb",
+    "named": false
+  },
+  {
+    "type": "pmaxsd",
+    "named": false
+  },
+  {
+    "type": "pmaxsw",
+    "named": false
+  },
+  {
+    "type": "pmaxub",
+    "named": false
+  },
+  {
+    "type": "pmaxud",
+    "named": false
+  },
+  {
+    "type": "pmaxuw",
+    "named": false
+  },
+  {
+    "type": "pminsb",
+    "named": false
+  },
+  {
+    "type": "pminsd",
+    "named": false
+  },
+  {
+    "type": "pminsw",
+    "named": false
+  },
+  {
+    "type": "pminub",
+    "named": false
+  },
+  {
+    "type": "pminud",
+    "named": false
+  },
+  {
+    "type": "pminuw",
+    "named": false
+  },
+  {
+    "type": "pmovmskb",
+    "named": false
+  },
+  {
+    "type": "pmovsxbd",
+    "named": false
+  },
+  {
+    "type": "pmovsxbq",
+    "named": false
+  },
+  {
+    "type": "pmovsxbw",
+    "named": false
+  },
+  {
+    "type": "pmovsxdq",
+    "named": false
+  },
+  {
+    "type": "pmovsxwd",
+    "named": false
+  },
+  {
+    "type": "pmovsxwq",
+    "named": false
+  },
+  {
+    "type": "pmovzxbd",
+    "named": false
+  },
+  {
+    "type": "pmovzxbq",
+    "named": false
+  },
+  {
+    "type": "pmovzxbw",
+    "named": false
+  },
+  {
+    "type": "pmovzxdq",
+    "named": false
+  },
+  {
+    "type": "pmovzxwd",
+    "named": false
+  },
+  {
+    "type": "pmovzxwq",
+    "named": false
+  },
+  {
+    "type": "pmuldq",
+    "named": false
+  },
+  {
+    "type": "pmulhrsw",
+    "named": false
+  },
+  {
+    "type": "pmulhrw",
+    "named": false
+  },
+  {
+    "type": "pmulhuw",
+    "named": false
+  },
+  {
+    "type": "pmulhw",
+    "named": false
+  },
+  {
+    "type": "pmulld",
+    "named": false
+  },
+  {
+    "type": "pmullw",
+    "named": false
+  },
+  {
+    "type": "pmuludq",
     "named": false
   },
   {
@@ -430,7 +2890,163 @@
     "named": false
   },
   {
+    "type": "popa",
+    "named": false
+  },
+  {
+    "type": "popad",
+    "named": false
+  },
+  {
+    "type": "popcnt",
+    "named": false
+  },
+  {
+    "type": "popf",
+    "named": false
+  },
+  {
+    "type": "popfd",
+    "named": false
+  },
+  {
+    "type": "popfq",
+    "named": false
+  },
+  {
+    "type": "por",
+    "named": false
+  },
+  {
+    "type": "prefetch",
+    "named": false
+  },
+  {
+    "type": "prefetchnta",
+    "named": false
+  },
+  {
+    "type": "prefetchw",
+    "named": false
+  },
+  {
+    "type": "psadbw",
+    "named": false
+  },
+  {
+    "type": "pshufb",
+    "named": false
+  },
+  {
+    "type": "pshufd",
+    "named": false
+  },
+  {
+    "type": "pshufhw",
+    "named": false
+  },
+  {
+    "type": "pshuflw",
+    "named": false
+  },
+  {
+    "type": "pshufw",
+    "named": false
+  },
+  {
+    "type": "psignb",
+    "named": false
+  },
+  {
+    "type": "psignd",
+    "named": false
+  },
+  {
+    "type": "psignw",
+    "named": false
+  },
+  {
+    "type": "pslldq",
+    "named": false
+  },
+  {
+    "type": "psrldq",
+    "named": false
+  },
+  {
+    "type": "pswapd",
+    "named": false
+  },
+  {
+    "type": "pswapw",
+    "named": false
+  },
+  {
+    "type": "ptest",
+    "named": false
+  },
+  {
+    "type": "punpckhbw",
+    "named": false
+  },
+  {
+    "type": "punpckhdq",
+    "named": false
+  },
+  {
+    "type": "punpckhqdq",
+    "named": false
+  },
+  {
+    "type": "punpckhwd",
+    "named": false
+  },
+  {
+    "type": "punpcklbw",
+    "named": false
+  },
+  {
+    "type": "punpckldq",
+    "named": false
+  },
+  {
+    "type": "punpcklqdq",
+    "named": false
+  },
+  {
+    "type": "punpcklwd",
+    "named": false
+  },
+  {
     "type": "push",
+    "named": false
+  },
+  {
+    "type": "pusha",
+    "named": false
+  },
+  {
+    "type": "pushad",
+    "named": false
+  },
+  {
+    "type": "pushd",
+    "named": false
+  },
+  {
+    "type": "pushf",
+    "named": false
+  },
+  {
+    "type": "pushfd",
+    "named": false
+  },
+  {
+    "type": "pushfq",
+    "named": false
+  },
+  {
+    "type": "pxor",
     "named": false
   },
   {
@@ -482,6 +3098,22 @@
     "named": false
   },
   {
+    "type": "rcl",
+    "named": false
+  },
+  {
+    "type": "rcpps",
+    "named": false
+  },
+  {
+    "type": "rcpss",
+    "named": false
+  },
+  {
+    "type": "rcr",
+    "named": false
+  },
+  {
     "type": "rcx",
     "named": false
   },
@@ -490,7 +3122,59 @@
     "named": false
   },
   {
+    "type": "rdmsr",
+    "named": false
+  },
+  {
+    "type": "rdpmc",
+    "named": false
+  },
+  {
+    "type": "rdrand",
+    "named": false
+  },
+  {
+    "type": "rdseed",
+    "named": false
+  },
+  {
+    "type": "rdsspd",
+    "named": false
+  },
+  {
+    "type": "rdsspq",
+    "named": false
+  },
+  {
+    "type": "rdtsc",
+    "named": false
+  },
+  {
+    "type": "rdtscp",
+    "named": false
+  },
+  {
     "type": "rdx",
+    "named": false
+  },
+  {
+    "type": "rep",
+    "named": false
+  },
+  {
+    "type": "repe",
+    "named": false
+  },
+  {
+    "type": "repne",
+    "named": false
+  },
+  {
+    "type": "repnz",
+    "named": false
+  },
+  {
+    "type": "repz",
     "named": false
   },
   {
@@ -498,11 +3182,107 @@
     "named": false
   },
   {
+    "type": "retf",
+    "named": false
+  },
+  {
+    "type": "retn",
+    "named": false
+  },
+  {
+    "type": "rol",
+    "named": false
+  },
+  {
+    "type": "ror",
+    "named": false
+  },
+  {
+    "type": "rorx",
+    "named": false
+  },
+  {
+    "type": "roundpd",
+    "named": false
+  },
+  {
+    "type": "roundps",
+    "named": false
+  },
+  {
+    "type": "roundsd",
+    "named": false
+  },
+  {
+    "type": "roundss",
+    "named": false
+  },
+  {
     "type": "rsi",
     "named": false
   },
   {
+    "type": "rsm",
+    "named": false
+  },
+  {
     "type": "rsp",
+    "named": false
+  },
+  {
+    "type": "rsqrtps",
+    "named": false
+  },
+  {
+    "type": "rstorssp",
+    "named": false
+  },
+  {
+    "type": "sahf",
+    "named": false
+  },
+  {
+    "type": "sal",
+    "named": false
+  },
+  {
+    "type": "sar",
+    "named": false
+  },
+  {
+    "type": "sarx",
+    "named": false
+  },
+  {
+    "type": "saveall",
+    "named": false
+  },
+  {
+    "type": "saveprevssp",
+    "named": false
+  },
+  {
+    "type": "sbb",
+    "named": false
+  },
+  {
+    "type": "scall",
+    "named": false
+  },
+  {
+    "type": "scasb",
+    "named": false
+  },
+  {
+    "type": "scasd",
+    "named": false
+  },
+  {
+    "type": "scasq",
+    "named": false
+  },
+  {
+    "type": "scasw",
     "named": false
   },
   {
@@ -514,7 +3294,219 @@
     "named": true
   },
   {
+    "type": "seta",
+    "named": false
+  },
+  {
+    "type": "setae",
+    "named": false
+  },
+  {
+    "type": "setalc",
+    "named": false
+  },
+  {
+    "type": "setb",
+    "named": false
+  },
+  {
+    "type": "setbe",
+    "named": false
+  },
+  {
+    "type": "setc",
+    "named": false
+  },
+  {
+    "type": "sete",
+    "named": false
+  },
+  {
+    "type": "setg",
+    "named": false
+  },
+  {
+    "type": "setge",
+    "named": false
+  },
+  {
+    "type": "setl",
+    "named": false
+  },
+  {
+    "type": "setle",
+    "named": false
+  },
+  {
+    "type": "setna",
+    "named": false
+  },
+  {
+    "type": "setnae",
+    "named": false
+  },
+  {
+    "type": "setnb",
+    "named": false
+  },
+  {
+    "type": "setnbe",
+    "named": false
+  },
+  {
+    "type": "setnc",
+    "named": false
+  },
+  {
+    "type": "setne",
+    "named": false
+  },
+  {
+    "type": "setng",
+    "named": false
+  },
+  {
+    "type": "setnge",
+    "named": false
+  },
+  {
+    "type": "setnl",
+    "named": false
+  },
+  {
+    "type": "setnle",
+    "named": false
+  },
+  {
+    "type": "setno",
+    "named": false
+  },
+  {
+    "type": "setnp",
+    "named": false
+  },
+  {
+    "type": "setns",
+    "named": false
+  },
+  {
+    "type": "setnz",
+    "named": false
+  },
+  {
+    "type": "seto",
+    "named": false
+  },
+  {
+    "type": "setp",
+    "named": false
+  },
+  {
+    "type": "setpe",
+    "named": false
+  },
+  {
+    "type": "setpo",
+    "named": false
+  },
+  {
+    "type": "sets",
+    "named": false
+  },
+  {
+    "type": "setssbsy",
+    "named": false
+  },
+  {
+    "type": "setz",
+    "named": false
+  },
+  {
+    "type": "sfence",
+    "named": false
+  },
+  {
+    "type": "sgdt",
+    "named": false
+  },
+  {
+    "type": "sha1msg1",
+    "named": false
+  },
+  {
+    "type": "sha1msg2",
+    "named": false
+  },
+  {
+    "type": "sha1nexte",
+    "named": false
+  },
+  {
+    "type": "sha1rnds4",
+    "named": false
+  },
+  {
+    "type": "sha256msg1",
+    "named": false
+  },
+  {
+    "type": "sha256msg2",
+    "named": false
+  },
+  {
+    "type": "sha256rnds2",
+    "named": false
+  },
+  {
+    "type": "shl",
+    "named": false
+  },
+  {
+    "type": "shld",
+    "named": false
+  },
+  {
+    "type": "shlx",
+    "named": false
+  },
+  {
+    "type": "shr",
+    "named": false
+  },
+  {
+    "type": "shrd",
+    "named": false
+  },
+  {
+    "type": "shrx",
+    "named": false
+  },
+  {
+    "type": "shufpd",
+    "named": false
+  },
+  {
+    "type": "shufps",
+    "named": false
+  },
+  {
     "type": "si",
+    "named": false
+  },
+  {
+    "type": "sidt",
+    "named": false
+  },
+  {
+    "type": "skinit",
+    "named": false
+  },
+  {
+    "type": "sldt",
+    "named": false
+  },
+  {
+    "type": "smsw",
     "named": false
   },
   {
@@ -522,11 +3514,375 @@
     "named": false
   },
   {
+    "type": "sqrtpd",
+    "named": false
+  },
+  {
+    "type": "sqrtps",
+    "named": false
+  },
+  {
+    "type": "sqrtsd",
+    "named": false
+  },
+  {
+    "type": "sqrtss",
+    "named": false
+  },
+  {
+    "type": "stc",
+    "named": false
+  },
+  {
+    "type": "std",
+    "named": false
+  },
+  {
+    "type": "stgi",
+    "named": false
+  },
+  {
+    "type": "sti",
+    "named": false
+  },
+  {
+    "type": "stmxcsr",
+    "named": false
+  },
+  {
+    "type": "storeall",
+    "named": false
+  },
+  {
+    "type": "stosb",
+    "named": false
+  },
+  {
+    "type": "stosd",
+    "named": false
+  },
+  {
+    "type": "stosq",
+    "named": false
+  },
+  {
+    "type": "stosw",
+    "named": false
+  },
+  {
+    "type": "str",
+    "named": false
+  },
+  {
     "type": "sub",
     "named": false
   },
   {
+    "type": "subpd",
+    "named": false
+  },
+  {
+    "type": "subps",
+    "named": false
+  },
+  {
+    "type": "subsd",
+    "named": false
+  },
+  {
+    "type": "subss",
+    "named": false
+  },
+  {
+    "type": "swapgs",
+    "named": false
+  },
+  {
+    "type": "syscall",
+    "named": false
+  },
+  {
+    "type": "sysenter",
+    "named": false
+  },
+  {
+    "type": "sysexit",
+    "named": false
+  },
+  {
+    "type": "sysret",
+    "named": false
+  },
+  {
+    "type": "t1mskc",
+    "named": false
+  },
+  {
+    "type": "test",
+    "named": false
+  },
+  {
+    "type": "tzcnt",
+    "named": false
+  },
+  {
+    "type": "tzmsk",
+    "named": false
+  },
+  {
+    "type": "ucomisd",
+    "named": false
+  },
+  {
+    "type": "ucomiss",
+    "named": false
+  },
+  {
+    "type": "ud0",
+    "named": false
+  },
+  {
+    "type": "ud1",
+    "named": false
+  },
+  {
+    "type": "umov",
+    "named": false
+  },
+  {
+    "type": "unpckhpd",
+    "named": false
+  },
+  {
+    "type": "unpckhps",
+    "named": false
+  },
+  {
+    "type": "unpcklpd",
+    "named": false
+  },
+  {
+    "type": "unpcklps",
+    "named": false
+  },
+  {
+    "type": "vbroadcasti128",
+    "named": false
+  },
+  {
+    "type": "vcvtph2ps",
+    "named": false
+  },
+  {
+    "type": "vcvtps2ph",
+    "named": false
+  },
+  {
+    "type": "verr",
+    "named": false
+  },
+  {
+    "type": "verw",
+    "named": false
+  },
+  {
+    "type": "vextractf128",
+    "named": false
+  },
+  {
+    "type": "vextracti128",
+    "named": false
+  },
+  {
+    "type": "vinsertf128",
+    "named": false
+  },
+  {
+    "type": "vinserti128",
+    "named": false
+  },
+  {
+    "type": "vmcall",
+    "named": false
+  },
+  {
+    "type": "vmclear",
+    "named": false
+  },
+  {
+    "type": "vmfunc",
+    "named": false
+  },
+  {
+    "type": "vmlaunch",
+    "named": false
+  },
+  {
+    "type": "vmload",
+    "named": false
+  },
+  {
+    "type": "vmmcall",
+    "named": false
+  },
+  {
+    "type": "vmovdqa",
+    "named": false
+  },
+  {
+    "type": "vmovdqu",
+    "named": false
+  },
+  {
+    "type": "vmptrld",
+    "named": false
+  },
+  {
+    "type": "vmptrst",
+    "named": false
+  },
+  {
+    "type": "vmread",
+    "named": false
+  },
+  {
+    "type": "vmresume",
+    "named": false
+  },
+  {
+    "type": "vmrun",
+    "named": false
+  },
+  {
+    "type": "vmsave",
+    "named": false
+  },
+  {
+    "type": "vmwrite",
+    "named": false
+  },
+  {
+    "type": "vmxoff",
+    "named": false
+  },
+  {
+    "type": "vmxon",
+    "named": false
+  },
+  {
+    "type": "vpabsq",
+    "named": false
+  },
+  {
+    "type": "vpaddb",
+    "named": false
+  },
+  {
+    "type": "vpaddd",
+    "named": false
+  },
+  {
+    "type": "vpaddq",
+    "named": false
+  },
+  {
+    "type": "vpaddsb",
+    "named": false
+  },
+  {
+    "type": "vpaddsd",
+    "named": false
+  },
+  {
+    "type": "vpaddsq",
+    "named": false
+  },
+  {
+    "type": "vpaddsw",
+    "named": false
+  },
+  {
+    "type": "vpaddw",
+    "named": false
+  },
+  {
+    "type": "vpblendd",
+    "named": false
+  },
+  {
+    "type": "vperm2f128",
+    "named": false
+  },
+  {
+    "type": "vzeroall",
+    "named": false
+  },
+  {
+    "type": "vzeroupper",
+    "named": false
+  },
+  {
+    "type": "wait",
+    "named": false
+  },
+  {
+    "type": "wbinvd",
+    "named": false
+  },
+  {
     "type": "word",
+    "named": false
+  },
+  {
+    "type": "wrmsr",
+    "named": false
+  },
+  {
+    "type": "wrssd",
+    "named": false
+  },
+  {
+    "type": "wrssq",
+    "named": false
+  },
+  {
+    "type": "wrussd",
+    "named": false
+  },
+  {
+    "type": "wrussq",
+    "named": false
+  },
+  {
+    "type": "xabort",
+    "named": false
+  },
+  {
+    "type": "xacquire",
+    "named": false
+  },
+  {
+    "type": "xadd",
+    "named": false
+  },
+  {
+    "type": "xbegin",
+    "named": false
+  },
+  {
+    "type": "xbts",
+    "named": false
+  },
+  {
+    "type": "xchg",
+    "named": false
+  },
+  {
+    "type": "xend",
+    "named": false
+  },
+  {
+    "type": "xlat",
     "named": false
   },
   {
@@ -562,7 +3918,31 @@
     "named": false
   },
   {
+    "type": "xmodexp",
+    "named": false
+  },
+  {
     "type": "xor",
+    "named": false
+  },
+  {
+    "type": "xorpd",
+    "named": false
+  },
+  {
+    "type": "xorps",
+    "named": false
+  },
+  {
+    "type": "xrelease",
+    "named": false
+  },
+  {
+    "type": "xrng2",
+    "named": false
+  },
+  {
+    "type": "xsha512",
     "named": false
   },
   {
