@@ -71,8 +71,25 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "d[bwdq]"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "db"
+            },
+            {
+              "type": "STRING",
+              "value": "dw"
+            },
+            {
+              "type": "STRING",
+              "value": "dd"
+            },
+            {
+              "type": "STRING",
+              "value": "dq"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -567,12 +584,94 @@
           "value": "["
         },
         {
-          "type": "PATTERN",
-          "value": "[^]]*"
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "segment_prefix"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "register"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "integer_literal"
+              },
+              {
+                "type": "STRING",
+                "value": "("
+              },
+              {
+                "type": "STRING",
+                "value": ")"
+              },
+              {
+                "type": "STRING",
+                "value": "*"
+              },
+              {
+                "type": "STRING",
+                "value": "+"
+              },
+              {
+                "type": "STRING",
+                "value": "-"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_IDENTIFIER"
+              }
+            ]
+          }
         },
         {
           "type": "STRING",
           "value": "]"
+        }
+      ]
+    },
+    "segment_prefix": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "segment"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "segment": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "cs"
+        },
+        {
+          "type": "STRING",
+          "value": "ds"
+        },
+        {
+          "type": "STRING",
+          "value": "es"
+        },
+        {
+          "type": "STRING",
+          "value": "fs"
+        },
+        {
+          "type": "STRING",
+          "value": "gs"
+        },
+        {
+          "type": "STRING",
+          "value": "ss"
         }
       ]
     },
@@ -598,10 +697,31 @@
       ]
     },
     "_decimal_literal": {
-      "type": "SYMBOL",
-      "name": "_DECIMAL_NUMBER"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_dec1"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_dec2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_dec3"
+        }
+      ]
     },
-    "_DECIMAL_NUMBER": {
+    "_dec1": {
+      "type": "PATTERN",
+      "value": "[0-9]+d"
+    },
+    "_dec2": {
+      "type": "PATTERN",
+      "value": "0d[0-9]+"
+    },
+    "_dec3": {
       "type": "PATTERN",
       "value": "[0-9]+"
     },
@@ -4666,140 +4786,468 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "vblendm(pd|ps)"
+          "type": "STRING",
+          "value": "vblendmpd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpblend(md|mq)"
+          "type": "STRING",
+          "value": "vblendmps"
         },
         {
-          "type": "PATTERN",
-          "value": "vpcmp(u?)d"
+          "type": "STRING",
+          "value": "vpblendmd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpcmp(i?)q"
+          "type": "STRING",
+          "value": "vpblendm1"
         },
         {
-          "type": "PATTERN",
-          "value": "vptest(n?)(md|mq)"
+          "type": "STRING",
+          "value": "vpcmpd"
         },
         {
-          "type": "PATTERN",
-          "value": "vcompress(pd|ps)"
+          "type": "STRING",
+          "value": "vpcmpud"
         },
         {
-          "type": "PATTERN",
-          "value": "vpcompress[dq]"
+          "type": "STRING",
+          "value": "vpcmpq"
         },
         {
-          "type": "PATTERN",
-          "value": "vexpand(pd|ps)"
+          "type": "STRING",
+          "value": "vpcmpiq"
         },
         {
-          "type": "PATTERN",
-          "value": "vpexpand[dq]"
+          "type": "STRING",
+          "value": "vptestmd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpermi2(pd|ps)"
+          "type": "STRING",
+          "value": "vptestmq"
         },
         {
-          "type": "PATTERN",
-          "value": "vpermi2[dq]"
+          "type": "STRING",
+          "value": "vptestnmd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpermt2(ps|pd|d|q)"
+          "type": "STRING",
+          "value": "vptestnmq"
         },
         {
-          "type": "PATTERN",
-          "value": "vshuff(i?)(32x4|64x2)"
+          "type": "STRING",
+          "value": "vcompresspd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpternlog[dq]"
+          "type": "STRING",
+          "value": "vcompressps"
         },
         {
-          "type": "PATTERN",
-          "value": "vpmov(u?)(s?)q[dwb]"
+          "type": "STRING",
+          "value": "vpcompressd"
         },
         {
-          "type": "PATTERN",
-          "value": "vpmov(u?)(s?)d[wb]"
+          "type": "STRING",
+          "value": "vpcompressq"
         },
         {
-          "type": "PATTERN",
-          "value": "vcv(t?)(ps|pd)2udq"
+          "type": "STRING",
+          "value": "vexpandpd"
         },
         {
-          "type": "PATTERN",
-          "value": "vcvtudq2(ps|pd)"
+          "type": "STRING",
+          "value": "vexpandps"
         },
         {
-          "type": "PATTERN",
-          "value": "vcvtusi2(ps|pd|sd|ss)"
+          "type": "STRING",
+          "value": "vpexpandd"
         },
         {
-          "type": "PATTERN",
-          "value": "vcvtqq2(pd|ps)"
+          "type": "STRING",
+          "value": "vpexpandq"
         },
         {
-          "type": "PATTERN",
-          "value": "vgetexp(pd|ps|sd|ss)"
+          "type": "STRING",
+          "value": "vpermi2pd"
         },
         {
-          "type": "PATTERN",
-          "value": "vgetmant(pd|ps|sd|ss)"
+          "type": "STRING",
+          "value": "vpermi2ps"
         },
         {
-          "type": "PATTERN",
-          "value": "vfixupimm(pd|ps|sd|ss)"
+          "type": "STRING",
+          "value": "vpermi2d"
         },
         {
-          "type": "PATTERN",
-          "value": "vrcp14(pd|ps|sd|ss)"
+          "type": "STRING",
+          "value": "vpermi2q"
         },
         {
-          "type": "PATTERN",
-          "value": "vrndscale(pd|ps|sd|ss)"
+          "type": "STRING",
+          "value": "vpermt2ps"
         },
         {
-          "type": "PATTERN",
-          "value": "vrsqrt14(pd|ps|sd|ss)"
+          "type": "STRING",
+          "value": "vpermt2pd"
         },
         {
-          "type": "PATTERN",
-          "value": "vscalef(pd|ps|sd|ss)"
+          "type": "STRING",
+          "value": "vpermt2d"
         },
         {
-          "type": "PATTERN",
-          "value": "valign[dq]"
+          "type": "STRING",
+          "value": "vpermt2q"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermt2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermt2pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermt2d"
+        },
+        {
+          "type": "STRING",
+          "value": "vpermt2q"
+        },
+        {
+          "type": "STRING",
+          "value": "vshuff32x4"
+        },
+        {
+          "type": "STRING",
+          "value": "vshuff64x4"
+        },
+        {
+          "type": "STRING",
+          "value": "vshuffi32x4"
+        },
+        {
+          "type": "STRING",
+          "value": "vshuffi64x4"
+        },
+        {
+          "type": "STRING",
+          "value": "vpternlogd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpternlogq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovqd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovqw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovqb"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovsqd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovsqw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovsqb"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovusqd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovusqw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovusqb"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovdw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovdb"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovsdw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovsdb"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovusdw"
+        },
+        {
+          "type": "STRING",
+          "value": "vpmovusdb"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvps2udq"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvpd2udq"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtps2udq"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtpd2udq"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtudq2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtudq2pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtusi2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtusi2pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtusi2sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtusi2ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtqq2pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vcvtqq2ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetexppd"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetexpps"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetexpsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetexpss"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetmantpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetmantps"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetmantsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vgetmantss"
+        },
+        {
+          "type": "STRING",
+          "value": "vfixupimmpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfixupimmps"
+        },
+        {
+          "type": "STRING",
+          "value": "vfixupimmsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vfixupimmss"
+        },
+        {
+          "type": "STRING",
+          "value": "vrcp14pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vrcp14ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vrcp14sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vrcp14ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vrndscalepd"
+        },
+        {
+          "type": "STRING",
+          "value": "vrndscaleps"
+        },
+        {
+          "type": "STRING",
+          "value": "vrndscalesd"
+        },
+        {
+          "type": "STRING",
+          "value": "vrndscaless"
+        },
+        {
+          "type": "STRING",
+          "value": "vrsqrt14pd"
+        },
+        {
+          "type": "STRING",
+          "value": "vrsqrt14ps"
+        },
+        {
+          "type": "STRING",
+          "value": "vrsqrt14sd"
+        },
+        {
+          "type": "STRING",
+          "value": "vrsqrt14ss"
+        },
+        {
+          "type": "STRING",
+          "value": "vscalefpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vscalefps"
+        },
+        {
+          "type": "STRING",
+          "value": "vscalefsd"
+        },
+        {
+          "type": "STRING",
+          "value": "vscalefss"
+        },
+        {
+          "type": "STRING",
+          "value": "valignd"
+        },
+        {
+          "type": "STRING",
+          "value": "valignq"
         },
         {
           "type": "STRING",
           "value": "vpabsq"
         },
         {
-          "type": "PATTERN",
-          "value": "vpmax(sq|uq)"
+          "type": "STRING",
+          "value": "vpmaxsq"
         },
         {
-          "type": "PATTERN",
-          "value": "vpmin(sq|uq)"
+          "type": "STRING",
+          "value": "vpmaxuq"
         },
         {
-          "type": "PATTERN",
-          "value": "vpro[lr](v?)[dq]"
+          "type": "STRING",
+          "value": "vpminsq"
         },
         {
-          "type": "PATTERN",
-          "value": "vpscatter(dd|dq|qd|qq)"
+          "type": "STRING",
+          "value": "vpminuq"
         },
         {
-          "type": "PATTERN",
-          "value": "vscatter(dpd|dps|qps|qpd)"
+          "type": "STRING",
+          "value": "vprold"
+        },
+        {
+          "type": "STRING",
+          "value": "vprolq"
+        },
+        {
+          "type": "STRING",
+          "value": "vprolvd"
+        },
+        {
+          "type": "STRING",
+          "value": "vprolvq"
+        },
+        {
+          "type": "STRING",
+          "value": "vprord"
+        },
+        {
+          "type": "STRING",
+          "value": "vprorq"
+        },
+        {
+          "type": "STRING",
+          "value": "vprorvd"
+        },
+        {
+          "type": "STRING",
+          "value": "vprorvq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpscatterdd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpscatterdq"
+        },
+        {
+          "type": "STRING",
+          "value": "vpscatterqd"
+        },
+        {
+          "type": "STRING",
+          "value": "vpscatterqq"
+        },
+        {
+          "type": "STRING",
+          "value": "vscatterdpd"
+        },
+        {
+          "type": "STRING",
+          "value": "vscatterdps"
+        },
+        {
+          "type": "STRING",
+          "value": "vscatterqps"
+        },
+        {
+          "type": "STRING",
+          "value": "vscatterqpd"
         }
       ]
     },

@@ -12,7 +12,7 @@ module.exports = grammar({
     directive: ($) =>
       choice($.section, $.extern, $.global, $.builtin, $.ins, $.label),
 
-    builtin: ($) => seq(/d[bwdq]/, $.operand_args),
+    builtin: ($) => seq(choice("db", "dw", "dd", "dq"), $.operand_args),
 
     section: ($) => seq("section", $.section_name, optional("info")),
     extern: ($) => seq("extern", $._IDENTIFIER),
@@ -68,7 +68,28 @@ module.exports = grammar({
 
     operand_ident: ($) => $._IDENTIFIER,
 
-    effective_addr: ($) => seq("[", /[^]]*/, "]"),
+    effective_addr: ($) =>
+      seq(
+        "[",
+        repeat1(
+          choice(
+            $.segment_prefix,
+            $.register,
+            $.integer_literal,
+            "(",
+            ")",
+            "*",
+            "+",
+            "-",
+            $._IDENTIFIER,
+          ),
+        ),
+        "]",
+      ),
+
+    segment_prefix: ($) => seq($.segment, ":"),
+
+    segment: ($) => choice("cs", "ds", "es", "fs", "gs", "ss"),
 
     integer_literal: ($) =>
       choice(
@@ -79,10 +100,10 @@ module.exports = grammar({
       ),
 
     // decimal_literal: DECIMAL_NUMBER
-    _decimal_literal: ($) => $._DECIMAL_NUMBER,
-
-    // DECIMAL_NUMBER: /[1-9][0-9]*/
-    _DECIMAL_NUMBER: ($) => /[0-9]+/,
+    _decimal_literal: ($) => choice($._dec1, $._dec2, $._dec3),
+    _dec1: ($) => /[0-9]+d/,
+    _dec2: ($) => /0d[0-9]+/,
+    _dec3: ($) => /[0-9]+/,
 
     // octal_literal: "0o" OCTAL_NUMBER
     _octal_literal: ($) => seq("0o", $._OCTAL_NUMBER),
@@ -1191,40 +1212,154 @@ module.exports = grammar({
 
     ins_avx512: ($) =>
       choice(
-        /vblendm(pd|ps)/,
-        /vpblend(md|mq)/,
-        /vpcmp(u?)d/,
-        /vpcmp(i?)q/,
-        /vptest(n?)(md|mq)/,
-        /vcompress(pd|ps)/,
-        /vpcompress[dq]/,
-        /vexpand(pd|ps)/,
-        /vpexpand[dq]/,
-        /vpermi2(pd|ps)/,
-        /vpermi2[dq]/,
-        /vpermt2(ps|pd|d|q)/,
-        /vshuff(i?)(32x4|64x2)/,
-        /vpternlog[dq]/,
-        /vpmov(u?)(s?)q[dwb]/,
-        /vpmov(u?)(s?)d[wb]/,
-        /vcv(t?)(ps|pd)2udq/,
-        /vcvtudq2(ps|pd)/,
-        /vcvtusi2(ps|pd|sd|ss)/,
-        /vcvtqq2(pd|ps)/,
-        /vgetexp(pd|ps|sd|ss)/,
-        /vgetmant(pd|ps|sd|ss)/,
-        /vfixupimm(pd|ps|sd|ss)/,
-        /vrcp14(pd|ps|sd|ss)/,
-        /vrndscale(pd|ps|sd|ss)/,
-        /vrsqrt14(pd|ps|sd|ss)/,
-        /vscalef(pd|ps|sd|ss)/,
-        /valign[dq]/,
+        "vblendmpd",
+        "vblendmps",
+
+        "vpblendmd",
+        "vpblendm1",
+
+        "vpcmpd",
+        "vpcmpud",
+
+        "vpcmpq",
+        "vpcmpiq",
+
+        "vptestmd",
+        "vptestmq",
+        "vptestnmd",
+        "vptestnmq",
+
+        "vcompresspd",
+        "vcompressps",
+        "vpcompressd",
+        "vpcompressq",
+
+        "vexpandpd",
+        "vexpandps",
+        "vpexpandd",
+        "vpexpandq",
+
+        "vpermi2pd",
+        "vpermi2ps",
+        "vpermi2d",
+        "vpermi2q",
+
+        "vpermt2ps",
+        "vpermt2pd",
+        "vpermt2d",
+        "vpermt2q",
+
+        "vpermt2ps",
+        "vpermt2pd",
+        "vpermt2d",
+        "vpermt2q",
+
+        "vshuff32x4",
+        "vshuff64x4",
+        "vshuffi32x4",
+        "vshuffi64x4",
+
+        "vpternlogd",
+        "vpternlogq",
+
+        "vpmovqd",
+        "vpmovqw",
+        "vpmovqb",
+        "vpmovsqd",
+        "vpmovsqw",
+        "vpmovsqb",
+        "vpmovusqd",
+        "vpmovusqw",
+        "vpmovusqb",
+
+        "vpmovdw",
+        "vpmovdb",
+        "vpmovsdw",
+        "vpmovsdb",
+        "vpmovusdw",
+        "vpmovusdb",
+
+        "vcvps2udq",
+        "vcvpd2udq",
+        "vcvtps2udq",
+        "vcvtpd2udq",
+
+        "vcvtudq2ps",
+        "vcvtudq2pd",
+
+        "vcvtusi2ps",
+        "vcvtusi2pd",
+        "vcvtusi2sd",
+        "vcvtusi2ss",
+
+        "vcvtqq2pd",
+        "vcvtqq2ps",
+
+        "vgetexppd",
+        "vgetexpps",
+        "vgetexpsd",
+        "vgetexpss",
+
+        "vgetmantpd",
+        "vgetmantps",
+        "vgetmantsd",
+        "vgetmantss",
+
+        "vfixupimmpd",
+        "vfixupimmps",
+        "vfixupimmsd",
+        "vfixupimmss",
+
+        "vrcp14pd",
+        "vrcp14ps",
+        "vrcp14sd",
+        "vrcp14ss",
+
+        "vrndscalepd",
+        "vrndscaleps",
+        "vrndscalesd",
+        "vrndscaless",
+
+        "vrsqrt14pd",
+        "vrsqrt14ps",
+        "vrsqrt14sd",
+        "vrsqrt14ss",
+
+        "vscalefpd",
+        "vscalefps",
+        "vscalefsd",
+        "vscalefss",
+
+        "valignd",
+        "valignq",
+
         "vpabsq",
-        /vpmax(sq|uq)/,
-        /vpmin(sq|uq)/,
-        /vpro[lr](v?)[dq]/,
-        /vpscatter(dd|dq|qd|qq)/,
-        /vscatter(dpd|dps|qps|qpd)/,
+
+        "vpmaxsq",
+        "vpmaxuq",
+
+        "vpminsq",
+        "vpminuq",
+
+        "vprold",
+        "vprolq",
+        "vprolvd",
+        "vprolvq",
+
+        "vprord",
+        "vprorq",
+        "vprorvd",
+        "vprorvq",
+
+        "vpscatterdd",
+        "vpscatterdq",
+        "vpscatterqd",
+        "vpscatterqq",
+
+        "vscatterdpd",
+        "vscatterdps",
+        "vscatterqps",
+        "vscatterqpd",
       ),
 
     ins_intel_aes: ($) =>

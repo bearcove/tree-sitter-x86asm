@@ -52,7 +52,25 @@
   {
     "type": "effective_addr",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "register",
+          "named": true
+        },
+        {
+          "type": "segment_prefix",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "extern",
@@ -678,6 +696,26 @@
     }
   },
   {
+    "type": "segment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "segment_prefix",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "segment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -740,7 +778,27 @@
     "named": false
   },
   {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
     "named": false
   },
   {
@@ -1168,6 +1226,10 @@
     "named": false
   },
   {
+    "type": "cs",
+    "named": false
+  },
+  {
     "type": "cvtdq2pd",
     "named": false
   },
@@ -1276,6 +1338,14 @@
     "named": false
   },
   {
+    "type": "db",
+    "named": false
+  },
+  {
+    "type": "dd",
+    "named": false
+  },
+  {
     "type": "dec",
     "named": false
   },
@@ -1317,6 +1387,18 @@
   },
   {
     "type": "dpps",
+    "named": false
+  },
+  {
+    "type": "dq",
+    "named": false
+  },
+  {
+    "type": "ds",
+    "named": false
+  },
+  {
+    "type": "dw",
     "named": false
   },
   {
@@ -1365,6 +1447,10 @@
   },
   {
     "type": "enter",
+    "named": false
+  },
+  {
+    "type": "es",
     "named": false
   },
   {
@@ -1748,6 +1834,10 @@
     "named": false
   },
   {
+    "type": "fs",
+    "named": false
+  },
+  {
     "type": "fsave",
     "named": false
   },
@@ -1909,6 +1999,10 @@
   },
   {
     "type": "global",
+    "named": false
+  },
+  {
+    "type": "gs",
     "named": false
   },
   {
@@ -3652,6 +3746,10 @@
     "named": false
   },
   {
+    "type": "ss",
+    "named": false
+  },
+  {
     "type": "stc",
     "named": false
   },
@@ -3788,6 +3886,22 @@
     "named": false
   },
   {
+    "type": "valignd",
+    "named": false
+  },
+  {
+    "type": "valignq",
+    "named": false
+  },
+  {
+    "type": "vblendmpd",
+    "named": false
+  },
+  {
+    "type": "vblendmps",
+    "named": false
+  },
+  {
     "type": "vbroadcastf128",
     "named": false
   },
@@ -3804,11 +3918,67 @@
     "named": false
   },
   {
+    "type": "vcompresspd",
+    "named": false
+  },
+  {
+    "type": "vcompressps",
+    "named": false
+  },
+  {
+    "type": "vcvpd2udq",
+    "named": false
+  },
+  {
+    "type": "vcvps2udq",
+    "named": false
+  },
+  {
+    "type": "vcvtpd2udq",
+    "named": false
+  },
+  {
     "type": "vcvtph2ps",
     "named": false
   },
   {
     "type": "vcvtps2ph",
+    "named": false
+  },
+  {
+    "type": "vcvtps2udq",
+    "named": false
+  },
+  {
+    "type": "vcvtqq2pd",
+    "named": false
+  },
+  {
+    "type": "vcvtqq2ps",
+    "named": false
+  },
+  {
+    "type": "vcvtudq2pd",
+    "named": false
+  },
+  {
+    "type": "vcvtudq2ps",
+    "named": false
+  },
+  {
+    "type": "vcvtusi2pd",
+    "named": false
+  },
+  {
+    "type": "vcvtusi2ps",
+    "named": false
+  },
+  {
+    "type": "vcvtusi2sd",
+    "named": false
+  },
+  {
+    "type": "vcvtusi2ss",
     "named": false
   },
   {
@@ -3820,11 +3990,35 @@
     "named": false
   },
   {
+    "type": "vexpandpd",
+    "named": false
+  },
+  {
+    "type": "vexpandps",
+    "named": false
+  },
+  {
     "type": "vextractf128",
     "named": false
   },
   {
     "type": "vextracti128",
+    "named": false
+  },
+  {
+    "type": "vfixupimmpd",
+    "named": false
+  },
+  {
+    "type": "vfixupimmps",
+    "named": false
+  },
+  {
+    "type": "vfixupimmsd",
+    "named": false
+  },
+  {
+    "type": "vfixupimmss",
     "named": false
   },
   {
@@ -4356,6 +4550,38 @@
     "named": false
   },
   {
+    "type": "vgetexppd",
+    "named": false
+  },
+  {
+    "type": "vgetexpps",
+    "named": false
+  },
+  {
+    "type": "vgetexpsd",
+    "named": false
+  },
+  {
+    "type": "vgetexpss",
+    "named": false
+  },
+  {
+    "type": "vgetmantpd",
+    "named": false
+  },
+  {
+    "type": "vgetmantps",
+    "named": false
+  },
+  {
+    "type": "vgetmantsd",
+    "named": false
+  },
+  {
+    "type": "vgetmantss",
+    "named": false
+  },
+  {
     "type": "vinsertf128",
     "named": false
   },
@@ -4480,6 +4706,14 @@
     "named": false
   },
   {
+    "type": "vpblendm1",
+    "named": false
+  },
+  {
+    "type": "vpblendmd",
+    "named": false
+  },
+  {
     "type": "vpbroadcastb",
     "named": false
   },
@@ -4496,6 +4730,30 @@
     "named": false
   },
   {
+    "type": "vpcmpd",
+    "named": false
+  },
+  {
+    "type": "vpcmpiq",
+    "named": false
+  },
+  {
+    "type": "vpcmpq",
+    "named": false
+  },
+  {
+    "type": "vpcmpud",
+    "named": false
+  },
+  {
+    "type": "vpcompressd",
+    "named": false
+  },
+  {
+    "type": "vpcompressq",
+    "named": false
+  },
+  {
     "type": "vperm2f128",
     "named": false
   },
@@ -4505,6 +4763,22 @@
   },
   {
     "type": "vpermd",
+    "named": false
+  },
+  {
+    "type": "vpermi2d",
+    "named": false
+  },
+  {
+    "type": "vpermi2pd",
+    "named": false
+  },
+  {
+    "type": "vpermi2ps",
+    "named": false
+  },
+  {
+    "type": "vpermi2q",
     "named": false
   },
   {
@@ -4525,6 +4799,30 @@
   },
   {
     "type": "vpermq",
+    "named": false
+  },
+  {
+    "type": "vpermt2d",
+    "named": false
+  },
+  {
+    "type": "vpermt2pd",
+    "named": false
+  },
+  {
+    "type": "vpermt2ps",
+    "named": false
+  },
+  {
+    "type": "vpermt2q",
+    "named": false
+  },
+  {
+    "type": "vpexpandd",
+    "named": false
+  },
+  {
+    "type": "vpexpandq",
     "named": false
   },
   {
@@ -4552,6 +4850,130 @@
     "named": false
   },
   {
+    "type": "vpmaxsq",
+    "named": false
+  },
+  {
+    "type": "vpmaxuq",
+    "named": false
+  },
+  {
+    "type": "vpminsq",
+    "named": false
+  },
+  {
+    "type": "vpminuq",
+    "named": false
+  },
+  {
+    "type": "vpmovdb",
+    "named": false
+  },
+  {
+    "type": "vpmovdw",
+    "named": false
+  },
+  {
+    "type": "vpmovqb",
+    "named": false
+  },
+  {
+    "type": "vpmovqd",
+    "named": false
+  },
+  {
+    "type": "vpmovqw",
+    "named": false
+  },
+  {
+    "type": "vpmovsdb",
+    "named": false
+  },
+  {
+    "type": "vpmovsdw",
+    "named": false
+  },
+  {
+    "type": "vpmovsqb",
+    "named": false
+  },
+  {
+    "type": "vpmovsqd",
+    "named": false
+  },
+  {
+    "type": "vpmovsqw",
+    "named": false
+  },
+  {
+    "type": "vpmovusdb",
+    "named": false
+  },
+  {
+    "type": "vpmovusdw",
+    "named": false
+  },
+  {
+    "type": "vpmovusqb",
+    "named": false
+  },
+  {
+    "type": "vpmovusqd",
+    "named": false
+  },
+  {
+    "type": "vpmovusqw",
+    "named": false
+  },
+  {
+    "type": "vprold",
+    "named": false
+  },
+  {
+    "type": "vprolq",
+    "named": false
+  },
+  {
+    "type": "vprolvd",
+    "named": false
+  },
+  {
+    "type": "vprolvq",
+    "named": false
+  },
+  {
+    "type": "vprord",
+    "named": false
+  },
+  {
+    "type": "vprorq",
+    "named": false
+  },
+  {
+    "type": "vprorvd",
+    "named": false
+  },
+  {
+    "type": "vprorvq",
+    "named": false
+  },
+  {
+    "type": "vpscatterdd",
+    "named": false
+  },
+  {
+    "type": "vpscatterdq",
+    "named": false
+  },
+  {
+    "type": "vpscatterqd",
+    "named": false
+  },
+  {
+    "type": "vpscatterqq",
+    "named": false
+  },
+  {
     "type": "vpsllvd",
     "named": false
   },
@@ -4569,6 +4991,126 @@
   },
   {
     "type": "vpsrlvq",
+    "named": false
+  },
+  {
+    "type": "vpternlogd",
+    "named": false
+  },
+  {
+    "type": "vpternlogq",
+    "named": false
+  },
+  {
+    "type": "vptestmd",
+    "named": false
+  },
+  {
+    "type": "vptestmq",
+    "named": false
+  },
+  {
+    "type": "vptestnmd",
+    "named": false
+  },
+  {
+    "type": "vptestnmq",
+    "named": false
+  },
+  {
+    "type": "vrcp14pd",
+    "named": false
+  },
+  {
+    "type": "vrcp14ps",
+    "named": false
+  },
+  {
+    "type": "vrcp14sd",
+    "named": false
+  },
+  {
+    "type": "vrcp14ss",
+    "named": false
+  },
+  {
+    "type": "vrndscalepd",
+    "named": false
+  },
+  {
+    "type": "vrndscaleps",
+    "named": false
+  },
+  {
+    "type": "vrndscalesd",
+    "named": false
+  },
+  {
+    "type": "vrndscaless",
+    "named": false
+  },
+  {
+    "type": "vrsqrt14pd",
+    "named": false
+  },
+  {
+    "type": "vrsqrt14ps",
+    "named": false
+  },
+  {
+    "type": "vrsqrt14sd",
+    "named": false
+  },
+  {
+    "type": "vrsqrt14ss",
+    "named": false
+  },
+  {
+    "type": "vscalefpd",
+    "named": false
+  },
+  {
+    "type": "vscalefps",
+    "named": false
+  },
+  {
+    "type": "vscalefsd",
+    "named": false
+  },
+  {
+    "type": "vscalefss",
+    "named": false
+  },
+  {
+    "type": "vscatterdpd",
+    "named": false
+  },
+  {
+    "type": "vscatterdps",
+    "named": false
+  },
+  {
+    "type": "vscatterqpd",
+    "named": false
+  },
+  {
+    "type": "vscatterqps",
+    "named": false
+  },
+  {
+    "type": "vshuff32x4",
+    "named": false
+  },
+  {
+    "type": "vshuff64x4",
+    "named": false
+  },
+  {
+    "type": "vshuffi32x4",
+    "named": false
+  },
+  {
+    "type": "vshuffi64x4",
     "named": false
   },
   {

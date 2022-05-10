@@ -1,4 +1,6 @@
 (integer_literal) @constant.builtin
+(register) @constant.builtin
+(segment) @constant.builtin
 
 (comment) @comment
 
@@ -13,7 +15,6 @@
 (operand_ident) @property
 (section_name) @property
 (label) @property
-(register) @property
 
 ":" @punctuation.delimiter
 
