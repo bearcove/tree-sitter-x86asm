@@ -19,17 +19,19 @@ Disassembly of section .text:
   (directive
     (objdump_disas_of_section
       (section_name)))
-  (ERROR
-    (directive
-      (objdump_section_label
-        (objdump_section_addr)
-        (identifier))))
   (directive
-    (ins
-      (mnemonic)
-      (operand_args
-        (operand
-          (register)))))
+    (objdump_section_label
+      (objdump_section_addr)
+      (identifier)))
+  (directive
+    (objdump_offset_label
+      (objdump_offset_addr)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (register))))))
   (directive
     (objdump_offset_label
       (objdump_offset_addr)
