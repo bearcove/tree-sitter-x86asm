@@ -2,12 +2,13 @@
 (path) @string
 
 (integer_literal) @constant.builtin
-(objdump_section_addr) @constant.builtin
-(objdump_offset_addr) @constant.builtin
+(objdump_section_addr) @label
+(objdump_offset_addr) @label
 
 (register) @constant.builtin
 (segment) @constant.builtin
 
+(objdump_machine_code_bytes) @comment
 (comment) @comment
 
 "section" @keyword

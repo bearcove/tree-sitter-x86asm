@@ -45,8 +45,8 @@ module.exports = grammar({
     objdump_section_addr: ($) => token.immediate(/[0-9a-fA-F]+/),
 
     objdump_offset_label: ($) =>
-      seq($.objdump_offset_addr, ":", repeat(/[0-9a-fA-F]{2}/), $.ins),
-    objdump_machine_code_bytes: ($) => /[0-9a-fA-F]{2}\s/,
+      seq($.objdump_offset_addr, ":", $.objdump_machine_code_bytes, $.ins),
+    objdump_machine_code_bytes: ($) => repeat1(/[0-9a-fA-F]{2}/),
     objdump_offset_addr: ($) => seq(/\s+/, /[0-9a-fA-F]+/),
 
     label: ($) => seq($.identifier, ":", optional($.directive)),

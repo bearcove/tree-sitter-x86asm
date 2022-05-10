@@ -12,4 +12,8 @@ In particular:
 
 But still, it makes a bunch of code look good, and that's good enough for me.
 
-![](https://user-images.githubusercontent.com/7998310/167659230-fc8487bb-447a-48f0-a437-1b83e25c5be9.png)
+![](https://user-images.githubusercontent.com/7998310/167667446-6c1ed5a8-d554-48d6-a05f-4f77f73b6753.png)
+
+It even sorta-understands objdump output:
+
+![](https://user-images.githubusercontent.com/7998310/167667561-94e3837c-8e16-4692-909a-91a522a6e2fb.png)

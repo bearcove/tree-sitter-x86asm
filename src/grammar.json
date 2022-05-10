@@ -275,11 +275,8 @@
           "value": ":"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "PATTERN",
-            "value": "[0-9a-fA-F]{2}"
-          }
+          "type": "SYMBOL",
+          "name": "objdump_machine_code_bytes"
         },
         {
           "type": "SYMBOL",
@@ -288,8 +285,11 @@
       ]
     },
     "objdump_machine_code_bytes": {
-      "type": "PATTERN",
-      "value": "[0-9a-fA-F]{2}\\s"
+      "type": "REPEAT1",
+      "content": {
+        "type": "PATTERN",
+        "value": "[0-9a-fA-F]{2}"
+      }
     },
     "objdump_offset_addr": {
       "type": "SEQ",

@@ -662,6 +662,11 @@
     }
   },
   {
+    "type": "objdump_machine_code_bytes",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "objdump_offset_addr",
     "named": true,
     "fields": {}
@@ -676,6 +681,10 @@
       "types": [
         {
           "type": "ins",
+          "named": true
+        },
+        {
+          "type": "objdump_machine_code_bytes",
           "named": true
         },
         {
