@@ -700,16 +700,16 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_dec1"
+          "type": "PATTERN",
+          "value": "[0-9]+d"
         },
         {
-          "type": "SYMBOL",
-          "name": "_dec2"
+          "type": "PATTERN",
+          "value": "0d[0-9]+"
         },
         {
-          "type": "SYMBOL",
-          "name": "_dec3"
+          "type": "PATTERN",
+          "value": "[0-9]+"
         }
       ]
     },
@@ -725,65 +725,48 @@
       "type": "PATTERN",
       "value": "[0-9]+"
     },
-    "_octal_literal": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "0o"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_OCTAL_NUMBER"
-        }
-      ]
-    },
-    "_OCTAL_NUMBER": {
-      "type": "PATTERN",
-      "value": "[0-7]+"
-    },
     "_hex_literal": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "0x"
-            },
-            {
-              "type": "STRING",
-              "value": "0h"
-            }
-          ]
+          "type": "PATTERN",
+          "value": "[0-9a-fA-F]+h"
         },
         {
-          "type": "SYMBOL",
-          "name": "_HEX_NUMBER"
+          "type": "PATTERN",
+          "value": "\\$0[0-9a-fA-F]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "0[xh][0-9a-fA-F]+"
         }
       ]
     },
-    "_HEX_NUMBER": {
-      "type": "PATTERN",
-      "value": "[a-fA-F0-9]+"
+    "_octal_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[0-7]+[qo]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "0[oq][0-7]+"
+        }
+      ]
     },
     "_binary_literal": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "0b"
+          "type": "PATTERN",
+          "value": "[01_]+[by]"
         },
         {
-          "type": "SYMBOL",
-          "name": "_BINARY_NUMBER"
+          "type": "PATTERN",
+          "value": "0[by][01_]+"
         }
       ]
-    },
-    "_BINARY_NUMBER": {
-      "type": "PATTERN",
-      "value": "[01]+"
     },
     "section_name": {
       "type": "PATTERN",

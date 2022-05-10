@@ -1,1 +1,1 @@
-mov ax, 200
+mov ax, 0c8h

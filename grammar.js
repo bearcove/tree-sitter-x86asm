@@ -99,26 +99,19 @@ module.exports = grammar({
         $._binary_literal,
       ),
 
-    // decimal_literal: DECIMAL_NUMBER
     _decimal_literal: ($) => choice($._dec1, $._dec2, $._dec3),
     _dec1: ($) => /[0-9]+d/,
     _dec2: ($) => /0d[0-9]+/,
     _dec3: ($) => /[0-9]+/,
 
-    // octal_literal: "0o" OCTAL_NUMBER
-    _octal_literal: ($) => seq("0o", $._OCTAL_NUMBER),
+    _decimal_literal: ($) => choice(/[0-9]+d/, /0d[0-9]+/, /[0-9]+/),
 
-    // OCTAL_NUMBER: /[0-7]+/
-    _OCTAL_NUMBER: ($) => /[0-7]+/,
+    _hex_literal: ($) =>
+      choice(/[0-9a-fA-F]+h/, /\$0[0-9a-fA-F]+/, /0[xh][0-9a-fA-F]+/),
 
-    // hex_literal: "0x" HEX_NUMBER
-    _hex_literal: ($) => seq(choice("0x", "0h"), $._HEX_NUMBER),
+    _octal_literal: ($) => choice(/[0-7]+[qo]/, /0[oq][0-7]+/),
 
-    // HEX_NUMBER: /[a-fA-F0-9]+/
-    _HEX_NUMBER: ($) => /[a-fA-F0-9]+/,
-
-    _binary_literal: ($) => seq("0b", $._BINARY_NUMBER),
-    _BINARY_NUMBER: ($) => /[01]+/,
+    _binary_literal: ($) => choice(/[01_]+[by]/, /0[by][01_]+/),
 
     section_name: ($) => /[.]\S+/,
     _IDENTIFIER: ($) => /[A-Za-z0-9.@_-]+/,
