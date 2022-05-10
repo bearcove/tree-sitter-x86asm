@@ -43,6 +43,14 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "objdump_section_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objdump_offset_label"
+        },
+        {
+          "type": "SYMBOL",
           "name": "section"
         },
         {
@@ -149,6 +157,88 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        }
+      ]
+    },
+    "objdump_section_label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objdump_section_addr"
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
+    },
+    "objdump_section_addr": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[0-9a-fA-F]+"
+      }
+    },
+    "objdump_offset_label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objdump_offset_addr"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": " "
+              },
+              {
+                "type": "PATTERN",
+                "value": "[0-9a-fA-F]{2}"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ins"
+        }
+      ]
+    },
+    "objdump_machine_code_bytes": {
+      "type": "PATTERN",
+      "value": "[0-9a-fA-F]{2}"
+    },
+    "objdump_offset_addr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\s+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[0-9a-fA-F]+"
         }
       ]
     },

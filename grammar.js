@@ -10,7 +10,16 @@ module.exports = grammar({
 
     comment: ($) => /;.*/,
     directive: ($) =>
-      choice($.section, $.extern, $.global, $.builtin, $.ins, $.label),
+      choice(
+        $.objdump_section_label,
+        $.objdump_offset_label,
+        $.section,
+        $.extern,
+        $.global,
+        $.builtin,
+        $.ins,
+        $.label,
+      ),
 
     builtin: ($) => seq($.builtin_kw, $.operand_args),
     builtin_kw: ($) => choice("db", "dw", "dd", "dq"),
@@ -18,6 +27,21 @@ module.exports = grammar({
     section: ($) => seq("section", $.section_name, optional("info")),
     extern: ($) => seq("extern", $.identifier),
     global: ($) => seq("global", $.identifier),
+
+    objdump_section_label: ($) =>
+      seq($.objdump_section_addr, "<", $.identifier, ">", ":"),
+    objdump_section_addr: ($) => token.immediate(/[0-9a-fA-F]+/),
+
+    objdump_offset_label: ($) =>
+      seq(
+        $.objdump_offset_addr,
+        ":",
+        repeat(seq(" ", /[0-9a-fA-F]{2}/)),
+        $.ins,
+      ),
+    objdump_machine_code_bytes: ($) => /[0-9a-fA-F]{2}/,
+    objdump_offset_addr: ($) => seq(/\s+/, /[0-9a-fA-F]+/),
+
     label: ($) => seq($.identifier, ":", optional($.directive)),
     ins: ($) => seq($.ins_kw, optional($.operand_args)),
 

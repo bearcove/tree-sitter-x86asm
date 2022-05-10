@@ -52,6 +52,14 @@
           "named": true
         },
         {
+          "type": "objdump_offset_label",
+          "named": true
+        },
+        {
+          "type": "objdump_section_label",
+          "named": true
+        },
+        {
           "type": "section",
           "named": true
         }
@@ -612,6 +620,49 @@
     }
   },
   {
+    "type": "objdump_offset_addr",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "objdump_offset_label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ins",
+          "named": true
+        },
+        {
+          "type": "objdump_offset_addr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objdump_section_label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "objdump_section_addr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "operand",
     "named": true,
     "fields": {},
@@ -835,6 +886,10 @@
     "named": false
   },
   {
+    "type": " ",
+    "named": false
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -864,6 +919,14 @@
   },
   {
     "type": ":",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": ">",
     "named": false
   },
   {
@@ -2673,6 +2736,10 @@
   {
     "type": "nxop",
     "named": false
+  },
+  {
+    "type": "objdump_section_addr",
+    "named": true
   },
   {
     "type": "or",

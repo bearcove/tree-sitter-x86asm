@@ -1,6 +1,8 @@
 (string_literal) @string
 
 (integer_literal) @constant.builtin
+(objdump_section_addr) @constant.builtin
+(objdump_offset_addr) @constant.builtin
 
 (register) @constant.builtin
 (segment) @constant.builtin
