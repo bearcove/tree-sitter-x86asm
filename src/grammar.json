@@ -6,11 +6,37 @@
       "name": "toplevel_item"
     },
     "toplevel_item": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SYMBOL",
-        "name": "statement"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "statement"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "comment"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "directive"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "statement": {
       "type": "SEQ",
@@ -36,7 +62,7 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": "[#;].*"
+      "value": "[#;]([^\\n]*)"
     },
     "directive": {
       "type": "CHOICE",
@@ -232,6 +258,10 @@
         {
           "type": "STRING",
           "value": ":"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\s*"
         }
       ]
     },

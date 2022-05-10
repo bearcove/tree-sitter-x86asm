@@ -1,0 +1,140 @@
+================================================================================
+label on its own line
+================================================================================
+
+_start:
+	mov rax, 2
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (label
+          (directive
+            (ins
+              (ins_kw
+                (ins_8086))
+              (operand_args
+                (operand
+                  (register
+                    (register_64bit)))
+                (operand
+                  (integer_literal))))))))))
+
+================================================================================
+label followed by instruction
+================================================================================
+
+_start: mov rax, 2
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (label
+          (directive
+            (ins
+              (ins_kw
+                (ins_8086))
+              (operand_args
+                (operand
+                  (register
+                    (register_64bit)))
+                (operand
+                  (integer_literal))))))))))
+
+================================================================================
+label followed by instruction followed by comment
+================================================================================
+
+_start: mov rax, 2 ; ahAH!
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (label
+          (directive
+            (ins
+              (ins_kw
+                (ins_8086))
+              (operand_args
+                (operand
+                  (register
+                    (register_64bit)))
+                (operand
+                  (integer_literal)))))))
+      (comment))))
+
+================================================================================
+label followed by instruction followed by comment, then another instruction
+================================================================================
+
+_start: mov rax, 2 ; ahAH!
+			  mov rdi, rax
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (label
+          (directive
+            (ins
+              (ins_kw
+                (ins_8086))
+              (operand_args
+                (operand
+                  (register
+                    (register_64bit)))
+                (operand
+                  (integer_literal)))))))
+      (comment)
+      (MISSING "
+"))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (register
+                (register_64bit)))))))))
+
+================================================================================
+label followed by instruction followed by comment, then another instruction (alt)
+================================================================================
+
+_start: ret ; ahAH!
+			  ret
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (label
+          (directive
+            (ins
+              (ins_kw
+                (ins_8086))))))
+      (comment)
+      (MISSING "
+"))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086)))))))

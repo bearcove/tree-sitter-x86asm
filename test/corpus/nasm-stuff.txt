@@ -1,0 +1,112 @@
+================================================================================
+dumb comments
+================================================================================
+
+; dumb comment
+_start:     mov     rax, 2
+            mov     rdi, path ; trailing comment
+            xor     rsi, rsi
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (comment))
+    (statement
+      (directive
+        (label
+          (directive
+            (ins
+              (ins_kw
+                (ins_8086))
+              (operand_args
+                (operand
+                  (register
+                    (register_64bit)))
+                (operand
+                  (integer_literal)))))))
+      (MISSING "
+"))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (operand_ident)))))
+      (comment)
+      (MISSING "
+"))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (register
+                (register_64bit)))))))))
+
+================================================================================
+hard comments
+================================================================================
+
+_start:     mov     rax, 2      ; "open"
+            mov     rdi, path   ; 
+            xor     rsi, rsi    ; O_RDONLY
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (label
+          (directive
+            (ins
+              (ins_kw
+                (ins_8086))
+              (operand_args
+                (operand
+                  (register
+                    (register_64bit)))
+                (operand
+                  (integer_literal)))))))
+      (comment)
+      (MISSING "
+"))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (operand_ident)))))
+      (comment)
+      (MISSING "
+"))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (register
+                (register_64bit))))))
+      (comment))))

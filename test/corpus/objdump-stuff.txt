@@ -1,0 +1,69 @@
+================================================================================
+objdump stuff
+================================================================================
+
+/home/amos/.cargo/bin/cargo:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+00000000001142e0 <main>:
+  1142e0:	55                   	push   rbp
+  1142e5:	53                   	push   rbx
+  1142e6:	48 81 ec e8 00 00 00 	sub    rsp,0xe8
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (objdump_file_format)))
+    (statement
+      (directive
+        (objdump_disas_of_section
+          (section_name))))
+    (ERROR
+      (directive
+        (objdump_section_label
+          (objdump_section_addr)
+          (identifier)))
+      (objdump_section_addr))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit))))))
+      (MISSING "
+"))
+    (statement
+      (directive
+        (objdump_offset_label
+          (objdump_offset_addr)
+          (objdump_machine_code_bytes)
+          (ins
+            (ins_kw
+              (ins_8086))
+            (operand_args
+              (operand
+                (register
+                  (register_64bit)))))))
+      (MISSING "
+"))
+    (statement
+      (directive
+        (objdump_offset_label
+          (objdump_offset_addr)
+          (objdump_machine_code_bytes)
+          (ins
+            (ins_kw
+              (ins_8086))
+            (operand_args
+              (operand
+                (register
+                  (register_64bit)))
+              (operand
+                (integer_literal)))))))))

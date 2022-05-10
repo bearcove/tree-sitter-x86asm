@@ -4,11 +4,12 @@ module.exports = grammar({
   rules: {
     source_file: ($) => $.toplevel_item,
 
-    toplevel_item: ($) => repeat1($.statement),
+    toplevel_item: ($) =>
+      seq(repeat1($.statement), optional(choice($.comment, $.directive))),
 
     statement: ($) => seq(choice($.comment, $.directive), $._NEWLINE),
 
-    comment: ($) => /[#;].*/,
+    comment: ($) => /[#;]([^\n]*)/,
     directive: ($) =>
       choice(
         $.shell_cmd,
@@ -40,7 +41,7 @@ module.exports = grammar({
     objdump_file_format: ($) => /[a-zA-Z0-9/.@_-]+:[\s]+file format [^\n]+/,
 
     objdump_section_label: ($) =>
-      seq($.objdump_section_addr, "<", $.identifier, ">", ":"),
+      seq($.objdump_section_addr, "<", $.identifier, ">", ":", /\s*/),
     objdump_section_addr: ($) => token.immediate(/[0-9a-fA-F]+/),
 
     objdump_offset_label: ($) =>

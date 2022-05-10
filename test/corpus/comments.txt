@@ -1,0 +1,130 @@
+================================================================================
+simple instruction
+================================================================================
+
+mov rax, 2
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (integer_literal))))))))
+
+================================================================================
+simple instruction preceded by comment
+================================================================================
+
+; a comment
+mov rax, 2
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (comment))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (integer_literal))))))))
+
+================================================================================
+simple instruction with a trailing comment
+================================================================================
+
+mov rax, 2
+; a comment
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (integer_literal))))))
+    (statement
+      (comment))))
+
+================================================================================
+simple instruction with a trailing comment (same line)
+================================================================================
+
+mov rax, 2 ; a comment
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (integer_literal)))))
+      (comment))))
+
+================================================================================
+two trailing comments (same line)
+================================================================================
+
+mov rax, 2 ; a comment
+mov rax, 2 ; a comment
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (integer_literal)))))
+      (comment))
+    (statement
+      (directive
+        (ins
+          (ins_kw
+            (ins_8086))
+          (operand_args
+            (operand
+              (register
+                (register_64bit)))
+            (operand
+              (integer_literal)))))
+      (comment))))
