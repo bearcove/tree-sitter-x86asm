@@ -1,3 +1,3 @@
-00000000001142e0 <main>:
-  1142e0:	55                   	push   rbp
-  1142e5:	53                   	push   rbx
+0000000000000000 <_start>:
+   0:   bf 01 00 00 00          mov    edi,0x1
+   5:   48 be 00 00 00 00 00    movabs rsi,0x0

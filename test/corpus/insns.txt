@@ -48,9 +48,12 @@ movabs
 
 (source_file
   (directive
+    (objdump_section_label
+      (objdump_addr)
+      (identifier)))
+  (directive
     (objdump_offset_label
-      (objdump_offset_addr)
-      (ERROR)
+      (objdump_addr)
       (objdump_machine_code_bytes)
       (ins
         (mnemonic)
@@ -61,7 +64,7 @@ movabs
             (integer_literal))))))
   (directive
     (objdump_offset_label
-      (objdump_offset_addr)
+      (objdump_addr)
       (objdump_machine_code_bytes)
       (ins
         (mnemonic)

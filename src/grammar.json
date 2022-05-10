@@ -5,6 +5,10 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "PATTERN",
+          "value": "\\s*"
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
@@ -311,7 +315,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "objdump_section_addr"
+          "name": "objdump_addr"
         },
         {
           "type": "STRING",
@@ -331,15 +335,12 @@
         }
       ]
     },
-    "objdump_section_addr": {
-      "type": "IMMEDIATE_TOKEN",
+    "objdump_addr": {
+      "type": "PREC",
+      "value": 0,
       "content": {
-        "type": "PREC",
-        "value": 0,
-        "content": {
-          "type": "PATTERN",
-          "value": "[0-9a-fA-F]+"
-        }
+        "type": "PATTERN",
+        "value": "[0-9a-fA-F]+"
       }
     },
     "objdump_offset_label": {
@@ -350,7 +351,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "objdump_offset_addr"
+            "name": "objdump_addr"
           },
           {
             "type": "STRING",
@@ -381,15 +382,6 @@
         "type": "PATTERN",
         "value": "[0-9a-fA-F]{2}"
       }
-    },
-    "objdump_offset_addr": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[\\s]+[0-9a-fA-F]+"
-        }
-      ]
     },
     "label": {
       "type": "PREC_LEFT",

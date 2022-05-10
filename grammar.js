@@ -4,6 +4,7 @@ module.exports = grammar({
   rules: {
     source_file: ($) =>
       seq(
+        /\s*/,
         choice(seq($.directive, optional($.comment)), $.comment),
         repeat(
           seq(
@@ -45,21 +46,15 @@ module.exports = grammar({
     objdump_file_format: ($) => /[a-zA-Z0-9/.@_-]+:[\s]+file format [^\n]+/,
 
     objdump_section_label: ($) =>
-      seq($.objdump_section_addr, "<", $.identifier, ">", ":"),
-    objdump_section_addr: ($) => token.immediate(prec(0, /[0-9a-fA-F]+/)),
+      seq($.objdump_addr, "<", $.identifier, ">", ":"),
+    objdump_addr: ($) => prec(0, /[0-9a-fA-F]+/),
 
     objdump_offset_label: ($) =>
       prec.left(
         0,
-        seq(
-          $.objdump_offset_addr,
-          ":",
-          $.objdump_machine_code_bytes,
-          optional($.ins),
-        ),
+        seq($.objdump_addr, ":", $.objdump_machine_code_bytes, optional($.ins)),
       ),
     objdump_machine_code_bytes: ($) => repeat1(/[0-9a-fA-F]{2}/),
-    objdump_offset_addr: ($) => seq(/[\s]+[0-9a-fA-F]+/),
 
     label: ($) =>
       prec.left(0, seq($.label_name, /:[\s]+/, optional($.directive))),

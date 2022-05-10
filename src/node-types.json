@@ -210,6 +210,11 @@
     "fields": {}
   },
   {
+    "type": "objdump_addr",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "objdump_disas_of_section",
     "named": true,
     "fields": {},
@@ -230,11 +235,6 @@
     "fields": {}
   },
   {
-    "type": "objdump_offset_addr",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "objdump_offset_label",
     "named": true,
     "fields": {},
@@ -247,11 +247,11 @@
           "named": true
         },
         {
-          "type": "objdump_machine_code_bytes",
+          "type": "objdump_addr",
           "named": true
         },
         {
-          "type": "objdump_offset_addr",
+          "type": "objdump_machine_code_bytes",
           "named": true
         }
       ]
@@ -270,7 +270,7 @@
           "named": true
         },
         {
-          "type": "objdump_section_addr",
+          "type": "objdump_addr",
           "named": true
         }
       ]
@@ -583,10 +583,6 @@
   },
   {
     "type": "objdump_file_format",
-    "named": true
-  },
-  {
-    "type": "objdump_section_addr",
     "named": true
   },
   {

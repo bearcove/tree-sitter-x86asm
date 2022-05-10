@@ -1,4 +1,55 @@
 ================================================================================
+section label
+================================================================================
+0000000000000000 <_start>:
+   0:   bf 01 00 00 00          mov    edi,0x1
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (directive
+    (objdump_section_label
+      (objdump_addr)
+      (identifier)))
+  (directive
+    (objdump_offset_label
+      (objdump_addr)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (register))
+          (operand
+            (integer_literal)))))))
+
+================================================================================
+section label (leading whitespace)
+================================================================================
+
+0000000000000000 <_start>:
+   0:   bf 01 00 00 00          mov    edi,0x1
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (directive
+    (objdump_section_label
+      (objdump_addr)
+      (identifier)))
+  (directive
+    (objdump_offset_label
+      (objdump_addr)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (register))
+          (operand
+            (integer_literal)))))))
+
+================================================================================
 objdump stuff
 ================================================================================
 
@@ -21,11 +72,11 @@ Disassembly of section .text:
       (section_name)))
   (directive
     (objdump_section_label
-      (objdump_section_addr)
+      (objdump_addr)
       (identifier)))
   (directive
     (objdump_offset_label
-      (objdump_offset_addr)
+      (objdump_addr)
       (objdump_machine_code_bytes)
       (ins
         (mnemonic)
@@ -34,7 +85,7 @@ Disassembly of section .text:
             (register))))))
   (directive
     (objdump_offset_label
-      (objdump_offset_addr)
+      (objdump_addr)
       (objdump_machine_code_bytes)
       (ins
         (mnemonic)
@@ -43,7 +94,7 @@ Disassembly of section .text:
             (register))))))
   (directive
     (objdump_offset_label
-      (objdump_offset_addr)
+      (objdump_addr)
       (objdump_machine_code_bytes)
       (ins
         (mnemonic)

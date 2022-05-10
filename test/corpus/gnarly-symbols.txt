@@ -9,7 +9,7 @@ rust mangling
 (source_file
   (directive
     (objdump_offset_label
-      (objdump_offset_addr)
+      (objdump_addr)
       (objdump_machine_code_bytes)
       (ins
         (mnemonic)
