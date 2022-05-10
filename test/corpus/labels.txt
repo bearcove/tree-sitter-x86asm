@@ -10,7 +10,8 @@ _start:
 (source_file
   (directive
     (label
-      (identifier)
+      (label_name
+        (identifier))
       (directive
         (ins
           (mnemonic)
@@ -31,7 +32,8 @@ _start: mov rax, 2
 (source_file
   (directive
     (label
-      (identifier)
+      (label_name
+        (identifier))
       (directive
         (ins
           (mnemonic)
@@ -52,7 +54,8 @@ _start: mov rax, 2 ; ahAH!
 (source_file
   (directive
     (label
-      (identifier)
+      (label_name
+        (identifier))
       (directive
         (ins
           (mnemonic)
@@ -75,7 +78,8 @@ _start: mov rax, 2 ; ahAH!
 (source_file
   (directive
     (label
-      (identifier)
+      (label_name
+        (identifier))
       (directive
         (ins
           (mnemonic)
@@ -106,7 +110,8 @@ _start: ret ; ahAH!
 (source_file
   (directive
     (label
-      (identifier)
+      (label_name
+        (identifier))
       (directive
         (ins
           (mnemonic)))))

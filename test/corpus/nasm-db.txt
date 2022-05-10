@@ -9,7 +9,8 @@ path:      db     "/etc/hosts", 0 ; null-terminated
 (source_file
   (directive
     (label
-      (identifier)
+      (label_name
+        (identifier))
       (directive
         (builtin
           (builtin_kw)

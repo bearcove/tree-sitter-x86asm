@@ -1,0 +1,19 @@
+================================================================================
+rust mangling
+================================================================================
+		
+    14be:       e8 6d fc ff ff          call   1130 <_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$3add17h3943ea7b27872d0aE>
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (directive
+    (objdump_offset_label
+      (objdump_offset_addr)
+      (objdump_machine_code_bytes)
+      (ins
+        (mnemonic)
+        (operand_args
+          (operand
+            (integer_literal
+              (literal_offset))))))))

@@ -165,7 +165,8 @@ module.exports = grammar({
         optional($.literal_offset),
       ),
 
-    literal_offset: ($) => seq("<", $._IDENTIFIER, "+", $._hex_literal, ">"),
+    literal_offset: ($) =>
+      seq("<", $._IDENTIFIER, optional(seq("+", $._hex_literal)), ">"),
 
     _decimal_literal: ($) => choice(/[0-9]+d/, /0d[0-9]+/, /[0-9]+/),
 
@@ -187,6 +188,6 @@ module.exports = grammar({
       ),
     section_name: ($) => /[.][A-Za-z0-9.@_-]+/,
     identifier: ($) => $._IDENTIFIER,
-    _IDENTIFIER: ($) => token(prec(-1, /[A-Za-z.@_][A-Za-z0-9.@_-]*/)),
+    _IDENTIFIER: ($) => token(prec(-1, /[A-Za-z.@_][A-Za-z0-9.@_$-]*/)),
   },
 });
