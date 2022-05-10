@@ -207,29 +207,8 @@
       ]
     },
     "objdump_file_format": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "path"
-        },
-        {
-          "type": "STRING",
-          "value": ":"
-        },
-        {
-          "type": "STRING",
-          "value": "file format"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[^\\n]+"
-        }
-      ]
-    },
-    "path": {
       "type": "PATTERN",
-      "value": "[a-zA-Z0-9/.@_-]+"
+      "value": "[a-zA-Z0-9/.@_-]+:[\\s]+file format [^\\n]+"
     },
     "objdump_section_label": {
       "type": "SEQ",
@@ -303,15 +282,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "  "
-          }
-        },
-        {
           "type": "PATTERN",
-          "value": "[0-9a-fA-F]+"
+          "value": "[\\s]+[0-9a-fA-F]+"
         }
       ]
     },
@@ -320,11 +292,11 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "_IDENTIFIER"
         },
         {
-          "type": "STRING",
-          "value": ":"
+          "type": "PATTERN",
+          "value": ":[\\s]+"
         },
         {
           "type": "CHOICE",

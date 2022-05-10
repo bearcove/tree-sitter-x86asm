@@ -627,15 +627,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
           "type": "directive",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         }
       ]
@@ -656,21 +652,6 @@
       "types": [
         {
           "type": "section_name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "objdump_file_format",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "path",
           "named": true
         }
       ]
@@ -973,10 +954,6 @@
   },
   {
     "type": "\r\n",
-    "named": false
-  },
-  {
-    "type": "  ",
     "named": false
   },
   {
@@ -1869,10 +1846,6 @@
   },
   {
     "type": "fild",
-    "named": false
-  },
-  {
-    "type": "file format",
     "named": false
   },
   {
@@ -2860,6 +2833,10 @@
     "named": false
   },
   {
+    "type": "objdump_file_format",
+    "named": true
+  },
+  {
     "type": "objdump_section_addr",
     "named": true
   },
@@ -2978,10 +2955,6 @@
   {
     "type": "patch3",
     "named": false
-  },
-  {
-    "type": "path",
-    "named": true
   },
   {
     "type": "pause",

@@ -37,8 +37,7 @@ module.exports = grammar({
     objdump_disas_of_section: ($) =>
       seq("Disassembly of section ", $.section_name, ":"),
 
-    objdump_file_format: ($) => seq($.path, ":", "file format", /[^\n]+/),
-    path: ($) => /[a-zA-Z0-9/.@_-]+/,
+    objdump_file_format: ($) => /[a-zA-Z0-9/.@_-]+:[\s]+file format [^\n]+/,
 
     objdump_section_label: ($) =>
       seq($.objdump_section_addr, "<", $.identifier, ">", ":"),
@@ -52,9 +51,9 @@ module.exports = grammar({
         optional($.ins),
       ),
     objdump_machine_code_bytes: ($) => repeat1(/[0-9a-fA-F]{2}/),
-    objdump_offset_addr: ($) => seq(token.immediate("  "), /[0-9a-fA-F]+/),
+    objdump_offset_addr: ($) => seq(/[\s]+[0-9a-fA-F]+/),
 
-    label: ($) => seq($.identifier, ":", optional($.directive)),
+    label: ($) => seq($._IDENTIFIER, /:[\s]+/, optional($.directive)),
     ins: ($) => seq($.ins_kw, optional($.operand_args)),
 
     width: ($) =>
