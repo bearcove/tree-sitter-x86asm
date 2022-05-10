@@ -7,21 +7,11 @@ _start:
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (directive
-        (label
-          (directive
-            (ins
-              (ins_kw
-                (ins_8086))
-              (operand_args
-                (operand
-                  (register
-                    (register_64bit)))
-                (operand
-                  (integer_literal))))))))))
+(ERROR
+  (UNEXPECTED 's')
+  (objdump_section_addr)
+  (UNEXPECTED 't')
+  (UNEXPECTED '\0'))
 
 ================================================================================
 label followed by instruction
@@ -31,21 +21,11 @@ _start: mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (directive
-        (label
-          (directive
-            (ins
-              (ins_kw
-                (ins_8086))
-              (operand_args
-                (operand
-                  (register
-                    (register_64bit)))
-                (operand
-                  (integer_literal))))))))))
+(ERROR
+  (UNEXPECTED 's')
+  (objdump_section_addr)
+  (UNEXPECTED 't')
+  (UNEXPECTED '\0'))
 
 ================================================================================
 label followed by instruction followed by comment
@@ -56,20 +36,16 @@ _start: mov rax, 2 ; ahAH!
 --------------------------------------------------------------------------------
 
 (source_file
+  (ERROR
+    (UNEXPECTED 's')
+    (objdump_section_addr)
+    (UNEXPECTED 't'))
   (toplevel_item
     (statement
       (directive
-        (label
-          (directive
-            (ins
-              (ins_kw
-                (ins_8086))
-              (operand_args
-                (operand
-                  (register
-                    (register_64bit)))
-                (operand
-                  (integer_literal)))))))
+        (ins
+          (ins_kw
+            (MISSING "_ins_sse2_pentium4_token1"))))
       (comment))))
 
 ================================================================================
@@ -81,36 +57,13 @@ _start: mov rax, 2 ; ahAH!
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (directive
-        (label
-          (directive
-            (ins
-              (ins_kw
-                (ins_8086))
-              (operand_args
-                (operand
-                  (register
-                    (register_64bit)))
-                (operand
-                  (integer_literal)))))))
-      (comment)
-      (MISSING "
-"))
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (register
-                (register_64bit)))))))))
+(ERROR
+  (ERROR
+    (UNEXPECTED 's')
+    (objdump_section_addr)
+    (UNEXPECTED 't'))
+  (comment)
+  (UNEXPECTED '\0'))
 
 ================================================================================
 label followed by instruction followed by comment, then another instruction (alt)
@@ -121,20 +74,9 @@ _start: ret ; ahAH!
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (directive
-        (label
-          (directive
-            (ins
-              (ins_kw
-                (ins_8086))))))
-      (comment)
-      (MISSING "
-"))
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086)))))))
+(ERROR
+  (UNEXPECTED 's')
+  (objdump_section_addr)
+  (UNEXPECTED 't')
+  (comment)
+  (UNEXPECTED '\0'))

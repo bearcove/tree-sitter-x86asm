@@ -6,19 +6,8 @@ mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (integer_literal))))))))
+(ERROR
+  (UNEXPECTED '\0'))
 
 ================================================================================
 simple instruction preceded by comment
@@ -29,21 +18,9 @@ mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (comment))
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (integer_literal))))))))
+(ERROR
+  (comment)
+  (UNEXPECTED '\0'))
 
 ================================================================================
 simple instruction with a trailing comment
@@ -54,21 +31,9 @@ mov rax, 2
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (integer_literal))))))
-    (statement
-      (comment))))
+(ERROR
+  (comment)
+  (UNEXPECTED '\0'))
 
 ================================================================================
 simple instruction with a trailing comment (same line)
@@ -78,20 +43,9 @@ mov rax, 2 ; a comment
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (integer_literal)))))
-      (comment))))
+(ERROR
+  (comment)
+  (UNEXPECTED '\0'))
 
 ================================================================================
 two trailing comments (same line)
@@ -103,28 +57,13 @@ mov rax, 2 ; a comment
 --------------------------------------------------------------------------------
 
 (source_file
+  (ERROR
+    (comment)
+    (objdump_section_addr))
   (toplevel_item
     (statement
       (directive
         (ins
           (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (integer_literal)))))
-      (comment))
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (integer_literal)))))
+            (MISSING "_ins_sse2_pentium4_token1"))))
       (comment))))

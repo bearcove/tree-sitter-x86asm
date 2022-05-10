@@ -1,2 +1,2 @@
-_start: ret ; ahAH!
-			  ret
+  movdqa rax, rax
+  vmovdqa rax, rax

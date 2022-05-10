@@ -156,454 +156,7 @@
     }
   },
   {
-    "type": "ins_3dnow",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_3dnow_plus",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_80186",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_80286",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_80287",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_80386",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_80387",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_80486",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_8086",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_8087",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_adx",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_amd_k6",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_avx",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_avx2",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_avx512",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_bitmanip",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_clmul",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_f16c",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_fma3",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_fma4",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_geode_gx",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_intel_aes",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_intel_cet",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_intel_mpx",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_intel_sha",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_intel_tsx",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "ins_kw",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ins_3dnow",
-          "named": true
-        },
-        {
-          "type": "ins_3dnow_plus",
-          "named": true
-        },
-        {
-          "type": "ins_80186",
-          "named": true
-        },
-        {
-          "type": "ins_80286",
-          "named": true
-        },
-        {
-          "type": "ins_80287",
-          "named": true
-        },
-        {
-          "type": "ins_80386",
-          "named": true
-        },
-        {
-          "type": "ins_80387",
-          "named": true
-        },
-        {
-          "type": "ins_80486",
-          "named": true
-        },
-        {
-          "type": "ins_8086",
-          "named": true
-        },
-        {
-          "type": "ins_8087",
-          "named": true
-        },
-        {
-          "type": "ins_adx",
-          "named": true
-        },
-        {
-          "type": "ins_amd_k6",
-          "named": true
-        },
-        {
-          "type": "ins_avx",
-          "named": true
-        },
-        {
-          "type": "ins_avx2",
-          "named": true
-        },
-        {
-          "type": "ins_avx512",
-          "named": true
-        },
-        {
-          "type": "ins_bitmanip",
-          "named": true
-        },
-        {
-          "type": "ins_clmul",
-          "named": true
-        },
-        {
-          "type": "ins_f16c",
-          "named": true
-        },
-        {
-          "type": "ins_fma3",
-          "named": true
-        },
-        {
-          "type": "ins_fma4",
-          "named": true
-        },
-        {
-          "type": "ins_geode_gx",
-          "named": true
-        },
-        {
-          "type": "ins_intel_aes",
-          "named": true
-        },
-        {
-          "type": "ins_intel_cet",
-          "named": true
-        },
-        {
-          "type": "ins_intel_mpx",
-          "named": true
-        },
-        {
-          "type": "ins_intel_sha",
-          "named": true
-        },
-        {
-          "type": "ins_intel_tsx",
-          "named": true
-        },
-        {
-          "type": "ins_mmx",
-          "named": true
-        },
-        {
-          "type": "ins_mmx_plus_and_sse",
-          "named": true
-        },
-        {
-          "type": "ins_mmx_sse2",
-          "named": true
-        },
-        {
-          "type": "ins_pentium",
-          "named": true
-        },
-        {
-          "type": "ins_pentium_2",
-          "named": true
-        },
-        {
-          "type": "ins_pentium_mmx",
-          "named": true
-        },
-        {
-          "type": "ins_pentium_pro",
-          "named": true
-        },
-        {
-          "type": "ins_rdrand",
-          "named": true
-        },
-        {
-          "type": "ins_sse",
-          "named": true
-        },
-        {
-          "type": "ins_sse2",
-          "named": true
-        },
-        {
-          "type": "ins_sse2_pentium4",
-          "named": true
-        },
-        {
-          "type": "ins_sse3",
-          "named": true
-        },
-        {
-          "type": "ins_sse3_pentium4",
-          "named": true
-        },
-        {
-          "type": "ins_sse4_1",
-          "named": true
-        },
-        {
-          "type": "ins_sse4_2",
-          "named": true
-        },
-        {
-          "type": "ins_sse4_2_nehalem",
-          "named": true
-        },
-        {
-          "type": "ins_sse4a",
-          "named": true
-        },
-        {
-          "type": "ins_sse_non_simd",
-          "named": true
-        },
-        {
-          "type": "ins_sse_pentium3",
-          "named": true
-        },
-        {
-          "type": "ins_undoc",
-          "named": true
-        },
-        {
-          "type": "ins_virt_amd_v",
-          "named": true
-        },
-        {
-          "type": "ins_virt_vt_x",
-          "named": true
-        },
-        {
-          "type": "ins_x86_64",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ins_mmx",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_mmx_plus_and_sse",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_mmx_sse2",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_pentium",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_pentium_2",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_pentium_mmx",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_pentium_pro",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_rdrand",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse2",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse2_pentium4",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse3",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse3_pentium4",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse4_1",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse4_2",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse4_2_nehalem",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse4a",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse_non_simd",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_sse_pentium3",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_undoc",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_virt_amd_v",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_virt_vt_x",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "ins_x86_64",
     "named": true,
     "fields": {}
   },
@@ -627,11 +180,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "directive",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -775,57 +332,6 @@
   },
   {
     "type": "register",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "register_16bit",
-          "named": true
-        },
-        {
-          "type": "register_32bit",
-          "named": true
-        },
-        {
-          "type": "register_64bit",
-          "named": true
-        },
-        {
-          "type": "register_8bit",
-          "named": true
-        },
-        {
-          "type": "register_simd",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "register_16bit",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "register_32bit",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "register_64bit",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "register_8bit",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "register_simd",
     "named": true,
     "fields": {}
   },
@@ -1061,75 +567,7 @@
     "named": false
   },
   {
-    "type": "adcx",
-    "named": false
-  },
-  {
     "type": "add",
-    "named": false
-  },
-  {
-    "type": "addpd",
-    "named": false
-  },
-  {
-    "type": "addps",
-    "named": false
-  },
-  {
-    "type": "addsd",
-    "named": false
-  },
-  {
-    "type": "addss",
-    "named": false
-  },
-  {
-    "type": "addsubpd",
-    "named": false
-  },
-  {
-    "type": "addsubps",
-    "named": false
-  },
-  {
-    "type": "adox",
-    "named": false
-  },
-  {
-    "type": "aesdec",
-    "named": false
-  },
-  {
-    "type": "aesdeclast",
-    "named": false
-  },
-  {
-    "type": "aesenc",
-    "named": false
-  },
-  {
-    "type": "aesenclast",
-    "named": false
-  },
-  {
-    "type": "aesimc",
-    "named": false
-  },
-  {
-    "type": "aeskeygenassist",
-    "named": false
-  },
-  {
-    "type": "ah",
-    "named": false
-  },
-  {
-    "type": "al",
-    "named": false
-  },
-  {
-    "type": "altinst",
     "named": false
   },
   {
@@ -1141,39 +579,11 @@
     "named": false
   },
   {
-    "type": "andnpd",
-    "named": false
-  },
-  {
-    "type": "andnps",
-    "named": false
-  },
-  {
-    "type": "andpd",
-    "named": false
-  },
-  {
-    "type": "andps",
-    "named": false
-  },
-  {
     "type": "arpl",
     "named": false
   },
   {
-    "type": "ax",
-    "named": false
-  },
-  {
     "type": "bextr",
-    "named": false
-  },
-  {
-    "type": "bh",
-    "named": false
-  },
-  {
-    "type": "bl",
     "named": false
   },
   {
@@ -1197,22 +607,6 @@
     "named": false
   },
   {
-    "type": "blendpd",
-    "named": false
-  },
-  {
-    "type": "blendps",
-    "named": false
-  },
-  {
-    "type": "blendvpd",
-    "named": false
-  },
-  {
-    "type": "blendvps",
-    "named": false
-  },
-  {
     "type": "blsfill",
     "named": false
   },
@@ -1233,43 +627,7 @@
     "named": false
   },
   {
-    "type": "bmdmk",
-    "named": false
-  },
-  {
-    "type": "bmdmov",
-    "named": false
-  },
-  {
-    "type": "bnd",
-    "named": false
-  },
-  {
-    "type": "bndcl",
-    "named": false
-  },
-  {
-    "type": "bndcn",
-    "named": false
-  },
-  {
-    "type": "bndcu",
-    "named": false
-  },
-  {
-    "type": "bndldx",
-    "named": false
-  },
-  {
-    "type": "bndstx",
-    "named": false
-  },
-  {
     "type": "bound",
-    "named": false
-  },
-  {
-    "type": "bp",
     "named": false
   },
   {
@@ -1301,10 +659,6 @@
     "named": false
   },
   {
-    "type": "bx",
-    "named": false
-  },
-  {
     "type": "byte",
     "named": false
   },
@@ -1329,18 +683,6 @@
     "named": false
   },
   {
-    "type": "ch",
-    "named": false
-  },
-  {
-    "type": "cl",
-    "named": false
-  },
-  {
-    "type": "cl1invmb",
-    "named": false
-  },
-  {
     "type": "clc",
     "named": false
   },
@@ -1353,15 +695,7 @@
     "named": false
   },
   {
-    "type": "clgi",
-    "named": false
-  },
-  {
     "type": "cli",
-    "named": false
-  },
-  {
-    "type": "clrssbsy",
     "named": false
   },
   {
@@ -1373,15 +707,127 @@
     "named": false
   },
   {
+    "type": "cmova",
+    "named": false
+  },
+  {
+    "type": "cmovae",
+    "named": false
+  },
+  {
+    "type": "cmovb",
+    "named": false
+  },
+  {
+    "type": "cmovbe",
+    "named": false
+  },
+  {
+    "type": "cmovc",
+    "named": false
+  },
+  {
+    "type": "cmove",
+    "named": false
+  },
+  {
+    "type": "cmovg",
+    "named": false
+  },
+  {
+    "type": "cmovge",
+    "named": false
+  },
+  {
+    "type": "cmovl",
+    "named": false
+  },
+  {
+    "type": "cmovle",
+    "named": false
+  },
+  {
+    "type": "cmovna",
+    "named": false
+  },
+  {
+    "type": "cmovnae",
+    "named": false
+  },
+  {
+    "type": "cmovnb",
+    "named": false
+  },
+  {
+    "type": "cmovnbe",
+    "named": false
+  },
+  {
+    "type": "cmovnc",
+    "named": false
+  },
+  {
+    "type": "cmovne",
+    "named": false
+  },
+  {
+    "type": "cmovng",
+    "named": false
+  },
+  {
+    "type": "cmovnge",
+    "named": false
+  },
+  {
+    "type": "cmovnl",
+    "named": false
+  },
+  {
+    "type": "cmovnle",
+    "named": false
+  },
+  {
+    "type": "cmovno",
+    "named": false
+  },
+  {
+    "type": "cmovnp",
+    "named": false
+  },
+  {
+    "type": "cmovns",
+    "named": false
+  },
+  {
+    "type": "cmovnz",
+    "named": false
+  },
+  {
+    "type": "cmovo",
+    "named": false
+  },
+  {
+    "type": "cmovp",
+    "named": false
+  },
+  {
+    "type": "cmovpe",
+    "named": false
+  },
+  {
+    "type": "cmovpo",
+    "named": false
+  },
+  {
+    "type": "cmovs",
+    "named": false
+  },
+  {
+    "type": "cmovz",
+    "named": false
+  },
+  {
     "type": "cmp",
-    "named": false
-  },
-  {
-    "type": "cmppd",
-    "named": false
-  },
-  {
-    "type": "cmpps",
     "named": false
   },
   {
@@ -1413,14 +859,6 @@
     "named": false
   },
   {
-    "type": "comisd",
-    "named": false
-  },
-  {
-    "type": "comiss",
-    "named": false
-  },
-  {
     "type": "comment",
     "named": true
   },
@@ -1441,103 +879,11 @@
     "named": false
   },
   {
-    "type": "cvtdq2pd",
-    "named": false
-  },
-  {
-    "type": "cvtdq2ps",
-    "named": false
-  },
-  {
-    "type": "cvtpd2dq",
-    "named": false
-  },
-  {
-    "type": "cvtpd2pi",
-    "named": false
-  },
-  {
-    "type": "cvtpd2ps",
-    "named": false
-  },
-  {
-    "type": "cvtpi2pd",
-    "named": false
-  },
-  {
-    "type": "cvtpi2ps",
-    "named": false
-  },
-  {
-    "type": "cvtps2dq",
-    "named": false
-  },
-  {
-    "type": "cvtps2pd",
-    "named": false
-  },
-  {
-    "type": "cvtps2pi",
-    "named": false
-  },
-  {
-    "type": "cvtsd2si",
-    "named": false
-  },
-  {
-    "type": "cvtsd2ss",
-    "named": false
-  },
-  {
-    "type": "cvtsi2sd",
-    "named": false
-  },
-  {
-    "type": "cvtsi2ss",
-    "named": false
-  },
-  {
-    "type": "cvtss2sd",
-    "named": false
-  },
-  {
-    "type": "cvtss2si",
-    "named": false
-  },
-  {
-    "type": "cvttpd2dq",
-    "named": false
-  },
-  {
-    "type": "cvttpd2pi",
-    "named": false
-  },
-  {
-    "type": "cvttps2dq",
-    "named": false
-  },
-  {
-    "type": "cvttps2pi",
-    "named": false
-  },
-  {
-    "type": "cvttsd2si",
-    "named": false
-  },
-  {
-    "type": "cvttss2si",
-    "named": false
-  },
-  {
     "type": "cwd",
     "named": false
   },
   {
     "type": "cwde",
-    "named": false
-  },
-  {
-    "type": "cx",
     "named": false
   },
   {
@@ -1561,43 +907,7 @@
     "named": false
   },
   {
-    "type": "dh",
-    "named": false
-  },
-  {
-    "type": "di",
-    "named": false
-  },
-  {
     "type": "div",
-    "named": false
-  },
-  {
-    "type": "divpd",
-    "named": false
-  },
-  {
-    "type": "divps",
-    "named": false
-  },
-  {
-    "type": "divsd",
-    "named": false
-  },
-  {
-    "type": "divss",
-    "named": false
-  },
-  {
-    "type": "dl",
-    "named": false
-  },
-  {
-    "type": "dppd",
-    "named": false
-  },
-  {
-    "type": "dpps",
     "named": false
   },
   {
@@ -1617,46 +927,6 @@
     "named": false
   },
   {
-    "type": "dx",
-    "named": false
-  },
-  {
-    "type": "eax",
-    "named": false
-  },
-  {
-    "type": "ebp",
-    "named": false
-  },
-  {
-    "type": "ebx",
-    "named": false
-  },
-  {
-    "type": "ecx",
-    "named": false
-  },
-  {
-    "type": "edi",
-    "named": false
-  },
-  {
-    "type": "edx",
-    "named": false
-  },
-  {
-    "type": "emms",
-    "named": false
-  },
-  {
-    "type": "endbr32",
-    "named": false
-  },
-  {
-    "type": "endbr64",
-    "named": false
-  },
-  {
     "type": "enter",
     "named": false
   },
@@ -1673,543 +943,11 @@
     "named": true
   },
   {
-    "type": "esi",
-    "named": false
-  },
-  {
-    "type": "esp",
-    "named": false
-  },
-  {
     "type": "extern",
     "named": false
   },
   {
-    "type": "extractps",
-    "named": false
-  },
-  {
-    "type": "extrq",
-    "named": false
-  },
-  {
-    "type": "f2xm1",
-    "named": false
-  },
-  {
-    "type": "f4x4",
-    "named": false
-  },
-  {
-    "type": "fabs",
-    "named": false
-  },
-  {
-    "type": "fadd",
-    "named": false
-  },
-  {
-    "type": "faddp",
-    "named": false
-  },
-  {
-    "type": "fbld",
-    "named": false
-  },
-  {
-    "type": "fbstp",
-    "named": false
-  },
-  {
-    "type": "fchs",
-    "named": false
-  },
-  {
-    "type": "fclex",
-    "named": false
-  },
-  {
-    "type": "fcmovb",
-    "named": false
-  },
-  {
-    "type": "fcmovbe",
-    "named": false
-  },
-  {
-    "type": "fcmove",
-    "named": false
-  },
-  {
-    "type": "fcmovnb",
-    "named": false
-  },
-  {
-    "type": "fcmovnbe",
-    "named": false
-  },
-  {
-    "type": "fcmovne",
-    "named": false
-  },
-  {
-    "type": "fcmovnu",
-    "named": false
-  },
-  {
-    "type": "fcmovu",
-    "named": false
-  },
-  {
-    "type": "fcom",
-    "named": false
-  },
-  {
-    "type": "fcomi",
-    "named": false
-  },
-  {
-    "type": "fcomip",
-    "named": false
-  },
-  {
-    "type": "fcomp",
-    "named": false
-  },
-  {
-    "type": "fcompp",
-    "named": false
-  },
-  {
-    "type": "fcos",
-    "named": false
-  },
-  {
-    "type": "fdecstp",
-    "named": false
-  },
-  {
-    "type": "fdisi",
-    "named": false
-  },
-  {
-    "type": "fdisi8087_nop",
-    "named": false
-  },
-  {
-    "type": "fdiv",
-    "named": false
-  },
-  {
-    "type": "fdivp",
-    "named": false
-  },
-  {
-    "type": "fdivr",
-    "named": false
-  },
-  {
-    "type": "fdivrp",
-    "named": false
-  },
-  {
-    "type": "femms",
-    "named": false
-  },
-  {
-    "type": "feni",
-    "named": false
-  },
-  {
-    "type": "feni8087_nop",
-    "named": false
-  },
-  {
-    "type": "ffree",
-    "named": false
-  },
-  {
-    "type": "ffreep",
-    "named": false
-  },
-  {
-    "type": "fiadd",
-    "named": false
-  },
-  {
-    "type": "ficom",
-    "named": false
-  },
-  {
-    "type": "ficomp",
-    "named": false
-  },
-  {
-    "type": "fidiv",
-    "named": false
-  },
-  {
-    "type": "fidivr",
-    "named": false
-  },
-  {
-    "type": "fild",
-    "named": false
-  },
-  {
-    "type": "fimul",
-    "named": false
-  },
-  {
-    "type": "fincstp",
-    "named": false
-  },
-  {
-    "type": "finit",
-    "named": false
-  },
-  {
-    "type": "fist",
-    "named": false
-  },
-  {
-    "type": "fistp",
-    "named": false
-  },
-  {
-    "type": "fisttp",
-    "named": false
-  },
-  {
-    "type": "fisub",
-    "named": false
-  },
-  {
-    "type": "fisubr",
-    "named": false
-  },
-  {
-    "type": "fld",
-    "named": false
-  },
-  {
-    "type": "fld1",
-    "named": false
-  },
-  {
-    "type": "fldcw",
-    "named": false
-  },
-  {
-    "type": "fldenv",
-    "named": false
-  },
-  {
-    "type": "fldenvd",
-    "named": false
-  },
-  {
-    "type": "fldenvw",
-    "named": false
-  },
-  {
-    "type": "fldl2e",
-    "named": false
-  },
-  {
-    "type": "fldl2t",
-    "named": false
-  },
-  {
-    "type": "fldlg2",
-    "named": false
-  },
-  {
-    "type": "fldln2",
-    "named": false
-  },
-  {
-    "type": "fldpi",
-    "named": false
-  },
-  {
-    "type": "fldz",
-    "named": false
-  },
-  {
-    "type": "fmul",
-    "named": false
-  },
-  {
-    "type": "fmul4x4",
-    "named": false
-  },
-  {
-    "type": "fmulp",
-    "named": false
-  },
-  {
-    "type": "fnclex",
-    "named": false
-  },
-  {
-    "type": "fndisi",
-    "named": false
-  },
-  {
-    "type": "fneni",
-    "named": false
-  },
-  {
-    "type": "fninit",
-    "named": false
-  },
-  {
-    "type": "fnop",
-    "named": false
-  },
-  {
-    "type": "fnsave",
-    "named": false
-  },
-  {
-    "type": "fnsavew",
-    "named": false
-  },
-  {
-    "type": "fnstcw",
-    "named": false
-  },
-  {
-    "type": "fnstdw",
-    "named": false
-  },
-  {
-    "type": "fnstenv",
-    "named": false
-  },
-  {
-    "type": "fnstenvw",
-    "named": false
-  },
-  {
-    "type": "fnstsg",
-    "named": false
-  },
-  {
-    "type": "fnstsw",
-    "named": false
-  },
-  {
-    "type": "fpatan",
-    "named": false
-  },
-  {
-    "type": "fprem",
-    "named": false
-  },
-  {
-    "type": "fprem1",
-    "named": false
-  },
-  {
-    "type": "fptan",
-    "named": false
-  },
-  {
-    "type": "frichop",
-    "named": false
-  },
-  {
-    "type": "frinear",
-    "named": false
-  },
-  {
-    "type": "frint2",
-    "named": false
-  },
-  {
-    "type": "frndint",
-    "named": false
-  },
-  {
-    "type": "frstor",
-    "named": false
-  },
-  {
-    "type": "frstord",
-    "named": false
-  },
-  {
-    "type": "frstorw",
-    "named": false
-  },
-  {
-    "type": "frstpm",
-    "named": false
-  },
-  {
     "type": "fs",
-    "named": false
-  },
-  {
-    "type": "fsave",
-    "named": false
-  },
-  {
-    "type": "fsaved",
-    "named": false
-  },
-  {
-    "type": "fsavew",
-    "named": false
-  },
-  {
-    "type": "fsbp0",
-    "named": false
-  },
-  {
-    "type": "fsbp1",
-    "named": false
-  },
-  {
-    "type": "fsbp2",
-    "named": false
-  },
-  {
-    "type": "fsbp3",
-    "named": false
-  },
-  {
-    "type": "fscale",
-    "named": false
-  },
-  {
-    "type": "fsetpm",
-    "named": false
-  },
-  {
-    "type": "fsetpm287_nop",
-    "named": false
-  },
-  {
-    "type": "fsin",
-    "named": false
-  },
-  {
-    "type": "fsincos",
-    "named": false
-  },
-  {
-    "type": "fsqrt",
-    "named": false
-  },
-  {
-    "type": "fst",
-    "named": false
-  },
-  {
-    "type": "fstcw",
-    "named": false
-  },
-  {
-    "type": "fstenv",
-    "named": false
-  },
-  {
-    "type": "fstenvd",
-    "named": false
-  },
-  {
-    "type": "fstenvw",
-    "named": false
-  },
-  {
-    "type": "fstp",
-    "named": false
-  },
-  {
-    "type": "fstpnce",
-    "named": false
-  },
-  {
-    "type": "fstsw",
-    "named": false
-  },
-  {
-    "type": "fsub",
-    "named": false
-  },
-  {
-    "type": "fsubp",
-    "named": false
-  },
-  {
-    "type": "fsubr",
-    "named": false
-  },
-  {
-    "type": "fsubrp",
-    "named": false
-  },
-  {
-    "type": "ftst",
-    "named": false
-  },
-  {
-    "type": "ftstp",
-    "named": false
-  },
-  {
-    "type": "fucom",
-    "named": false
-  },
-  {
-    "type": "fucomi",
-    "named": false
-  },
-  {
-    "type": "fucomip",
-    "named": false
-  },
-  {
-    "type": "fucomp",
-    "named": false
-  },
-  {
-    "type": "fucompp",
-    "named": false
-  },
-  {
-    "type": "fwait",
-    "named": false
-  },
-  {
-    "type": "fxam",
-    "named": false
-  },
-  {
-    "type": "fxch",
-    "named": false
-  },
-  {
-    "type": "fxrstor",
-    "named": false
-  },
-  {
-    "type": "fxsave",
-    "named": false
-  },
-  {
-    "type": "fxtract",
-    "named": false
-  },
-  {
-    "type": "fyl2x",
-    "named": false
-  },
-  {
-    "type": "fyl2xp1",
     "named": false
   },
   {
@@ -2221,31 +959,11 @@
     "named": false
   },
   {
-    "type": "haddpd",
-    "named": false
-  },
-  {
-    "type": "haddps",
-    "named": false
-  },
-  {
     "type": "hlt",
     "named": false
   },
   {
-    "type": "hsubpd",
-    "named": false
-  },
-  {
-    "type": "hsubps",
-    "named": false
-  },
-  {
     "type": "ibts",
-    "named": false
-  },
-  {
-    "type": "icebp",
     "named": false
   },
   {
@@ -2265,14 +983,6 @@
     "named": false
   },
   {
-    "type": "incsspd",
-    "named": false
-  },
-  {
-    "type": "incsspq",
-    "named": false
-  },
-  {
     "type": "info",
     "named": false
   },
@@ -2285,23 +995,11 @@
     "named": false
   },
   {
-    "type": "insertps",
-    "named": false
-  },
-  {
-    "type": "insertq",
-    "named": false
-  },
-  {
     "type": "insw",
     "named": false
   },
   {
     "type": "int",
-    "named": false
-  },
-  {
-    "type": "int1",
     "named": false
   },
   {
@@ -2313,19 +1011,7 @@
     "named": false
   },
   {
-    "type": "invept",
-    "named": false
-  },
-  {
     "type": "invlpg",
-    "named": false
-  },
-  {
-    "type": "invlpga",
-    "named": false
-  },
-  {
-    "type": "invvpid",
     "named": false
   },
   {
@@ -2477,14 +1163,6 @@
     "named": false
   },
   {
-    "type": "lddqu",
-    "named": false
-  },
-  {
-    "type": "ldmxcsr",
-    "named": false
-  },
-  {
     "type": "lds",
     "named": false
   },
@@ -2530,10 +1208,6 @@
   },
   {
     "type": "loadall",
-    "named": false
-  },
-  {
-    "type": "loadalld",
     "named": false
   },
   {
@@ -2605,51 +1279,11 @@
     "named": false
   },
   {
-    "type": "maskmovq",
-    "named": false
-  },
-  {
-    "type": "maxpd",
-    "named": false
-  },
-  {
-    "type": "maxps",
-    "named": false
-  },
-  {
-    "type": "maxsd",
-    "named": false
-  },
-  {
-    "type": "maxss",
-    "named": false
-  },
-  {
     "type": "mfence",
     "named": false
   },
   {
-    "type": "minpd",
-    "named": false
-  },
-  {
-    "type": "minps",
-    "named": false
-  },
-  {
-    "type": "minsd",
-    "named": false
-  },
-  {
-    "type": "minss",
-    "named": false
-  },
-  {
-    "type": "montmul2",
-    "named": false
-  },
-  {
-    "type": "monvtdqa",
+    "type": "monitor",
     "named": false
   },
   {
@@ -2657,99 +1291,7 @@
     "named": false
   },
   {
-    "type": "movapd",
-    "named": false
-  },
-  {
-    "type": "movaps",
-    "named": false
-  },
-  {
-    "type": "movd",
-    "named": false
-  },
-  {
-    "type": "movddup",
-    "named": false
-  },
-  {
-    "type": "movdq2q",
-    "named": false
-  },
-  {
-    "type": "movdqa",
-    "named": false
-  },
-  {
-    "type": "movdqu",
-    "named": false
-  },
-  {
-    "type": "movhlps",
-    "named": false
-  },
-  {
-    "type": "movhpd",
-    "named": false
-  },
-  {
-    "type": "movhps",
-    "named": false
-  },
-  {
-    "type": "movlhps",
-    "named": false
-  },
-  {
-    "type": "movlpd",
-    "named": false
-  },
-  {
-    "type": "movlps",
-    "named": false
-  },
-  {
-    "type": "movmskpd",
-    "named": false
-  },
-  {
-    "type": "movmskps",
-    "named": false
-  },
-  {
-    "type": "movntdq",
-    "named": false
-  },
-  {
     "type": "movnti",
-    "named": false
-  },
-  {
-    "type": "movntpd",
-    "named": false
-  },
-  {
-    "type": "movntps",
-    "named": false
-  },
-  {
-    "type": "movntq",
-    "named": false
-  },
-  {
-    "type": "movntsd",
-    "named": false
-  },
-  {
-    "type": "movntss",
-    "named": false
-  },
-  {
-    "type": "movq",
-    "named": false
-  },
-  {
-    "type": "movq2dq",
     "named": false
   },
   {
@@ -2761,31 +1303,11 @@
     "named": false
   },
   {
-    "type": "movshdup",
-    "named": false
-  },
-  {
-    "type": "movsldup",
-    "named": false
-  },
-  {
-    "type": "movss",
-    "named": false
-  },
-  {
     "type": "movsw",
     "named": false
   },
   {
     "type": "movsx",
-    "named": false
-  },
-  {
-    "type": "movupd",
-    "named": false
-  },
-  {
-    "type": "movups",
     "named": false
   },
   {
@@ -2797,31 +1319,15 @@
     "named": false
   },
   {
-    "type": "mpsadbw",
-    "named": false
-  },
-  {
     "type": "mul",
     "named": false
   },
   {
-    "type": "mulpd",
-    "named": false
-  },
-  {
-    "type": "mulps",
-    "named": false
-  },
-  {
-    "type": "mulsd",
-    "named": false
-  },
-  {
-    "type": "mulss",
-    "named": false
-  },
-  {
     "type": "mulx",
+    "named": false
+  },
+  {
+    "type": "mwait",
     "named": false
   },
   {
@@ -2837,10 +1343,6 @@
     "named": false
   },
   {
-    "type": "nxop",
-    "named": false
-  },
-  {
     "type": "objdump_file_format",
     "named": true
   },
@@ -2850,14 +1352,6 @@
   },
   {
     "type": "or",
-    "named": false
-  },
-  {
-    "type": "orpd",
-    "named": false
-  },
-  {
-    "type": "orps",
     "named": false
   },
   {
@@ -2877,187 +1371,7 @@
     "named": false
   },
   {
-    "type": "pabsb",
-    "named": false
-  },
-  {
-    "type": "pabsd",
-    "named": false
-  },
-  {
-    "type": "pabsw",
-    "named": false
-  },
-  {
-    "type": "packssdw",
-    "named": false
-  },
-  {
-    "type": "packsswb",
-    "named": false
-  },
-  {
-    "type": "packusdw",
-    "named": false
-  },
-  {
-    "type": "packuswb",
-    "named": false
-  },
-  {
-    "type": "paddb",
-    "named": false
-  },
-  {
-    "type": "paddd",
-    "named": false
-  },
-  {
-    "type": "paddq",
-    "named": false
-  },
-  {
-    "type": "paddsb",
-    "named": false
-  },
-  {
-    "type": "paddsd",
-    "named": false
-  },
-  {
-    "type": "paddsq",
-    "named": false
-  },
-  {
-    "type": "paddsw",
-    "named": false
-  },
-  {
-    "type": "paddusb",
-    "named": false
-  },
-  {
-    "type": "paddusw",
-    "named": false
-  },
-  {
-    "type": "paddw",
-    "named": false
-  },
-  {
-    "type": "palignr",
-    "named": false
-  },
-  {
-    "type": "pand",
-    "named": false
-  },
-  {
-    "type": "pandn",
-    "named": false
-  },
-  {
-    "type": "patch2",
-    "named": false
-  },
-  {
-    "type": "patch3",
-    "named": false
-  },
-  {
     "type": "pause",
-    "named": false
-  },
-  {
-    "type": "pavgb",
-    "named": false
-  },
-  {
-    "type": "pavgusb",
-    "named": false
-  },
-  {
-    "type": "pavgw",
-    "named": false
-  },
-  {
-    "type": "pbasd",
-    "named": false
-  },
-  {
-    "type": "pblendvb",
-    "named": false
-  },
-  {
-    "type": "pblendw",
-    "named": false
-  },
-  {
-    "type": "pclmulhqhqdq",
-    "named": false
-  },
-  {
-    "type": "pclmulhqlqdq",
-    "named": false
-  },
-  {
-    "type": "pclmullqhqdq",
-    "named": false
-  },
-  {
-    "type": "pclmullqlqdq",
-    "named": false
-  },
-  {
-    "type": "pclmulqdq",
-    "named": false
-  },
-  {
-    "type": "pcmpeqb",
-    "named": false
-  },
-  {
-    "type": "pcmpeqd",
-    "named": false
-  },
-  {
-    "type": "pcmpeqq",
-    "named": false
-  },
-  {
-    "type": "pcmpeqw",
-    "named": false
-  },
-  {
-    "type": "pcmpestri",
-    "named": false
-  },
-  {
-    "type": "pcmpestrm",
-    "named": false
-  },
-  {
-    "type": "pcmpgtb",
-    "named": false
-  },
-  {
-    "type": "pcmpgtd",
-    "named": false
-  },
-  {
-    "type": "pcmpgtq",
-    "named": false
-  },
-  {
-    "type": "pcmpgtw",
-    "named": false
-  },
-  {
-    "type": "pcmpistri",
-    "named": false
-  },
-  {
-    "type": "pcmpistrm",
     "named": false
   },
   {
@@ -3066,294 +1380,6 @@
   },
   {
     "type": "pext",
-    "named": false
-  },
-  {
-    "type": "pextrb",
-    "named": false
-  },
-  {
-    "type": "pextrd",
-    "named": false
-  },
-  {
-    "type": "pextrq",
-    "named": false
-  },
-  {
-    "type": "pextrw",
-    "named": false
-  },
-  {
-    "type": "pf2id",
-    "named": false
-  },
-  {
-    "type": "pf2iw",
-    "named": false
-  },
-  {
-    "type": "pfacc",
-    "named": false
-  },
-  {
-    "type": "pfadd",
-    "named": false
-  },
-  {
-    "type": "pfcmpeq",
-    "named": false
-  },
-  {
-    "type": "pfcmpge",
-    "named": false
-  },
-  {
-    "type": "pfcmpgt",
-    "named": false
-  },
-  {
-    "type": "pfmax",
-    "named": false
-  },
-  {
-    "type": "pfmin",
-    "named": false
-  },
-  {
-    "type": "pfmul",
-    "named": false
-  },
-  {
-    "type": "pfnacc",
-    "named": false
-  },
-  {
-    "type": "pfpnacc",
-    "named": false
-  },
-  {
-    "type": "pfrcp",
-    "named": false
-  },
-  {
-    "type": "pfrcpit1",
-    "named": false
-  },
-  {
-    "type": "pfrcpit2",
-    "named": false
-  },
-  {
-    "type": "pfrcpv",
-    "named": false
-  },
-  {
-    "type": "pfrqsrtv",
-    "named": false
-  },
-  {
-    "type": "pfrsqit1",
-    "named": false
-  },
-  {
-    "type": "pfrsqrt",
-    "named": false
-  },
-  {
-    "type": "pfsub",
-    "named": false
-  },
-  {
-    "type": "pfsubr",
-    "named": false
-  },
-  {
-    "type": "phaddd",
-    "named": false
-  },
-  {
-    "type": "phaddsw",
-    "named": false
-  },
-  {
-    "type": "phaddw",
-    "named": false
-  },
-  {
-    "type": "phminposuw",
-    "named": false
-  },
-  {
-    "type": "phsubd",
-    "named": false
-  },
-  {
-    "type": "phsubsw",
-    "named": false
-  },
-  {
-    "type": "phsubw",
-    "named": false
-  },
-  {
-    "type": "pi2fd",
-    "named": false
-  },
-  {
-    "type": "pi2fw",
-    "named": false
-  },
-  {
-    "type": "pinsrb",
-    "named": false
-  },
-  {
-    "type": "pinsrd",
-    "named": false
-  },
-  {
-    "type": "pinsrq",
-    "named": false
-  },
-  {
-    "type": "pinsrw",
-    "named": false
-  },
-  {
-    "type": "pmaddubsw",
-    "named": false
-  },
-  {
-    "type": "pmaddwd",
-    "named": false
-  },
-  {
-    "type": "pmaxsb",
-    "named": false
-  },
-  {
-    "type": "pmaxsd",
-    "named": false
-  },
-  {
-    "type": "pmaxsw",
-    "named": false
-  },
-  {
-    "type": "pmaxub",
-    "named": false
-  },
-  {
-    "type": "pmaxud",
-    "named": false
-  },
-  {
-    "type": "pmaxuw",
-    "named": false
-  },
-  {
-    "type": "pminsb",
-    "named": false
-  },
-  {
-    "type": "pminsd",
-    "named": false
-  },
-  {
-    "type": "pminsw",
-    "named": false
-  },
-  {
-    "type": "pminub",
-    "named": false
-  },
-  {
-    "type": "pminud",
-    "named": false
-  },
-  {
-    "type": "pminuw",
-    "named": false
-  },
-  {
-    "type": "pmovmskb",
-    "named": false
-  },
-  {
-    "type": "pmovsxbd",
-    "named": false
-  },
-  {
-    "type": "pmovsxbq",
-    "named": false
-  },
-  {
-    "type": "pmovsxbw",
-    "named": false
-  },
-  {
-    "type": "pmovsxdq",
-    "named": false
-  },
-  {
-    "type": "pmovsxwd",
-    "named": false
-  },
-  {
-    "type": "pmovsxwq",
-    "named": false
-  },
-  {
-    "type": "pmovzxbd",
-    "named": false
-  },
-  {
-    "type": "pmovzxbq",
-    "named": false
-  },
-  {
-    "type": "pmovzxbw",
-    "named": false
-  },
-  {
-    "type": "pmovzxdq",
-    "named": false
-  },
-  {
-    "type": "pmovzxwd",
-    "named": false
-  },
-  {
-    "type": "pmovzxwq",
-    "named": false
-  },
-  {
-    "type": "pmuldq",
-    "named": false
-  },
-  {
-    "type": "pmulhrsw",
-    "named": false
-  },
-  {
-    "type": "pmulhrw",
-    "named": false
-  },
-  {
-    "type": "pmulhuw",
-    "named": false
-  },
-  {
-    "type": "pmulhw",
-    "named": false
-  },
-  {
-    "type": "pmulld",
-    "named": false
-  },
-  {
-    "type": "pmullw",
     "named": false
   },
   {
@@ -3389,14 +1415,6 @@
     "named": false
   },
   {
-    "type": "por",
-    "named": false
-  },
-  {
-    "type": "prefetch",
-    "named": false
-  },
-  {
     "type": "prefetchnta",
     "named": false
   },
@@ -3413,159 +1431,11 @@
     "named": false
   },
   {
-    "type": "prefetchw",
-    "named": false
-  },
-  {
-    "type": "psadbw",
-    "named": false
-  },
-  {
-    "type": "pshufb",
-    "named": false
-  },
-  {
-    "type": "pshufd",
-    "named": false
-  },
-  {
-    "type": "pshufhw",
-    "named": false
-  },
-  {
-    "type": "pshuflw",
-    "named": false
-  },
-  {
-    "type": "pshufw",
-    "named": false
-  },
-  {
-    "type": "psignb",
-    "named": false
-  },
-  {
-    "type": "psignd",
-    "named": false
-  },
-  {
-    "type": "psignw",
-    "named": false
-  },
-  {
-    "type": "pslldq",
-    "named": false
-  },
-  {
-    "type": "psra2",
-    "named": false
-  },
-  {
-    "type": "psrad",
-    "named": false
-  },
-  {
-    "type": "psrld",
-    "named": false
-  },
-  {
-    "type": "psrldq",
-    "named": false
-  },
-  {
-    "type": "psrlq",
-    "named": false
-  },
-  {
-    "type": "psrlw",
-    "named": false
-  },
-  {
-    "type": "pssld",
-    "named": false
-  },
-  {
-    "type": "psslq",
-    "named": false
-  },
-  {
-    "type": "psslw",
-    "named": false
-  },
-  {
-    "type": "psubb",
-    "named": false
-  },
-  {
-    "type": "psubd",
-    "named": false
-  },
-  {
-    "type": "psubsb",
-    "named": false
-  },
-  {
-    "type": "psubsw",
-    "named": false
-  },
-  {
-    "type": "psubusb",
-    "named": false
-  },
-  {
-    "type": "psubusw",
-    "named": false
-  },
-  {
-    "type": "psubw",
-    "named": false
-  },
-  {
-    "type": "pswapd",
-    "named": false
-  },
-  {
-    "type": "pswapw",
-    "named": false
-  },
-  {
-    "type": "ptest",
-    "named": false
-  },
-  {
     "type": "ptr",
     "named": false
   },
   {
     "type": "punpckhbw",
-    "named": false
-  },
-  {
-    "type": "punpckhdq",
-    "named": false
-  },
-  {
-    "type": "punpckhqdq",
-    "named": false
-  },
-  {
-    "type": "punpckhwd",
-    "named": false
-  },
-  {
-    "type": "punpcklbw",
-    "named": false
-  },
-  {
-    "type": "punpckldq",
-    "named": false
-  },
-  {
-    "type": "punpcklqdq",
-    "named": false
-  },
-  {
-    "type": "punpcklwd",
     "named": false
   },
   {
@@ -3597,55 +1467,7 @@
     "named": false
   },
   {
-    "type": "pxor",
-    "named": false
-  },
-  {
     "type": "qword",
-    "named": false
-  },
-  {
-    "type": "r10",
-    "named": false
-  },
-  {
-    "type": "r11",
-    "named": false
-  },
-  {
-    "type": "r12",
-    "named": false
-  },
-  {
-    "type": "r13",
-    "named": false
-  },
-  {
-    "type": "r14",
-    "named": false
-  },
-  {
-    "type": "r15",
-    "named": false
-  },
-  {
-    "type": "r8",
-    "named": false
-  },
-  {
-    "type": "r9",
-    "named": false
-  },
-  {
-    "type": "rax",
-    "named": false
-  },
-  {
-    "type": "rbp",
-    "named": false
-  },
-  {
-    "type": "rbx",
     "named": false
   },
   {
@@ -3653,23 +1475,7 @@
     "named": false
   },
   {
-    "type": "rcpps",
-    "named": false
-  },
-  {
-    "type": "rcpss",
-    "named": false
-  },
-  {
     "type": "rcr",
-    "named": false
-  },
-  {
-    "type": "rcx",
-    "named": false
-  },
-  {
-    "type": "rdi",
     "named": false
   },
   {
@@ -3681,31 +1487,11 @@
     "named": false
   },
   {
-    "type": "rdrand",
-    "named": false
-  },
-  {
-    "type": "rdseed",
-    "named": false
-  },
-  {
-    "type": "rdsspd",
-    "named": false
-  },
-  {
-    "type": "rdsspq",
-    "named": false
-  },
-  {
     "type": "rdtsc",
     "named": false
   },
   {
     "type": "rdtscp",
-    "named": false
-  },
-  {
-    "type": "rdx",
     "named": false
   },
   {
@@ -3757,39 +1543,7 @@
     "named": false
   },
   {
-    "type": "roundpd",
-    "named": false
-  },
-  {
-    "type": "roundps",
-    "named": false
-  },
-  {
-    "type": "roundsd",
-    "named": false
-  },
-  {
-    "type": "roundss",
-    "named": false
-  },
-  {
-    "type": "rsi",
-    "named": false
-  },
-  {
     "type": "rsm",
-    "named": false
-  },
-  {
-    "type": "rsp",
-    "named": false
-  },
-  {
-    "type": "rsqrtps",
-    "named": false
-  },
-  {
-    "type": "rstorssp",
     "named": false
   },
   {
@@ -3809,19 +1563,7 @@
     "named": false
   },
   {
-    "type": "saveall",
-    "named": false
-  },
-  {
-    "type": "saveprevssp",
-    "named": false
-  },
-  {
     "type": "sbb",
-    "named": false
-  },
-  {
-    "type": "scall",
     "named": false
   },
   {
@@ -3854,10 +1596,6 @@
   },
   {
     "type": "setae",
-    "named": false
-  },
-  {
-    "type": "setalc",
     "named": false
   },
   {
@@ -3969,10 +1707,6 @@
     "named": false
   },
   {
-    "type": "setssbsy",
-    "named": false
-  },
-  {
     "type": "setz",
     "named": false
   },
@@ -3982,34 +1716,6 @@
   },
   {
     "type": "sgdt",
-    "named": false
-  },
-  {
-    "type": "sha1msg1",
-    "named": false
-  },
-  {
-    "type": "sha1msg2",
-    "named": false
-  },
-  {
-    "type": "sha1nexte",
-    "named": false
-  },
-  {
-    "type": "sha1rnds4",
-    "named": false
-  },
-  {
-    "type": "sha256msg1",
-    "named": false
-  },
-  {
-    "type": "sha256msg2",
-    "named": false
-  },
-  {
-    "type": "sha256rnds2",
     "named": false
   },
   {
@@ -4041,23 +1747,7 @@
     "named": false
   },
   {
-    "type": "shufpd",
-    "named": false
-  },
-  {
-    "type": "shufps",
-    "named": false
-  },
-  {
-    "type": "si",
-    "named": false
-  },
-  {
     "type": "sidt",
-    "named": false
-  },
-  {
-    "type": "skinit",
     "named": false
   },
   {
@@ -4066,26 +1756,6 @@
   },
   {
     "type": "smsw",
-    "named": false
-  },
-  {
-    "type": "sp",
-    "named": false
-  },
-  {
-    "type": "sqrtpd",
-    "named": false
-  },
-  {
-    "type": "sqrtps",
-    "named": false
-  },
-  {
-    "type": "sqrtsd",
-    "named": false
-  },
-  {
-    "type": "sqrtss",
     "named": false
   },
   {
@@ -4101,19 +1771,7 @@
     "named": false
   },
   {
-    "type": "stgi",
-    "named": false
-  },
-  {
     "type": "sti",
-    "named": false
-  },
-  {
-    "type": "stmxcsr",
-    "named": false
-  },
-  {
-    "type": "storeall",
     "named": false
   },
   {
@@ -4138,22 +1796,6 @@
   },
   {
     "type": "sub",
-    "named": false
-  },
-  {
-    "type": "subpd",
-    "named": false
-  },
-  {
-    "type": "subps",
-    "named": false
-  },
-  {
-    "type": "subsd",
-    "named": false
-  },
-  {
-    "type": "subss",
     "named": false
   },
   {
@@ -4193,135 +1835,7 @@
     "named": false
   },
   {
-    "type": "ucomisd",
-    "named": false
-  },
-  {
-    "type": "ucomiss",
-    "named": false
-  },
-  {
-    "type": "ud0",
-    "named": false
-  },
-  {
-    "type": "ud1",
-    "named": false
-  },
-  {
-    "type": "umov",
-    "named": false
-  },
-  {
-    "type": "unpckhpd",
-    "named": false
-  },
-  {
-    "type": "unpckhps",
-    "named": false
-  },
-  {
-    "type": "unpcklpd",
-    "named": false
-  },
-  {
-    "type": "unpcklps",
-    "named": false
-  },
-  {
-    "type": "valignd",
-    "named": false
-  },
-  {
-    "type": "valignq",
-    "named": false
-  },
-  {
-    "type": "vblendmpd",
-    "named": false
-  },
-  {
-    "type": "vblendmps",
-    "named": false
-  },
-  {
-    "type": "vbroadcastf128",
-    "named": false
-  },
-  {
-    "type": "vbroadcasti128",
-    "named": false
-  },
-  {
-    "type": "vbroadcastsd",
-    "named": false
-  },
-  {
-    "type": "vbroadcastss",
-    "named": false
-  },
-  {
-    "type": "vcompresspd",
-    "named": false
-  },
-  {
-    "type": "vcompressps",
-    "named": false
-  },
-  {
-    "type": "vcvpd2udq",
-    "named": false
-  },
-  {
-    "type": "vcvps2udq",
-    "named": false
-  },
-  {
-    "type": "vcvtpd2udq",
-    "named": false
-  },
-  {
-    "type": "vcvtph2ps",
-    "named": false
-  },
-  {
-    "type": "vcvtps2ph",
-    "named": false
-  },
-  {
-    "type": "vcvtps2udq",
-    "named": false
-  },
-  {
-    "type": "vcvtqq2pd",
-    "named": false
-  },
-  {
-    "type": "vcvtqq2ps",
-    "named": false
-  },
-  {
-    "type": "vcvtudq2pd",
-    "named": false
-  },
-  {
-    "type": "vcvtudq2ps",
-    "named": false
-  },
-  {
-    "type": "vcvtusi2pd",
-    "named": false
-  },
-  {
-    "type": "vcvtusi2ps",
-    "named": false
-  },
-  {
-    "type": "vcvtusi2sd",
-    "named": false
-  },
-  {
-    "type": "vcvtusi2ss",
+    "type": "ud2",
     "named": false
   },
   {
@@ -4330,1138 +1844,6 @@
   },
   {
     "type": "verw",
-    "named": false
-  },
-  {
-    "type": "vexpandpd",
-    "named": false
-  },
-  {
-    "type": "vexpandps",
-    "named": false
-  },
-  {
-    "type": "vextractf128",
-    "named": false
-  },
-  {
-    "type": "vextracti128",
-    "named": false
-  },
-  {
-    "type": "vfixupimmpd",
-    "named": false
-  },
-  {
-    "type": "vfixupimmps",
-    "named": false
-  },
-  {
-    "type": "vfixupimmsd",
-    "named": false
-  },
-  {
-    "type": "vfixupimmss",
-    "named": false
-  },
-  {
-    "type": "vfmadd132pd",
-    "named": false
-  },
-  {
-    "type": "vfmadd132ps",
-    "named": false
-  },
-  {
-    "type": "vfmadd132sd",
-    "named": false
-  },
-  {
-    "type": "vfmadd132ss",
-    "named": false
-  },
-  {
-    "type": "vfmadd213pd",
-    "named": false
-  },
-  {
-    "type": "vfmadd213ps",
-    "named": false
-  },
-  {
-    "type": "vfmadd213sd",
-    "named": false
-  },
-  {
-    "type": "vfmadd213ss",
-    "named": false
-  },
-  {
-    "type": "vfmadd231pd",
-    "named": false
-  },
-  {
-    "type": "vfmadd231ps",
-    "named": false
-  },
-  {
-    "type": "vfmadd231sd",
-    "named": false
-  },
-  {
-    "type": "vfmadd231ss",
-    "named": false
-  },
-  {
-    "type": "vfmaddpd",
-    "named": false
-  },
-  {
-    "type": "vfmaddps",
-    "named": false
-  },
-  {
-    "type": "vfmaddsd",
-    "named": false
-  },
-  {
-    "type": "vfmaddss",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub132pd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub132ps",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub132sd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub132ss",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub213pd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub213ps",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub213sd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub213ss",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub231pd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub231ps",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub231sd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsub231ss",
-    "named": false
-  },
-  {
-    "type": "vfmaddsubpd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsubps",
-    "named": false
-  },
-  {
-    "type": "vfmaddsubsd",
-    "named": false
-  },
-  {
-    "type": "vfmaddsubss",
-    "named": false
-  },
-  {
-    "type": "vfmsub132pd",
-    "named": false
-  },
-  {
-    "type": "vfmsub132ps",
-    "named": false
-  },
-  {
-    "type": "vfmsub132sd",
-    "named": false
-  },
-  {
-    "type": "vfmsub132ss",
-    "named": false
-  },
-  {
-    "type": "vfmsub213pd",
-    "named": false
-  },
-  {
-    "type": "vfmsub213ps",
-    "named": false
-  },
-  {
-    "type": "vfmsub213sd",
-    "named": false
-  },
-  {
-    "type": "vfmsub213ss",
-    "named": false
-  },
-  {
-    "type": "vfmsub231pd",
-    "named": false
-  },
-  {
-    "type": "vfmsub231ps",
-    "named": false
-  },
-  {
-    "type": "vfmsub231sd",
-    "named": false
-  },
-  {
-    "type": "vfmsub231ss",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd132pd",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd132ps",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd132sd",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd132ss",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd213pd",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd213ps",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd213sd",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd213ss",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd231pd",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd231ps",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd231sd",
-    "named": false
-  },
-  {
-    "type": "vfmsubadd231ss",
-    "named": false
-  },
-  {
-    "type": "vfmsubaddpd",
-    "named": false
-  },
-  {
-    "type": "vfmsubaddps",
-    "named": false
-  },
-  {
-    "type": "vfmsubaddsd",
-    "named": false
-  },
-  {
-    "type": "vfmsubaddss",
-    "named": false
-  },
-  {
-    "type": "vfmsubpd",
-    "named": false
-  },
-  {
-    "type": "vfmsubps",
-    "named": false
-  },
-  {
-    "type": "vfmsubsd",
-    "named": false
-  },
-  {
-    "type": "vfmsubss",
-    "named": false
-  },
-  {
-    "type": "vfnmadd132pd",
-    "named": false
-  },
-  {
-    "type": "vfnmadd132ps",
-    "named": false
-  },
-  {
-    "type": "vfnmadd132sd",
-    "named": false
-  },
-  {
-    "type": "vfnmadd132ss",
-    "named": false
-  },
-  {
-    "type": "vfnmadd213pd",
-    "named": false
-  },
-  {
-    "type": "vfnmadd213ps",
-    "named": false
-  },
-  {
-    "type": "vfnmadd213sd",
-    "named": false
-  },
-  {
-    "type": "vfnmadd213ss",
-    "named": false
-  },
-  {
-    "type": "vfnmadd231pd",
-    "named": false
-  },
-  {
-    "type": "vfnmadd231ps",
-    "named": false
-  },
-  {
-    "type": "vfnmadd231sd",
-    "named": false
-  },
-  {
-    "type": "vfnmadd231ss",
-    "named": false
-  },
-  {
-    "type": "vfnmaddpd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddps",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddss",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub132pd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub132ps",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub132sd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub132ss",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub213pd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub213ps",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub213sd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub213ss",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub231pd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub231ps",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub231sd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsub231ss",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsubpd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsubps",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsubsd",
-    "named": false
-  },
-  {
-    "type": "vfnmaddsubss",
-    "named": false
-  },
-  {
-    "type": "vfnmsub132pd",
-    "named": false
-  },
-  {
-    "type": "vfnmsub132ps",
-    "named": false
-  },
-  {
-    "type": "vfnmsub132sd",
-    "named": false
-  },
-  {
-    "type": "vfnmsub132ss",
-    "named": false
-  },
-  {
-    "type": "vfnmsub213pd",
-    "named": false
-  },
-  {
-    "type": "vfnmsub213ps",
-    "named": false
-  },
-  {
-    "type": "vfnmsub213sd",
-    "named": false
-  },
-  {
-    "type": "vfnmsub213ss",
-    "named": false
-  },
-  {
-    "type": "vfnmsub231pd",
-    "named": false
-  },
-  {
-    "type": "vfnmsub231ps",
-    "named": false
-  },
-  {
-    "type": "vfnmsub231sd",
-    "named": false
-  },
-  {
-    "type": "vfnmsub231ss",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd132pd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd132ps",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd132sd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd132ss",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd213pd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd213ps",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd213sd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd213ss",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd231pd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd231ps",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd231sd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubadd231ss",
-    "named": false
-  },
-  {
-    "type": "vfnmsubaddpd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubaddps",
-    "named": false
-  },
-  {
-    "type": "vfnmsubaddsd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubaddss",
-    "named": false
-  },
-  {
-    "type": "vfnmsubpd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubps",
-    "named": false
-  },
-  {
-    "type": "vfnmsubsd",
-    "named": false
-  },
-  {
-    "type": "vfnmsubss",
-    "named": false
-  },
-  {
-    "type": "vgatherdpd",
-    "named": false
-  },
-  {
-    "type": "vgatherdps",
-    "named": false
-  },
-  {
-    "type": "vgatherqpd",
-    "named": false
-  },
-  {
-    "type": "vgatherqps",
-    "named": false
-  },
-  {
-    "type": "vgetexppd",
-    "named": false
-  },
-  {
-    "type": "vgetexpps",
-    "named": false
-  },
-  {
-    "type": "vgetexpsd",
-    "named": false
-  },
-  {
-    "type": "vgetexpss",
-    "named": false
-  },
-  {
-    "type": "vgetmantpd",
-    "named": false
-  },
-  {
-    "type": "vgetmantps",
-    "named": false
-  },
-  {
-    "type": "vgetmantsd",
-    "named": false
-  },
-  {
-    "type": "vgetmantss",
-    "named": false
-  },
-  {
-    "type": "vinsertf128",
-    "named": false
-  },
-  {
-    "type": "vinserti128",
-    "named": false
-  },
-  {
-    "type": "vmaskmovpd",
-    "named": false
-  },
-  {
-    "type": "vmaskmovps",
-    "named": false
-  },
-  {
-    "type": "vmcall",
-    "named": false
-  },
-  {
-    "type": "vmclear",
-    "named": false
-  },
-  {
-    "type": "vmfunc",
-    "named": false
-  },
-  {
-    "type": "vmlaunch",
-    "named": false
-  },
-  {
-    "type": "vmload",
-    "named": false
-  },
-  {
-    "type": "vmmcall",
-    "named": false
-  },
-  {
-    "type": "vmovdqa",
-    "named": false
-  },
-  {
-    "type": "vmovdqu",
-    "named": false
-  },
-  {
-    "type": "vmptrld",
-    "named": false
-  },
-  {
-    "type": "vmptrst",
-    "named": false
-  },
-  {
-    "type": "vmread",
-    "named": false
-  },
-  {
-    "type": "vmresume",
-    "named": false
-  },
-  {
-    "type": "vmrun",
-    "named": false
-  },
-  {
-    "type": "vmsave",
-    "named": false
-  },
-  {
-    "type": "vmwrite",
-    "named": false
-  },
-  {
-    "type": "vmxoff",
-    "named": false
-  },
-  {
-    "type": "vmxon",
-    "named": false
-  },
-  {
-    "type": "vpabsq",
-    "named": false
-  },
-  {
-    "type": "vpaddb",
-    "named": false
-  },
-  {
-    "type": "vpaddd",
-    "named": false
-  },
-  {
-    "type": "vpaddq",
-    "named": false
-  },
-  {
-    "type": "vpaddsb",
-    "named": false
-  },
-  {
-    "type": "vpaddsd",
-    "named": false
-  },
-  {
-    "type": "vpaddsq",
-    "named": false
-  },
-  {
-    "type": "vpaddsw",
-    "named": false
-  },
-  {
-    "type": "vpaddw",
-    "named": false
-  },
-  {
-    "type": "vpblendd",
-    "named": false
-  },
-  {
-    "type": "vpblendm1",
-    "named": false
-  },
-  {
-    "type": "vpblendmd",
-    "named": false
-  },
-  {
-    "type": "vpbroadcastb",
-    "named": false
-  },
-  {
-    "type": "vpbroadcastd",
-    "named": false
-  },
-  {
-    "type": "vpbroadcastq",
-    "named": false
-  },
-  {
-    "type": "vpbroadcastw",
-    "named": false
-  },
-  {
-    "type": "vpcmpd",
-    "named": false
-  },
-  {
-    "type": "vpcmpiq",
-    "named": false
-  },
-  {
-    "type": "vpcmpq",
-    "named": false
-  },
-  {
-    "type": "vpcmpud",
-    "named": false
-  },
-  {
-    "type": "vpcompressd",
-    "named": false
-  },
-  {
-    "type": "vpcompressq",
-    "named": false
-  },
-  {
-    "type": "vperm2f128",
-    "named": false
-  },
-  {
-    "type": "vperm2i128",
-    "named": false
-  },
-  {
-    "type": "vpermd",
-    "named": false
-  },
-  {
-    "type": "vpermi2d",
-    "named": false
-  },
-  {
-    "type": "vpermi2pd",
-    "named": false
-  },
-  {
-    "type": "vpermi2ps",
-    "named": false
-  },
-  {
-    "type": "vpermi2q",
-    "named": false
-  },
-  {
-    "type": "vpermilpd",
-    "named": false
-  },
-  {
-    "type": "vpermilps",
-    "named": false
-  },
-  {
-    "type": "vpermpd",
-    "named": false
-  },
-  {
-    "type": "vpermps",
-    "named": false
-  },
-  {
-    "type": "vpermq",
-    "named": false
-  },
-  {
-    "type": "vpermt2d",
-    "named": false
-  },
-  {
-    "type": "vpermt2pd",
-    "named": false
-  },
-  {
-    "type": "vpermt2ps",
-    "named": false
-  },
-  {
-    "type": "vpermt2q",
-    "named": false
-  },
-  {
-    "type": "vpexpandd",
-    "named": false
-  },
-  {
-    "type": "vpexpandq",
-    "named": false
-  },
-  {
-    "type": "vpgatherdd",
-    "named": false
-  },
-  {
-    "type": "vpgatherdq",
-    "named": false
-  },
-  {
-    "type": "vpgatherqd",
-    "named": false
-  },
-  {
-    "type": "vpgatherqq",
-    "named": false
-  },
-  {
-    "type": "vpmaskmovd",
-    "named": false
-  },
-  {
-    "type": "vpmaskmovq",
-    "named": false
-  },
-  {
-    "type": "vpmaxsq",
-    "named": false
-  },
-  {
-    "type": "vpmaxuq",
-    "named": false
-  },
-  {
-    "type": "vpminsq",
-    "named": false
-  },
-  {
-    "type": "vpminuq",
-    "named": false
-  },
-  {
-    "type": "vpmovdb",
-    "named": false
-  },
-  {
-    "type": "vpmovdw",
-    "named": false
-  },
-  {
-    "type": "vpmovqb",
-    "named": false
-  },
-  {
-    "type": "vpmovqd",
-    "named": false
-  },
-  {
-    "type": "vpmovqw",
-    "named": false
-  },
-  {
-    "type": "vpmovsdb",
-    "named": false
-  },
-  {
-    "type": "vpmovsdw",
-    "named": false
-  },
-  {
-    "type": "vpmovsqb",
-    "named": false
-  },
-  {
-    "type": "vpmovsqd",
-    "named": false
-  },
-  {
-    "type": "vpmovsqw",
-    "named": false
-  },
-  {
-    "type": "vpmovusdb",
-    "named": false
-  },
-  {
-    "type": "vpmovusdw",
-    "named": false
-  },
-  {
-    "type": "vpmovusqb",
-    "named": false
-  },
-  {
-    "type": "vpmovusqd",
-    "named": false
-  },
-  {
-    "type": "vpmovusqw",
-    "named": false
-  },
-  {
-    "type": "vprold",
-    "named": false
-  },
-  {
-    "type": "vprolq",
-    "named": false
-  },
-  {
-    "type": "vprolvd",
-    "named": false
-  },
-  {
-    "type": "vprolvq",
-    "named": false
-  },
-  {
-    "type": "vprord",
-    "named": false
-  },
-  {
-    "type": "vprorq",
-    "named": false
-  },
-  {
-    "type": "vprorvd",
-    "named": false
-  },
-  {
-    "type": "vprorvq",
-    "named": false
-  },
-  {
-    "type": "vpscatterdd",
-    "named": false
-  },
-  {
-    "type": "vpscatterdq",
-    "named": false
-  },
-  {
-    "type": "vpscatterqd",
-    "named": false
-  },
-  {
-    "type": "vpscatterqq",
-    "named": false
-  },
-  {
-    "type": "vpsllvd",
-    "named": false
-  },
-  {
-    "type": "vpsllvq",
-    "named": false
-  },
-  {
-    "type": "vpsravd",
-    "named": false
-  },
-  {
-    "type": "vpsrlvd",
-    "named": false
-  },
-  {
-    "type": "vpsrlvq",
-    "named": false
-  },
-  {
-    "type": "vpternlogd",
-    "named": false
-  },
-  {
-    "type": "vpternlogq",
-    "named": false
-  },
-  {
-    "type": "vptestmd",
-    "named": false
-  },
-  {
-    "type": "vptestmq",
-    "named": false
-  },
-  {
-    "type": "vptestnmd",
-    "named": false
-  },
-  {
-    "type": "vptestnmq",
-    "named": false
-  },
-  {
-    "type": "vrcp14pd",
-    "named": false
-  },
-  {
-    "type": "vrcp14ps",
-    "named": false
-  },
-  {
-    "type": "vrcp14sd",
-    "named": false
-  },
-  {
-    "type": "vrcp14ss",
-    "named": false
-  },
-  {
-    "type": "vrndscalepd",
-    "named": false
-  },
-  {
-    "type": "vrndscaleps",
-    "named": false
-  },
-  {
-    "type": "vrndscalesd",
-    "named": false
-  },
-  {
-    "type": "vrndscaless",
-    "named": false
-  },
-  {
-    "type": "vrsqrt14pd",
-    "named": false
-  },
-  {
-    "type": "vrsqrt14ps",
-    "named": false
-  },
-  {
-    "type": "vrsqrt14sd",
-    "named": false
-  },
-  {
-    "type": "vrsqrt14ss",
-    "named": false
-  },
-  {
-    "type": "vscalefpd",
-    "named": false
-  },
-  {
-    "type": "vscalefps",
-    "named": false
-  },
-  {
-    "type": "vscalefsd",
-    "named": false
-  },
-  {
-    "type": "vscalefss",
-    "named": false
-  },
-  {
-    "type": "vscatterdpd",
-    "named": false
-  },
-  {
-    "type": "vscatterdps",
-    "named": false
-  },
-  {
-    "type": "vscatterqpd",
-    "named": false
-  },
-  {
-    "type": "vscatterqps",
-    "named": false
-  },
-  {
-    "type": "vshuff32x4",
-    "named": false
-  },
-  {
-    "type": "vshuff64x4",
-    "named": false
-  },
-  {
-    "type": "vshuffi32x4",
-    "named": false
-  },
-  {
-    "type": "vshuffi64x4",
-    "named": false
-  },
-  {
-    "type": "vzeroall",
-    "named": false
-  },
-  {
-    "type": "vzeroupper",
     "named": false
   },
   {
@@ -5481,35 +1863,7 @@
     "named": false
   },
   {
-    "type": "wrssd",
-    "named": false
-  },
-  {
-    "type": "wrssq",
-    "named": false
-  },
-  {
-    "type": "wrussd",
-    "named": false
-  },
-  {
-    "type": "wrussq",
-    "named": false
-  },
-  {
-    "type": "xabort",
-    "named": false
-  },
-  {
-    "type": "xacquire",
-    "named": false
-  },
-  {
     "type": "xadd",
-    "named": false
-  },
-  {
-    "type": "xbegin",
     "named": false
   },
   {
@@ -5521,43 +1875,7 @@
     "named": false
   },
   {
-    "type": "xend",
-    "named": false
-  },
-  {
     "type": "xlat",
-    "named": false
-  },
-  {
-    "type": "xmm0",
-    "named": false
-  },
-  {
-    "type": "xmm1",
-    "named": false
-  },
-  {
-    "type": "xmm2",
-    "named": false
-  },
-  {
-    "type": "xmm3",
-    "named": false
-  },
-  {
-    "type": "xmm4",
-    "named": false
-  },
-  {
-    "type": "xmm5",
-    "named": false
-  },
-  {
-    "type": "xmm6",
-    "named": false
-  },
-  {
-    "type": "xmm7",
     "named": false
   },
   {
@@ -5565,63 +1883,7 @@
     "named": false
   },
   {
-    "type": "xmodexp",
-    "named": false
-  },
-  {
     "type": "xor",
-    "named": false
-  },
-  {
-    "type": "xorpd",
-    "named": false
-  },
-  {
-    "type": "xorps",
-    "named": false
-  },
-  {
-    "type": "xrelease",
-    "named": false
-  },
-  {
-    "type": "xrng2",
-    "named": false
-  },
-  {
-    "type": "xsha512",
-    "named": false
-  },
-  {
-    "type": "ymm0",
-    "named": false
-  },
-  {
-    "type": "ymm1",
-    "named": false
-  },
-  {
-    "type": "ymm2",
-    "named": false
-  },
-  {
-    "type": "ymm3",
-    "named": false
-  },
-  {
-    "type": "ymm4",
-    "named": false
-  },
-  {
-    "type": "ymm5",
-    "named": false
-  },
-  {
-    "type": "ymm6",
-    "named": false
-  },
-  {
-    "type": "ymm7",
     "named": false
   }
 ]

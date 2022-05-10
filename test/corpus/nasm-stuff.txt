@@ -9,51 +9,16 @@ _start:     mov     rax, 2
 
 --------------------------------------------------------------------------------
 
-(source_file
-  (toplevel_item
-    (statement
-      (comment))
-    (statement
-      (directive
-        (label
-          (directive
-            (ins
-              (ins_kw
-                (ins_8086))
-              (operand_args
-                (operand
-                  (register
-                    (register_64bit)))
-                (operand
-                  (integer_literal)))))))
-      (MISSING "
-"))
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (operand_ident)))))
-      (comment)
-      (MISSING "
-"))
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (register
-                (register_64bit)))))))))
+(ERROR
+  (ERROR
+    (comment)
+    (UNEXPECTED 's')
+    (objdump_section_addr)
+    (UNEXPECTED 't')
+    (objdump_section_addr)
+    (UNEXPECTED 't'))
+  (comment)
+  (UNEXPECTED '\0'))
 
 ================================================================================
 hard comments
@@ -66,47 +31,17 @@ _start:     mov     rax, 2      ; "open"
 --------------------------------------------------------------------------------
 
 (source_file
+  (ERROR
+    (UNEXPECTED 's')
+    (objdump_section_addr)
+    (UNEXPECTED 't')
+    (comment)
+    (UNEXPECTED 't')
+    (comment))
   (toplevel_item
     (statement
       (directive
-        (label
-          (directive
-            (ins
-              (ins_kw
-                (ins_8086))
-              (operand_args
-                (operand
-                  (register
-                    (register_64bit)))
-                (operand
-                  (integer_literal)))))))
-      (comment)
-      (MISSING "
-"))
-    (statement
-      (directive
         (ins
           (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (operand_ident)))))
-      (comment)
-      (MISSING "
-"))
-    (statement
-      (directive
-        (ins
-          (ins_kw
-            (ins_8086))
-          (operand_args
-            (operand
-              (register
-                (register_64bit)))
-            (operand
-              (register
-                (register_64bit))))))
+            (MISSING "_ins_sse2_pentium4_token1"))))
       (comment))))

@@ -1,0 +1,29 @@
+================================================================================
+movdqa
+================================================================================
+
+	movdqa rax, rax
+	vmovdqa rax, rax
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (toplevel_item
+    (statement
+      (directive
+        (ins
+          (ins_kw)
+          (operand_args
+            (operand
+              (register))
+            (operand
+              (register))))))
+    (statement
+      (directive
+        (ins
+          (ins_kw)
+          (operand_args
+            (operand
+              (register))
+            (operand
+              (register))))))))

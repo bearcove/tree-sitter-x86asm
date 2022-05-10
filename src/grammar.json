@@ -322,7 +322,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_IDENTIFIER"
+          "name": "identifier"
         },
         {
           "type": "PATTERN",
@@ -345,6 +345,10 @@
     "ins": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "PATTERN",
+          "value": "[\\s]*"
+        },
         {
           "type": "SYMBOL",
           "name": "ins_kw"
@@ -514,302 +518,32 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "register_8bit"
+          "type": "PATTERN",
+          "value": "[abcd][lh]"
         },
         {
-          "type": "SYMBOL",
-          "name": "register_16bit"
+          "type": "PATTERN",
+          "value": "[er]?[abcd]x"
         },
         {
-          "type": "SYMBOL",
-          "name": "register_32bit"
+          "type": "PATTERN",
+          "value": "[er]?[ds]i"
         },
         {
-          "type": "SYMBOL",
-          "name": "register_64bit"
+          "type": "PATTERN",
+          "value": "[er]?[sb]p"
         },
         {
-          "type": "SYMBOL",
-          "name": "register_simd"
-        }
-      ]
-    },
-    "register_8bit": {
-      "type": "CHOICE",
-      "members": [
+          "type": "PATTERN",
+          "value": "r(8|9|10|11|12|13|14|15)"
+        },
         {
-          "type": "STRING",
-          "value": "ah"
+          "type": "PATTERN",
+          "value": "[xy]mm[0-7]"
         },
         {
           "type": "STRING",
-          "value": "bh"
-        },
-        {
-          "type": "STRING",
-          "value": "ch"
-        },
-        {
-          "type": "STRING",
-          "value": "dh"
-        },
-        {
-          "type": "STRING",
-          "value": "al"
-        },
-        {
-          "type": "STRING",
-          "value": "bl"
-        },
-        {
-          "type": "STRING",
-          "value": "cl"
-        },
-        {
-          "type": "STRING",
-          "value": "dl"
-        }
-      ]
-    },
-    "register_16bit": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "ax"
-        },
-        {
-          "type": "STRING",
-          "value": "bx"
-        },
-        {
-          "type": "STRING",
-          "value": "cx"
-        },
-        {
-          "type": "STRING",
-          "value": "dx"
-        },
-        {
-          "type": "STRING",
-          "value": "di"
-        },
-        {
-          "type": "STRING",
-          "value": "si"
-        },
-        {
-          "type": "STRING",
-          "value": "sp"
-        },
-        {
-          "type": "STRING",
-          "value": "bp"
-        }
-      ]
-    },
-    "register_32bit": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "eax"
-        },
-        {
-          "type": "STRING",
-          "value": "ebx"
-        },
-        {
-          "type": "STRING",
-          "value": "ecx"
-        },
-        {
-          "type": "STRING",
-          "value": "edx"
-        },
-        {
-          "type": "STRING",
-          "value": "edi"
-        },
-        {
-          "type": "STRING",
-          "value": "esi"
-        },
-        {
-          "type": "STRING",
-          "value": "esp"
-        },
-        {
-          "type": "STRING",
-          "value": "ebp"
-        }
-      ]
-    },
-    "register_64bit": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "rax"
-            },
-            {
-              "type": "STRING",
-              "value": "rbx"
-            },
-            {
-              "type": "STRING",
-              "value": "rcx"
-            },
-            {
-              "type": "STRING",
-              "value": "rdx"
-            },
-            {
-              "type": "STRING",
-              "value": "rdi"
-            },
-            {
-              "type": "STRING",
-              "value": "rsi"
-            },
-            {
-              "type": "STRING",
-              "value": "rsp"
-            },
-            {
-              "type": "STRING",
-              "value": "rbp"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "r8"
-            },
-            {
-              "type": "STRING",
-              "value": "r9"
-            },
-            {
-              "type": "STRING",
-              "value": "r10"
-            },
-            {
-              "type": "STRING",
-              "value": "r11"
-            },
-            {
-              "type": "STRING",
-              "value": "r12"
-            },
-            {
-              "type": "STRING",
-              "value": "r13"
-            },
-            {
-              "type": "STRING",
-              "value": "r14"
-            },
-            {
-              "type": "STRING",
-              "value": "r15"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "rip"
-            }
-          ]
-        }
-      ]
-    },
-    "register_simd": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "xmm0"
-            },
-            {
-              "type": "STRING",
-              "value": "xmm1"
-            },
-            {
-              "type": "STRING",
-              "value": "xmm2"
-            },
-            {
-              "type": "STRING",
-              "value": "xmm3"
-            },
-            {
-              "type": "STRING",
-              "value": "xmm4"
-            },
-            {
-              "type": "STRING",
-              "value": "xmm5"
-            },
-            {
-              "type": "STRING",
-              "value": "xmm6"
-            },
-            {
-              "type": "STRING",
-              "value": "xmm7"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "ymm0"
-            },
-            {
-              "type": "STRING",
-              "value": "ymm1"
-            },
-            {
-              "type": "STRING",
-              "value": "ymm2"
-            },
-            {
-              "type": "STRING",
-              "value": "ymm3"
-            },
-            {
-              "type": "STRING",
-              "value": "ymm4"
-            },
-            {
-              "type": "STRING",
-              "value": "ymm5"
-            },
-            {
-              "type": "STRING",
-              "value": "ymm6"
-            },
-            {
-              "type": "STRING",
-              "value": "ymm7"
-            }
-          ]
+          "value": "rip"
         }
       ]
     },
@@ -1116,18 +850,6 @@
         }
       ]
     },
-    "section_name": {
-      "type": "PATTERN",
-      "value": "[.][A-Za-z0-9.@_-]+"
-    },
-    "identifier": {
-      "type": "SYMBOL",
-      "name": "_IDENTIFIER"
-    },
-    "_IDENTIFIER": {
-      "type": "PATTERN",
-      "value": "[A-Za-z0-9.@_-]+"
-    },
     "_NEWLINE": {
       "type": "SEQ",
       "members": [
@@ -1178,207 +900,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "ins_8086"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_80186"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_80286"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_80386"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_80486"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_pentium"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_pentium_mmx"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_amd_k6"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_pentium_pro"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_pentium_2"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse_non_simd"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse2"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse3"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse4_2"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_x86_64"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_bitmanip"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_clmul"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_adx"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_intel_tsx"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_intel_mpx"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_intel_cet"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_8087"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_80287"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_80387"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_pentium_pro"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse3"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_mmx"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_mmx_plus_and_sse"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_mmx_sse2"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_3dnow"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_3dnow_plus"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_geode_gx"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse_pentium3"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse2_pentium4"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse3_pentium4"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse4_1"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse4a"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_sse4_2_nehalem"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_f16c"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_fma3"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_fma4"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_avx"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_avx2"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_avx512"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_intel_aes"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_rdrand"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_intel_sha"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_virt_amd_v"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_virt_vt_x"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "ins_undoc"
+              "name": "_ins_sse2_pentium4"
             }
           ]
         }
@@ -1660,29 +1182,24 @@
           "value": "lodsw"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "loop"
-            },
-            {
-              "type": "STRING",
-              "value": "loope"
-            },
-            {
-              "type": "STRING",
-              "value": "loopne"
-            },
-            {
-              "type": "STRING",
-              "value": "loopnz"
-            },
-            {
-              "type": "STRING",
-              "value": "loopz"
-            }
-          ]
+          "type": "STRING",
+          "value": "loop"
+        },
+        {
+          "type": "STRING",
+          "value": "loope"
+        },
+        {
+          "type": "STRING",
+          "value": "loopne"
+        },
+        {
+          "type": "STRING",
+          "value": "loopnz"
+        },
+        {
+          "type": "STRING",
+          "value": "loopz"
         },
         {
           "type": "STRING",
@@ -1745,29 +1262,24 @@
           "value": "rcr"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "rep"
-            },
-            {
-              "type": "STRING",
-              "value": "repe"
-            },
-            {
-              "type": "STRING",
-              "value": "repne"
-            },
-            {
-              "type": "STRING",
-              "value": "repnz"
-            },
-            {
-              "type": "STRING",
-              "value": "repz"
-            }
-          ]
+          "type": "STRING",
+          "value": "rep"
+        },
+        {
+          "type": "STRING",
+          "value": "repe"
+        },
+        {
+          "type": "STRING",
+          "value": "repne"
+        },
+        {
+          "type": "STRING",
+          "value": "repnz"
+        },
+        {
+          "type": "STRING",
+          "value": "repz"
         },
         {
           "type": "STRING",
@@ -2097,129 +1609,124 @@
           "value": "scasd"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "seta"
-            },
-            {
-              "type": "STRING",
-              "value": "setae"
-            },
-            {
-              "type": "STRING",
-              "value": "setb"
-            },
-            {
-              "type": "STRING",
-              "value": "setbe"
-            },
-            {
-              "type": "STRING",
-              "value": "setc"
-            },
-            {
-              "type": "STRING",
-              "value": "sete"
-            },
-            {
-              "type": "STRING",
-              "value": "setg"
-            },
-            {
-              "type": "STRING",
-              "value": "setge"
-            },
-            {
-              "type": "STRING",
-              "value": "setl"
-            },
-            {
-              "type": "STRING",
-              "value": "setle"
-            },
-            {
-              "type": "STRING",
-              "value": "setna"
-            },
-            {
-              "type": "STRING",
-              "value": "setnae"
-            },
-            {
-              "type": "STRING",
-              "value": "setnb"
-            },
-            {
-              "type": "STRING",
-              "value": "setnbe"
-            },
-            {
-              "type": "STRING",
-              "value": "setnc"
-            },
-            {
-              "type": "STRING",
-              "value": "setne"
-            },
-            {
-              "type": "STRING",
-              "value": "setng"
-            },
-            {
-              "type": "STRING",
-              "value": "setnge"
-            },
-            {
-              "type": "STRING",
-              "value": "setnl"
-            },
-            {
-              "type": "STRING",
-              "value": "setnle"
-            },
-            {
-              "type": "STRING",
-              "value": "setno"
-            },
-            {
-              "type": "STRING",
-              "value": "setnp"
-            },
-            {
-              "type": "STRING",
-              "value": "setns"
-            },
-            {
-              "type": "STRING",
-              "value": "setnz"
-            },
-            {
-              "type": "STRING",
-              "value": "seto"
-            },
-            {
-              "type": "STRING",
-              "value": "setp"
-            },
-            {
-              "type": "STRING",
-              "value": "setpe"
-            },
-            {
-              "type": "STRING",
-              "value": "setpo"
-            },
-            {
-              "type": "STRING",
-              "value": "sets"
-            },
-            {
-              "type": "STRING",
-              "value": "setz"
-            }
-          ]
+          "type": "STRING",
+          "value": "seta"
+        },
+        {
+          "type": "STRING",
+          "value": "setae"
+        },
+        {
+          "type": "STRING",
+          "value": "setb"
+        },
+        {
+          "type": "STRING",
+          "value": "setbe"
+        },
+        {
+          "type": "STRING",
+          "value": "setc"
+        },
+        {
+          "type": "STRING",
+          "value": "sete"
+        },
+        {
+          "type": "STRING",
+          "value": "setg"
+        },
+        {
+          "type": "STRING",
+          "value": "setge"
+        },
+        {
+          "type": "STRING",
+          "value": "setl"
+        },
+        {
+          "type": "STRING",
+          "value": "setle"
+        },
+        {
+          "type": "STRING",
+          "value": "setna"
+        },
+        {
+          "type": "STRING",
+          "value": "setnae"
+        },
+        {
+          "type": "STRING",
+          "value": "setnb"
+        },
+        {
+          "type": "STRING",
+          "value": "setnbe"
+        },
+        {
+          "type": "STRING",
+          "value": "setnc"
+        },
+        {
+          "type": "STRING",
+          "value": "setne"
+        },
+        {
+          "type": "STRING",
+          "value": "setng"
+        },
+        {
+          "type": "STRING",
+          "value": "setnge"
+        },
+        {
+          "type": "STRING",
+          "value": "setnl"
+        },
+        {
+          "type": "STRING",
+          "value": "setnle"
+        },
+        {
+          "type": "STRING",
+          "value": "setno"
+        },
+        {
+          "type": "STRING",
+          "value": "setnp"
+        },
+        {
+          "type": "STRING",
+          "value": "setns"
+        },
+        {
+          "type": "STRING",
+          "value": "setnz"
+        },
+        {
+          "type": "STRING",
+          "value": "seto"
+        },
+        {
+          "type": "STRING",
+          "value": "setp"
+        },
+        {
+          "type": "STRING",
+          "value": "setpe"
+        },
+        {
+          "type": "STRING",
+          "value": "setpo"
+        },
+        {
+          "type": "STRING",
+          "value": "sets"
+        },
+        {
+          "type": "STRING",
+          "value": "setz"
         },
         {
           "type": "STRING",
@@ -2324,51 +1831,127 @@
       "members": [
         {
           "type": "STRING",
-          "value": "fcmovb"
+          "value": "cmova"
         },
         {
           "type": "STRING",
-          "value": "fcmovbe"
+          "value": "cmovae"
         },
         {
           "type": "STRING",
-          "value": "fcmove"
+          "value": "cmovb"
         },
         {
           "type": "STRING",
-          "value": "fcmovnb"
+          "value": "cmovbe"
         },
         {
           "type": "STRING",
-          "value": "fcmovnbe"
+          "value": "cmovc"
         },
         {
           "type": "STRING",
-          "value": "fcmovne"
+          "value": "cmove"
         },
         {
           "type": "STRING",
-          "value": "fcmovnu"
+          "value": "cmovg"
         },
         {
           "type": "STRING",
-          "value": "fcmovu"
+          "value": "cmovge"
         },
         {
           "type": "STRING",
-          "value": "fcomi"
+          "value": "cmovl"
         },
         {
           "type": "STRING",
-          "value": "fcomip"
+          "value": "cmovle"
         },
         {
           "type": "STRING",
-          "value": "fucomi"
+          "value": "cmovna"
         },
         {
           "type": "STRING",
-          "value": "fucomip"
+          "value": "cmovnae"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnb"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnbe"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnc"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovne"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovng"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnge"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnl"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnle"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovno"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnp"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovns"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovnz"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovo"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovp"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovpe"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovpo"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovs"
+        },
+        {
+          "type": "STRING",
+          "value": "cmovz"
+        },
+        {
+          "type": "STRING",
+          "value": "ud2"
         }
       ]
     },
@@ -2440,7 +2023,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "fisttp"
+          "value": "monitor"
+        },
+        {
+          "type": "STRING",
+          "value": "mwait"
         }
       ]
     },
@@ -2623,1492 +2210,32 @@
         }
       ]
     },
-    "ins_clmul": {
+    "_ins_sse2_pentium4": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "pclmulqdq"
+          "type": "PATTERN",
+          "value": "mov(apd|ntpd|hpd|lpd|upd|mskpd|dq2q|q2dq|ntdq)"
         },
         {
-          "type": "STRING",
-          "value": "pclmullqlqdq"
+          "type": "PATTERN",
+          "value": "(add|div|max|min|mul|sqrt|sub)(pd|sd)"
         },
         {
-          "type": "STRING",
-          "value": "pclmulhqlqdq"
+          "type": "PATTERN",
+          "value": "(andn?|x?or|cmp|shuf|unpck[hl])pd"
         },
         {
-          "type": "STRING",
-          "value": "pclmullqhqdq"
+          "type": "PATTERN",
+          "value": "u?comisd"
         },
         {
-          "type": "STRING",
-          "value": "pclmulhqhqdq"
-        }
-      ]
-    },
-    "ins_adx": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "adcx"
-        },
-        {
-          "type": "STRING",
-          "value": "adox"
-        }
-      ]
-    },
-    "ins_intel_tsx": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "xbegin"
-        },
-        {
-          "type": "STRING",
-          "value": "xend"
-        },
-        {
-          "type": "STRING",
-          "value": "xabort"
-        },
-        {
-          "type": "STRING",
-          "value": "xacquire"
-        },
-        {
-          "type": "STRING",
-          "value": "xrelease"
-        }
-      ]
-    },
-    "ins_intel_mpx": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "bmdmk"
-        },
-        {
-          "type": "STRING",
-          "value": "bndcl"
-        },
-        {
-          "type": "STRING",
-          "value": "bndcu"
-        },
-        {
-          "type": "STRING",
-          "value": "bndcn"
-        },
-        {
-          "type": "STRING",
-          "value": "bmdmov"
-        },
-        {
-          "type": "STRING",
-          "value": "bndldx"
-        },
-        {
-          "type": "STRING",
-          "value": "bndstx"
-        },
-        {
-          "type": "STRING",
-          "value": "bnd"
-        }
-      ]
-    },
-    "ins_intel_cet": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "incsspd"
-        },
-        {
-          "type": "STRING",
-          "value": "incsspq"
-        },
-        {
-          "type": "STRING",
-          "value": "rdsspd"
-        },
-        {
-          "type": "STRING",
-          "value": "rdsspq"
-        },
-        {
-          "type": "STRING",
-          "value": "saveprevssp"
-        },
-        {
-          "type": "STRING",
-          "value": "rstorssp"
-        },
-        {
-          "type": "STRING",
-          "value": "wrssd"
-        },
-        {
-          "type": "STRING",
-          "value": "wrssq"
-        },
-        {
-          "type": "STRING",
-          "value": "wrussd"
-        },
-        {
-          "type": "STRING",
-          "value": "wrussq"
-        },
-        {
-          "type": "STRING",
-          "value": "setssbsy"
-        },
-        {
-          "type": "STRING",
-          "value": "clrssbsy"
-        },
-        {
-          "type": "STRING",
-          "value": "endbr32"
-        },
-        {
-          "type": "STRING",
-          "value": "endbr64"
-        }
-      ]
-    },
-    "ins_8087": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "f2xm1"
-        },
-        {
-          "type": "STRING",
-          "value": "fabs"
-        },
-        {
-          "type": "STRING",
-          "value": "fadd"
-        },
-        {
-          "type": "STRING",
-          "value": "faddp"
-        },
-        {
-          "type": "STRING",
-          "value": "fbld"
-        },
-        {
-          "type": "STRING",
-          "value": "fbstp"
-        },
-        {
-          "type": "STRING",
-          "value": "fchs"
-        },
-        {
-          "type": "STRING",
-          "value": "fclex"
-        },
-        {
-          "type": "STRING",
-          "value": "fcom"
-        },
-        {
-          "type": "STRING",
-          "value": "fcomp"
-        },
-        {
-          "type": "STRING",
-          "value": "fcompp"
-        },
-        {
-          "type": "STRING",
-          "value": "fdecstp"
-        },
-        {
-          "type": "STRING",
-          "value": "fdisi"
-        },
-        {
-          "type": "STRING",
-          "value": "fdiv"
-        },
-        {
-          "type": "STRING",
-          "value": "fdivp"
-        },
-        {
-          "type": "STRING",
-          "value": "fdivr"
-        },
-        {
-          "type": "STRING",
-          "value": "fdivrp"
-        },
-        {
-          "type": "STRING",
-          "value": "feni"
-        },
-        {
-          "type": "STRING",
-          "value": "ffree"
-        },
-        {
-          "type": "STRING",
-          "value": "fiadd"
-        },
-        {
-          "type": "STRING",
-          "value": "ficom"
-        },
-        {
-          "type": "STRING",
-          "value": "ficomp"
-        },
-        {
-          "type": "STRING",
-          "value": "fidiv"
-        },
-        {
-          "type": "STRING",
-          "value": "fidivr"
-        },
-        {
-          "type": "STRING",
-          "value": "fild"
-        },
-        {
-          "type": "STRING",
-          "value": "fimul"
-        },
-        {
-          "type": "STRING",
-          "value": "fincstp"
-        },
-        {
-          "type": "STRING",
-          "value": "finit"
-        },
-        {
-          "type": "STRING",
-          "value": "fist"
-        },
-        {
-          "type": "STRING",
-          "value": "fistp"
-        },
-        {
-          "type": "STRING",
-          "value": "fisub"
-        },
-        {
-          "type": "STRING",
-          "value": "fisubr"
-        },
-        {
-          "type": "STRING",
-          "value": "fld"
-        },
-        {
-          "type": "STRING",
-          "value": "fld1"
-        },
-        {
-          "type": "STRING",
-          "value": "fldcw"
-        },
-        {
-          "type": "STRING",
-          "value": "fldenv"
-        },
-        {
-          "type": "STRING",
-          "value": "fldenvw"
-        },
-        {
-          "type": "STRING",
-          "value": "fldl2e"
-        },
-        {
-          "type": "STRING",
-          "value": "fldl2t"
-        },
-        {
-          "type": "STRING",
-          "value": "fldlg2"
-        },
-        {
-          "type": "STRING",
-          "value": "fldln2"
-        },
-        {
-          "type": "STRING",
-          "value": "fldpi"
-        },
-        {
-          "type": "STRING",
-          "value": "fldz"
-        },
-        {
-          "type": "STRING",
-          "value": "fmul"
-        },
-        {
-          "type": "STRING",
-          "value": "fmulp"
-        },
-        {
-          "type": "STRING",
-          "value": "fnclex"
-        },
-        {
-          "type": "STRING",
-          "value": "fndisi"
-        },
-        {
-          "type": "STRING",
-          "value": "fneni"
-        },
-        {
-          "type": "STRING",
-          "value": "fninit"
-        },
-        {
-          "type": "STRING",
-          "value": "fnop"
-        },
-        {
-          "type": "STRING",
-          "value": "fnsave"
-        },
-        {
-          "type": "STRING",
-          "value": "fnsavew"
-        },
-        {
-          "type": "STRING",
-          "value": "fnstcw"
-        },
-        {
-          "type": "STRING",
-          "value": "fnstenv"
-        },
-        {
-          "type": "STRING",
-          "value": "fnstenvw"
-        },
-        {
-          "type": "STRING",
-          "value": "fnstsw"
-        },
-        {
-          "type": "STRING",
-          "value": "fpatan"
-        },
-        {
-          "type": "STRING",
-          "value": "fprem"
-        },
-        {
-          "type": "STRING",
-          "value": "fptan"
-        },
-        {
-          "type": "STRING",
-          "value": "frndint"
-        },
-        {
-          "type": "STRING",
-          "value": "frstor"
-        },
-        {
-          "type": "STRING",
-          "value": "frstorw"
-        },
-        {
-          "type": "STRING",
-          "value": "fsave"
-        },
-        {
-          "type": "STRING",
-          "value": "fsavew"
-        },
-        {
-          "type": "STRING",
-          "value": "fscale"
-        },
-        {
-          "type": "STRING",
-          "value": "fsqrt"
-        },
-        {
-          "type": "STRING",
-          "value": "fst"
-        },
-        {
-          "type": "STRING",
-          "value": "fstcw"
-        },
-        {
-          "type": "STRING",
-          "value": "fstenv"
-        },
-        {
-          "type": "STRING",
-          "value": "fstenvw"
-        },
-        {
-          "type": "STRING",
-          "value": "fstp"
-        },
-        {
-          "type": "STRING",
-          "value": "fstsw"
-        },
-        {
-          "type": "STRING",
-          "value": "fsub"
-        },
-        {
-          "type": "STRING",
-          "value": "fsubp"
-        },
-        {
-          "type": "STRING",
-          "value": "fsubr"
-        },
-        {
-          "type": "STRING",
-          "value": "fsubrp"
-        },
-        {
-          "type": "STRING",
-          "value": "ftst"
-        },
-        {
-          "type": "STRING",
-          "value": "fwait"
-        },
-        {
-          "type": "STRING",
-          "value": "fxam"
-        },
-        {
-          "type": "STRING",
-          "value": "fxch"
-        },
-        {
-          "type": "STRING",
-          "value": "fxtract"
-        },
-        {
-          "type": "STRING",
-          "value": "fyl2x"
-        },
-        {
-          "type": "STRING",
-          "value": "fyl2xp1"
-        }
-      ]
-    },
-    "ins_80287": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "fsetpm"
-        }
-      ]
-    },
-    "ins_80387": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "fldenvd"
-        },
-        {
-          "type": "STRING",
-          "value": "fsaved"
-        },
-        {
-          "type": "STRING",
-          "value": "fprem1"
-        },
-        {
-          "type": "STRING",
-          "value": "frstord"
-        },
-        {
-          "type": "STRING",
-          "value": "fsin"
-        },
-        {
-          "type": "STRING",
-          "value": "fcos"
-        },
-        {
-          "type": "STRING",
-          "value": "fsincos"
-        },
-        {
-          "type": "STRING",
-          "value": "fstenvd"
-        },
-        {
-          "type": "STRING",
-          "value": "fucom"
-        },
-        {
-          "type": "STRING",
-          "value": "fucomp"
-        },
-        {
-          "type": "STRING",
-          "value": "fucompp"
-        },
-        {
-          "type": "STRING",
-          "value": "frstpm"
-        },
-        {
-          "type": "STRING",
-          "value": "fnstdw"
-        },
-        {
-          "type": "STRING",
-          "value": "fnstsg"
-        },
-        {
-          "type": "STRING",
-          "value": "fsbp0"
-        },
-        {
-          "type": "STRING",
-          "value": "fsbp1"
-        },
-        {
-          "type": "STRING",
-          "value": "fsbp2"
-        },
-        {
-          "type": "STRING",
-          "value": "fsbp3"
-        },
-        {
-          "type": "STRING",
-          "value": "f4x4"
-        },
-        {
-          "type": "STRING",
-          "value": "fmul4x4"
-        },
-        {
-          "type": "STRING",
-          "value": "ftstp"
-        },
-        {
-          "type": "STRING",
-          "value": "frint2"
-        },
-        {
-          "type": "STRING",
-          "value": "frichop"
-        },
-        {
-          "type": "STRING",
-          "value": "frinear"
-        }
-      ]
-    },
-    "ins_sse": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "fxrstor"
-        },
-        {
-          "type": "STRING",
-          "value": "fxsave"
-        }
-      ]
-    },
-    "ins_mmx": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "emms"
-        },
-        {
-          "type": "STRING",
-          "value": "movd"
-        },
-        {
-          "type": "STRING",
-          "value": "movq"
-        },
-        {
-          "type": "STRING",
-          "value": "packssdw"
-        },
-        {
-          "type": "STRING",
-          "value": "packsswb"
-        },
-        {
-          "type": "STRING",
-          "value": "packuswb"
-        },
-        {
-          "type": "STRING",
-          "value": "paddb"
-        },
-        {
-          "type": "STRING",
-          "value": "paddw"
-        },
-        {
-          "type": "STRING",
-          "value": "paddd"
-        },
-        {
-          "type": "STRING",
-          "value": "paddq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddq"
-        },
-        {
-          "type": "STRING",
-          "value": "paddsb"
-        },
-        {
-          "type": "STRING",
-          "value": "paddsw"
-        },
-        {
-          "type": "STRING",
-          "value": "paddsd"
-        },
-        {
-          "type": "STRING",
-          "value": "paddsq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddsb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddsw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpaddsq"
-        },
-        {
-          "type": "STRING",
-          "value": "pand"
-        },
-        {
-          "type": "STRING",
-          "value": "pandn"
-        },
-        {
-          "type": "STRING",
-          "value": "por"
-        },
-        {
-          "type": "STRING",
-          "value": "pxor"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpeqb"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpeqw"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpeqd"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpgtb"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpgtw"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpgtd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaddwd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmulhw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmullw"
-        },
-        {
-          "type": "STRING",
-          "value": "psslw"
-        },
-        {
-          "type": "STRING",
-          "value": "pssld"
-        },
-        {
-          "type": "STRING",
-          "value": "psslq"
-        },
-        {
-          "type": "STRING",
-          "value": "psrad"
-        },
-        {
-          "type": "STRING",
-          "value": "psra2"
-        },
-        {
-          "type": "STRING",
-          "value": "psrld"
-        },
-        {
-          "type": "STRING",
-          "value": "psrlw"
-        },
-        {
-          "type": "STRING",
-          "value": "psrlq"
-        },
-        {
-          "type": "STRING",
-          "value": "psubb"
-        },
-        {
-          "type": "STRING",
-          "value": "psubw"
-        },
-        {
-          "type": "STRING",
-          "value": "psubd"
-        },
-        {
-          "type": "STRING",
-          "value": "psubsb"
-        },
-        {
-          "type": "STRING",
-          "value": "psubsw"
-        },
-        {
-          "type": "STRING",
-          "value": "psubusb"
-        },
-        {
-          "type": "STRING",
-          "value": "psubusw"
-        },
-        {
-          "type": "STRING",
-          "value": "punpckhwd"
-        },
-        {
-          "type": "STRING",
-          "value": "punpckhdq"
-        },
-        {
-          "type": "STRING",
-          "value": "punpcklbw"
-        },
-        {
-          "type": "STRING",
-          "value": "punpcklwd"
-        },
-        {
-          "type": "STRING",
-          "value": "punpckldq"
-        }
-      ]
-    },
-    "ins_mmx_plus_and_sse": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "maskmovq"
-        },
-        {
-          "type": "STRING",
-          "value": "movntq"
-        },
-        {
-          "type": "STRING",
-          "value": "pshufw"
-        },
-        {
-          "type": "STRING",
-          "value": "pinsrw"
-        },
-        {
-          "type": "STRING",
-          "value": "pextrw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovmskb"
-        },
-        {
-          "type": "STRING",
-          "value": "pminub"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaxub"
-        },
-        {
-          "type": "STRING",
-          "value": "pavgb"
-        },
-        {
-          "type": "STRING",
-          "value": "pavgw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmulhuw"
-        },
-        {
-          "type": "STRING",
-          "value": "pminsw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaxsw"
-        },
-        {
-          "type": "STRING",
-          "value": "psadbw"
-        }
-      ]
-    },
-    "ins_mmx_sse2": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "psignb"
-        },
-        {
-          "type": "STRING",
-          "value": "psignw"
-        },
-        {
-          "type": "STRING",
-          "value": "psignd"
-        },
-        {
-          "type": "STRING",
-          "value": "pshufb"
-        },
-        {
-          "type": "STRING",
-          "value": "pmulhrsw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaddubsw"
-        },
-        {
-          "type": "STRING",
-          "value": "phsubw"
-        },
-        {
-          "type": "STRING",
-          "value": "phsubsw"
-        },
-        {
-          "type": "STRING",
-          "value": "phsubd"
-        },
-        {
-          "type": "STRING",
-          "value": "phaddsw"
-        },
-        {
-          "type": "STRING",
-          "value": "phaddw"
-        },
-        {
-          "type": "STRING",
-          "value": "phaddd"
-        },
-        {
-          "type": "STRING",
-          "value": "palignr"
-        },
-        {
-          "type": "STRING",
-          "value": "pabsb"
-        },
-        {
-          "type": "STRING",
-          "value": "pabsw"
-        },
-        {
-          "type": "STRING",
-          "value": "pbasd"
-        }
-      ]
-    },
-    "ins_3dnow": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "femms"
-        },
-        {
-          "type": "STRING",
-          "value": "pavgusb"
-        },
-        {
-          "type": "STRING",
-          "value": "pf2id"
-        },
-        {
-          "type": "STRING",
-          "value": "pfacc"
-        },
-        {
-          "type": "STRING",
-          "value": "pfadd"
-        },
-        {
-          "type": "STRING",
-          "value": "pfcmpeq"
-        },
-        {
-          "type": "STRING",
-          "value": "pfcmpge"
-        },
-        {
-          "type": "STRING",
-          "value": "pfcmpgt"
-        },
-        {
-          "type": "STRING",
-          "value": "pfmax"
-        },
-        {
-          "type": "STRING",
-          "value": "pfmin"
-        },
-        {
-          "type": "STRING",
-          "value": "pfmul"
-        },
-        {
-          "type": "STRING",
-          "value": "pfrcp"
-        },
-        {
-          "type": "STRING",
-          "value": "pfrcpit1"
-        },
-        {
-          "type": "STRING",
-          "value": "pfrcpit2"
-        },
-        {
-          "type": "STRING",
-          "value": "pfrsqit1"
-        },
-        {
-          "type": "STRING",
-          "value": "pfrsqrt"
-        },
-        {
-          "type": "STRING",
-          "value": "pfsub"
-        },
-        {
-          "type": "STRING",
-          "value": "pfsubr"
-        },
-        {
-          "type": "STRING",
-          "value": "pi2fd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmulhrw"
-        },
-        {
-          "type": "STRING",
-          "value": "prefetch"
-        },
-        {
-          "type": "STRING",
-          "value": "prefetchw"
-        }
-      ]
-    },
-    "ins_3dnow_plus": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "pf2iw"
-        },
-        {
-          "type": "STRING",
-          "value": "pi2fw"
-        },
-        {
-          "type": "STRING",
-          "value": "pswapd"
-        },
-        {
-          "type": "STRING",
-          "value": "pfnacc"
-        },
-        {
-          "type": "STRING",
-          "value": "pfpnacc"
-        }
-      ]
-    },
-    "ins_geode_gx": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "pfrcpv"
-        },
-        {
-          "type": "STRING",
-          "value": "pfrqsrtv"
-        }
-      ]
-    },
-    "ins_sse_pentium3": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "andps"
-        },
-        {
-          "type": "STRING",
-          "value": "andnps"
-        },
-        {
-          "type": "STRING",
-          "value": "orps"
-        },
-        {
-          "type": "STRING",
-          "value": "xorps"
-        },
-        {
-          "type": "STRING",
-          "value": "movups"
-        },
-        {
-          "type": "STRING",
-          "value": "movss"
-        },
-        {
-          "type": "STRING",
-          "value": "movlps"
-        },
-        {
-          "type": "STRING",
-          "value": "movhlps"
-        },
-        {
-          "type": "STRING",
-          "value": "unpcklps"
-        },
-        {
-          "type": "STRING",
-          "value": "unpckhps"
-        },
-        {
-          "type": "STRING",
-          "value": "movhps"
-        },
-        {
-          "type": "STRING",
-          "value": "movlhps"
-        },
-        {
-          "type": "STRING",
-          "value": "movaps"
-        },
-        {
-          "type": "STRING",
-          "value": "movntps"
-        },
-        {
-          "type": "STRING",
-          "value": "movmskps"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtpi2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtsi2ss"
-        },
-        {
-          "type": "STRING",
-          "value": "cvttps2pi"
-        },
-        {
-          "type": "STRING",
-          "value": "cvttss2si"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtps2pi"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtss2si"
-        },
-        {
-          "type": "STRING",
-          "value": "ucomiss"
-        },
-        {
-          "type": "STRING",
-          "value": "comiss"
-        },
-        {
-          "type": "STRING",
-          "value": "sqrtps"
-        },
-        {
-          "type": "STRING",
-          "value": "sqrtss"
-        },
-        {
-          "type": "STRING",
-          "value": "rsqrtps"
-        },
-        {
-          "type": "STRING",
-          "value": "rcpps"
-        },
-        {
-          "type": "STRING",
-          "value": "rcpss"
-        },
-        {
-          "type": "STRING",
-          "value": "addps"
-        },
-        {
-          "type": "STRING",
-          "value": "addss"
-        },
-        {
-          "type": "STRING",
-          "value": "mulps"
-        },
-        {
-          "type": "STRING",
-          "value": "mulss"
-        },
-        {
-          "type": "STRING",
-          "value": "subps"
-        },
-        {
-          "type": "STRING",
-          "value": "subss"
-        },
-        {
-          "type": "STRING",
-          "value": "minps"
-        },
-        {
-          "type": "STRING",
-          "value": "minss"
-        },
-        {
-          "type": "STRING",
-          "value": "divps"
-        },
-        {
-          "type": "STRING",
-          "value": "divss"
-        },
-        {
-          "type": "STRING",
-          "value": "maxps"
-        },
-        {
-          "type": "STRING",
-          "value": "maxss"
-        },
-        {
-          "type": "STRING",
-          "value": "ldmxcsr"
-        },
-        {
-          "type": "STRING",
-          "value": "stmxcsr"
-        },
-        {
-          "type": "STRING",
-          "value": "cmpps"
-        },
-        {
-          "type": "STRING",
-          "value": "shufps"
-        }
-      ]
-    },
-    "ins_sse2_pentium4": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "movapd"
-        },
-        {
-          "type": "STRING",
-          "value": "movntpd"
-        },
-        {
-          "type": "STRING",
-          "value": "movhpd"
-        },
-        {
-          "type": "STRING",
-          "value": "movhpd"
-        },
-        {
-          "type": "STRING",
-          "value": "movlpd"
-        },
-        {
-          "type": "STRING",
-          "value": "movupd"
-        },
-        {
-          "type": "STRING",
-          "value": "movmskpd"
-        },
-        {
-          "type": "STRING",
-          "value": "addpd"
-        },
-        {
-          "type": "STRING",
-          "value": "addsd"
-        },
-        {
-          "type": "STRING",
-          "value": "divpd"
-        },
-        {
-          "type": "STRING",
-          "value": "divsd"
-        },
-        {
-          "type": "STRING",
-          "value": "maxpd"
-        },
-        {
-          "type": "STRING",
-          "value": "maxsd"
-        },
-        {
-          "type": "STRING",
-          "value": "minpd"
-        },
-        {
-          "type": "STRING",
-          "value": "minsd"
-        },
-        {
-          "type": "STRING",
-          "value": "mulpd"
-        },
-        {
-          "type": "STRING",
-          "value": "mulsd"
-        },
-        {
-          "type": "STRING",
-          "value": "sqrtpd"
-        },
-        {
-          "type": "STRING",
-          "value": "sqrtsd"
-        },
-        {
-          "type": "STRING",
-          "value": "subpd"
-        },
-        {
-          "type": "STRING",
-          "value": "subsd"
-        },
-        {
-          "type": "STRING",
-          "value": "andpd"
-        },
-        {
-          "type": "STRING",
-          "value": "andnpd"
-        },
-        {
-          "type": "STRING",
-          "value": "orpd"
-        },
-        {
-          "type": "STRING",
-          "value": "xorpd"
-        },
-        {
-          "type": "STRING",
-          "value": "cmppd"
-        },
-        {
-          "type": "STRING",
-          "value": "comisd"
-        },
-        {
-          "type": "STRING",
-          "value": "ucomisd"
-        },
-        {
-          "type": "STRING",
-          "value": "shufpd"
-        },
-        {
-          "type": "STRING",
-          "value": "unpckhpd"
-        },
-        {
-          "type": "STRING",
-          "value": "unpcklpd"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtdq2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtdq2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtpd2dq"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtpd2pi"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtpd2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtpi2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtps2dq"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtps2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtsd2si"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtsd2ss"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtsi2sd"
-        },
-        {
-          "type": "STRING",
-          "value": "cvtss2sd"
-        },
-        {
-          "type": "STRING",
-          "value": "cvttpd2dq"
-        },
-        {
-          "type": "STRING",
-          "value": "cvttpd2pi"
-        },
-        {
-          "type": "STRING",
-          "value": "cvttps2dq"
-        },
-        {
-          "type": "STRING",
-          "value": "cvttsd2si"
-        },
-        {
-          "type": "STRING",
-          "value": "paddusb"
+          "type": "PATTERN",
+          "value": "cvtt?(dq|pd|pi|ps|sd|si|ss)2(dq|pd|pi|ps|sd|si|ss)"
         },
         {
-          "type": "STRING",
-          "value": "paddusw"
+          "type": "PATTERN",
+          "value": "paddus[bw]"
         },
         {
           "type": "STRING",
@@ -4123,1898 +2250,34 @@
           "value": "maskmovdqu"
         },
         {
-          "type": "STRING",
-          "value": "movdq2q"
+          "type": "PATTERN",
+          "value": "v?movdq[au]"
         },
         {
-          "type": "STRING",
-          "value": "vmovdqa"
+          "type": "PATTERN",
+          "value": "pshuf([lh]w|d)"
         },
         {
-          "type": "STRING",
-          "value": "movdqa"
+          "type": "PATTERN",
+          "value": "ps[lr]ldq"
         },
         {
-          "type": "STRING",
-          "value": "movdqu"
-        },
-        {
-          "type": "STRING",
-          "value": "vmovdqu"
-        },
-        {
-          "type": "STRING",
-          "value": "movq2dq"
-        },
-        {
-          "type": "STRING",
-          "value": "movntdq"
-        },
-        {
-          "type": "STRING",
-          "value": "pshufhw"
-        },
-        {
-          "type": "STRING",
-          "value": "pshuflw"
-        },
-        {
-          "type": "STRING",
-          "value": "pshufd"
-        },
-        {
-          "type": "STRING",
-          "value": "pslldq"
-        },
-        {
-          "type": "STRING",
-          "value": "psrldq"
-        },
-        {
-          "type": "STRING",
-          "value": "punpckhqdq"
-        },
-        {
-          "type": "STRING",
-          "value": "punpcklqdq"
+          "type": "PATTERN",
+          "value": "punpck[lh]qdq"
         }
       ]
     },
-    "ins_sse3_pentium4": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "addsubps"
-        },
-        {
-          "type": "STRING",
-          "value": "addsubpd"
-        },
-        {
-          "type": "STRING",
-          "value": "movddup"
-        },
-        {
-          "type": "STRING",
-          "value": "movsldup"
-        },
-        {
-          "type": "STRING",
-          "value": "movshdup"
-        },
-        {
-          "type": "STRING",
-          "value": "haddps"
-        },
-        {
-          "type": "STRING",
-          "value": "haddpd"
-        },
-        {
-          "type": "STRING",
-          "value": "hsubps"
-        },
-        {
-          "type": "STRING",
-          "value": "hsubpd"
-        },
-        {
-          "type": "STRING",
-          "value": "lddqu"
-        }
-      ]
+    "section_name": {
+      "type": "PATTERN",
+      "value": "[.][A-Za-z0-9.@_-]+"
     },
-    "ins_sse3_core2": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "psignb"
-        },
-        {
-          "type": "STRING",
-          "value": "psignw"
-        },
-        {
-          "type": "STRING",
-          "value": "psignd"
-        },
-        {
-          "type": "STRING",
-          "value": "pshufb"
-        },
-        {
-          "type": "STRING",
-          "value": "pmulhrsw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaddubsw"
-        },
-        {
-          "type": "STRING",
-          "value": "phsubw"
-        },
-        {
-          "type": "STRING",
-          "value": "phsubsw"
-        },
-        {
-          "type": "STRING",
-          "value": "phsubd"
-        },
-        {
-          "type": "STRING",
-          "value": "phaddsw"
-        },
-        {
-          "type": "STRING",
-          "value": "phaddw"
-        },
-        {
-          "type": "STRING",
-          "value": "phaddd"
-        },
-        {
-          "type": "STRING",
-          "value": "palignr"
-        },
-        {
-          "type": "STRING",
-          "value": "pabsb"
-        },
-        {
-          "type": "STRING",
-          "value": "pabsw"
-        },
-        {
-          "type": "STRING",
-          "value": "pabsd"
-        }
-      ]
+    "identifier": {
+      "type": "SYMBOL",
+      "name": "_IDENTIFIER"
     },
-    "ins_sse4_1": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "dpps"
-        },
-        {
-          "type": "STRING",
-          "value": "dppd"
-        },
-        {
-          "type": "STRING",
-          "value": "blendps"
-        },
-        {
-          "type": "STRING",
-          "value": "blendvps"
-        },
-        {
-          "type": "STRING",
-          "value": "blendpd"
-        },
-        {
-          "type": "STRING",
-          "value": "blendvpd"
-        },
-        {
-          "type": "STRING",
-          "value": "roundps"
-        },
-        {
-          "type": "STRING",
-          "value": "roundss"
-        },
-        {
-          "type": "STRING",
-          "value": "roundpd"
-        },
-        {
-          "type": "STRING",
-          "value": "roundsd"
-        },
-        {
-          "type": "STRING",
-          "value": "insertps"
-        },
-        {
-          "type": "STRING",
-          "value": "extractps"
-        },
-        {
-          "type": "STRING",
-          "value": "mpsadbw"
-        },
-        {
-          "type": "STRING",
-          "value": "phminposuw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmulld"
-        },
-        {
-          "type": "STRING",
-          "value": "pmuldq"
-        },
-        {
-          "type": "STRING",
-          "value": "pblendvb"
-        },
-        {
-          "type": "STRING",
-          "value": "pblendw"
-        },
-        {
-          "type": "STRING",
-          "value": "pminsb"
-        },
-        {
-          "type": "STRING",
-          "value": "pminuw"
-        },
-        {
-          "type": "STRING",
-          "value": "pminsd"
-        },
-        {
-          "type": "STRING",
-          "value": "pminud"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaxsb"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaxuw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaxsd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmaxud"
-        },
-        {
-          "type": "STRING",
-          "value": "pinsrb"
-        },
-        {
-          "type": "STRING",
-          "value": "pinsrd"
-        },
-        {
-          "type": "STRING",
-          "value": "pinsrq"
-        },
-        {
-          "type": "STRING",
-          "value": "pextrb"
-        },
-        {
-          "type": "STRING",
-          "value": "pextrd"
-        },
-        {
-          "type": "STRING",
-          "value": "pextrq"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovsxbw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovzxbw"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovsxbd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovzxbd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovsxbq"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovzxbq"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovsxwd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovzxwd"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovsxwq"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovzxwq"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovsxdq"
-        },
-        {
-          "type": "STRING",
-          "value": "pmovzxdq"
-        },
-        {
-          "type": "STRING",
-          "value": "ptest"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpeqq"
-        },
-        {
-          "type": "STRING",
-          "value": "packusdw"
-        },
-        {
-          "type": "STRING",
-          "value": "monvtdqa"
-        }
-      ]
-    },
-    "ins_sse4a": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "extrq"
-        },
-        {
-          "type": "STRING",
-          "value": "insertq"
-        },
-        {
-          "type": "STRING",
-          "value": "movntsd"
-        },
-        {
-          "type": "STRING",
-          "value": "movntss"
-        }
-      ]
-    },
-    "ins_sse4_2_nehalem": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "pcmpestri"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpestrm"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpistri"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpistrm"
-        },
-        {
-          "type": "STRING",
-          "value": "pcmpgtq"
-        }
-      ]
-    },
-    "ins_f16c": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "vcvtph2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtps2ph"
-        }
-      ]
-    },
-    "ins_fma3": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "vfmadd132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmadd231ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsub231ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsub231ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubadd231ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmadd231ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsub231ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsub231ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd132pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd132ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd132sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd132ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd213pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd213ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd213sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd213ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd231pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd231ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd231sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubadd231ss"
-        }
-      ]
-    },
-    "ins_fma4": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "vfmaddpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsubpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsubps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsubsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmaddsubss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubaddpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubaddps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubaddsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfmsubaddss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsubpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsubps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsubsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmaddsubss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubaddpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubaddps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubaddsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfnmsubaddss"
-        }
-      ]
-    },
-    "ins_avx": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "vbroadcastss"
-        },
-        {
-          "type": "STRING",
-          "value": "vbroadcastsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vbroadcastf128"
-        },
-        {
-          "type": "STRING",
-          "value": "vinsertf128"
-        },
-        {
-          "type": "STRING",
-          "value": "vextractf128"
-        },
-        {
-          "type": "STRING",
-          "value": "vmaskmovps"
-        },
-        {
-          "type": "STRING",
-          "value": "vmaskmovpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermilps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermilpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vperm2f128"
-        },
-        {
-          "type": "STRING",
-          "value": "vzeroall"
-        },
-        {
-          "type": "STRING",
-          "value": "vzeroupper"
-        }
-      ]
-    },
-    "ins_avx2": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "vpbroadcastb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpbroadcastw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpbroadcastd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpbroadcastq"
-        },
-        {
-          "type": "STRING",
-          "value": "vbroadcasti128"
-        },
-        {
-          "type": "STRING",
-          "value": "vinserti128"
-        },
-        {
-          "type": "STRING",
-          "value": "vextracti128"
-        },
-        {
-          "type": "STRING",
-          "value": "vgatherdpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vgatherqpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vgatherdps"
-        },
-        {
-          "type": "STRING",
-          "value": "vgatherqps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpgatherdd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpgatherdq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpgatherqd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpgatherqq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmaskmovd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmaskmovq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermq"
-        },
-        {
-          "type": "STRING",
-          "value": "vperm2i128"
-        },
-        {
-          "type": "STRING",
-          "value": "vpblendd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpsllvd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpsllvq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpsrlvd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpsrlvq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpsravd"
-        }
-      ]
-    },
-    "ins_avx512": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "vblendmpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vblendmps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpblendmd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpblendm1"
-        },
-        {
-          "type": "STRING",
-          "value": "vpcmpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpcmpud"
-        },
-        {
-          "type": "STRING",
-          "value": "vpcmpq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpcmpiq"
-        },
-        {
-          "type": "STRING",
-          "value": "vptestmd"
-        },
-        {
-          "type": "STRING",
-          "value": "vptestmq"
-        },
-        {
-          "type": "STRING",
-          "value": "vptestnmd"
-        },
-        {
-          "type": "STRING",
-          "value": "vptestnmq"
-        },
-        {
-          "type": "STRING",
-          "value": "vcompresspd"
-        },
-        {
-          "type": "STRING",
-          "value": "vcompressps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpcompressd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpcompressq"
-        },
-        {
-          "type": "STRING",
-          "value": "vexpandpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vexpandps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpexpandd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpexpandq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermi2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermi2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermi2d"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermi2q"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2d"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2q"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2d"
-        },
-        {
-          "type": "STRING",
-          "value": "vpermt2q"
-        },
-        {
-          "type": "STRING",
-          "value": "vshuff32x4"
-        },
-        {
-          "type": "STRING",
-          "value": "vshuff64x4"
-        },
-        {
-          "type": "STRING",
-          "value": "vshuffi32x4"
-        },
-        {
-          "type": "STRING",
-          "value": "vshuffi64x4"
-        },
-        {
-          "type": "STRING",
-          "value": "vpternlogd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpternlogq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovqd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovqw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovqb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovsqd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovsqw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovsqb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovusqd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovusqw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovusqb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovdw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovdb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovsdw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovsdb"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovusdw"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmovusdb"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvps2udq"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvpd2udq"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtps2udq"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtpd2udq"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtudq2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtudq2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtusi2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtusi2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtusi2sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtusi2ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtqq2pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vcvtqq2ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetexppd"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetexpps"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetexpsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetexpss"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetmantpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetmantps"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetmantsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vgetmantss"
-        },
-        {
-          "type": "STRING",
-          "value": "vfixupimmpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfixupimmps"
-        },
-        {
-          "type": "STRING",
-          "value": "vfixupimmsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vfixupimmss"
-        },
-        {
-          "type": "STRING",
-          "value": "vrcp14pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vrcp14ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vrcp14sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vrcp14ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vrndscalepd"
-        },
-        {
-          "type": "STRING",
-          "value": "vrndscaleps"
-        },
-        {
-          "type": "STRING",
-          "value": "vrndscalesd"
-        },
-        {
-          "type": "STRING",
-          "value": "vrndscaless"
-        },
-        {
-          "type": "STRING",
-          "value": "vrsqrt14pd"
-        },
-        {
-          "type": "STRING",
-          "value": "vrsqrt14ps"
-        },
-        {
-          "type": "STRING",
-          "value": "vrsqrt14sd"
-        },
-        {
-          "type": "STRING",
-          "value": "vrsqrt14ss"
-        },
-        {
-          "type": "STRING",
-          "value": "vscalefpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vscalefps"
-        },
-        {
-          "type": "STRING",
-          "value": "vscalefsd"
-        },
-        {
-          "type": "STRING",
-          "value": "vscalefss"
-        },
-        {
-          "type": "STRING",
-          "value": "valignd"
-        },
-        {
-          "type": "STRING",
-          "value": "valignq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpabsq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmaxsq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpmaxuq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpminsq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpminuq"
-        },
-        {
-          "type": "STRING",
-          "value": "vprold"
-        },
-        {
-          "type": "STRING",
-          "value": "vprolq"
-        },
-        {
-          "type": "STRING",
-          "value": "vprolvd"
-        },
-        {
-          "type": "STRING",
-          "value": "vprolvq"
-        },
-        {
-          "type": "STRING",
-          "value": "vprord"
-        },
-        {
-          "type": "STRING",
-          "value": "vprorq"
-        },
-        {
-          "type": "STRING",
-          "value": "vprorvd"
-        },
-        {
-          "type": "STRING",
-          "value": "vprorvq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpscatterdd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpscatterdq"
-        },
-        {
-          "type": "STRING",
-          "value": "vpscatterqd"
-        },
-        {
-          "type": "STRING",
-          "value": "vpscatterqq"
-        },
-        {
-          "type": "STRING",
-          "value": "vscatterdpd"
-        },
-        {
-          "type": "STRING",
-          "value": "vscatterdps"
-        },
-        {
-          "type": "STRING",
-          "value": "vscatterqps"
-        },
-        {
-          "type": "STRING",
-          "value": "vscatterqpd"
-        }
-      ]
-    },
-    "ins_intel_aes": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "aesenc"
-        },
-        {
-          "type": "STRING",
-          "value": "aesenclast"
-        },
-        {
-          "type": "STRING",
-          "value": "aesdec"
-        },
-        {
-          "type": "STRING",
-          "value": "aesdeclast"
-        },
-        {
-          "type": "STRING",
-          "value": "aeskeygenassist"
-        },
-        {
-          "type": "STRING",
-          "value": "aesimc"
-        }
-      ]
-    },
-    "ins_rdrand": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "rdrand"
-        },
-        {
-          "type": "STRING",
-          "value": "rdseed"
-        }
-      ]
-    },
-    "ins_intel_sha": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "sha1rnds4"
-        },
-        {
-          "type": "STRING",
-          "value": "sha1nexte"
-        },
-        {
-          "type": "STRING",
-          "value": "sha1msg1"
-        },
-        {
-          "type": "STRING",
-          "value": "sha1msg2"
-        },
-        {
-          "type": "STRING",
-          "value": "sha256rnds2"
-        },
-        {
-          "type": "STRING",
-          "value": "sha256msg1"
-        },
-        {
-          "type": "STRING",
-          "value": "sha256msg2"
-        }
-      ]
-    },
-    "ins_virt_amd_v": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "clgi"
-        },
-        {
-          "type": "STRING",
-          "value": "invlpga"
-        },
-        {
-          "type": "STRING",
-          "value": "skinit"
-        },
-        {
-          "type": "STRING",
-          "value": "stgi"
-        },
-        {
-          "type": "STRING",
-          "value": "vmload"
-        },
-        {
-          "type": "STRING",
-          "value": "vmmcall"
-        },
-        {
-          "type": "STRING",
-          "value": "vmrun"
-        },
-        {
-          "type": "STRING",
-          "value": "vmsave"
-        }
-      ]
-    },
-    "ins_virt_vt_x": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "invept"
-        },
-        {
-          "type": "STRING",
-          "value": "invvpid"
-        },
-        {
-          "type": "STRING",
-          "value": "vmfunc"
-        },
-        {
-          "type": "STRING",
-          "value": "vmptrld"
-        },
-        {
-          "type": "STRING",
-          "value": "vmptrst"
-        },
-        {
-          "type": "STRING",
-          "value": "vmclear"
-        },
-        {
-          "type": "STRING",
-          "value": "vmread"
-        },
-        {
-          "type": "STRING",
-          "value": "vmwrite"
-        },
-        {
-          "type": "STRING",
-          "value": "vmcall"
-        },
-        {
-          "type": "STRING",
-          "value": "vmlaunch"
-        },
-        {
-          "type": "STRING",
-          "value": "vmresume"
-        },
-        {
-          "type": "STRING",
-          "value": "vmxoff"
-        },
-        {
-          "type": "STRING",
-          "value": "vmxon"
-        }
-      ]
-    },
-    "ins_undoc": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "setalc"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "rep"
-            },
-            {
-              "type": "STRING",
-              "value": "ret"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "icebp"
-        },
-        {
-          "type": "STRING",
-          "value": "int1"
-        },
-        {
-          "type": "STRING",
-          "value": "ud1"
-        },
-        {
-          "type": "STRING",
-          "value": "ud0"
-        },
-        {
-          "type": "STRING",
-          "value": "saveall"
-        },
-        {
-          "type": "STRING",
-          "value": "storeall"
-        },
-        {
-          "type": "STRING",
-          "value": "loadalld"
-        },
-        {
-          "type": "STRING",
-          "value": "cl1invmb"
-        },
-        {
-          "type": "STRING",
-          "value": "patch2"
-        },
-        {
-          "type": "STRING",
-          "value": "patch3"
-        },
-        {
-          "type": "STRING",
-          "value": "umov"
-        },
-        {
-          "type": "STRING",
-          "value": "scall"
-        },
-        {
-          "type": "STRING",
-          "value": "nxop"
-        },
-        {
-          "type": "STRING",
-          "value": "pswapw"
-        },
-        {
-          "type": "STRING",
-          "value": "altinst"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "rep"
-            },
-            {
-              "type": "STRING",
-              "value": "xsha512"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "rep"
-            },
-            {
-              "type": "STRING",
-              "value": "xmodexp"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "xrng2"
-        },
-        {
-          "type": "STRING",
-          "value": "montmul2"
-        },
-        {
-          "type": "STRING",
-          "value": "ffreep"
-        },
-        {
-          "type": "STRING",
-          "value": "fstpnce"
-        },
-        {
-          "type": "STRING",
-          "value": "feni8087_nop"
-        },
-        {
-          "type": "STRING",
-          "value": "fdisi8087_nop"
-        },
-        {
-          "type": "STRING",
-          "value": "fsetpm287_nop"
-        }
-      ]
+    "_IDENTIFIER": {
+      "type": "PATTERN",
+      "value": "[A-Za-z0-9.@_-]+"
     }
   },
   "extras": [
