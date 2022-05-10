@@ -12,12 +12,13 @@ module.exports = grammar({
     directive: ($) =>
       choice($.section, $.extern, $.global, $.builtin, $.ins, $.label),
 
-    builtin: ($) => seq(choice("db", "dw", "dd", "dq"), $.operand_args),
+    builtin: ($) => seq($.builtin_kw, $.operand_args),
+    builtin_kw: ($) => choice("db", "dw", "dd", "dq"),
 
     section: ($) => seq("section", $.section_name, optional("info")),
-    extern: ($) => seq("extern", $._IDENTIFIER),
-    global: ($) => seq("global", $._IDENTIFIER),
-    label: ($) => seq($._IDENTIFIER, ":", optional($.directive)),
+    extern: ($) => seq("extern", $.identifier),
+    global: ($) => seq("global", $.identifier),
+    label: ($) => seq($.identifier, ":", optional($.directive)),
     ins: ($) => seq($.ins_kw, optional($.operand_args)),
 
     width: ($) => choice("byte", "word", "dword", "qword"),
@@ -27,16 +28,17 @@ module.exports = grammar({
     operand: ($) =>
       seq(
         optional($.width),
+        optional("ptr"),
         choice(
           $.register,
           $.effective_addr,
+          $.string_literal,
           $.integer_literal,
           $.operand_ident,
         ),
       ),
 
     register: ($) =>
-      // TODO: add missing registers
       choice(
         $.register_8bit,
         $.register_16bit,
@@ -91,6 +93,33 @@ module.exports = grammar({
 
     segment: ($) => choice("cs", "ds", "es", "fs", "gs", "ss"),
 
+    // shamelessly stolen from <https://github.com/tree-sitter/tree-sitter-c/>
+    escape_sequence: ($) =>
+      token(
+        prec(
+          1,
+          seq(
+            "\\",
+            choice(
+              /[^xuU]/,
+              /\d{2,3}/,
+              /x[0-9a-fA-F]{2,}/,
+              /u[0-9a-fA-F]{4}/,
+              /U[0-9a-fA-F]{8}/,
+            ),
+          ),
+        ),
+      ),
+
+    string_literal: ($) =>
+      seq(
+        '"',
+        repeat(
+          choice(token.immediate(prec(1, /[^\\"\n]+/)), $.escape_sequence),
+        ),
+        '"',
+      ),
+
     integer_literal: ($) =>
       choice(
         $._decimal_literal,
@@ -98,11 +127,6 @@ module.exports = grammar({
         $._hex_literal,
         $._binary_literal,
       ),
-
-    _decimal_literal: ($) => choice($._dec1, $._dec2, $._dec3),
-    _dec1: ($) => /[0-9]+d/,
-    _dec2: ($) => /0d[0-9]+/,
-    _dec3: ($) => /[0-9]+/,
 
     _decimal_literal: ($) => choice(/[0-9]+d/, /0d[0-9]+/, /[0-9]+/),
 
@@ -114,6 +138,7 @@ module.exports = grammar({
     _binary_literal: ($) => choice(/[01_]+[by]/, /0[by][01_]+/),
 
     section_name: ($) => /[.]\S+/,
+    identifier: ($) => $._IDENTIFIER,
     _IDENTIFIER: ($) => /[A-Za-z0-9.@_-]+/,
 
     _NEWLINE: ($) => seq(optional($.comment), choice("\n", "\r\n")),
@@ -205,8 +230,38 @@ module.exports = grammar({
         "int",
         "into",
         "iret",
-        "jcc",
-        "jczx",
+
+        "jo",
+        "jno",
+        "js",
+        "jns",
+        "je",
+        "jz",
+        "jne",
+        "jnz",
+        "jb",
+        "jnae",
+        "jc",
+        "jnb",
+        "jae",
+        "jnc",
+        "jbe",
+        "jna",
+        "ja",
+        "jnbe",
+        "jl",
+        "jjnge",
+        "jge",
+        "jnl",
+        "jle",
+        "jng",
+        "jg",
+        "jnle",
+        "jp",
+        "jpe",
+        "jpo",
+        "jcxz",
+
         "jmp",
         "lahf",
         "lds",
@@ -306,7 +361,6 @@ module.exports = grammar({
         "ibts",
         "insd",
         "iretd",
-        "jecxz",
         "lfs",
         "lgs",
         "lss",

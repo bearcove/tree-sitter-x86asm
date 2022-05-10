@@ -4,15 +4,24 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "builtin_kw",
+          "named": true
+        },
         {
           "type": "operand_args",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "builtin_kw",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "directive",
@@ -75,10 +84,35 @@
   {
     "type": "extern",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "global",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "identifier",
     "named": true,
     "fields": {}
   },
@@ -563,11 +597,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "directive",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -595,6 +633,10 @@
         },
         {
           "type": "register",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         },
         {
@@ -750,6 +792,21 @@
     }
   },
   {
+    "type": "string_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "toplevel_item",
     "named": true,
     "fields": {},
@@ -775,6 +832,10 @@
   },
   {
     "type": "\r\n",
+    "named": false
+  },
+  {
+    "type": "\"",
     "named": false
   },
   {
@@ -1440,6 +1501,10 @@
   {
     "type": "esc",
     "named": false
+  },
+  {
+    "type": "escape_sequence",
+    "named": true
   },
   {
     "type": "esi",
@@ -2110,15 +2175,51 @@
     "named": false
   },
   {
-    "type": "jcc",
+    "type": "ja",
     "named": false
   },
   {
-    "type": "jczx",
+    "type": "jae",
     "named": false
   },
   {
-    "type": "jecxz",
+    "type": "jb",
+    "named": false
+  },
+  {
+    "type": "jbe",
+    "named": false
+  },
+  {
+    "type": "jc",
+    "named": false
+  },
+  {
+    "type": "jcxz",
+    "named": false
+  },
+  {
+    "type": "je",
+    "named": false
+  },
+  {
+    "type": "jg",
+    "named": false
+  },
+  {
+    "type": "jge",
+    "named": false
+  },
+  {
+    "type": "jjnge",
+    "named": false
+  },
+  {
+    "type": "jl",
+    "named": false
+  },
+  {
+    "type": "jle",
     "named": false
   },
   {
@@ -2126,7 +2227,79 @@
     "named": false
   },
   {
+    "type": "jna",
+    "named": false
+  },
+  {
+    "type": "jnae",
+    "named": false
+  },
+  {
+    "type": "jnb",
+    "named": false
+  },
+  {
+    "type": "jnbe",
+    "named": false
+  },
+  {
+    "type": "jnc",
+    "named": false
+  },
+  {
+    "type": "jne",
+    "named": false
+  },
+  {
+    "type": "jng",
+    "named": false
+  },
+  {
+    "type": "jnl",
+    "named": false
+  },
+  {
+    "type": "jnle",
+    "named": false
+  },
+  {
+    "type": "jno",
+    "named": false
+  },
+  {
+    "type": "jns",
+    "named": false
+  },
+  {
+    "type": "jnz",
+    "named": false
+  },
+  {
+    "type": "jo",
+    "named": false
+  },
+  {
+    "type": "jp",
+    "named": false
+  },
+  {
+    "type": "jpe",
+    "named": false
+  },
+  {
+    "type": "jpo",
+    "named": false
+  },
+  {
     "type": "jrcxz",
+    "named": false
+  },
+  {
+    "type": "js",
+    "named": false
+  },
+  {
+    "type": "jz",
     "named": false
   },
   {
@@ -3183,6 +3356,10 @@
   },
   {
     "type": "ptest",
+    "named": false
+  },
+  {
+    "type": "ptr",
     "named": false
   },
   {

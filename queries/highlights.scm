@@ -1,4 +1,7 @@
+(string_literal) @string
+
 (integer_literal) @constant.builtin
+
 (register) @constant.builtin
 (segment) @constant.builtin
 
@@ -7,14 +10,15 @@
 "section" @keyword
 "extern" @keyword
 "global" @keyword
-
+"ptr" @keyword
+(builtin_kw) @keyword
 (ins_kw) @keyword
 
 (width) @keyword
 
 (operand_ident) @property
 (section_name) @property
-(label) @property
+(identifier) @property
 
 ":" @punctuation.delimiter
 
