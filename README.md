@@ -17,3 +17,10 @@ But still, it makes a bunch of code look good, and that's good enough for me.
 It even sorta-understands objdump output:
 
 ![](https://user-images.githubusercontent.com/7998310/167738375-5467c5da-efca-4c79-bdda-c88b5ede4eba.png)
+
+## License
+
+This project is primarily distributed under the terms of both the MIT license
+and the Apache License (Version 2.0).
+
+See [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) for details.
